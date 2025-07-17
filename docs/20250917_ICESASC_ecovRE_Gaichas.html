@@ -82,17 +82,24 @@ Haddock egg predation looked promising based on the previous assessment and exte
 ---
 # A new and improved herring assessment, but no luck with the covariate. Why?
 
-State space assessment has much better diagnostics, stability
+.pull-left[
+State space assessment has much better diagnostics, stability and the WHAM assessment framework designed to incorporate environmental covariates 
 
-WHAM assessment framework designed to incorporate environmental covariates 
+Yet haddock predation had negligible impact on recruitment
 
-Haddock predation had negligible impact on recruitment
+![ecov fit with NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
 
+]
+
+.pull-right[
 Why?
 
 Limited ways to implement covariates: no stock recruit relationship
 
 Best fit with numbers at age transition random effects: correlations among ages but not years 
+
+![NAA RE implemented](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/results/NAA_dev_tile.png)
+]
 
 ???
 New state space model developed with NAA RE, best fit with numbers at age transition correlations among ages but not years
@@ -113,7 +120,15 @@ Image of fit to haddock predation index covariate
 ---
 # Covariate impacts stronger, but overall fit poorer without NAA RE
 
-An experiment fitting the model without NAA RE on older ages and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect
+.pull-left[
+An experiment fitting the model without NAA RE on older ages and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
+
+![ecov fit without NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+.pull-right[
+![NAA RE off](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/NAA_dev_tile.png)
+]
 
 And a different recruitment time series? NAA RE on ages soaking up some uncertainty that could be explained mechanistically
 
@@ -124,6 +139,7 @@ Need methods to address multiple covariates: larval optimal temperature duration
 ---
 # Discussion
 
+.pull-left-60[
 Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
 
 RE interactions with covariates in state space assessment models obviously needs more investigation
@@ -131,6 +147,11 @@ RE interactions with covariates in state space assessment models obviously needs
 We tend to obsess about historical model fit, then do projections separately with a single best fit model, but projections are the thing used in management for catch advice
 
 Past performance does not guarantee future returns!
+]
+
+.pull-right-40[
+![draft R/SSB comparison](/Users/sarahgaichas/Desktop/leadRSSB.png)
+]
 
 # Thoughts? Thank you!
 
