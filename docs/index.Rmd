@@ -1,0 +1,340 @@
+---
+title: "Hydra Scientific LLC Presentations"
+output: html_document
+---
+
+ <!-- ADD LINKS BELOW, note, using the RMD link syntax will open the presentation in the same tab, which is annoying. Use the html with the "_blank" to fix that behavior -->
+ 
+<button>
+    <a href="https://github.com/sgaichas/HSpresentations"> Hydra Scientific Presentations Repo </a>
+</button>
+
+## Projects
+
+### Mid-Atlantic Operationalizing Ecosystem Indicators
+
+
+
+## Scientific Conferences
+
+<!--
+<a href="https://sgaichas.github.io/presentations/20250917_ICESASC_ecovRE_Gaichas.html" target="_blank">Fit for the future? Environmental covariates and random effects in stock assessment - ICES ASC, September 17, 2025</a>
+-->
+
+
+## Sarah Gaichas presentations, 2019-2025 (NOAA-EDAB)
+
+<button>
+    <a href="https://github.com/sgaichas/presentations"> Archive Presentations Repo </a>
+</button>
+
+ 
+### State of the Ecosystem Report
+
+*2025*
+
+<a href="https://sgaichas.github.io/presentations/20250318_SOE_SSC_Gaichas.html" target="_blank">SOE and request memo overview for MAFMC SSC - March 18, 2025</a>
+
+<a href="https://sgaichas.github.io/presentations/20250408_SOE_MAFMC_Gaichas.html" target="_blank">SOE and request memo for MAFMC - April 8, 2025</a>
+
+
+
+*2024*
+
+
+<a href="https://sgaichas.github.io/presentations/20240319_SOEMidSSC_Gaichas.html" target="_blank">SOE, memo, risk assessment, ecosystem WG update for MAFMC SSC - March 19, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20240403_SOEBothEC3T_Gaichas.html" target="_blank">Both SOEs for East Coast Climate Coordination Team - April 3, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20240409_SOE_MAFMC_Gaichas.html" target="_blank">SOE and memo for MAFMC - April 9, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20240502_SOEBothASMFC_Gaichas.html" target="_blank">Overview of both SOEs for ASMFC - May 2, 2024</a>
+
+
+*2023*
+
+<a href="https://sgaichas.github.io/presentations/20230307_SOEmemoWG_Gaichas.html" target="_blank">SOE, risk assessment, ecosystem WG update for MAFMC SSC - March 7, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230322_NECAN_SOE-OA_Gaichas.html" target="_blank">Ocean Acidification in the SOE for Northeast Coastal Acidification Network (NECAN) - March 22, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230405_SOE_MAFMC_Gaichas.html" target="_blank">State of the Ecosystem: Mid Atlantic 2023, risk assessment, and ecosystem WG update for MAFMC - April 5, 2023</a>
+
+
+*2022*
+
+<a href="https://sgaichas.github.io/presentations/20220316_MAFMCSSC_Gaichas.html" target="_blank">SOE and Risk Assessment for MAFMC SSC - March 16, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20220321_MAFMCGARFO_Gaichas.html" target="_blank">SOE and Risk Assessment for MAFMC-GARFO staff - March 21, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20220405_MAFMC_Gaichas.html" target="_blank">SOE and Risk Assessment for MAFMC - April 5, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20221005_MAFMC_Gaichas.html" target="_blank">MAFMC-SSC joint meeting on SSC Ecosystem WG - October 5, 2022</a>
+
+
+*2021*
+
+<a href="https://sgaichas.github.io/presentations/20210310_MAFMC_SSC_Gaichas.html" target="_blank">MAFMC SSC - March 10, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20210407_MAFMC_Gaichas.html" target="_blank">MAFMC - April 7, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20210512_MAFMC_SSC_Gaichas.html" target="_blank">MAFMC SSC proposed subgroup - May 12, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20210811_MAFMC_Gaichas.html" target="_blank">MAFMC-SSC joint meeting on SSC Ecosystem WG - August 11, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20210823_SOEoperational_Gaichas.html" target="_blank">Operationalizing SOE, August Planning Workshop - August 23, 2021</a>
+
+
+*2020*
+
+<a href="https://sgaichas.github.io/presentations/20200310_MAFMC_SSC_Gaichas.html" target="_blank">MAFMC SSC - March 10, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200331_NEFMC_SSC_Gaichas.html" target="_blank">NEFMC SSC - March 31, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200407_MAFMC_Gaichas.html" target="_blank">MAFMC - April 7, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200909_MAFMC_SSC_Gaichas.html" target="_blank">MAFMC SSC broad discussion of ecosystem synthesis for management - September 9, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200909_MAFMC_SSC_WindSOE_Gaichas.html" target="_blank">MAFMC SSC wind indicator discussion - September 9, 2020</a>
+
+
+*2019*
+
+<a href="https://sgaichas.github.io/presentations/20190320_MAFMC_SSC_Gaichas.html" target="_blank">MAFMC SSC - March 20, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20190410_MAFMC_Gaichas.html" target="_blank">MAFMC - April 10, 2019</a>
+
+### Risk Assessment
+
+<a href="https://sgaichas.github.io/presentations/20190410_MAFMC_risk_Gaichas.html" target="_blank">MAFMC - April 10, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20221130_Review_Gaichas.html" target="_blank">MAFMC EOP Committee and AP - November 30, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20230427_ElementReview_Gaichas.html" target="_blank">MAFMC EOP Committee and AP, Element review - April 27, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230427_SOEproposedElements_Gaichas.html" target="_blank">MAFMC EOP Committee and AP, New SOE information - April 27, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20240409_SOE_MAFMCrisk_Gaichas.html" target="_blank">MAFMC risk assessment review - April 9, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20241016_MidAtlanticRisk_Gaichas.html" target="_blank">MAFMC risk assessment for Pacific Climate Resilient Fishery Management Workshop - October 16, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20241210_SOE_MAFMCrisk_Gaichas.html" target="_blank">MAFMC December risk assessment review - December 10, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20250320_NewElements_Updates_Gaichas.html" target="_blank">MAFMC EOP March risk assessment review - March 20, 2025</a>
+
+
+### Conceptual Models
+
+<a href="https://sgaichas.github.io/presentations/20190918_MAFMC_EOP_Gaichas.html" target="_blank">MAFMC - September 19, 2019</a>
+
+### Integrated Ecosystem Assessment 
+
+<a href="https://sgaichas.github.io/presentations/20191104_CERF_Gaichas.html" target="_blank">CERF IEA Session, Mid-Atlantic success story - November 4, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20200108_EBFM_Gaichas.html" target="_blank">NOAA EBM/EBFM webinar series, January 8, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200504_MAFMC_EAFM_Intro_Gaichas.html" target="_blank">Mid-Atlantic Fishery Management Council EAFM Overview, May 7, 2020. UPDATED for MSE background August 25, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20210506_MACO_IEASOE_Gaichas.html" target="_blank">Mid-Atlantic Council on the Ocean (MACO) Ocean Forum, IEA and State of the Ecosystem, May 6, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20211029_AFSEcoforecasting_Gaichas.html" target="_blank">American Fisheries Society 2021, Ecological Forecasting Symposium, Nov 9, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20211029_AFSConnectingDots_Gaichas.html" target="_blank">American Fisheries Society 2021, Connecting the Dots Symposium, Nov 10, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20220428_SSCEcoWG_Gaichas.html" target="_blank">Ecosystem overfishing indicators for MAFMC SSC Ecosystem WG, April 28, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20220518_UN_ICSP_Gaichas.html" target="_blank">US experience implementing EAFM for UN ICSP-15, May 18, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20220520_Thresholds_LargeGaichas.html" target="_blank">Thresholds workshop, May 20, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20221110_ICESPICES_SPS_Gaichas.html" target="_blank">Forage index for ICES/PICES Small Pelagics Symposium, Nov 10, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20221207_BluefishRT_ForageIndex_Gaichas.html" target="_blank">Forage index for Bluefish Research Track Assessment Review, Dec 7, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20230201_BluefishRT_ForageIndexSummary_Gaichas.html" target="_blank">Forage index summary for Council presentations, Feb 1, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230328_WGEAWESS_US_SOE_Gaichas.html" target="_blank">US State of the Ecosystem for ICES WGEAWESS, March 28, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230421_ECCWO5_Gaichas.html" target="_blank"> ECCWO5, April 21, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20230912_SSCEcoWG_Gaichas.html" target="_blank"> SSC, September 12, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20240305_WFC_Gaichas.html" target="_blank"> WFC, March 5, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20240912_SSCEcoWG_Gaichas.html" target="_blank"> SSC Ecosystem WG overview, September 12, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20241001_SOE_MidAtlantic_Gaichas.html" target="_blank"> State of the Ecosystem: Mid Atlantic for MARCO Symposium, October 1, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20241001_ZoopIndices_Gaichas.html" target="_blank"> VAST zooplankton indices for Atlantic herring RTWG, October 1, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20241002_Zoopcovariates_Gaichas.html" target="_blank"> WHAM zooplankton covariates for Atlantic herring RTWG, October 2, 2024</a>
+
+<a href="https://sgaichas.github.io/presentations/20250310_ZoopIndices_Gaichas.html" target="_blank"> VAST zooplankton indices for Atlantic herring RT Review, March 10, 2025</a>
+
+<a href="https://sgaichas.github.io/presentations/20250311_Zoopcovariates_Gaichas.html" target="_blank"> WHAM zooplankton covariates for Atlantic herring RT Review, March 11, 2025</a>
+
+
+### MSE
+
+<a href="https://sgaichas.github.io/presentations/20200716_MSEUncertainty_Gaichas.html" target="_blank">Deep Uncertainty and MSE for NOAA Science Advisory Board's Ecosystem Sciences and Management Working Group, July 16, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20210329_MAFMC_MSEwkshp_EAFM_Intro_Gaichas.html" target="_blank">Mid-Atlantic Fishery Management Council Summer Flounder MSE stakeholder workshop EAFM Overview, March 29-April 5 2021</a>
+
+### Seminars
+
+<a href="https://sgaichas.github.io/presentations/20190528_deptIMR_Gaichas.html" target="_blank"> Tirsdagslunsjforedrag (departmental seminar) IMR - May 28, 2019, updated 7 June, 2019 with experimental design figures</a>
+
+<a href="https://sgaichas.github.io/presentations/20190529_IMR_Gaichas.html" target="_blank"> Ukens orientering (institute seminar) IMR - May 29, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20190723_SMLrocktalk_Gaichas.html" target="_blank">Shoals Marine Lab "Rock Talk" evening seminar - July 23, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20191002_NEFSC_Gaichas.html" target="_blank">NEFSC seminar - October 2, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20191009_SMAST_Gaichas.html" target="_blank">SMAST seminar - October 9, 2019</a> also presented Nov. 19 2019 in AFSC Groundfish/One NOAA series
+
+<a href="https://sgaichas.github.io/presentations/20200428_WPI_SIAMtalk_Gaichas.html" target="_blank">WPI SIAM seminar - April 28, 2020</a> 
+
+<a href="https://sgaichas.github.io/presentations/20210209_DFO_EBFM_Gaichas.html" target="_blank">DFO EBFM seminar - February 9, 2021</a>
+
+<a href="https://sgaichas.github.io/presentations/20230523_SOE_Seminar_Gaichas.html" target="_blank">OneNOAA SOE Seminar - May 23, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20231015_Quantfish_Gaichas.html" target="_blank">Quantfish Seminar - October 16, 2023</a>
+
+
+### Workshops and Courses
+
+<a href="https://sgaichas.github.io/presentations/20190723_SMLlab_Gaichas.html" target="_blank">Shoals Marine Lab Ecosystem Modeling Lab - July 23, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20191120_CAUSES_Gaichas.html" target="_blank">CAUSES workshop - November 20, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20191209_NEMoW_NEFSCoverview_Large.html" target="_blank">NEMoW 5 NEFSC overview - December 9, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20191209_NEMoW_atlantisom.html" target="_blank">NEMoW 5 atlantisom tool demo - December 9, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20200226_EBFM_MREP_Gaichas.html" target="_blank">MREP Fisheries Science Intro to EBFM - February 26, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200601_seasideFAIRdata_Gaichas.html" target="_blank">Seaside FAIR data and interoperability - June 1, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200803_seasideFAIRdata_Gaichas.html" target="_blank">Seaside FAIR data details: metadata, etc - August 3, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20201008_FIT_MSmods_Gaichas.html" target="_blank">NOAA FIT technical meeting multispecies models - October 9, 2020 </a>
+
+<a href="https://sgaichas.github.io/presentations/20210329_Stockton_ecotalk_Gaichas.html" target="_blank">Stockton course guest lecture - March 29, 2021 </a>
+
+<a href="https://sgaichas.github.io/presentations/20210604_MSmodsBestPractice_Gaichas.html" target="_blank">Multispecies Modeling Workshop: Best Practices Keynote - June 7, 2021 </a>
+
+<a href="https://sgaichas.github.io/presentations/20210804_ESR_Risk_Gaichas.html" target="_blank">Ecosystem Status Report Workshop: SOE and Mid-Atlantic Risk Assessment - August 4, 2021 </a>
+
+<a href="https://sgaichas.github.io/presentations/20220504_AtlantisSummitKeynote_Gaichas.html" target="_blank">Atlantis Summit Day 3 Keynote - May 4, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20220427_UM_MEES631_Gaichas.html" target="_blank">U Maryland MEES631 Fish Ecology Lecture - April 27, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20220719_Rutgers_EBFM_Gaichas.html" target="_blank">Rutgers Fisheries Summer Course EBFM Lecture - July 19, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20220815_SCS7_Keynote2_Gaichas.html" target="_blank">SCS7 Keynote 2 - August 15, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20221115_CMOD_onramps_Gaichas.html" target="_blank">Council Member Ongoing Development: on ramps - November 15, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20221115_CMOD_MAFMCriskassess_Gaichas.html" target="_blank">Council Member Ongoing Development: MAFMC risk assessment - November 15, 2022 </a> also presented to AFSC ESR CIE review, February 28, 2023
+
+<a href="https://sgaichas.github.io/presentations/20221121_DGMARE_implementation_Gaichas.html" target="_blank">DGMARE EBM training: implementation - November 21, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20221122_DGMARE_engagement_Gaichas.html" target="_blank">DGMARE EBM training: engagement and governance - November 22, 2022 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230111_MREP_EBFM_Gaichas.html" target="_blank">MREP EBFM - January 11, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230502_CFMC_SSC-EBFMTAP_Gaichas.html" target="_blank">CFMC Joint SSC and EBFM TAP meeting - May 2, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230621_GuelphCEM_Gaichas.html" target="_blank">Guelph Center for Ecosystem Management symposium - June 21, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230706_IsleofShoals_Gaichas.html" target="_blank">Updated Shoals Marine Lab Ecosystem Modeling Course - July 6, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230727_RWIT_SOE_Gaichas.html" target="_blank">SOE for Right Whale Implementation Team - July 27, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230829_NEFSCOverview_Gaichas.html" target="_blank">NEFSC ToR 1 Overview for NEMoW 6 - August 29, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20231107_CAUSES_SOE_Gaichas.html" target="_blank">SOE Lessons Learned for CAUSES - November 7, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20231114_SOE_NYsharks_Gaichas.html" target="_blank">SOE subset for NY Shark Workshop - November 14, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20240214_MREP_EBFM_Gaichas.html" target="_blank">MREP EBFM - February 14, 2024 </a>
+
+<a href="https://sgaichas.github.io/presentations/20240429_UM_MEES631_Gaichas.html" target="_blank">U Maryland MEES631 Fish Ecology Lecture - April 29, 2024 </a>
+
+<a href="https://sgaichas.github.io/presentations/20240503_SOEshiftdef_Gaichas.html" target="_blank">Regime shift workshop - May 3, 2024 </a>
+
+<a href="https://sgaichas.github.io/presentations/20240826_EcoCaseStudy_Gaichas.html" target="_blank">SCS8 Case study - August 26, 2024 </a>
+
+<a href="https://sgaichas.github.io/presentations/20250115_MREP_EBFM_Gaichas.html" target="_blank">MREP EBFM - January 15, 2025 </a>
+
+
+### ICES WKMSEDEV
+
+<a href="https://sgaichas.github.io/presentations/20230926_US_MSEtools_Gaichas.html" target="_blank">Overview of US MSE tools - September 26, 2023 </a>
+
+<a href="https://sgaichas.github.io/presentations/20230926_HydraOM_Gaichas.html" target="_blank">Multispecies OMs - September 28, 2023 </a>
+
+
+### ICES WGNARS
+
+*2023*
+
+<a href="https://sgaichas.github.io/presentations/20230517_MAFMC_IEA_Gaichas.html" target="_blank"> US Mid-Atlantic Update - May 17, 2023</a>
+
+
+*2020*
+
+<a href="https://sgaichas.github.io/presentations/20200508_US_SOEUpdate_Gaichas.html" target="_blank"> US State of the Ecosystem (SOE) Update - May 8, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200508_USCouncilUpdate_Gaichas.html" target="_blank"> US Council Update (EAFM/EBFM) - May 8, 2020</a>
+
+
+### ICES WGSAM
+
+*2024*
+
+<a href="https://sgaichas.github.io/presentations/20241007_WGSAM_ToRa_USupdate_Gaichas.html" target="_blank">ToR a US updates - October 7, 2024</a>
+
+
+*2023*
+
+<a href="https://sgaichas.github.io/presentations/20231010_WGSAM_ToRa_USupdate_Gaichas.html" target="_blank">ToR a US updates - October 10, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20231010_WGSAM_ToRc_OMoverview_Gaichas.html" target="_blank">ToR c Skill assessment OM and dataset overview - October 10, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20231010_WGSAM_ToRc_Results_Gaichas.html" target="_blank">ToR c Skill assessment progress Rpath and Hydra - October 10, 2023</a>
+
+<a href="https://sgaichas.github.io/presentations/20231012_WGSAM_ToRe_pMSE_Gaichas.html" target="_blank">ToR e NEFMC EBFM pMSE - October 12, 2023</a>
+
+
+
+*2022*
+
+<a href="https://sgaichas.github.io/presentations/20221010_WGSAM_ToRa_USupdate_Gaichas.html" target="_blank">ToR a US updates - October 10, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20221010_GBkeyrunOverview_Gaichas.html" target="_blank"> ToR b Georges Bank ms-keyrun overview - October 10, 2022</a>
+
+<a href="https://sgaichas.github.io/presentations/20221011_WGSAM_ToRc_Gaichas.html" target="_blank"> ToR c Skill assessment background, framework and initial Hydra results- October 11, 2022</a>
+
+
+*2020*
+
+<a href="https://sgaichas.github.io/presentations/20201012_WGSAM_USupdate_Gaichas.html" target="_blank">US update - October 12, 2020</a>
+
+
+### NOAA-IMR Bilateral
+
+<a href="https://sgaichas.github.io/presentations/20190506_IEA_Gaichas.html" target="_blank"> IEA examples for US - May 7, 2019</a>
+
+<a href="https://sgaichas.github.io/presentations/20190507_REDUS_Gaichas.html" target="_blank"> Scientist collaboration REDUS - May 7, 2019</a>
+
+### NAS-OSB Meeting
+
+<a href="https://sgaichas.github.io/presentations/20200522_NASOSB_Gaichas.html" target="_blank">Climate and Fisheries, Ocean Studies Board panel, May 22, 2020</a>
+
+
+### ICES WKRPchange
+
+<a href="https://sgaichas.github.io/presentations/20200921_USrefpts_WKRPchange_Gaichas.html" target="_blank">US Reference Points Introduction - September 21, 2020</a>
+
+<a href="https://sgaichas.github.io/presentations/20200923_herringWKRPchange_Gaichas.html" target="_blank">Herring HCR accounting for its role as forage - September 23, 2020</a>
+
