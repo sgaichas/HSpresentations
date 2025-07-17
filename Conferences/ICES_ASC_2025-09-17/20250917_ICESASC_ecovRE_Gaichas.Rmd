@@ -1,0 +1,514 @@
+---
+title: "Fit for the future?"
+subtitle: "Environmental covariates and random effects in stock assessment <br /> ICES ASC <br />17 September 2025"
+author: Sarah Gaichas, Micah Dean, Jon Deroba
+institute: 
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/EDAB_theme3_508_SOE_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(FishStatsUtils)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./FishDiet_Ecoindicators.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+# Environmental covariates vs random effects
+
+RE suck up a lot of variation
+
+EC can too
+
+We have an example
+
+One might be predictable, one isnt
+
+Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
+
+???
+Considerable effort has been invested in evaluating potential environmental drivers of stock productivity, mortality, and/or availability in recent Northwest Atlantic stock assessments. Additional recent investment in regional ocean modeling is aimed at operational short term prediction of environmental conditions such as bottom temperature. Environmental drivers have been successfully included in stock assessments using the Woods Hole Assessment Model (WHAM), a state-space modeling framework. Here we review lessons learned and controversial opinions generated from attempts to include environmental recruitment covariates within a stock assessment for Atlantic herring. Environmental covariates were tailored to herring life history and implemented based on mechanistic hypotheses. Despite significant correlations with recruitment estimated from a prior (non-state-space) assessment model, none of the covariates were included in the final state-space model. We draw two main conclusions. First, even in a state of the art model there are limits on environmental covariate inclusion. For example, mechanistic linkages available for recruitment covariates dwindle if a stock recruit relationship cannot be estimated. Second, tradeoffs may exist between including mechanistic drivers as covariates and including random effects that account for variation from unidentified mechanisms. Herring recruitment covariates had much stronger explanatory power in the absence of numbers at age (NAA) random effects, but model fit was much better with NAA random effects. Given that some environmental covariates can be forecast, while some random effects cannot or it is not clear how, this presents a dilemma. Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
+
+
+---
+# What drives recruitment of Atlantic herring?
+
+## Atlantic herring, *Clupea harengus*
+
+.pull-left[
+![Atlantic herring illustration, credit NOAA Fisheries](https://www.fisheries.noaa.gov/s3/styles/original/s3/2022-08/640x427-Herring-Atlantic-NOAAFisheries.png)
+]
+
+.pull-right[
+.large[
+
+"The herring is a plankton feeder.... Examination of 1,500 stomachs showed that adult herring near Eastport were living solely on copepods and on pelagic euphausiid shrimps (*Meganyctiphanes norwegica*), fish less than 4 inches long depending on the former alone, while the larger herring were eating both." `r Cite(myBib, "collette_bigelow_2002")`
+
+]
+]
+
+???
+When first hatched, and before the disappearance of the yolk sac, the larvae (European) feed on larval snails and crustaceans, on diatoms, and on peridinians, but they soon begin taking copepods, and depend exclusively on these for a time after they get to be 12 mm. long, especially on the little Pseudocalanus elongatus. As they grow older they feed more and more on the larger copepods and amphipods, pelagic shrimps, and decapod crustacean larvae.
+
+
+---
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/AherringConceptualMod.png")
+background-size: 1070px
+background-position: bottom
+
+## Which indicators are potential covariates for recruitment?
+
+---
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/AherringBRT_rec.png")
+background-size: 800px
+background-position: right
+
+## Which indicators are potential covariates for recruitment?
+
+.pull-left-30[
+Boosted regression tree (Molina 2024) investigated relationships between environmental indicators and Atlantic herring recruitment estimated in the assessment.
+
+Larval and juvenile food (zooplankton), egg predation, and temperature always highest influence
+]
+
+.pull-right-70[
+
+]
+
+
+---
+## Spatial partitioning: zooplankton trends at multiple scales
+
+```{r}
+
+herring_spring <- c(01010, 01020, 01030, 01040, 01050, 01060, 01070, 01080, 01090, 
+                    01100, 01110, 01120, 01130, 01140, 01150, 01160, 01170, 01180, 
+                    01190, 01200, 01210, 01220, 01230, 01240, 01250, 01260, 01270, 
+                    01280, 01290, 01300, 01360, 01370, 01380, 01390, 01400, 01610, 
+                    01620, 01630, 01640, 01650, 01660, 01670, 01680, 01690, 01700, 
+                    01710, 01720, 01730, 01740, 01750, 01760)
+herring_fall <- c(01050, 01060, 01070, 01080, 01090, 01100, 01110, 01120, 01130, 
+                  01140, 01150, 01160, 01170, 01180, 01190, 01200, 01210, 01220, 
+                  01230, 01240, 01250, 01260, 01270, 01280, 01290, 01300, 01360, 
+                  01370, 01380, 01390, 01400)
+
+MAB <- c(1010:1080, 1100:1120, 1600:1750, 3010:3450, 3470, 3500, 3510)
+GB  <- c(1090, 1130:1210, 1230, 1250, 3460, 3480, 3490, 3520:3550)
+GOM <- c(1220, 1240, 1260:1290, 1360:1400, 3560:3830)
+SS  <- c(1300:1352, 3840:3990)
+
+D70pct_nwast <- readRDS(url("https://github.com/NOAA-EDAB/zooplanktonindex/raw/main/spatialdat/D70pct_nwa_strat2.rds"))
+
+# MAB EPU
+MAB2 <- D70pct_nwast %>% 
+  dplyr::filter(stratum_number %in% MAB) 
+
+# MAB herring larvae area
+MAB2herr <- MAB2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 1) 
+
+# MAB outside larval area
+MAB2out <- MAB2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 2) 
+
+# Georges Bank EPU
+GB2 <- D70pct_nwast %>% 
+  dplyr::filter(stratum_number %in% GB) 
+
+# GB herring larvae
+GB2herr <- GB2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 1) 
+
+#GB outside larval area
+GB2out <- GB2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 2)
+
+# gulf of maine EPU 
+GOM2 <- D70pct_nwast %>%
+  dplyr::filter(stratum_number %in% GOM)
+
+# GOM herring larvae
+GOM2herr <- GOM2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 1) 
+
+#GOM outside larval area
+GOM2out <- GOM2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 2)
+
+# scotian shelf EPU 
+SS2 <- D70pct_nwast %>%
+  dplyr::filter(stratum_number %in% SS) 
+
+# SS herring larvae
+SS2herr <- SS2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 1) 
+
+#SS outside larval area
+SS2out <- SS2 %>%
+  dplyr::filter(stratum_number2 %% 10 == 2)
+
+# whole herring larval area
+herrlarv <- dplyr::bind_rows(MAB2herr, GB2herr, GOM2herr, SS2herr)
+
+# outside herring larval area
+nolarv <- dplyr::bind_rows(MAB2out, GB2out, GOM2out, SS2out)
+
+# spring herring NEFSC BTS
+her_spr2 <- D70pct_nwast %>%
+  dplyr::filter(stratum_number %in% herring_spring) 
+
+# fall herring NEFSC BTS
+her_fall2 <- D70pct_nwast %>%
+  dplyr::filter(stratum_number %in% herring_fall) 
+
+# all epus
+allEPU2 <- D70pct_nwast %>%
+  dplyr::filter(stratum_number %in% c(MAB, GB, GOM, SS)) 
+
+
+```
+
+```{r maps, crop=TRUE, fig.cap="Maps of key areas for Herring assessment indices. The full VAST model grid is shown in brown.", fig.show='hold', out.width="33%"}
+
+theme_set(theme_bw())
+
+ggplot(data = ecodata::coast) +
+  geom_sf() + 
+  geom_point(data = FishStatsUtils::northwest_atlantic_grid, aes(x = Lon, y = Lat),  colour = "coral4", size=0.05, alpha=0.1) +
+  geom_point(data = MAB2, aes(x = Lon, y = Lat), colour = "green3", size=0.05, alpha=0.5) +
+  geom_point(data = GB2, aes(x = Lon, y = Lat), colour = "orange", size=0.05, alpha=0.5) +
+  geom_point(data = GOM2, aes(x = Lon, y = Lat), colour = "red", size=0.05, alpha=0.5) +
+  geom_point(data = SS2, aes(x = Lon, y = Lat), colour = "purple", size=0.05, alpha=0.1) +
+  #coord_sf(xlim = c(-79, -65.5), ylim = c(33, 45)) + #full extent of VAST model
+  coord_sf(xlim =c(-78, -65.5), ylim = c(35, 45)) + #zoomed to Hatteras and N
+  ggtitle("MAB (green), GB (orange), GOM (red), SS(purple)")
+
+
+ggplot(data = ecodata::coast) +
+  geom_sf() + 
+  geom_point(data = FishStatsUtils::northwest_atlantic_grid, aes(x = Lon, y = Lat),  colour = "coral4", size=0.05, alpha=0.1) +
+  geom_point(data = her_spr2, aes(x = Lon, y = Lat), size=0.05, colour = "yellow",  alpha=0.7) +
+  geom_point(data = her_fall2, aes(x = Lon, y = Lat), size=0.03, colour = "lightblue",  alpha=0.7) +
+  #coord_sf(xlim = c(-79, -65.5), ylim = c(33, 45)) +
+  coord_sf(xlim =c(-78, -65.5), ylim = c(35, 45)) +
+  ggtitle("Herring spring (yellow) and fall (light blue) survey strata")
+
+ggplot(data = ecodata::coast) +
+  geom_sf() + 
+  geom_point(data = FishStatsUtils::northwest_atlantic_grid, aes(x = Lon, y = Lat),  colour = "coral4", size=0.05, alpha=0.1) +
+  geom_point(data = her_spr2, aes(x = Lon, y = Lat), size=0.05, colour = "yellow",  alpha=0.7) +
+  geom_point(data = her_fall2, aes(x = Lon, y = Lat), size=0.03, colour = "lightblue",  alpha=0.7) +
+  geom_point(data = herrlarv, aes(x = Lon, y = Lat), size=0.03, colour = "blue",  alpha=0.7) +
+  #coord_sf(xlim = c(-79, -65.5), ylim = c(33, 45)) +
+  coord_sf(xlim =c(-78, -65.5), ylim = c(35, 45)) +
+  ggtitle("Herring survey strata with Sept-Feb larval area (blue)")
+
+
+# ggplot(data = ecodata::coast) +
+#   geom_sf() + 
+#   geom_point(data = FishStatsUtils::northwest_atlantic_grid, aes(x = Lon, y = Lat),  colour = "coral4", size=0.05, alpha=0.1) +
+#   geom_point(data = her_spr2, aes(x = Lon, y = Lat), size=0.05, colour = "yellow",  alpha=0.1) +
+#   geom_point(data = herrlarv, aes(x = Lon, y = Lat), size=0.03, colour = "blue",  alpha=0.5) +
+#   #coord_sf(xlim = c(-79, -65.5), ylim = c(33, 45)) +
+#   coord_sf(xlim =c(-78, -65.5), ylim = c(35, 45)) +
+#   ggtitle("Herring larval area Sept-Feb (blue), over spring survey strata (yellow")
+
+```
+
+
+???
+NEFSC survey strata definitions are built into the VAST `northwest-atlantic` extrapolation grid already. We defined additional new strata to address the recreational inshore-offshore 3 mile boundary. The area within and outside 3 miles of shore was defined using the `sf` R package as a 3 nautical mile (approximated as 5.556 km) buffer from a high resolution coastline from the`rnaturalearth` R package. This buffer was then intersected with the current `FishStatsUtils::northwest_atlantic_grid` built into VAST and saved using code [here](https://github.com/sgaichas/bluefishdiet/blob/main/VASTcovariates_updatedPreds_sst_3mi.Rmd#L49-L94). Then, the new State and Federal waters strata were used to split NEFSC survey strata where applicable, and the new full set of strata were used along with a modified function from `FishStatsUtils::Prepare_NWA_Extrapolation_Data_Fn` to build a custom extrapolation grid for VAST as described in detail [here](https://sgaichas.github.io/bluefishdiet/VASTcovariates_finalmodbiascorrect_3misurvstrat.html). 
+
+
+---
+## Exploratory zooplankton indices in the stock assessment 
+
+.pull-left[
+Use as a basis the new herring stock assessment in Woods Hole Assessment Model (WHAM)  `r Cite(myBib,"stock_woods_2021")`.
+
+We are using the `devel` version of WHAM: https://github.com/timjmiller/wham/tree/devel
+
+Model [mm192](https://drive.google.com/drive/folders/1sQdDsfdnVbiiY4X7Rgr-fvegwT7Fa1Az?usp=drive_link) is our starting point.
+
+Zooplankton indices were explored as covariates on herring recruitment.
+
+Recruitment is modeled as deviations from the "recruitment scaling parameter", leaving one option for modeling effects of covariates on recruitment: "controlling".
+
+A "controlling" recruitment covariate results in a time-varying recruitment scaling parameter.
+
+
+]
+
+.pull-right[
+
+Covariates explored: 
+
+*  Jan-Jun (Spring) large copepods in spring herring BTS strata with lag-0 to represent food for pre-recruit juveniles
+*  Jul-Dec (Fall) small copepods in fall herring BTS strata with lag-1 to represent food for larvae in general
+*  Sep-Feb small copepods in herring larval area with lag-1 to represent food for larvae more specifically
+*  Combinations of large and small copepod covariates above 
+
+*  Optimal temperature duration (days) during the fall larval season, September-December
+
+*  Sensitivity: Turn off NAA RE and then try fitting with the most robust recruitment covariates.
+
+
+]
+???
+
+---
+## Implementing each index
+
+We evaluated 
+
+*  Options for covariate input (millions of cells vs. log(cells), VAST estimated SE vs. WHAM estimated SE)  
+*  Options for covariate observation model ("rw" vs. "ar1")  
+*  Options for recruitment link ("none" vs. "controlling-linear" with lag-0 for large copepods, lag-1 for small copepods, and lag-1 for larval temperature duration)  
+*  No attempts were made to fit polynomial effects although this is possible in WHAM
+
+
+Short story:
+
+*  Models with covariates input on the log scale generally converged
+*  Models with WHAM estimated covariate SE ("est_1") generally converged
+*  Under the above conditions, most models with and without the recruitment link converged for all covariates
+*  Models with the Jan-Jun (Spring) large copepods covariate also converged with input as millions of cells and VAST estimated SE  
+
+
+---
+## Overview of results shown for each model
+
+.pull-left[
+Summary table comparing across models with and without recruitment covariates turned on
+
+Diagnostics shown: 
+
+*  WHAM's fit to the covariate time series
+*  One step ahead residuals for WHAM's fit
+*  Estimated time varying recruitment scaling parameter with N age 1
+
+Finally, recruitment sigma compared with base, covariate beta with CI
+
+] 
+
+.pull-right[
+
+The main diagnostics we used to determine if the model was improved by covariates were:
+
+*  model converged and Hessian matrix invertable
+*  dAIC lowest
+*  recruitment sigma reduced (how much?)
+*  estimated covariate effect CI does not include 0
+*  direction of covariate effect is sensible
+]
+
+---
+## Results: Duration of optimal larval temperature, Sept-Dec: model summary
+
+```
+  Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
+
+    m4           rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1827.543     0 -3393.1 0.6543  0.5984 -0.2323
+    m3           rw                     none logmean-est_1 TRUE   TRUE -1826.370   0.4 -3392.7 0.8682  0.5901 -0.2314
+    m8          ar1 controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1826.627   3.8 -3389.3 0.6714   0.598 -0.2324
+    m7          ar1                     none logmean-est_1 TRUE   TRUE -1825.511   4.1   -3389 0.8682  0.5901 -0.2314
+
+    m2           rw controlling-lag-1-linear    mean-est_1 TRUE   TRUE -1650.465 354.2 -3038.9 0.6473  0.5976 -0.2321
+    m1           rw                     none    mean-est_1 TRUE   TRUE -1649.265 354.6 -3038.5 0.8594  0.5907 -0.2362
+    m6          ar1 controlling-lag-1-linear    mean-est_1 TRUE   TRUE -1649.607 357.9 -3035.2 0.6643  0.5971 -0.2322
+    m5          ar1                     none    mean-est_1 TRUE  FALSE -1644.890   ---     ---    ---     ---     ---
+
+```
+---
+## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
+
+.pull-left[
+![LarvalTempDuration/m3  fit](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
+]
+
+.pull-right[
+![LarvalTempDuration/m3 osa](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
+
+]
+
+---
+## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
+
+.pull-left[
+![LarvalTempDuration/m3 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+.pull-right[
+![LarvalTempDuration/m4 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+```{r}
+m3par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m3/res_tables/parameter_estimates_table.RDS"))
+
+m4par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m4/res_tables/parameter_estimates_table.RDS"))
+
+```
+
+Without covariate, recruitment variance is `r round(m3par["stock 1 NAA $\\sigma$ (age 1)",1],3)`, and with is `r round(m4par["stock 1 NAA $\\sigma$ (age 1)",1],3)`; LarvalTempDuration beta_1 is `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",1],3)`, CI `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",3],3)`, `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",4],3)`
+
+---
+## Results: Duration of optimal larval temperature, Sept-Dec: logscale ar1 diagnostics
+
+.pull-left[
+![LarvalTempDuration/m7 fit](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m7/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
+]
+
+.pull-right[
+![LarvalTempDuration/m7 osa](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m7/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
+
+]
+
+---
+## Results: Duration of optimal larval temperature, Sept-Dec: logscale ar1 recruitment
+
+.pull-left[
+![LarvalTempDuration/m7 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m7/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+.pull-right[
+![LarvalTempDuration/m8 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m8/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+```{r}
+m7par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m7/res_tables/parameter_estimates_table.RDS"))
+
+m8par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m8/res_tables/parameter_estimates_table.RDS"))
+
+```
+
+Without covariate, recruitment variance is `r round(m7par["stock 1 NAA $\\sigma$ (age 1)",1],3)`, and with is `r round(m8par["stock 1 NAA $\\sigma$ (age 1)",1],3)`; LarvalTempDuration beta_1 is `r round(m8par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",1],3)`, CI `r round(m8par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",3],3)`, `r round(m8par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",4],3)`
+
+---
+
+## Sensitivity: Remove NAA RE, add September - December duration of larval optimal temperature: model summary
+
+*Both rw and ar1 models worked with covariates, rw better fit*
+
+```
+Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
+
+  m4            rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1762.281     0 -3266.6 1.6108  0.3339   -0.121
+  m8           ar1 controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1761.214   4.2 -3262.4 1.6872  0.3341  -0.1213
+  m3            rw                     none logmean-est_1 TRUE   TRUE -1748.086  26.4 -3240.2 3.5003  0.3664  -0.1424
+  m7           ar1                     none logmean-est_1 TRUE   TRUE -1747.227  30.1 -3236.5 3.5003  0.3664  -0.1424
+
+  m2            rw controlling-lag-1-linear    mean-est_1 TRUE   TRUE -1585.263 354.1 -2912.5 1.5766  0.3325  -0.1206
+  m1            rw                     none    mean-est_1 TRUE   TRUE -1570.980 380.6   -2886 3.5014  0.3662  -0.1421
+  m5           ar1                     none    mean-est_1 TRUE   TRUE -1570.163 384.3 -2882.3 3.5003  0.3673  -0.1437
+  m6           ar1 controlling-lag-1-linear    mean-est_1 TRUE  FALSE -1584.188   ---     ---    ---     ---      ---
+```
+
+---
+## Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
+
+.pull-left[
+![LarvalTempDurationsens/m3  fit](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
+]
+
+.pull-right[
+
+![LarvalTempDurationsens/m3 osa](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
+]
+
+---
+## Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
+
+.pull-left[
+![LarvalTempDurationsens/m3 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+.pull-right[
+![LarvalTempDurationsens/m4 rec](https://github.com/NOAA-EDAB/presentations/raw/master/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+]
+
+```{r}
+m3par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/res_tables/parameter_estimates_table.RDS"))
+
+m4par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration_NAA_REoff/m4/res_tables/parameter_estimates_table.RDS"))
+
+```
+
+Without covariate, recruitment variance is `r round(m3par["stock 1 NAA $\\sigma$ (age 1)",1],3)`, and with is `r round(m4par["stock 1 NAA $\\sigma$ (age 1)",1],3)`; LarvalTempDuration beta_1 is `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",1],3)`, CI `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",3],3)`, `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",4],3)`
+
+---
+# Discussion
+
+The duration of optimal larval temperature covariate resulted in slightly better model fits and reduced recruitment variability relative to the model without covariates. The effect of optimal larval temperature on recruitment was postive, as hypothesized, with fewer days of optimal temperature resulting in a lower recruitment scaling parameter. However, the confidence interval of the effect included 0. 
+
+While some of the zooplankton time series also resulted in slightly better model fits and reduced recruitment variability relative to the model without covariates, the effects of zooplankton were negative on recruitment. This relationship is opposite the hypothesized relationship between herring and food, which was expected to be positive. 
+
+The sensitivity run removing NAA RE resulted in a much stronger impact of the optimal larval temperature on recruitment. 
+
+# Thoughts?
+
+---
+
+## Thank you!  References
+
+.contrib[
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib)
+```
+]
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+

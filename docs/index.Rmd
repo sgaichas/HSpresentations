@@ -17,9 +17,9 @@ output: html_document
 
 ## Scientific Conferences
 
-<!--
-<a href="https://sgaichas.github.io/presentations/20250917_ICESASC_ecovRE_Gaichas.html" target="_blank">Fit for the future? Environmental covariates and random effects in stock assessment - ICES ASC, September 17, 2025</a>
--->
+
+<a href="https://sgaichas.github.io/HSpresentations/20250917_ICESASC_ecovRE_Gaichas.html" target="_blank">Fit for the future? Environmental covariates and random effects in stock assessment - ICES ASC, September 17, 2025</a>
+
 
 
 ## Sarah Gaichas presentations, 2019-2025 (NOAA-EDAB)
