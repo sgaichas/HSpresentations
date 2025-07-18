@@ -119,7 +119,7 @@ Haddock egg predation looked promising based on the previous assessment and exte
 ???
 
 ---
-# A new and improved herring assessment, but no luck with the covariate. Why?
+# New improved herring assessment, no covariate impact
 
 .pull-left[
 State space assessment has much better diagnostics, stability and the WHAM assessment framework designed to incorporate environmental covariates 
@@ -157,7 +157,7 @@ Image of fit to haddock predation index covariate
 
 
 ---
-# Covariate impacts stronger, but overall fit poorer without NAA RE
+# Strong covariate effect, fit poorer without NAA RE
 
 .pull-left[
 An experiment fitting the model without NAA RE on older ages and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
@@ -174,6 +174,26 @@ And a different recruitment time series? NAA RE on ages soaking up some uncertai
 Image comparing recruitment deviations with and without NAA RE and impact of haddock predation index 
 
 Need methods to address multiple covariates: larval optimal temperature duration similar results to haddock predation
+
+---
+#  Perception of the stock changes 
+
+.pull-left[
+
+![:img with NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm204-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm206-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)
+![:img with NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/SSB_Rec_time_stock_1.png)
+
+]
+
+.pull-right[
+
+![modcompare all](https://github.com/sgaichas/whamtest-covariates/raw/main/compare_png/compare_rel_status_kobe.png)
+
+Different assumptions affect reference point calculations
+
+]
+
+
 
 ---
 # Discussion
