@@ -6,6 +6,8 @@
     <meta name="author" content="Sarah Gaichas, Micah Dean, Jon Deroba" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid/tabwid.js"></script>
     <link rel="stylesheet" href="libs/EDAB_theme3_508_SOE_16by9.css" type="text/css" />
   </head>
   <body>
@@ -39,10 +41,10 @@ background-position: bottom
 .pull-left-60[
 ## Controversial opinion: 
 
+Random effects often improve model fit and solve model diagnostic problems, but may mask signals that could be explained by and projected with mechanistic processes.
+
 Fitting the assessment model isn't our ultimate goal!  
 Catch advice for future years is. 
-
-Random effects often improve model fit and solve model diagnostic problems, but may mask signals that could be explained by and projected with mechanistic processes.
 
 ]
 
@@ -87,7 +89,10 @@ State space assessment has much better diagnostics, stability and the WHAM asses
 
 Yet haddock predation had negligible impact on recruitment
 
-![ecov fit with NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+
+
+&lt;img src="20250917_ICESASC_ecovRE_Gaichas_files/figure-html/NAAonplots-1.png" width="49%" /&gt;&lt;img src="20250917_ICESASC_ecovRE_Gaichas_files/figure-html/NAAonplots-2.png" width="49%" /&gt;
+
 
 ]
 
@@ -106,6 +111,8 @@ New state space model developed with NAA RE, best fit with numbers at age transi
 
 Image of NAA RE pattern
 
+![ecov fit with NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+
 Good model diagnostics
 
 Including the covariate in the model: only one approach possible because stock recruit relationship not estimable
@@ -121,14 +128,23 @@ Image of fit to haddock predation index covariate
 # Strong covariate effect, fit poorer without NAA RE
 
 .pull-left[
-An experiment fitting the model without NAA RE on older ages and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
+An experiment fitting the model without NAA RE on ages 2+ and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
 
-![ecov fit without NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+&lt;img src="20250917_ICESASC_ecovRE_Gaichas_files/figure-html/NAAoffplots-1.png" width="49%" /&gt;&lt;img src="20250917_ICESASC_ecovRE_Gaichas_files/figure-html/NAAoffplots-2.png" width="49%" /&gt;
+
 ]
 
 .pull-right[
+
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-9936bd0a{}.cl-99331c40{font-family:'Helvetica';font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-99344f98{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-99344f99{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-99345d1c{width:0.957in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d1d{width:0.488in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d1e{width:0.562in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d26{width:0.716in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d27{width:0.463in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d28{width:0.593in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d29{width:0.525in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d30{width:0.63in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d31{width:0.636in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d32{width:0.957in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d33{width:0.488in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d3a{width:0.562in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d3b{width:0.716in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d3c{width:0.463in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d3d{width:0.593in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d44{width:0.525in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d45{width:0.63in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d46{width:0.636in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d4e{width:0.957in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d4f{width:0.488in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d50{width:0.562in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d58{width:0.716in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d59{width:0.463in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d5a{width:0.593in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d5b{width:0.525in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d62{width:0.63in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d63{width:0.636in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d6c{width:0.957in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d6d{width:0.488in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d76{width:0.562in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d77{width:0.716in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d78{width:0.463in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d79{width:0.593in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d80{width:0.525in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d81{width:0.63in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-99345d82{width:0.636in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-9936bd0a'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-99345d1c"&gt;&lt;p class="cl-99344f98"&gt;&lt;span class="cl-99331c40"&gt;Model&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d1d"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;conv&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d1e"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;pdHess&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d26"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;NLL&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d27"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;dAIC&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d28"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;AIC&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d29"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;rho_R&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d30"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;rho_SSB&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-99345d31"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;rho_Fbar&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-99345d32"&gt;&lt;p class="cl-99344f98"&gt;&lt;span class="cl-99331c40"&gt;NAAon_ecovoff&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d33"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3a"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3b"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-1,757.763&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3c"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3d"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-3,255.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d44"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.8682&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d45"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.5901&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d46"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-0.2314&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-99345d4e"&gt;&lt;p class="cl-99344f98"&gt;&lt;span class="cl-99331c40"&gt;NAAon_ecovon&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d4f"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d50"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d58"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-1,758.735&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d59"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d5a"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-3,255.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d5b"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.8391&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d62"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.5739&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d63"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-0.2271&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-99345d32"&gt;&lt;p class="cl-99344f98"&gt;&lt;span class="cl-99331c40"&gt;NAAoff_ecovon&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d33"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3a"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3b"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-1,688.659&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3c"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;136.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d3d"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-3,119.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d44"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;2.4083&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d45"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.3347&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d46"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-0.1341&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-99345d6c"&gt;&lt;p class="cl-99344f98"&gt;&lt;span class="cl-99331c40"&gt;NAAoff_ecovoff&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d6d"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d76"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;TRUE&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d77"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-1,679.479&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d78"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;152.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d79"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-3,103.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d80"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;3.5003&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d81"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;0.3664&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-99345d82"&gt;&lt;p class="cl-99344f99"&gt;&lt;span class="cl-99331c40"&gt;-0.1424&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
 ![NAA RE off](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/NAA_dev_tile.png)
+
+
 ]
+
+???
+![ecov fit without NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
 
 And a different recruitment time series? NAA RE on ages soaking up some uncertainty that could be explained mechanistically
 
@@ -157,137 +173,30 @@ Different assumptions affect reference point calculations
 
 
 ---
+.pull-left[
 # Discussion
 
-.pull-left-60[
+RE interactions with covariates in state space assessment models obviously needs more investigation. We dont have a recruitment index in this model, that data might help.
+
+A lot of effort and review goes into historical model fit, then we do projections separately with a single best fit model, but projections are the thing used in management for catch advice
+
 Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
-
-RE interactions with covariates in state space assessment models obviously needs more investigation
-
-We tend to obsess about historical model fit, then do projections separately with a single best fit model, but projections are the thing used in management for catch advice
 
 Past performance does not guarantee future returns!
 ]
 
-.pull-right-40[
-![draft R/SSB comparison](/Users/sarahgaichas/Desktop/leadRSSB.png)
-]
+.pull-right[
+&lt;img src="20250917_ICESASC_ecovRE_Gaichas_files/figure-html/unnamed-chunk-3-1.png" width="504" /&gt;
 
 # Thoughts? Thank you!
+]
+
 
 .footnote[
 Slides available at https://sgaichas.github.io/HSpresentations  
 Contact: &lt;sgaichas@hydrascientificllc.com&gt;
 ]
 
----
-
-# Cut below here
-
-
----
-## Overview of results shown for each model
-
-.pull-left[
-Summary table comparing across models with and without recruitment covariates turned on
-
-Diagnostics shown: 
-
-*  WHAM's fit to the covariate time series
-*  One step ahead residuals for WHAM's fit
-*  Estimated time varying recruitment scaling parameter with N age 1
-
-Finally, recruitment sigma compared with base, covariate beta with CI
-
-] 
-
-.pull-right[
-
-The main diagnostics we used to determine if the model was improved by covariates were:
-
-*  model converged and Hessian matrix invertable
-*  dAIC lowest
-*  recruitment sigma reduced (how much?)
-*  estimated covariate effect CI does not include 0
-*  direction of covariate effect is sensible
-]
-
----
-## Results: Duration of optimal larval temperature, Sept-Dec: model summary
-
-```
-  Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
-
-    m4           rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1827.543     0 -3393.1 0.6543  0.5984 -0.2323
-    m3           rw                     none logmean-est_1 TRUE   TRUE -1826.370   0.4 -3392.7 0.8682  0.5901 -0.2314
-
-```
----
-## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
-
-.pull-left[
-![LarvalTempDuration/m3  fit](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
-]
-
-.pull-right[
-![LarvalTempDuration/m3 osa](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
-
-]
-
----
-## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
-
-.pull-left[
-![LarvalTempDuration/m3 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-.pull-right[
-![LarvalTempDuration/m4 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-
-
-Without covariate, recruitment variance is 0.823, and with is 0.79; LarvalTempDuration beta_1 is 2.066, CI -0.657, 4.789
-
----
-## Sensitivity: Remove NAA RE, add September - December duration of larval optimal temperature: model summary
-
-*Both rw and ar1 models worked with covariates, rw better fit*
-
-```
-Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
-
-  m4            rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1762.281     0 -3266.6 1.6108  0.3339   -0.121
-  m3            rw                     none logmean-est_1 TRUE   TRUE -1748.086  26.4 -3240.2 3.5003  0.3664  -0.1424
-
-```
-
----
-## Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
-
-.pull-left[
-![LarvalTempDurationsens/m3  fit](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
-]
-
-.pull-right[
-
-![LarvalTempDurationsens/m3 osa](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
-]
-
----
-## Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
-
-.pull-left[
-![LarvalTempDurationsens/m3 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-.pull-right[
-![LarvalTempDurationsens/m4 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-
-
-Without covariate, recruitment variance is 0.833, and with is 0.503; LarvalTempDuration beta_1 is 5.122, CI 2.709, 7.535
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

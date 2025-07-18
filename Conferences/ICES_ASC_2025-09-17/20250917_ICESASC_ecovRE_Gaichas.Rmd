@@ -72,10 +72,10 @@ background-position: bottom
 .pull-left-60[
 ## Controversial opinion: 
 
+Random effects often improve model fit and solve model diagnostic problems, but may mask signals that could be explained by and projected with mechanistic processes.
+
 Fitting the assessment model isn't our ultimate goal!  
 Catch advice for future years is. 
-
-Random effects often improve model fit and solve model diagnostic problems, but may mask signals that could be explained by and projected with mechanistic processes.
 
 ]
 
@@ -126,7 +126,118 @@ State space assessment has much better diagnostics, stability and the WHAM asses
 
 Yet haddock predation had negligible impact on recruitment
 
-![ecov fit with NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+```{r}
+
+NAAon_ecovoff <- readRDS(gzcon(url("https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm204-ecovoff/mm204-ecovoff.rds")))
+
+NAAon_ecovon <- readRDS(gzcon(url("https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/mm205-test.rds")))
+
+NAAoff_ecovoff <- readRDS(gzcon(url("https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm206-ecovoff/mm206-ecovoff.rds")))
+
+NAAoff_ecovon <- readRDS(gzcon(url("https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/mm207-ecovon.rds")))
+
+mods <- list(NAAon_ecovoff = NAAon_ecovoff, 
+             NAAon_ecovon = NAAon_ecovon, 
+             NAAoff_ecovoff = NAAoff_ecovoff, 
+             NAAoff_ecovon = NAAoff_ecovon)
+
+n.mods <- length(mods)
+
+df.mods <- data.frame(Model = names(mods),
+                      NAA_re_sigma = unlist(unname(lapply(mods, function(x) x$input$options$NAA_re$sigma))),
+                      NAA_re_cor = unlist(unname(lapply(mods, function(x) x$input$options$NAA_re$cor))),
+                      recruit_model = unlist(unname(lapply(mods, function(x) x$input$data$recruit_model))),
+                      Ecov_how_R =  unlist(unname(lapply(mods, function(x) x$input$data$Ecov_how_R))),
+                      n_poly_Ecov_R = unlist(unname(lapply(mods, function(x) x$input$data$n_poly_Ecov_R))),
+                      Ecov_model =  names(unlist(unname(lapply(mods, function(x) x$input$data$Ecov_model)))),
+                      Ecov_obs_sigma_opt =  unlist(unname(lapply(mods, function(x) x$input$data$Ecov_obs_sigma_opt))))
+
+df.mods$Ecov_lag_R  <- ifelse(df.mods$Ecov_model %in% c("rw", "ar1"), unlist(unname(lapply(mods, function(x) which(x$input$years_Ecov==tail(x$input$years,1)) - x$input$data$ind_Ecov_out_end_R - 1))), "")
+
+# use words
+df.mods$recruit_model <- dplyr::case_match(df.mods$recruit_model, 1 ~ "Random walk", 2 ~ "Random about mean", 3 ~ "Bev-Holt", 4 ~ "Ricker")
+df.mods$Ecov_how_R <- dplyr::case_match(df.mods$Ecov_how_R, 0 ~ "none", 1 ~ "controlling", 2 ~ "limiting", 3 ~ "lethal", 4 ~ "masking", 5 ~ "directive")
+df.mods$n_poly_Ecov_R <- ifelse(df.mods$n_poly_Ecov_R == 1, "linear", paste0("polynomial-", df.mods$n_poly_Ecov_R))
+df.mods$Ecov_obs_sigma_opt <- dplyr::case_match(df.mods$Ecov_obs_sigma_opt, 1~ "", 2 ~ "est_1", 4 ~ "est_re")
+
+# get diagnostics
+opt_conv = 1-sapply(mods, function(x) x$opt$convergence)
+ok_sdrep = sapply(mods, function(x) if(x$na_sdrep==FALSE & !is.na(x$na_sdrep)) 1 else 0)
+df.mods$conv <- as.logical(opt_conv)
+df.mods$pdHess <- as.logical(ok_sdrep)
+df.mods$NLL <- sapply(mods, function(x) round(x$opt$objective,3))
+
+not_conv <- !df.mods$conv | !df.mods$pdHess
+mods2 <- mods
+mods2[not_conv] <- NULL
+
+df.aic.tmp <- as.data.frame(wham::compare_wham_models(mods2, table.opts=list(sort=FALSE, calc.rho=T, print=F))$tab)
+df.aic <- df.aic.tmp[FALSE,]
+ct = 1
+for(i in 1:n.mods){
+  if(not_conv[i]){
+    df.aic[i,] <- rep(NA,5)
+  } else {
+    df.aic[i,] <- df.aic.tmp[ct,]
+    ct <- ct + 1
+  }
+}
+df.aic <- tibble::rownames_to_column(df.aic)
+
+df.mods <- dplyr::left_join(df.mods, df.aic, dplyr::join_by(Model == rowname))
+df.mods <- df.mods[order(df.mods$dAIC, na.last=TRUE),]
+df.mods[is.na(df.mods$AIC), c('dAIC','AIC','rho_R','rho_SSB','rho_Fbar')] <- "---"
+rownames(df.mods) <- NULL
+
+diagonly <- df.mods |>
+  dplyr::select(Model, conv, pdHess, NLL, dAIC, AIC, rho_R, rho_SSB, rho_Fbar)
+
+#flextable::flextable(diagonly)
+
+# code from wham:::plot.NAA.4.panel in https://github.com/timjmiller/wham/blob/master/R/wham_plots_tables.R
+
+
+plot.NAA.rec.panel <- function(mod){
+  
+  years <- mod$years
+  years_full <- mod$years_full
+  dat <- mod$env$data
+  pred_NAA <- mod$rep$pred_NAA
+  NAA <- mod$rep$NAA
+  sigma_all <- exp(mod$parList$log_NAA_sigma) #n_stocks x n_ages
+  stocks <- 1:dat$n_stocks
+  regions <- 1:dat$n_regions
+  ages <- 1 #1:dat$n_ages
+  
+  plot.colors <- viridisLite::viridis(n=length(1:dat$n_ages))
+
+  for(s in stocks) for(r in regions) for (i in ages) if(dat$NAA_where[s,r,i])
+	{
+    sigma <- matrix(sigma_all[s,r,], length(years_full), dat$n_ages, byrow = TRUE)
+    log_stdres <- (log(NAA[s,r,,])-log(pred_NAA[s,r,,]))/sigma
+    y.max <- max(NAA[s,r,,i], na.rm = TRUE)
+    if(!is.na(y.max)) {
+      plot(years_full, NAA[s,r,,i], type='p', col=plot.colors[i], pch=1, xlab="Year", ylab="Abundance (1000s)",
+        ylim=c(0, 1.1*y.max))
+      lines(years_full, pred_NAA[s,r,,i], col=plot.colors[i], lwd=2)
+      title(main = deparse(substitute(mod)))
+      if(length(years_full) > length(years)) abline(v=tail(years,1), lty=2, lwd=1)
+    }
+  }
+}
+
+#purrr::map(NAAmods, plot.NAA.rec.panel)
+```
+
+```{r NAAonplots, fig.show='hold', out.width='49%'}
+
+plot.NAA.rec.panel(NAAon_ecovoff)
+  
+plot.NAA.rec.panel(NAAon_ecovon)
+
+
+```
+
 
 ]
 
@@ -145,6 +256,8 @@ New state space model developed with NAA RE, best fit with numbers at age transi
 
 Image of NAA RE pattern
 
+![ecov fit with NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+
 Good model diagnostics
 
 Including the covariate in the model: only one approach possible because stock recruit relationship not estimable
@@ -160,14 +273,33 @@ Image of fit to haddock predation index covariate
 # Strong covariate effect, fit poorer without NAA RE
 
 .pull-left[
-An experiment fitting the model without NAA RE on older ages and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
+An experiment fitting the model without NAA RE on ages 2+ and with the environmental covariate resulted in poorer model fit but a much stronger covariate effect; and a different recruitment signal
 
-![ecov fit without NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
+```{r NAAoffplots, fig.show='hold', out.width='49%'}
+
+plot.NAA.rec.panel(NAAoff_ecovoff)
+  
+plot.NAA.rec.panel(NAAoff_ecovon)
+
+
+```
+
 ]
 
 .pull-right[
+
+```{r}
+flextable::flextable(diagonly) |>
+  flextable::fit_to_width(max_width = 6)
+```
+
 ![NAA RE off](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/NAA_dev_tile.png)
+
+
 ]
+
+???
+![ecov fit without NAA RE](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
 
 And a different recruitment time series? NAA RE on ages soaking up some uncertainty that could be explained mechanistically
 
@@ -196,144 +328,95 @@ Different assumptions affect reference point calculations
 
 
 ---
+.pull-left[
 # Discussion
 
-.pull-left-60[
+RE interactions with covariates in state space assessment models obviously needs more investigation. We dont have a recruitment index in this model, that data might help.
+
+A lot of effort and review goes into historical model fit, then we do projections separately with a single best fit model, but projections are the thing used in management for catch advice
+
 Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
-
-RE interactions with covariates in state space assessment models obviously needs more investigation
-
-We tend to obsess about historical model fit, then do projections separately with a single best fit model, but projections are the thing used in management for catch advice
 
 Past performance does not guarantee future returns!
 ]
 
-.pull-right-40[
-![draft R/SSB comparison](/Users/sarahgaichas/Desktop/leadRSSB.png)
-]
+.pull-right[
+```{r}
+x <- list()
+
+for(i in 1:length(mods2)){
+        x[[i]] <- wham::read_wham_fit(mods2[[i]])
+    }
+        
+names(x) <- names(mods2)
+
+df <- data.frame(matrix(NA, nrow=0, ncol=6))
+colnames(df) <- c("Year","var","val","lo","hi","Model")
+  
+stock <- 1
+region <- 1
+
+for(i in 1:length(x)){
+      #if(x[[i]]$is.wham){
+        df <- rbind(df, data.frame(Year=x[[i]]$years_full, var="SSB", val=exp(x[[i]]$log_SSB_all$est), lo=x[[i]]$log_SSB_all$ci$lo, 
+          hi=x[[i]]$log_SSB_all$ci$hi, Model=names(x)[i]))
+        df <- rbind(df, data.frame(Year=x[[i]]$years_full, var="F", val=exp(x[[i]]$log_F_tot$est), lo=x[[i]]$log_F_tot$ci$lo, 
+          hi=x[[i]]$log_F_tot$ci$hi, Model=names(x)[i]))
+        df <- rbind(df, data.frame(Year=x[[i]]$years_full, var="Recruitment", val=exp(x[[i]]$log_NAA_rep$est[stock,region,,1]), 
+          lo=x[[i]]$log_NAA_rep$ci$lo[stock,region,,1], hi=x[[i]]$log_NAA_rep$ci$hi[stock,region,,1], Model=names(x)[i]))
+      
+      #}
+}
+
+ASAP2024 <- dget(url("https://github.com/sgaichas/whamtest-covariates/raw/main/ASAP24/RUN2.rdat"))
+
+rec24 <- ASAP2024$N.age[,1]
+
+SSB24 <- ASAP2024$SSB
+
+recSSB24 <- dplyr::lead(rec24)/SSB24 # has year of rec, want year of SSB compared with rec yr+1
+
+recSSB24short <- recSSB24[-c(1:22)] |>
+  tibble::enframe() |>
+  dplyr::select(Year = name, recSSB = value) |>
+  dplyr::mutate(Year = as.numeric(Year)-1)
+
+recSSB <- ggplot2::ggplot(df |> 
+                            dplyr::filter(var %in% c("Recruitment", "SSB")) |>
+                            dplyr::select(Year, var, val, Model) |>
+                            tidyr::pivot_wider(names_from = var, values_from = val) |>
+                            dplyr::group_by(Model) |>
+                            dplyr::mutate(recSSB = dplyr::lead(Recruitment)/SSB) |> # rec in year+1/SSB in year
+                            dplyr::ungroup()
+                            ) +
+  ggplot2::geom_area(data = recSSB24short, ggplot2::aes(x=Year, y=recSSB, fill = "lightgray")) +
+  ggplot2::geom_line(ggplot2::aes(x=Year, y=recSSB, color=Model)) +
+  ggplot2::scale_fill_identity(name = '', guide = 'legend',labels = c('ASAP 24 MT')) +
+  ggplot2::theme_bw() +
+  ggplot2::ylab("Rec/SSB")
+
+reconly <- ggplot2::ggplot(df |> dplyr::filter(var %in% "Recruitment")) +
+  ggplot2::geom_area(data = rec24[-c(1:22)] |>
+                       tibble::enframe() |>
+                       dplyr::select(Year = name, Recruitment = value) |>
+                       dplyr::mutate(Year = as.numeric(Year)),
+                     ggplot2::aes(x=Year, y=Recruitment, fill = "lightgray")) +
+  ggplot2::geom_line(ggplot2::aes(x=Year, y=val, color=Model)) +
+  ggplot2::scale_fill_identity(name = '', guide = 'legend',labels = c('ASAP 24 MT')) +
+  ggplot2::theme_bw()
+
+library(patchwork)
+
+reconly / recSSB
+
+```
 
 # Thoughts? Thank you!
+]
+
 
 .footnote[
 Slides available at https://sgaichas.github.io/HSpresentations  
 Contact: <sgaichas@hydrascientificllc.com>
 ]
 
----
-
-# Cut below here
-
-
----
-## Overview of results shown for each model
-
-.pull-left[
-Summary table comparing across models with and without recruitment covariates turned on
-
-Diagnostics shown: 
-
-*  WHAM's fit to the covariate time series
-*  One step ahead residuals for WHAM's fit
-*  Estimated time varying recruitment scaling parameter with N age 1
-
-Finally, recruitment sigma compared with base, covariate beta with CI
-
-] 
-
-.pull-right[
-
-The main diagnostics we used to determine if the model was improved by covariates were:
-
-*  model converged and Hessian matrix invertable
-*  dAIC lowest
-*  recruitment sigma reduced (how much?)
-*  estimated covariate effect CI does not include 0
-*  direction of covariate effect is sensible
-]
-
----
-## Results: Duration of optimal larval temperature, Sept-Dec: model summary
-
-```
-  Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
-
-    m4           rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1827.543     0 -3393.1 0.6543  0.5984 -0.2323
-    m3           rw                     none logmean-est_1 TRUE   TRUE -1826.370   0.4 -3392.7 0.8682  0.5901 -0.2314
-
-```
----
-## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
-
-.pull-left[
-![LarvalTempDuration/m3  fit](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
-]
-
-.pull-right[
-![LarvalTempDuration/m3 osa](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
-
-]
-
----
-## Results: Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
-
-.pull-left[
-![LarvalTempDuration/m3 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-.pull-right[
-![LarvalTempDuration/m4 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-```{r}
-m3par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m3/res_tables/parameter_estimates_table.RDS"))
-
-m4par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration/m4/res_tables/parameter_estimates_table.RDS"))
-
-```
-
-Without covariate, recruitment variance is `r round(m3par["stock 1 NAA $\\sigma$ (age 1)",1],3)`, and with is `r round(m4par["stock 1 NAA $\\sigma$ (age 1)",1],3)`; LarvalTempDuration beta_1 is `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",1],3)`, CI `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",3],3)`, `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",4],3)`
-
----
-## Sensitivity: Remove NAA RE, add September - December duration of larval optimal temperature: model summary
-
-*Both rw and ar1 models worked with covariates, rw better fit*
-
-```
-Model ecov_process                 ecov_how       ecovdat conv pdHess       NLL  dAIC     AIC  rho_R rho_SSB rho_Fbar
-
-  m4            rw controlling-lag-1-linear logmean-est_1 TRUE   TRUE -1762.281     0 -3266.6 1.6108  0.3339   -0.121
-  m3            rw                     none logmean-est_1 TRUE   TRUE -1748.086  26.4 -3240.2 3.5003  0.3664  -0.1424
-
-```
-
----
-## Duration of optimal larval temperature, Sept-Dec: logscale rw diagnostics
-
-.pull-left[
-![LarvalTempDurationsens/m3  fit](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/LarvalTempDuration_diagnostic.png)
-]
-
-.pull-right[
-
-![LarvalTempDurationsens/m3 osa](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/OSA_resid_ecov_4panel_LarvalTempDuration.png)
-]
-
----
-## Duration of optimal larval temperature, Sept-Dec: logscale rw recruitment
-
-.pull-left[
-![LarvalTempDurationsens/m3 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-.pull-right[
-![LarvalTempDurationsens/m4 rec](https://github.com/sgaichas/presentations/raw/main/IEA/HerringRT_2025/WHAM/mm192_LarvalTempDuration_NAA_REoff/m4/plots_png/diagnostics/NAA_4panel_stock_1_region_1_age_1.png)
-]
-
-```{r}
-m3par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration_NAA_REoff/m3/res_tables/parameter_estimates_table.RDS"))
-
-m4par <- readRDS(here::here("WHAM/mm192_LarvalTempDuration_NAA_REoff/m4/res_tables/parameter_estimates_table.RDS"))
-
-```
-
-Without covariate, recruitment variance is `r round(m3par["stock 1 NAA $\\sigma$ (age 1)",1],3)`, and with is `r round(m4par["stock 1 NAA $\\sigma$ (age 1)",1],3)`; LarvalTempDuration beta_1 is `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",1],3)`, CI `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",3],3)`, `r round(m4par["stock 1 Recruitment Ecov: LarvalTempDuration $\\beta_1$",4],3)`
