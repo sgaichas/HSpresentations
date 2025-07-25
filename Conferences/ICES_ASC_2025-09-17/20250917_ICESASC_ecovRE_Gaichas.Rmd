@@ -190,11 +190,11 @@ df.mods[is.na(df.mods$AIC), c('dAIC','AIC','rho_R','rho_SSB','rho_Fbar')] <- "--
 rownames(df.mods) <- NULL
 
 diagonly <- df.mods |>
-  dplyr::select(Model, conv, pdHess, NLL, dAIC, AIC, rho_R, rho_SSB, rho_Fbar)
+  dplyr::select(Model, conv, pdHess, NLL, dAIC, AIC) #, rho_R, rho_SSB, rho_Fbar)
 
 #flextable::flextable(diagonly)
 
-# code from wham:::plot.NAA.4.panel in https://github.com/timjmiller/wham/blob/master/R/wham_plots_tables.R
+# code modified from wham:::plot.NAA.4.panel in https://github.com/timjmiller/wham/blob/master/R/wham_plots_tables.R
 
 
 plot.NAA.rec.panel <- function(mod){
@@ -217,10 +217,11 @@ plot.NAA.rec.panel <- function(mod){
     log_stdres <- (log(NAA[s,r,,])-log(pred_NAA[s,r,,]))/sigma
     y.max <- max(NAA[s,r,,i], na.rm = TRUE)
     if(!is.na(y.max)) {
-      plot(years_full, NAA[s,r,,i], type='p', col=plot.colors[i], pch=1, xlab="Year", ylab="Abundance (1000s)",
-        ylim=c(0, 1.1*y.max))
-      lines(years_full, pred_NAA[s,r,,i], col=plot.colors[i], lwd=2)
-      title(main = deparse(substitute(mod)))
+      par(mai = c(1, 1.25, 1, 1))
+      plot(years_full, NAA[s,r,,i], type='p', col=plot.colors[i], pch=16, xlab="Year", ylab="Recruitment",
+        ylim=c(0, 1.1*y.max), cex=2, cex.lab = 2, cex.axes = 1.5, cex.main = 2.5)
+      lines(years_full, pred_NAA[s,r,,i], col=plot.colors[i], lwd=3)
+      title(main = deparse(substitute(mod)), cex.main=2.5)
       if(length(years_full) > length(years)) abline(v=tail(years,1), lty=2, lwd=1)
     }
   }
@@ -331,9 +332,9 @@ Different assumptions affect reference point calculations
 .pull-left[
 # Discussion
 
-RE interactions with covariates in state space assessment models obviously needs more investigation. We dont have a recruitment index in this model, that data might help.
+RE interactions with covariates in state space assessment models needs more investigation. We dont have a recruitment index in this model, that data might help.
 
-A lot of effort and review goes into historical model fit, then we do projections separately with a single best fit model, but projections are the thing used in management for catch advice
+A lot of effort and review goes into identifying the model that best fits historical data, then we do projections separately with a single best fit model, but projections are what's used to set catch advice in fishery management.
 
 Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
 
