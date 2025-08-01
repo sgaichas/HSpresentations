@@ -107,7 +107,9 @@ Considerable effort has been invested in evaluating potential environmental driv
 # What drives recruitment of Atlantic herring?
 
 .pull-left[
-![Atlantic herring spawning areas in the Gulf of Maine, Northweast Atlantic](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Micah_HerringSpawningMap.png)
+![Richardson paper](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Micah_RichardsonPaper.png)
+![:img Haddock head, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Micah_HaddockHead.png)![:img Herring eggs, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Micah_HerringEggs.png)
+
 ]
 
 .pull-right[
@@ -117,14 +119,15 @@ Haddock egg predation looked promising based on the previous assessment and exte
 ]
 
 ???
+![Atlantic herring spawning areas in the Gulf of Maine, Northweast Atlantic](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Micah_HerringSpawningMap.png)
 
 ---
 # New improved herring assessment, no covariate impact
 
 .pull-left[
-State space assessment has much better diagnostics, stability and the WHAM assessment framework designed to incorporate environmental covariates 
+State space assessment has much better diagnostics and stability in the [WHAM assessment framework](https://timjmiller.github.io/wham/) designed to incorporate environmental covariates 
 
-Yet haddock predation had negligible impact on recruitment
+Yet the haddock predation index had negligible impact on recruitment
 
 ```{r}
 
@@ -247,7 +250,7 @@ Why?
 
 Limited ways to implement covariates: no stock recruit relationship
 
-Best fit with numbers at age transition random effects: correlations among ages but not years 
+Best fit with numbers at age transition random effects (NAA RE): correlations among ages, not years 
 
 ![NAA RE implemented](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/results/NAA_dev_tile.png)
 ]
@@ -309,40 +312,12 @@ Image comparing recruitment deviations with and without NAA RE and impact of had
 Need methods to address multiple covariates: larval optimal temperature duration similar results to haddock predation
 
 ---
-#  Perception of the stock changes 
+#  Our perception of the stock changes 
 
 .pull-left[
+Biomass estimates are similar between models
 
-![:img with NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm204-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm206-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)
-![:img with NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/SSB_Rec_time_stock_1.png)
-
-]
-
-.pull-right[
-
-![modcompare all](https://github.com/sgaichas/whamtest-covariates/raw/main/compare_png/compare_rel_status_kobe.png)
-
-Different assumptions affect reference point calculations
-
-]
-
-
-
----
-.pull-left[
-# Discussion
-
-RE interactions with covariates in state space assessment models needs more investigation. We dont have a recruitment index in this model, that data might help.
-
-A lot of effort and review goes into identifying the model that best fits historical data, then we do projections separately with a single best fit model, but projections are what's used to set catch advice in fishery management.
-
-Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
-
-Past performance does not guarantee future returns!
-]
-
-.pull-right[
-```{r}
+```{r SSB comp, fig.asp=0.5}
 x <- list()
 
 for(i in 1:length(mods2)){
@@ -369,6 +344,84 @@ for(i in 1:length(x)){
       #}
 }
 
+# viridis without yellow
+# a hack that only works because we have 4 things to compare
+viridis4noyellow <- viridis::viridis_pal()(5)
+viridis4noyellow <- viridis4noyellow[1:4]
+
+# from wham:::plot_timeseries_compare
+
+  df$Model <- factor(df$Model, levels=names(x), labels=names(x))
+  df$Year <- as.integer(df$Year)
+  #if(any(plot.opts$ci)){
+    df <- df |> dplyr::group_by(var) |> dplyr::mutate(y_max = 1.2*max(val)) |> as.data.frame()   # trim large CIs to zoom to 120% of max MLE
+    ind <- which(df$hi > df$y_max)
+    df$hi[ind] = df$y_max[ind]
+  #}
+  g <- ggplot2::ggplot(df |> dplyr::filter(var=="SSB"), ggplot2::aes(x=Year, y=val, color=Model, group=Model))
+  #if(any(plot.opts$ci)){
+    g <- g + ggplot2::geom_ribbon(ggplot2::aes(x=Year, ymin=lo, ymax=hi, fill=Model), color=NA, alpha=.15) +
+          #ggplot2::scale_fill_viridis_d()
+          ggplot2::scale_fill_manual(values = c(viridis4noyellow)) 
+  #}
+  g <- g + ggplot2::geom_line(size=.8) +
+          ggplot2::facet_wrap(ggplot2::vars(var), scales="free_y", ncol=1, strip.position = "left") +
+          ggplot2::ylab(NULL) +
+          ggplot2::scale_x_continuous(expand=c(0.01,0.01)) + # breaks=scales::breaks_extended(5)
+          #ggplot2::scale_colour_viridis_d() +
+          ggplot2::scale_colour_manual(values = c(viridis4noyellow)) +
+          ggplot2::theme_bw() +
+          ggplot2::theme(strip.background = ggplot2::element_blank(), strip.placement = "outside",
+                legend.position="top", legend.box.margin = ggplot2::margin(0,0,0,0), legend.margin = ggplot2::margin(0,0,0,0))
+  # if not relative, force y min to 0
+  #if(is.null(plot.opts$relative.to)){
+    g <- g + ggplot2::scale_y_continuous(expand=c(0.01,0.01), limits = c(0,NA)) #, labels=fancy_scientific)
+  #} else {
+  #  g <- g + ggplot2::scale_y_continuous(expand=c(0.01,0.01), labels=fancy_scientific)
+  #}
+
+    g
+```
+
+But recruitment is different, and we don't know which is right because we lack a recruitment index.
+
+Further, including recruitment covariates alters reference point calculations.
+]
+
+.pull-right[
+
+![modcompare all](https://github.com/sgaichas/whamtest-covariates/raw/main/compare_png/compare_rel_status_kobe.png)
+
+Different assumptions affect reference point calculations
+
+]
+
+???
+We had several potential drivers so there could be more than one. But which mechanism to include? 
+
+We got a similar effect with a different environmental covariate--optimal larval temperature. Try to include both??
+
+![:img with NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm204-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA no ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm206-ecovoff/plots_png/results/SSB_Rec_time_stock_1.png)
+![:img with NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm205-test/plots_png/results/SSB_Rec_time_stock_1.png)![:img no NAA and ecov, 50%](https://github.com/sgaichas/whamtest-covariates/raw/main/WHAMfits/mm207-ecovon/plots_png/results/SSB_Rec_time_stock_1.png)
+
+
+---
+.pull-left[
+# Discussion
+
+We need more investigation of NAA RE and interactions with covariates, reference point calculations, and projections.
+
+These NAA RE can't be projected, while some recruitment covariates could. NAA RE were retained in the model but not covariates due to fit criteria combined with parsimony.
+
+Do we risk sacrificing short term prediction capability (needed by management) for assessment model fit (needed to get models accepted for use in management)? 
+
+Past performance does not guarantee future returns!
+]
+
+.pull-right[
+```{r}
+
+
 ASAP2024 <- dget(url("https://github.com/sgaichas/whamtest-covariates/raw/main/ASAP24/RUN2.rdat"))
 
 rec24 <- ASAP2024$N.age[,1]
@@ -389,10 +442,12 @@ recSSB <- ggplot2::ggplot(df |>
                             dplyr::group_by(Model) |>
                             dplyr::mutate(recSSB = dplyr::lead(Recruitment)/SSB) |> # rec in year+1/SSB in year
                             dplyr::ungroup()
-                            ) +
+) +
   ggplot2::geom_area(data = recSSB24short, ggplot2::aes(x=Year, y=recSSB, fill = "lightgray")) +
   ggplot2::geom_line(ggplot2::aes(x=Year, y=recSSB, color=Model)) +
   ggplot2::scale_fill_identity(name = '', guide = 'legend',labels = c('ASAP 24 MT')) +
+  #ggplot2::scale_colour_viridis_d() +
+  ggplot2::scale_colour_manual(values = c(viridis4noyellow)) +
   ggplot2::theme_bw() +
   ggplot2::ylab("Rec/SSB")
 
@@ -404,6 +459,8 @@ reconly <- ggplot2::ggplot(df |> dplyr::filter(var %in% "Recruitment")) +
                      ggplot2::aes(x=Year, y=Recruitment, fill = "lightgray")) +
   ggplot2::geom_line(ggplot2::aes(x=Year, y=val, color=Model)) +
   ggplot2::scale_fill_identity(name = '', guide = 'legend',labels = c('ASAP 24 MT')) +
+  #ggplot2::scale_colour_viridis_d() +
+  ggplot2::scale_colour_manual(values = c(viridis4noyellow)) +
   ggplot2::theme_bw()
 
 library(patchwork)
@@ -420,4 +477,7 @@ reconly / recSSB
 Slides available at https://sgaichas.github.io/HSpresentations  
 Contact: <sgaichas@hydrascientificllc.com>
 ]
+
+???
+A lot of effort and review goes into identifying the model that best fits historical data, then we do projections separately with a single best fit model, but projections are what's used to set catch advice in fishery management.
 
