@@ -1,0 +1,28 @@
+---
+title: "Fit for the future? Environmental covariates and random effects in stock assessment<br />"
+subtitle: "ICES ASC Session M <br />17 September 2025<br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC<br /> Micah Dean, Massachusetts Dept. of Marine Fisheries<br /> Jon Deroba, NOAA Fisheries<br /><br />"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+Normal text
