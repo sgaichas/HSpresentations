@@ -1,0 +1,113 @@
+---
+title: "Ecosystem Information Review and Strategy Development for More Resilient Fisheries"
+subtitle: "SAFMC Project Oversight Team <br />11 September 2025<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+# Project Overview
+
+1) Review the different types of ecosystem data and information including data products and
+decision-support tools (e.g. Ecosystem Status Reports, Climate Vulnerability Assessments, risk
+assessments) currently available to the regional management councils and evaluate how they are
+used in council management processes;
+
+2) Identify opportunities and methods for incorporating identified ecosystem information into
+SAFMC management processes, including inter-jurisdictional management decision-making
+processes, and identify practical requirements for successful implementation (e.g. data quality,
+frequency of information updates, regional council process consistency, implementation
+timelines); and
+
+3) Identify opportunities to continue to expand cooperative, constituent-engaged data collection
+and research to improve the available ecosystem information in the South Atlantic region (e.g.,
+study fleets, cooperative research, citizen science).
+
+---
+# Workplan: Objective 1
+
+---
+# Workplan: Objective 2
+
+---
+# Workplan: Objective 3
+
+---
+# Deliverables
+
+---
+# Coordination
+
+---
+.pull-left[
+# Discussion
+] 
+
+.pull-right[
+# Thoughts? Thank you!
+]
+
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+???
+
