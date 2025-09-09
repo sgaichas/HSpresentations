@@ -82,8 +82,22 @@ study fleets, cooperative research, citizen science).
 ---
 # Workplan: Objective 1
 
+*Review the different types of ecosystem data and information including data products and decision-support tools (e.g. Ecosystem Status Reports, Climate Vulnerability Assessments, risk assessments) currently available to the regional management councils and evaluate how they are used in council management processes*
+
+Literature search
+
+Structured interviews
+
 ---
 # Workplan: Objective 2
+
+*Identify opportunities and methods for incorporating identified ecosystem information into SAFMC management processes, including inter-jurisdictional management decision- making processes, and identify practical requirements for successful implementation (e.g. data quality, frequency of information updates, regional council process consistency, implementation timelines)*
+
+Initial focus on catch specification
+
+Broaden to other processes using review of 3-5 years of Council actions
+
+
 
 ---
 # Workplan: Objective 3
