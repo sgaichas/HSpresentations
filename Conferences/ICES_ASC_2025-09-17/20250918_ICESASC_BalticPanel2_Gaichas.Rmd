@@ -1,0 +1,52 @@
+---
+title: "For and from the Baltic: Navigating the Future of Fisheries with Ecosystem-Based Management<br />"
+subtitle: "ICES ASC Side Event, Panel 2 <br />18 September 2025<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/arrowModWManagers.png")
+background-size: 800px
+background-position: center
+
+
+## Implementing the Ecosystem Approach: lessons learned from U.S. Fishery Management
+.pull-left[
+* Collaborative, iterative, *adaptive* process between scientists, managers, stakeholders
+
+![:img IEA process from goal setting to assessment to strategy evaluation with feedbacks, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/iea-loop.png)
+.footnote[
+https://www.integratedecosystemassessment.noaa.gov/about-iea/iea-approach
+]
+]
+
+.pull-right[
+* Ecosystem reporting, risk and vulnerability assessment are key tools
+
+
+![:img Mid-Atlantic EAFM framework with full details in speaker notes, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Framework.png)
+.footnote[
+https://www.mafmc.org/eafm
+]
+]
+???
+The Council’s EAFM framework has similarities to the IEA loop. It uses risk assessment as a first step to prioritize combinations of managed species, fleets, and ecosystem interactions for consideration. Second, a conceptual model is developed identifying key environmental, ecological, social, economic, and management linkages for a high-priority fishery. Third, quantitative modeling addressing Council-specified questions and based on interactions identified in the conceptual model is applied to evaluate alternative management strategies that best balance management objectives. As strategies are implemented, outcomes are monitored and the process is adjusted, and/or another priority identified in risk assessment can be addressed. 
+   * Direct link between ecosystem reporting and risk assessment
+   * Conceptual model links across risk elements for fisheries, species
+   * Management strategy evaluation includes key risks
+
