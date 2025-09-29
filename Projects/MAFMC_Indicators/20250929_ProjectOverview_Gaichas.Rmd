@@ -112,25 +112,32 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
-.pull-left[
-**Initial focus on catch specification**
+.pull-left-30[
+**One potential focus on ABC**
 
-* Utility of an ecosystem profile approach?
-* Climate vulnerability consideration in uncertainty buffers for ABC setting?
-* Risk table approaches used/piloted in other regions?
+* Extend current process using risk table approaches from other regions?
+* Standardize ecosystem profile approach for within stock assessment use?
+* Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
+* Simulation testing
 
 ]
 
-.pull-right[
-**Broaden to other processes using a review of 3-5 years of Council actions** 
+.pull-right-70[
+**Other management decisions likely to benefit** 
 
-* Classify management decisions by data needs and process timelines
-* Develop a prioritized list of processes linked to ecosystem information
+* Hypothetical: spatial management measures 
+    * Evaluate with indicators of fishery and target species spatial overlap
+    * Simulate distribution shifts, fleet movement constraints, etc.
+    * Which management measures meet objectives with minimal side effects?
+* Hypothetical: habitat productivity 
+    * Evaluate indicators of favorable or unfavorable habitat conditions 
+    * Simulate management with different risk tolerance under different environmental conditions
+    * Which habitat-adjusted risk tolerance meets objectives across species portfolio?
+
+]
+
+???
 * Recommend practical pathways for implementation
-
-**Feedback requested: priority management actions?**
-
-]
 
 ---
 ## Examples: Objective 2. Ecosystem Profiles and Catch Specification
@@ -160,128 +167,30 @@ Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheri
 
 
 ---
-## Examples: Objective 2. Broader Applications and Practical Methods
-
-.pull-left[
-**Case study: risk assessment**
-```{r sptable}
-#tab.cap="Species level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
-
-# spplist     oc,  sc,  flk, scp, bsb, mack, but, lsq, ssq, gtile,  btile,  blu, dog, monk
-risk.species<-data.frame(
-  Species = c("Ocean Quahog", "Surfclam", "Summer flounder", "Scup", "Black sea bass", "Atl. mackerel", "Chub mackerel", "Butterfish", "Longfin squid", "Shortfin squid", "Golden tilefish", "Blueline tilefish", "Bluefish", "Spiny dogfish", "Monkfish", "Unmanaged forage", "Deepsea corals"),
-  Assess  = c("l", "l", "l",  "l", "l", "l", "h", "l", "lm", "h", "lm", "h", "l", "l", "h", "na", "na"),
-  Fstatus = c("l", "l", "h", "l", "l", "l", "lm", "l", "lm", "lm", "h", "h", "l", "l", "lm", "na", "na"),
-  Bstatus = c("l", "l", "lm", "l", "l", "h", "lm", "lm", "lm", "lm", "lm", "mh", "lm", "l", "lm", "na", "na"),
-  #FW1Pred = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l"),
-  #FW1Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "lm", "l"),
-  PreyA = c("tbd", "tbd", "tbd", "tbd", "h", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "lm", "tbd", "tbd", "tbd", "tbd"),
-  PredP = c("l", "l", "tbd", "tbd", "tbd", "mh", "tbd", "mh", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd"),
-  FW2Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "lm", "lm", "l", "l", "l", "l", "l", "lm", "l"),
-  Climate = c("h", "mh", "lm", "lm", "mh", "lm", "na", "l", "l", "l", "mh", "mh","l", "l", "l", "na", "na"),
-  DistShift = c("mh", "mh", "mh", "mh", "mh", "mh", "na", "h", "mh", "h", "l", "l", "mh", "h", "mh", "na", "na"),
-  EstHabitat = c("l", "l", "h", "h", "h", "l", "l", "l", "l", "l", "l", "l", "h", "l", "l", "na", "na"),
-  OffHab = c("tbd", "tbd", "tbd", "tbd", "l", "tbd", "tbd", "tbd", "tbd", "tbd", "l", "tbd", "mh", "tbd", "tbd", "tbd", "tbd")#,
-)
-
-
-
-# these elements were removed by the council
-#  PopDiv = c("na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na"),
-#  FoodSafe = c(),
-
-# one column test
-# risk.species %>%
-#   mutate(Fstatus = 
-#     cell_spec(Fstatus, format="latex", color = "black", align = "c", background =factor(Fstatus, c("na", "l", "lm", "mh", "h"),c("white", "green", "yellow", "orange", "red")))) %>%
-#   kable(risk.species, format="latex", escape = F, booktabs = T, linesep = "")
-
-#convert to longer text for consistency and display in html table
-risk.species <- risk.species %>%
-     mutate_at(vars(-Species), function(x){
-       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
-     as.data.frame()
-
-#generalize to all
-risk.species %>%
-  mutate_at(vars(-Species), function(x){ 
-    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
-  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
-  kable_styling(font_size = 8) 
-```
-
-*Ecosystem level risk elements*
-```{r ecotable}
-#tab.cap="Ecosystem level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
-
-risk.eco<-data.frame(
-  System = c("Mid-Atlantic"),
-  EcoProd = c("lm"),
-  #EcoDiv = c("lm"),
-  CommVal = c("mh"),
-  RecVal = c("lm"),
-  FishRes1 = c("l"),
-  FishRes2 = c("lm"),
-  #CommJobs = c("mh"),
-  #RecJobs = c("l"),
-  ComDiv = c("mh"),
-  RecDiv = c("h"),
-  Social = c("mh"),
-  ComFood = c("mh"),
-  RecFood = c("mh")
-)
-#convert to longer text for consistency and display in html table
-risk.eco <- risk.eco %>%
-     mutate_at(vars(-System), function(x){
-       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
-     as.data.frame()
-
-#make table
-risk.eco %>%
-  mutate_at(vars(-System), function(x){ 
-    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
-  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
-  kable_styling(font_size = 9) 
-
-```
-
-]
-
-.pull-right[
-**Case study: prototype ocean indicators**
-
-```{r, fig.asp=0.8}
-
-ecodata::plot_bottom_temp_model_anom()
-```
-
-
-]
-
-
----
-background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
-background-size: 600px
-background-position: right
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png"), 
+background-size: 300px, 300px
+background-position: top right,  bottom right
 
 # Workplan: Objective 3
 
 .pull-left[
 *Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process*
 
-**Review existing SAFMC Citizen Science efforts**
+*  [MAFMC GitHub Organization](https://github.com/MAFMC) established for permanent code storage for all products
 
-Prioritize potential cooperative data collections based on the analysis of SAFMC management processes most likely to benefit from ecosystem information noted under the previous objective, and outline opportunities for expansion to collect this priority data
+*  GitHub training for interested Council staff amd members
 
-https://safmc.net/citizen-science/dolphin-wahoo-participatory-workshops/
+*  Graduate student and early career scientist participation to enhance pipeline of analysts with knowledge of management processes and needs
 
-.footnote[
-https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/  
-]
+*  Visualization tool, shiny app, and dashboard development and deployment to facilitate access and use of products
+
+*  Workflow automation to facilitate future operational updates of Council-selected operational indicators
+
 ]
 
 .pull-right[
 .center[
+https://nrha.shinyapps.io/dataexplorer/ https://fishmaps.shinyapps.io/prey/
 ]
 ]
 
