@@ -1,0 +1,360 @@
+---
+title: "Operationalizing Ecosystem and Habitat Indicators to Support Climate-Ready Fisheries Management in the Mid-Atlantic"
+subtitle: "MAFMC Project Overview <br />September 2025<br /><br /><br /><br /><br /><br /><br />"
+author: "<br />Sarah Gaichas, Hydra Scientific LLC<br /> Gavin Fay, UMass Dartmouth<br /> Kelsey Roberts, UMass Dartmouth<br /> Sophie Wulfing, UMass Dartmouth"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+# Project Overview: Objectives
+
+1) Review and assess existing ecosystem and habitat indicators in the Northeast and evaluate their utility to support management objectives;
+
+2) Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions; and
+
+3) Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process.
+
+---
+# Workplan: Objective 1
+
+*Review and assess existing ecosystem and habitat indicators in the Northeast and evaluate their utility to support management objectives*
+
+.pull-left[
+**Indicator Review:** *underway, ~70% complete*
+
+* Current Council Indicators  
+    * State of the Ecosystem Report   
+    * EAFM Risk Assessment  
+    * Ecosystem Socioeconomic Profiles  
+* Relevant New Indicators   
+    * US EPA, MARCO, State, Local  
+    * Global sources (FAO)  
+    * Peer-reviewed literature  
+* Compile indicator attributes in [SMART format](https://mafmc.github.io/SMARTindicatorsData/)
+* Summarize and develop indicator search tool
+
+]
+
+.pull-right[
+
+**In Person Workshop 1:** *planning underway*
+
+* Identify and prioritize Council management decisions that could be supported by tactical use of ecosystem indicators
+* Format
+    * Introduce preliminary list of Council decisions/processes
+    * Discuss and clarify list and fill gaps
+    * From full list, identify top 3 priority decisions for indicator development and analysis
+    * Identify preliminary indicators that may support priority decisions
+
+]
+
+**Deliverables:** Indicator review with SMART screening evaluation relative to priority management decisions
+
+---
+# Workplan: Objective 2
+
+*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left[
+**Initial focus on catch specification**
+
+* Utility of an ecosystem profile approach?
+* Climate vulnerability consideration in uncertainty buffers for ABC setting?
+* Risk table approaches used/piloted in other regions?
+
+]
+
+.pull-right[
+**Broaden to other processes using a review of 3-5 years of Council actions** 
+
+* Classify management decisions by data needs and process timelines
+* Develop a prioritized list of processes linked to ecosystem information
+* Recommend practical pathways for implementation
+
+**Feedback requested: priority management actions?**
+
+]
+
+---
+## Examples: Objective 2. Ecosystem Profiles and Catch Specification
+
+.pull-left-40[
+
+![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+.footnote[
+Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), and Abigail Tyrell and Emily Liljestrand, NEFSC
+]
+
+]
+
+--
+
+.pull-right-60[
+
+![:img bottom temp in BSB assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png)![:img GOA cod risk assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/GOApcodESPrisk.png)
+
+![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
+
+]
+
+
+
+---
+## Examples: Objective 2. Broader Applications and Practical Methods
+
+.pull-left[
+**Case study: risk assessment**
+```{r sptable}
+#tab.cap="Species level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+# spplist     oc,  sc,  flk, scp, bsb, mack, but, lsq, ssq, gtile,  btile,  blu, dog, monk
+risk.species<-data.frame(
+  Species = c("Ocean Quahog", "Surfclam", "Summer flounder", "Scup", "Black sea bass", "Atl. mackerel", "Chub mackerel", "Butterfish", "Longfin squid", "Shortfin squid", "Golden tilefish", "Blueline tilefish", "Bluefish", "Spiny dogfish", "Monkfish", "Unmanaged forage", "Deepsea corals"),
+  Assess  = c("l", "l", "l",  "l", "l", "l", "h", "l", "lm", "h", "lm", "h", "l", "l", "h", "na", "na"),
+  Fstatus = c("l", "l", "h", "l", "l", "l", "lm", "l", "lm", "lm", "h", "h", "l", "l", "lm", "na", "na"),
+  Bstatus = c("l", "l", "lm", "l", "l", "h", "lm", "lm", "lm", "lm", "lm", "mh", "lm", "l", "lm", "na", "na"),
+  #FW1Pred = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l"),
+  #FW1Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "lm", "l"),
+  PreyA = c("tbd", "tbd", "tbd", "tbd", "h", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "lm", "tbd", "tbd", "tbd", "tbd"),
+  PredP = c("l", "l", "tbd", "tbd", "tbd", "mh", "tbd", "mh", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd"),
+  FW2Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "lm", "lm", "l", "l", "l", "l", "l", "lm", "l"),
+  Climate = c("h", "mh", "lm", "lm", "mh", "lm", "na", "l", "l", "l", "mh", "mh","l", "l", "l", "na", "na"),
+  DistShift = c("mh", "mh", "mh", "mh", "mh", "mh", "na", "h", "mh", "h", "l", "l", "mh", "h", "mh", "na", "na"),
+  EstHabitat = c("l", "l", "h", "h", "h", "l", "l", "l", "l", "l", "l", "l", "h", "l", "l", "na", "na"),
+  OffHab = c("tbd", "tbd", "tbd", "tbd", "l", "tbd", "tbd", "tbd", "tbd", "tbd", "l", "tbd", "mh", "tbd", "tbd", "tbd", "tbd")#,
+)
+
+
+
+# these elements were removed by the council
+#  PopDiv = c("na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na"),
+#  FoodSafe = c(),
+
+# one column test
+# risk.species %>%
+#   mutate(Fstatus = 
+#     cell_spec(Fstatus, format="latex", color = "black", align = "c", background =factor(Fstatus, c("na", "l", "lm", "mh", "h"),c("white", "green", "yellow", "orange", "red")))) %>%
+#   kable(risk.species, format="latex", escape = F, booktabs = T, linesep = "")
+
+#convert to longer text for consistency and display in html table
+risk.species <- risk.species %>%
+     mutate_at(vars(-Species), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#generalize to all
+risk.species %>%
+  mutate_at(vars(-Species), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 8) 
+```
+
+*Ecosystem level risk elements*
+```{r ecotable}
+#tab.cap="Ecosystem level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+risk.eco<-data.frame(
+  System = c("Mid-Atlantic"),
+  EcoProd = c("lm"),
+  #EcoDiv = c("lm"),
+  CommVal = c("mh"),
+  RecVal = c("lm"),
+  FishRes1 = c("l"),
+  FishRes2 = c("lm"),
+  #CommJobs = c("mh"),
+  #RecJobs = c("l"),
+  ComDiv = c("mh"),
+  RecDiv = c("h"),
+  Social = c("mh"),
+  ComFood = c("mh"),
+  RecFood = c("mh")
+)
+#convert to longer text for consistency and display in html table
+risk.eco <- risk.eco %>%
+     mutate_at(vars(-System), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#make table
+risk.eco %>%
+  mutate_at(vars(-System), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 9) 
+
+```
+
+]
+
+.pull-right[
+**Case study: prototype ocean indicators**
+
+```{r, fig.asp=0.8}
+
+ecodata::plot_bottom_temp_model_anom()
+```
+
+
+]
+
+
+---
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
+background-size: 600px
+background-position: right
+
+# Workplan: Objective 3
+
+.pull-left[
+*Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process*
+
+**Review existing SAFMC Citizen Science efforts**
+
+Prioritize potential cooperative data collections based on the analysis of SAFMC management processes most likely to benefit from ecosystem information noted under the previous objective, and outline opportunities for expansion to collect this priority data
+
+https://safmc.net/citizen-science/dolphin-wahoo-participatory-workshops/
+
+.footnote[
+https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/  
+]
+]
+
+.pull-right[
+.center[
+]
+]
+
+???
+
+
+---
+# Deliverables and Schedule: Phase 1
+
+**Project duration ~2 years, with monthly Project Oversight Team updates**
+
+*  **July-November 2025:** Comprehensive Indicator Review and interactive search tool development
+
+*  **8 August 2025:** MAFMC GitHub organization and repositories established to support regular updates of all project products into the future 
+
+*  **10 November 2025:** Draft Indicator Review report and prototype interactive search tool to Project Oversight Team for feedback and revision
+
+*  **TBD December 2025:** In person Council Workshop 1 identifying priority Council management decisions for indicator development, early career researcher and student experience in Council processes
+
+*  **9 February 2026:** Final Indicator Review report with gap analysis and SMART screening relative to priority Council management decisions
+
+---
+# Deliverables and Schedule: Phase 2
+
+**Project duration ~2 years, with monthly Project Oversight Team updates**
+
+*  **TBD February 2026:** Online Council Mini-workshop selecting indicator subset for development and testing, early career researcher and student experience in Council processes
+
+*  **February-December 2026:** Indicator development and testing: data acquisition, model development, preliminary target and threshold analysis, visualization and communication tool development and deployment, Council staff training in reproducible workflows
+
+*  **TBD December 2026:** In person Council Workshop 2 identifying indicator performance metrics, review preliminary targets and thresholds, early career researcher and student experience in Council processes
+
+*  **January-June 2027:** Indicator target/threshold simulation testing under a range of uncertainties, identify pathways for management use, indicator workflow automation
+
+*  **30 June 2027:** Final Report to Council, Present all project results including operational infrastructure at Council meeting
+
+
+---
+.pull-left[
+# Discussion
+
+**Feedback requested:**
+
+Useful summary format for Council ecosystem data products and uses?
+
+*  1 page summary of each data product? Indexed by Council
+*  1 page summary of Council uses to date?
+*  Database of these results for searching?
+*  Synthesis document from these raw materials
+*  Longer term, multi-author review paper with all interviewees
+
+
+Additional questions to ask Council staff?
+
+Priority management actions beyond catch specification?
+
+] 
+
+.pull-right[
+# Thoughts? Thank you!
+
+![:img EAFM Policy Guidance Doc Word Cloud](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png)
+.contrib[
+Word cloud based on [Mid-Atlantic Fishery Management Council EAFM Guidance Document](https://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08-palr.pdf)
+]
+
+]
+
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+???
+

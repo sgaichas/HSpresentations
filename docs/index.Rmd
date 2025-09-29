@@ -13,7 +13,9 @@ output: html_document
 
 ### Mid-Atlantic Operationalizing Ecosystem Indicators
 
+<a href="https://sgaichas.github.io/HSpresentations/20250929_ProjectOverview_Gaichas.html" target="_blank">Project Overview for workshops - September 29, 2025</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20250929_Definitions_Gaichas.html" target="_blank">What are indicators? What is operational? - September 29, 2025</a>
 
 ### South Atlantic Ecosystem Data Review
 
