@@ -19,6 +19,10 @@ output:
 ---
 class: top, left
 
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC+Jurisdiction+Map+v3-01.jpg")
+background-size: 290px
+background-position: right
+
 ```{r setup, include=FALSE}
 #<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
 
@@ -65,11 +69,23 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 # Project Overview: Objectives
 
+.pull-left-70[
+
 1) Review and assess existing ecosystem and habitat indicators in the Northeast and evaluate their utility to support management objectives;
 
 2) Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions; and
 
 3) Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process.
+
+]
+
+.pull-right-30[]
+
+![:img MAFMC fishery management plans and species, 80%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMPs4.png)
+
+
+
+
 
 ---
 # Workplan: Objective 1
@@ -110,6 +126,40 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 ---
 # Workplan: Objective 2
 
+*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left[
+**Online mini-workshop, indicator development**
+
+* Mini-workshop identifies indicators for priority management decisions using SMART screening
+    * Identify desirable and undesirable states for management outcomes
+    * Identify potential indicator targets and thresholds linked to states
+* Indicator and target/threshold development
+    * Literature review for existing thresholds
+    * Indicator data acquisition and/or model development as necessary
+    * Empirical threshold identification and testing
+
+]
+
+.pull-right[
+**In person Workshop 2, Indicator simulation testing** 
+
+* Workshop develops performance criteria
+    * Review preliminary indicators, targets, thresholds
+    * Identify measures of management success and "good" vs "bad" indicator levels
+    * Identify uncertainties to include: environment? markets?
+* Simulation testing indicator-based management
+    * Evaluate management performance under the range of uncertainties
+    * Highlight optimal conditions for indicator use and pathways for inclusion in Council management
+]
+
+???
+    * Use models at the appropriate level of complexity for the management decision
+
+
+---
+# Workplan: Objective 2
+
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
 .pull-left-30[
@@ -123,12 +173,12 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 ]
 
 .pull-right-70[
-**Other management decisions likely to benefit** 
+**Other management decisions could be facilitated with indicators** 
 
 * Hypothetical: spatial management measures 
-    * Evaluate with indicators of fishery and target species spatial overlap
+    * Evaluate with indicators of fishery and species spatial overlap
     * Simulate distribution shifts, fleet movement constraints, etc.
-    * Which management measures meet objectives with minimal side effects?
+    * Which spatial management measures meet objectives with minimal side effects?
 * Hypothetical: habitat productivity 
     * Evaluate indicators of favorable or unfavorable habitat conditions 
     * Simulate management with different risk tolerance under different environmental conditions
@@ -167,31 +217,35 @@ Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheri
 
 
 ---
-background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png"), 
-background-size: 300px, 300px
-background-position: top right,  bottom right
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NRHAapp.png"), url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PreyAnalysisApp.png") 
+background-size: 600px, 600px
+background-position: top right, bottom right
 
 # Workplan: Objective 3
 
 .pull-left[
 *Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process*
 
-*  [MAFMC GitHub Organization](https://github.com/MAFMC) established for permanent code storage for all products
+*  [MAFMC GitHub Organization](https://github.com/MAFMC) established for open access code storage
+*  GitHub training for interested Council staff
+*  Student and early career scientist participation to train analysts with knowledge of management processes and needs
+*  Visualization tool, shiny app, and dashboard development and deployment to facilitate Council access and use of products
+*  Workflow automation to facilitate future operational updates of Council-selected indicators
 
-*  GitHub training for interested Council staff amd members
-
-*  Graduate student and early career scientist participation to enhance pipeline of analysts with knowledge of management processes and needs
-
-*  Visualization tool, shiny app, and dashboard development and deployment to facilitate access and use of products
-
-*  Workflow automation to facilitate future operational updates of Council-selected operational indicators
-
+<br /><br /><br /><br /><br />
 ]
 
 .pull-right[
+
 .center[
-https://nrha.shinyapps.io/dataexplorer/ https://fishmaps.shinyapps.io/prey/
+<br /><br /><br /><br />
+
+.contrib[
+&uarr;  https://nrha.shinyapps.io/dataexplorer/ &nbsp; &nbsp; &nbsp; &nbsp; https://fishmaps.shinyapps.io/prey/ &darr;
 ]
+
+]
+
 ]
 
 ???
@@ -234,18 +288,24 @@ https://nrha.shinyapps.io/dataexplorer/ https://fishmaps.shinyapps.io/prey/
 
 **Feedback requested:**
 
-Useful summary format for Council ecosystem data products and uses?
+Possible formats for indicator review
 
-*  1 page summary of each data product? Indexed by Council
-*  1 page summary of Council uses to date?
+.table[
+*  Summary pages for each Indicator with SMART criteria?
+*  Summary of indicator matches to Council management processes?
 *  Database of these results for searching?
-*  Synthesis document from these raw materials
-*  Longer term, multi-author review paper with all interviewees
+*  Synthesis document from these raw materials?
+]
 
+Possible formats for documenting indicator thresholds and simulation testing
 
-Additional questions to ask Council staff?
+.table[
+*  1 pagers with overviews of target and threshold rationale and performance?
+*  Detailed online documentation of threshold development and simulation testing?
+*  Multi-authored peer reviewed papers?
+]
 
-Priority management actions beyond catch specification?
+All other suggestions welcome!
 
 ] 
 
