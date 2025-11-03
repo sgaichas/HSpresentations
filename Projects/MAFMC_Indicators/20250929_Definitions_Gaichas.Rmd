@@ -1,6 +1,6 @@
 ---
 title: "Operationalizing Ecosystem and Habitat Indicators to Support Climate-Ready Fisheries Management in the Mid-Atlantic"
-subtitle: "Definitions <br />September 2025<br /><br /><br /><br /><br /><br /><br />"
+subtitle: "Definitions <br />November 2025<br /><br /><br /><br /><br /><br /><br />"
 author: "<br />Sarah Gaichas, Hydra Scientific LLC<br /> Gavin Fay, UMass Dartmouth<br /> Kelsey Roberts, UMass Dartmouth<br /> Sophie Wulfing, UMass Dartmouth"
 output:
   xaringan::moon_reader:
