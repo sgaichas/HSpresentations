@@ -110,9 +110,9 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 .pull-right[
 
-**In Person Workshop 1:** *planning underway*
+**In Person Workshop 1:** *You Are Here!*
 
-* Identify and prioritize Council management decisions that could be supported by tactical use of ecosystem indicators
+* Identify and prioritize Council management decisions that could be supported by operational use of ecosystem indicators
 * Format
     * Introduce preliminary list of Council decisions/processes
     * Discuss and clarify list and fill gaps
@@ -155,66 +155,6 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 ???
     * Use models at the appropriate level of complexity for the management decision
-
-
----
-# Workplan: Objective 2
-
-*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
-
-.pull-left-30[
-**One potential focus on ABC**
-
-* Extend current process using risk table approaches from other regions?
-* Standardize ecosystem profile approach for within stock assessment use?
-* Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-* Simulation testing
-
-]
-
-.pull-right-70[
-**Other management decisions could be facilitated with indicators** 
-
-* Hypothetical: spatial management measures 
-    * Evaluate with indicators of fishery and species spatial overlap
-    * Simulate distribution shifts, fleet movement constraints, etc.
-    * Which spatial management measures meet objectives with minimal side effects?
-* Hypothetical: habitat productivity 
-    * Evaluate indicators of favorable or unfavorable habitat conditions 
-    * Simulate management with different risk tolerance under different environmental conditions
-    * Which habitat-adjusted risk tolerance meets objectives across species portfolio?
-
-]
-
-???
-* Recommend practical pathways for implementation
-
----
-## Examples: Objective 2. Ecosystem Profiles and Catch Specification
-
-.pull-left-40[
-
-![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
-
-![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
-
-.footnote[
-Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), and Abigail Tyrell and Emily Liljestrand, NEFSC
-]
-
-]
-
---
-
-.pull-right-60[
-
-![:img bottom temp in BSB assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png)![:img GOA cod risk assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/GOApcodESPrisk.png)
-
-![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
-
-]
-
-
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NRHAapp.png"), url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PreyAnalysisApp.png") 
@@ -262,7 +202,7 @@ background-position: top right, bottom right
 
 *  **10 November 2025:** Draft Indicator Review report and prototype interactive search tool to Project Oversight Team for feedback and revision
 
-*  **TBD December 2025:** In person Council Workshop 1 identifying priority Council management decisions for indicator development, early career researcher and student experience in Council processes
+*  **10 December 2025:** In person Council Workshop 1 identifying priority Council management decisions for indicator development, early career researcher and student experience in Council processes
 
 *  **9 February 2026:** Final Indicator Review report with gap analysis and SMART screening relative to priority Council management decisions
 
@@ -284,29 +224,19 @@ background-position: top right, bottom right
 
 ---
 .pull-left[
-# Discussion
+# Workshop Goals
 
-**Feedback requested:**
+**Identify and prioritize Council management decisions that could be supported or improved by operational use of ecosystem indicators**
 
-Possible formats for indicator review
-
-.table[
-*  Summary pages for each Indicator with SMART criteria?
-*  Summary of indicator matches to Council management processes?
-*  Database of these results for searching?
-*  Synthesis document from these raw materials?
-]
-
-Possible formats for documenting indicator thresholds and simulation testing
-
-.table[
-*  1 pagers with overviews of target and threshold rationale and performance?
-*  Detailed online documentation of threshold development and simulation testing?
-*  Multi-authored peer reviewed papers?
-]
-
-All other suggestions welcome!
-
+* Format
+    * Definitions: indicator, operational
+    * Introduce preliminary list of Council decisions/processes
+    * Discuss and clarify list and fill gaps
+    * From full list, identify priority decisions for indicator development and analysis
+    * Identify preliminary indicators that may support priority decisions
+* Outcome
+    * Project team leaves with your *top 3* priority decisions for indicator development
+    * Indicators will be developed for at least 2
 ] 
 
 .pull-right[
@@ -327,3 +257,66 @@ Contact: <sgaichas@hydrascientificllc.com>
 
 ???
 
+---
+
+.center[
+# Extra slides
+]
+
+---
+## Examples: Objective 2. Ecosystem Indicators and Catch Specification
+
+.pull-left-40[
+
+![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+.footnote[
+Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), and Abigail Tyrell and Emily Liljestrand, NEFSC
+]
+
+]
+
+--
+
+.pull-right-60[
+
+![:img bottom temp in BSB assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png)![:img GOA cod risk assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/GOApcodESPrisk.png)
+
+![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
+
+]
+
+
+---
+# Example Workplans: Objective 2
+
+*(Contingent on Workshop 1 Decisions) Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left-30[
+**Example analyses if ABC is a priority decision**
+
+* Extend current process using risk table approaches from other regions?
+* Standardize ecosystem profile approach for within stock assessment use?
+* Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
+* Simulation testing
+
+]
+
+.pull-right-70[
+**Example analyses for other management decisions if selected as priorities** 
+
+* Hypothetical: spatial management measures 
+    * Evaluate with indicators of fishery and species spatial overlap
+    * Simulate distribution shifts, fleet movement constraints, etc.
+    * Which spatial management measures meet objectives with minimal side effects?
+* Hypothetical: habitat productivity 
+    * Evaluate indicators of favorable or unfavorable habitat conditions 
+    * Simulate management with different risk tolerance under different environmental conditions
+    * Which habitat-adjusted risk tolerance meets objectives across species portfolio?
+
+]
+
+???
+* Recommend practical pathways for implementation
