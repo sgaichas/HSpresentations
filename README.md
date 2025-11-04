@@ -1,5 +1,7 @@
 # HSpresentations
-Hydra Scientific LLC presentations
+Hydra Scientific LLC presentations repository
+
+![](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png)
 
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
 
