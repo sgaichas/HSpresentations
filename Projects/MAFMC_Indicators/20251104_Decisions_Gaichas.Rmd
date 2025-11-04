@@ -1,0 +1,236 @@
+---
+title: "Operationalizing Ecosystem and Habitat Indicators to Support Climate-Ready Fisheries Management in the Mid-Atlantic"
+subtitle: "Management Decision Types <br />November 2025<br /><br /><br /><br /><br /><br /><br />"
+author: "<br />Sarah Gaichas, Hydra Scientific LLC<br /> Gavin Fay, UMass Dartmouth<br /> Kelsey Roberts, UMass Dartmouth<br /> Sophie Wulfing, UMass Dartmouth"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png")
+background-size: 500px
+background-position: right
+
+
+# Mid Atlantic current use of ecosystem information
+
+.pull-left-60[
+
+## Stock assessments
+
+## ABC setting
+
+## EAFM: risk assessment &rarr; conceptual model &rarr; management strategy evaluation &rarr; operational management tool
+
+## Next level: this project
+
+
+Right: Bottom temperature time series covariate on recruitment in the 2024 operational black sea bass assessment
+
+]
+
+.pull-right-40[
+.footnote[
+Image courtesy Emily Liljestrand, NEFSC
+]
+]
+
+???
+*  Stock assessments (ESPs-->assessment structure; ecosystem covariates-->OFL projections)
+
+*  ABC setting (data quality, model performance, and ecosystem information-->OFL CV-->ABC)
+
+*  EAFM risk assessment (ecosystem information-->prioritize scoping and MSE)
+
+In development, research coordinated with SSC
+
+*  Ecosystem overfishing thresholds
+
+Focus on the risk assessment and its operational use, process to bring new science in
+
+
+---
+
+## Ecosystem and Socioeconomic Profiles (ESPs) in Assessments, and MAFMC ABC process
+
+.pull-left[
+![:img Pathways for scientific advice from the northeast ESP process, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable.png)
+
+![:img Bluefish ESP conceptual model, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+.footnote[
+Images courtesy Abigail Tyrell, NEFSC
+]
+]
+
+
+.pull-right[
+### ABC proportion of OFL given OFL CV
+
+```{r OFLCVtoABC, fig.asp = 0.7}
+
+ABCprop <- data.frame(Bfrac = seq(0, 2.5, 0.01)) %>%
+  dplyr::mutate(pstar = case_when(Bfrac <= 0.1 ~ 0,
+                                  Bfrac > 0.1 & Bfrac <= 1.0 ~ (Bfrac-0.1)*((0.45-0)/(1-0.1)) ,
+                                  Bfrac > 1.0 & Bfrac <= 1.5 ~ (Bfrac-1.0)*((0.49-0.45)/(1.5-1))+0.45,
+                                  Bfrac > 1.5 ~ 0.49)) %>%
+  dplyr::mutate("CV=60%" = qlnorm(pstar, log(1), log(0.60 + 1)),
+                "CV=100%" = qlnorm(pstar, log(1), log(1.00 + 1)),
+                "CV=150%" = qlnorm(pstar, log(1), log(1.50 + 1))) %>%
+  pivot_longer(-c(Bfrac, pstar), names_to = "CVlevel")
+                       
+
+p2 <- ggplot2::ggplot(ABCprop, aes(x=Bfrac, y=value, colour=CVlevel)) +
+  geom_line()+  
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("ABC/OFL proportion") +
+  labs(colour = "OFL CV") #+
+  #theme(legend.position="bottom")
+
+print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+  
+```
+
+
+.footnote[
+See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
+]
+
+]
+
+---
+## MAFMC Ecosystem Approach to Fisheries Management
+
+.pull-left[
+* 2016 Ecosystem Approach to Fishery Management (EAFM) [Policy Guidance document](
+http://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08.pdf)
+
+.center[
+![:img EAFM Policy Guidance Doc Word Cloud, 80%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png)
+]
+
+]
+
+.pull-right[
+* Mid-Atlantic EAFM framework:
+.center[
+![:img Mid-Atlantic EAFM framework, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Framework.png)
+]
+
+]
+???
+The Council’s EAFM framework has similarities to the IEA loop on slide 2. It uses risk assessment as a first step to prioritize combinations of managed species, fleets, and ecosystem interactions for consideration. Second, a conceptual model is developed identifying key environmental, ecological, social, economic, and management linkages for a high-priority fishery. Third, quantitative modeling addressing Council-specified questions and based on interactions identified in the conceptual model is applied to evaluate alternative management strategies that best balance management objectives. As strategies are implemented, outcomes are monitored and the process is adjusted, and/or another priority identified in risk assessment can be addressed. 
+
+`r Cite(myBib, "depiper_operationalizing_2017")`
+`r Cite(myBib, "bastille_improving_2021")`
+`r Cite(myBib, "muffley_there_2021")`
+`r Cite(myBib,"gaichas_implementing_2018")`
+`r Cite(myBib,"depiper_learning_2021")`
+`r Cite(myBib, "gaichas_framework_2016")`
+
+
+
+---
+.pull-left-60[
+# Discussion
+
+*  Ecosystem information is being used operationally to support decisions in multiple processes
+
+    +  Assessment, ABC setting, EAFM
+    +  Contextual information is valued--used--by Councils
+    +  Align information with objectives
+
+*  Risk assessment frameworks are increasingly adopted for operational use of ecosystem information
+
+    +  Alaska and Pacific assessment risk tables
+    +  New England developing indicator-based risk policy
+    
+*  Simulation testing can identify robust operational approaches
+
+
+] 
+
+.pull-right-40[
+# 2025 Risks
+
+Declining <span style="background-color:orange;">seafood production</span> 
+
+Historically low <span style="background-color:orange;">revenue</span> 
+
+Declining range of <span style="background-color:red;">recreational opportunities</span> 
+
+Most community level revenue has high climate vulnerability
+
+```{r, fig.asp=0.4}
+ecodata::plot_community_climate_vulnerability()
+```
+
+## Questions? Thank you!
+]
+
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+???
+

@@ -177,173 +177,53 @@ Components of an operational process:
 (we spend a lot of time on this, understand that operational processes require a lot of time and resources and are *not* research)
 
 ---
-background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png")
-background-size: 500px
-background-position: right
+# Types of operational management decisions
 
+.pull-left[ 
+## Strategic: 
 
-# Mid Atlantic operational use of ecosystem information
+### Decisions considering long term, high level goals and objectives. 
 
-.pull-left-60[
+Examples: FMP development, risk policy, EAFM, research priorities
 
-## Stock assessments
+## Tactical: 
 
-## ABC setting
+### Decisions in the short term that are implementing the strategies. 
 
-## EAFM: risk assessment &rarr; conceptual model &rarr; management strategy evaluation &rarr; operational management tool
-
-## Next level: this project
-
-
-Right: Bottom temperature time series covariate on recruitment in the 2024 operational black sea bass assessment
-
-]
-
-.pull-right-40[
-.footnote[
-Image courtesy Emily Liljestrand, NEFSC
-]
-]
-
-???
-*  Stock assessments (ESPs-->assessment structure; ecosystem covariates-->OFL projections)
-
-*  ABC setting (data quality, model performance, and ecosystem information-->OFL CV-->ABC)
-
-*  EAFM risk assessment (ecosystem information-->prioritize scoping and MSE)
-
-In development, research coordinated with SSC
-
-*  Ecosystem overfishing thresholds
-
-Focus on the risk assessment and its operational use, process to bring new science in
-
-
----
-
-## Ecosystem and Socioeconomic Profiles (ESPs) in Assessments, and MAFMC ABC process
-
-.pull-left[
-![:img Pathways for scientific advice from the northeast ESP process, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable.png)
-
-![:img Bluefish ESP conceptual model, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
-
-.footnote[
-Images courtesy Abigail Tyrell, NEFSC
-]
-]
-
-
-.pull-right[
-### ABC proportion of OFL given OFL CV
-
-```{r OFLCVtoABC, fig.asp = 0.7}
-
-ABCprop <- data.frame(Bfrac = seq(0, 2.5, 0.01)) %>%
-  dplyr::mutate(pstar = case_when(Bfrac <= 0.1 ~ 0,
-                                  Bfrac > 0.1 & Bfrac <= 1.0 ~ (Bfrac-0.1)*((0.45-0)/(1-0.1)) ,
-                                  Bfrac > 1.0 & Bfrac <= 1.5 ~ (Bfrac-1.0)*((0.49-0.45)/(1.5-1))+0.45,
-                                  Bfrac > 1.5 ~ 0.49)) %>%
-  dplyr::mutate("CV=60%" = qlnorm(pstar, log(1), log(0.60 + 1)),
-                "CV=100%" = qlnorm(pstar, log(1), log(1.00 + 1)),
-                "CV=150%" = qlnorm(pstar, log(1), log(1.50 + 1))) %>%
-  pivot_longer(-c(Bfrac, pstar), names_to = "CVlevel")
-                       
-
-p2 <- ggplot2::ggplot(ABCprop, aes(x=Bfrac, y=value, colour=CVlevel)) +
-  geom_line()+  
-  theme_minimal() +
-  xlab("B/Bmsy") +
-  ylab("ABC/OFL proportion") +
-  labs(colour = "OFL CV") #+
-  #theme(legend.position="bottom")
-
-print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
-  
-```
-
-
-.footnote[
-See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
-]
-
-]
-
----
-## MAFMC Ecosystem Approach to Fisheries Management
-
-.pull-left[
-* 2016 Ecosystem Approach to Fishery Management (EAFM) [Policy Guidance document](
-http://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08.pdf)
-
-.center[
-![:img EAFM Policy Guidance Doc Word Cloud, 80%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png)
-]
+Examples: Annual Catch Limits, specifications, commercial and recreational measures
 
 ]
 
 .pull-right[
-* Mid-Atlantic EAFM framework:
+
+## Routine: 
+
+### Decisions made annually or more often across all the managed stocks
+
+Examples: ACL, specifications, recreational measures, gear modifications 
+
+## Occasional: 
+
+### Decisions made over the longer term that modify the FMP, tailored to a particular management issue, that specify routine decisions
+
+Examples: FMP Amendment, FMP Framework Action 
+
+]
+
 .center[
-![:img Mid-Atlantic EAFM framework, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Framework.png)
+*SMART indicators for each of these decision types will differ*
 ]
-
-]
-???
-The Council’s EAFM framework has similarities to the IEA loop on slide 2. It uses risk assessment as a first step to prioritize combinations of managed species, fleets, and ecosystem interactions for consideration. Second, a conceptual model is developed identifying key environmental, ecological, social, economic, and management linkages for a high-priority fishery. Third, quantitative modeling addressing Council-specified questions and based on interactions identified in the conceptual model is applied to evaluate alternative management strategies that best balance management objectives. As strategies are implemented, outcomes are monitored and the process is adjusted, and/or another priority identified in risk assessment can be addressed. 
-
-`r Cite(myBib, "depiper_operationalizing_2017")`
-`r Cite(myBib, "bastille_improving_2021")`
-`r Cite(myBib, "muffley_there_2021")`
-`r Cite(myBib,"gaichas_implementing_2018")`
-`r Cite(myBib,"depiper_learning_2021")`
-`r Cite(myBib, "gaichas_framework_2016")`
-
-
 
 ---
-.pull-left-60[
-# Discussion
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MAFMCwordcloud.png")
+background-size: 600px
+background-position: bottom
 
-*  Ecosystem information is being used operationally to support decisions in multiple processes
-
-    +  Assessment, ABC setting, EAFM
-    +  Contextual information is valued--used--by Councils
-    +  Align information with objectives
-
-*  Risk assessment frameworks are increasingly adopted for operational use of ecosystem information
-
-    +  Alaska and Pacific assessment risk tables
-    +  New England developing indicator-based risk policy
-    
-*  Simulation testing can identify robust operational approaches
-
-
-] 
-
-.pull-right-40[
-# 2025 Risks
-
-Declining <span style="background-color:orange;">seafood production</span> 
-
-Historically low <span style="background-color:orange;">revenue</span> 
-
-Declining range of <span style="background-color:red;">recreational opportunities</span> 
-
-Most community level revenue has high climate vulnerability
-
-```{r, fig.asp=0.4}
-ecodata::plot_community_climate_vulnerability()
-```
-
-## Questions? Thank you!
+.center[
+# Questions and Discussion on Definitions
 ]
-
 
 .footnote[
 Slides available at https://sgaichas.github.io/HSpresentations  
 Contact: <sgaichas@hydrascientificllc.com>
 ]
-
-???
-
