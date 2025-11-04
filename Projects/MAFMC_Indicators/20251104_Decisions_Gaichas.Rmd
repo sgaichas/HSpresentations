@@ -497,22 +497,41 @@ In this interactive circular graph visualization, model elements identified as i
 ---
 ## Initial list of management decisions
 
-Routine
+Routine/Tactical
+
+Best scientific information (filtered prior to Council by working groups, pre-SSC review)
 
 ---
 ## Initial list of management decisions
 
-Occasional
+Occasional/Strategic
 
 ---
 ## Initial list of management decisions
 
-Strategic
+Aligned with national standard management objectives
+
+1.  Achieve OY while preventing overfishing: catch limits, effort controls, size and gear restrictions, bycatch reduction, habitat protection
+1.  Best available science basis: SSC decides (can indicators reduce uncertainty?)
+1.  Unit stock management: (spatial management and consideration of range shifts?)
+1.  Fair equitable allocations: FMP amendments? (some use distribution information)
+1.  Efficient use of resource: permits?
+1.  Consider variation and contingency: NEPA analyses? (seems like this requires indicators and projections)
+1.  Minimize cost and duplication
+1.  Consider communities and avoid adverse impacts: NEPA analyses? (community vulnerability assessment)
+1.  Minimize bycatch and mortality: fishing gear restrictions, open/closed seasons, open/closed areas 
+1.  Safety at sea
+
 
 ---
 ## Initial list of management decisions
 
-Tactical
+What information would be helpful, by decision?
+
+Catch limits: environmentally driven changes in productivity and availability
+Allocation: changes in distribution, spatial changes in productivity and availability
+Efficient use: "
+Habitat protection: habitat vulnerability
 
 ---
 .pull-left[
