@@ -44,7 +44,7 @@ generate_wordcloud_from_pdf <- function(pdf_path,
   text <- gsub("(\\*|\\-|●|•|–)", "", text)
   
   # remove proper names
-  text <- gsub("Gaichas|Fay", "", text)
+  text <- gsub("Gaichas|Fay|salary", "", text)
   
   # Combine all pages into one text string
   text <- paste(text, collapse = " ")
