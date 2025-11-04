@@ -15,7 +15,10 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20250929_ProjectOverview_Gaichas.html" target="_blank">Project Overview for workshop 1 - September 29, 2025</a> Updated 3 November
 
-<a href="https://sgaichas.github.io/HSpresentations/20250929_Definitions_Gaichas.html" target="_blank">What are indicators? What is operational? - September 29, 2025</a> 
+<a href="https://sgaichas.github.io/HSpresentations/20250929_Definitions_Gaichas.html" target="_blank">What are indicators? What is operational? - September 29, 2025</a> Updated 4 November
+
+<a href="https://sgaichas.github.io/HSpresentations/20251104_Decisions_Gaichas.html" target="_blank">Overview of management decisions for workshop 1 - November 4, 2025</a> 
+
 
 ### South Atlantic Ecosystem Data Review
 
