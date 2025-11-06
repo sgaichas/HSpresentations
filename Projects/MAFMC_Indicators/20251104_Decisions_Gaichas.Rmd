@@ -539,7 +539,7 @@ class: top, left
 1.  Define user groups and allocation basis
 1.  Bycatch reduction, increased retention/utilization
 1.  Risk policy, uncertainty buffers, adaptive inseason management, habitat protection
-1.  Licensing and permitting, Reporting requirements
+1.  Licensing and permitting, Reporting requirements, Limited access
 1.  Management outcomes across multiple scales
 1.  Fishing gear restrictions, open/closed seasons or areas 
 1.  Open/closed seasons, Open/closed areas, Limited access
@@ -553,11 +553,13 @@ class: top, left
 
 Catch specification (ABC, ACL, TAC)
 
-Commercial and recreational measures
+Commercial and recreational measures (e.g., possession limits, seasons) 
 
-Gear requirements specific to each FMP
+Gear requirements specific to each FMP (e.g. mesh size)  
 
 Reporting requirements specific to each FMP
+
+Accountability measures  
 
 Best scientific information (filtered prior to Council by working groups, pre-SSC review)
 
@@ -566,7 +568,7 @@ Best scientific information (filtered prior to Council by working groups, pre-SS
 
 ## Occasional and or Strategic; more complex
 
-FMP development
+FMP development and modifications 
 
 Stock definition
 
@@ -583,11 +585,11 @@ Consulting/commenting on other ocean activities
 ---
 # Initial list of management decisions
 
-## What information would be helpful, by decision?
+## What information would be helpful, by decision? Examples
 
 Catch limits: environmentally driven changes in productivity and availability
 
-Allocation: changes in distribution, spatial changes in productivity and availability
+Allocation: changes in distribution, spatial changes in productivity and availability,  community vulnerability  
 
 Efficient use: changes in distribution, spatial and seasonal changes in productivity and availability
 
