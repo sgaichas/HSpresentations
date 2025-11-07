@@ -177,7 +177,7 @@ Components of an operational process:
 (we spend a lot of time on this, understand that operational processes require a lot of time and resources and are *not* research)
 
 ---
-# Types of operational management decisions
+# Spectrum of operational management decisions
 
 .pull-left[ 
 ## Strategic: 
@@ -198,7 +198,7 @@ Examples: Annual Catch Limits, specifications, commercial and recreational measu
 
 ## Routine: 
 
-### Decisions made annually or more often across all the managed stocks
+### Decisions made or reviewed annually or more often across all the managed stocks
 
 Examples: ACL, specifications, recreational measures, gear modifications 
 

@@ -572,28 +572,36 @@ Note that commercial minimum mesh sizes are often associated with an incidental 
 Research Set Aside - changeable by framework though it’s not an active program right now!
 
 ---
-# Initial list of management decisions
+# Initial list of management decisions  
+.pull-left-60[
+## Occasional, Tactical or Strategic; can be modified through a framework adjustment
 
-## Occasional and or Strategic; can be modified through a framework adjustment
+*  ABC control rules  
+*  Risk policy  
+*  Accountability measures  
+*  Permitting restrictions*  
+*  Essential Fish Habitat (EFH) and HAPCs  
+*  Vessel Monitoring System (VMS) requirements  
+*  Spatial management areas (e.g., closed areas, gear restricted areas, exemption areas)  
+*  Commercial quota allocations  
+*  Commercial/recreational allocations (for some FMPs)  
+*  Vessel size and horsepower restrictions  
+*  Onboard observer requirement (for some FMPs)  
+*  Changes to Standardized Bycatch Reporting Method
+*  Deep Sea Coral Protection Zone boundaries and regulations
 
+]
 
-Risk policy development or adjustment
+.pull-right-40[
+## Occasional and Strategic; more complex
 
-Essential Fish Habitat specification
+*  FMP development and amendment  
+*  Stock definition  
+*  Permitting restrictions*  
+*  “Measures contained within this [Framework] list that require significant departures from previously contemplated measures or that are otherwise introducing new concepts may require amendment of the FMP instead of a framework adjustment.”
+*  Consulting/commenting on other ocean activities  
 
-Gear modification
-
-Allocation of catch to sectors
-
-
-
-## Occasional and or Strategic; more complex
-
-FMP development and amendment
-
-Stock definition
-
-Consulting/commenting on other ocean activities
+]
 
 ---
 # Initial list of management decisions
