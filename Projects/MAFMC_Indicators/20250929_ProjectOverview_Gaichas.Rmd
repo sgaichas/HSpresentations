@@ -266,19 +266,19 @@ But we may note some of those today in thinking about the decisions and informat
 ]
 
 .pull-right[
-```{nomnoml, svg=TRUE, width="7.1in", height="8in"}
+```{r, fig.height=8}
 
+nomnoml::nomnoml("
+#zoom: 1
 #stroke: #522D80
 #direction: down
-#[<frame>Indicators Project|
 [Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
-  
-#[Information Supporting Decisions]-->[Indicator Development]
 
 [Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
   
 [Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
-#]
+",
+png = here::here("docs/images/projectdiag.png"), width = 600, height = 600)
 
 ```
 ]
