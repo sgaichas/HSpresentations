@@ -549,28 +549,33 @@ class: top, left
 ---
 # Initial list of management decisions
 
-## Routine/Tactical
+## Routine/Tactical: can be modified through specifications across many FMPs
 
-Catch specification (ABC, ACL, TAC)
+*  Catch limits and targets (OFL, ABC, OY, ACL, ACT)  
+*  Landings limits (commercial quotas, recreational harvest limits, total allowable landings limits, etc.)  
+*  Minimum fish sizes (commercial and/or recreational - maximum sizes can also be specified for a few species/sectors)  
+*  Trip/possession limits (commercial and/or recreational)  
+*  Gear restrictions (e.g., commercial minimum mesh sizes, pot/trap escape vent size requirements)
+*  Open/closed seasons (recreational; commercial fisheries can close in-season if the quota is met before the end of the season)  
+*  Reporting requirements specific to each FMP  
+*  Commercial bycatch or discard caps (apply to only a subset of MAFMC species)  
 
-Commercial and recreational measures (e.g., possession limits, seasons) 
+## Routine/Tactical: can be modified by SSC
 
-Gear requirements specific to each FMP (e.g. mesh size)  
+*  Best scientific information determination (also involves scientific working group and review panel judgement)
 
-Reporting requirements specific to each FMP
+???
+Note that commercial minimum mesh sizes are often associated with an incidental possession limit. E.g., any vessel possessing more than 5,000 lb of butterfish must use codend mesh that’s at least 3 inches diamond or square.
 
-Accountability measures  
+“Modification of existing accountability measures and ACT control rules utilized by the Monitoring Committee” is also on the specs list for several FMPs but I don’t think we should include it as an example. I think the nuances will be confusing. Changes to how AMs are structured should require a framework or amendment.
 
-Best scientific information (filtered prior to Council by working groups, pre-SSC review)
+Research Set Aside - changeable by framework though it’s not an active program right now!
 
 ---
 # Initial list of management decisions
 
-## Occasional and or Strategic; more complex
+## Occasional and or Strategic; can be modified through a framework adjustment
 
-FMP development and modifications 
-
-Stock definition
 
 Risk policy development or adjustment
 
@@ -579,6 +584,14 @@ Essential Fish Habitat specification
 Gear modification
 
 Allocation of catch to sectors
+
+
+
+## Occasional and or Strategic; more complex
+
+FMP development and amendment
+
+Stock definition
 
 Consulting/commenting on other ocean activities
 
