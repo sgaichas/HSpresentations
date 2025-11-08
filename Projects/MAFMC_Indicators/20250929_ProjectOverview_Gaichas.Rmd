@@ -266,19 +266,25 @@ But we may note some of those today in thinking about the decisions and informat
 ]
 
 .pull-right[
-```{r, fig.height=8}
 
-nomnoml::nomnoml("
-#zoom: 1
-#stroke: #522D80
-#direction: down
-[Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
+![flowchart](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/indicatorsproject.png)
+```{r, eval=FALSE}
 
-[Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
-  
-[Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
-",
-png = here::here("docs/images/projectdiag.png"), width = 600, height = 600)
+# # this code was used in the website to export a static png
+# https://www.nomnoml.com/
+# 
+# nomnoml::nomnoml("
+# #zoom: 1
+# #title: indicatorsproject
+# #stroke: #522D80
+# #direction: down
+# [Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
+# 
+# [Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
+#   
+# [Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
+# ",
+# png = here::here("docs/images/projectdiag.png"), width = 600, height = 600)
 
 ```
 ]

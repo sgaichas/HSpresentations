@@ -1,0 +1,8 @@
+#title: indicatorsproject
+#stroke: #522D80
+#direction: down
+[Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
+
+[Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
+  
+[Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
