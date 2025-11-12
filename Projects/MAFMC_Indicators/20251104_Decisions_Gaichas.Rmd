@@ -514,7 +514,7 @@ Our goal is to provide examples and identify pathways for the Council to conside
 ---
 class: top, left
 
-# Management objectives and example decisions
+# Management objectives aligned with example decisions
 
 .pull-left-40[
 ### National Standards Objectives
@@ -543,63 +543,6 @@ class: top, left
 1.  Management outcomes across multiple scales
 1.  Fishing gear restrictions, open/closed seasons or areas 
 1.  Open/closed seasons, Open/closed areas, Limited access
-
-]
-
----
-# Initial list of management decisions
-
-## Routine/Tactical: can be modified through specifications across many FMPs
-
-*  Catch limits and targets (OFL, ABC, OY, ACL, ACT)  
-*  Landings limits (commercial quotas, recreational harvest limits, total allowable landings limits, etc.)  
-*  Minimum fish sizes (commercial and/or recreational - maximum sizes can also be specified for a few species/sectors)  
-*  Trip/possession limits (commercial and/or recreational)  
-*  Gear restrictions (e.g., commercial minimum mesh sizes, pot/trap escape vent size requirements)
-*  Open/closed seasons (recreational; commercial fisheries can close in-season if the quota is met before the end of the season)  
-*  Reporting requirements specific to each FMP  
-*  Commercial bycatch or discard caps (apply to only a subset of MAFMC species)  
-
-## Routine/Tactical: can be modified by SSC
-
-*  Best scientific information determination (also involves scientific working group and review panel judgement)
-
-???
-Note that commercial minimum mesh sizes are often associated with an incidental possession limit. E.g., any vessel possessing more than 5,000 lb of butterfish must use codend mesh that’s at least 3 inches diamond or square.
-
-“Modification of existing accountability measures and ACT control rules utilized by the Monitoring Committee” is also on the specs list for several FMPs but I don’t think we should include it as an example. I think the nuances will be confusing. Changes to how AMs are structured should require a framework or amendment.
-
-Research Set Aside - changeable by framework though it’s not an active program right now!
-
----
-# Initial list of management decisions  
-.pull-left-60[
-## Occasional, Tactical or Strategic; can be modified through a framework adjustment
-
-*  ABC control rules  
-*  Risk policy  
-*  Accountability measures  
-*  Permitting restrictions*  
-*  Essential Fish Habitat (EFH) and HAPCs  
-*  Vessel Monitoring System (VMS) requirements  
-*  Spatial management areas (e.g., closed areas, gear restricted areas, exemption areas)  
-*  Commercial quota allocations  
-*  Commercial/recreational allocations (for some FMPs)  
-*  Vessel size and horsepower restrictions  
-*  Onboard observer requirement (for some FMPs)  
-*  Changes to Standardized Bycatch Reporting Method
-*  Deep Sea Coral Protection Zone boundaries and regulations
-
-]
-
-.pull-right-40[
-## Occasional and Strategic; more complex
-
-*  FMP development and amendment  
-*  Stock definition  
-*  Permitting restrictions*  
-*  “Measures contained within this [Framework] list that require significant departures from previously contemplated measures or that are otherwise introducing new concepts may require amendment of the FMP instead of a framework adjustment.”
-*  Consulting/commenting on other ocean activities  
 
 ]
 
