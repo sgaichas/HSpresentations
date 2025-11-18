@@ -4,5 +4,7 @@
 [Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
 
 [Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
+
+[Indicator Development]<-->[Targets and Thresholds]
   
 [Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
