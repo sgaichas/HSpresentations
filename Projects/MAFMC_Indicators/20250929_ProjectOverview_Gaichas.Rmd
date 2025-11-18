@@ -271,6 +271,8 @@ But we may note some of those today in thinking about the decisions and informat
 ```{r, eval=FALSE}
 
 # # this code was used in the website to export a static png
+# see R/indicatorsproject.nomnoml 
+# 
 # https://www.nomnoml.com/
 # 
 # nomnoml::nomnoml("
@@ -281,6 +283,8 @@ But we may note some of those today in thinking about the decisions and informat
 # [Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
 # 
 # [Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
+#
+# [Indicator Development]<-->[Targets and Thresholds]
 #   
 # [Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
 # ",
