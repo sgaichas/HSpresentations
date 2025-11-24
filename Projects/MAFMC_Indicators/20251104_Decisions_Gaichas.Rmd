@@ -570,7 +570,7 @@ Bourne Bridge, Cape Cod, MA, 11 November 2025
 
 ---
 .pull-left[
-# Objective, decision, indicators
+# Information needs
 
 ## A toy example with indicators
 
@@ -586,12 +586,34 @@ When (date and time) should I wake up and get out of bed to go outside and look 
 
 ]
 
+--
+
 .pull-right[
-*  [NOAA Space Predictions](https://www.swpc.noaa.gov/communities/aurora-dashboard-experimental) (forecast! but imprecise for my location)
-*  [Indicator Dashboard](https://aurorareach.com/map#google_vignette) (multi-indicator forecast for my location with notification threshold)
-
-
+*  [NOAA Space Predictions](https://www.swpc.noaa.gov/communities/aurora-dashboard-experimental) (forecast! enough?)  
+.center[
+![:img NOAA forecast, 70%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NOAAspaceforecast.png)
+]  
+*  Other things I need to know ([AuroraReach website guide](https://aurorareach.com/guide))
+![Factors affecting Aurora view](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/AuroraForecastFactors.png)
 ]
+
+---
+# Objective, Decision, and Information Needs Aligned
+
+*  [AuroraReach Indicator Dashboard](https://aurorareach.com/map#google_vignette) (multi-indicator forecast for my location with notification threshold)
+*  Validation: does it work?
+
+.pull-left[
+![Bourne Predition AuroraReach](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/AuroraForecastBourneNov112025.png)
+[AuroraReach prediction for Bourne, MA](https://aurorareach.com/sightings/2025/11/11/6a3e4f1662a14ebca7ac1555defc67d8)
+]
+
+.pull-right[
+![Bourne Bridge photo Nov 11 2025](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/FB_BourneAurora.jpg) 
+Bourne Bridge, Cape Cod, MA, 11 November 2025
+]
+
+
 
 ---
 # Initial list of management decisions
