@@ -593,7 +593,7 @@ When (date and time) should I wake up and get out of bed to go outside and look 
 .center[
 ![:img NOAA forecast, 70%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NOAAspaceforecast.png)
 ]  
-*  Other things I need to know ([AuroraReach website guide](https://aurorareach.com/guide))
+*  Other things I need to know ([via AuroraReach](https://aurorareach.com/guide))
 ![Factors affecting Aurora view](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/AuroraForecastFactors.png)
 ]
 
@@ -620,13 +620,15 @@ Bourne Bridge, Cape Cod, MA, 11 November 2025
 
 ## What information would be helpful, by decision? Examples
 
-Catch limits: environmentally driven changes in productivity and availability
+**Catch limits:** environmentally driven changes in productivity and availability
 
-Allocation: changes in distribution, spatial changes in productivity and availability,  community vulnerability  
+**Allocation:** changes in distribution, spatial changes in productivity and availability,  community vulnerability  
 
-Efficient use: changes in distribution, spatial and seasonal changes in productivity and availability
+**Efficient use:** changes in distribution of fish and fisheries, spatial and seasonal changes in productivity and availability
 
-Habitat protection: habitat vulnerability
+**Habitat protection:** habitat vulnerability
+
+...
 
 ---
 .pull-left[
