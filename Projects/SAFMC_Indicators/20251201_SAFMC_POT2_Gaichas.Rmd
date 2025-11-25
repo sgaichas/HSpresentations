@@ -1,0 +1,292 @@
+---
+title: "Ecosystem Information Review and Strategy Development for More Resilient Fisheries"
+subtitle: "SAFMC Project Oversight Team <br />1 December 2025<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+# Project Update:  Objective 1
+
+*Review the different types of ecosystem data and information including data products and decision-support tools (e.g. Ecosystem Status Reports, Climate Vulnerability Assessments, risk assessments) currently available to the regional management councils and evaluate how they are used in council management processes*
+
+.pull-left[
+**Literature search:** *>97% complete*
+
+* Council documents (policy guidance documents, FMPs/FEPs)
+* Data products (Ecosystem Status Reports, Climate Vulnerability Assessments)
+* Peer-reviewed literature
+
+All 8 Councils, including SAFMC, plus selected others
+
+Draft report 31 October, [update available online](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataReview.html)
+
+]
+
+.pull-right[
+
+**Structured interviews:** *in progress*
+
+* Key Council staff and members (2-4 per region)
+* Interview Template:
+    * Review/validate data products and uses of record from lit review
+    * What other uses are not recorded?
+    * Successes and challenges with current information and processes?
+    * What might be done differently to better meet Council objectives?
+
+35 Contacted, 6 Completed, 5 Scheduled
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025.png")
+background-size: 1200px
+background-position: center
+
+## Draft Report Overview
+
+---
+## Council Comparisons
+
+
+```{r}
+proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
+
+proparea |>
+  dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
+                PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
+  flextable::flextable() |>
+  flextable::colformat_double(
+      j = c("Percarea", "PercComTons", "PercRecTons",
+            "PercComRev", "PercRecExpend"), # Specify the columns to format
+      big.mark = "",             # Set big.mark to an empty string to remove commas
+      digits = 2,                  # Specify the number of decimal places
+      na_str = "-"      # missing value
+    ) |>
+  flextable::set_header_labels(
+      CouncilName = "Council",
+      EEZArea = "EEZ Area (sq km)",
+      Percarea = "Percent of U.S. EEZ", 
+      Nstates = "Number of States or Territories",
+      NFMPs = "Number of FMPs",
+      NFEPs = "Number of FEPs",
+      PercComTons = "Percent of 2023 U.S. Commercial Landings",
+      PercRecTons = "Percent of 2023 U.S. Recreational Landings",
+      PercComRev = "Percent of 2023 U.S. Commercial Revenue",
+      PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
+    ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1) |>
+  flextable::set_caption("Comparison of Council management context attributes.") |>
+  flextable::width(width = c(1, rep(0.6, 2), rep(0.5, 3), rep(0.6, 4)))
+
+```
+
+---
+## Ecosystem Status Report Comparisons
+
+```{r}
+
+```
+
+---
+## Climate Vulnerability Analysis Comparisons
+
+```{r}
+
+```
+
+---
+## FEP Comparisons
+
+```{r}
+
+```
+
+---
+## Details for each Council
+
+
+---
+## Initial Synthesis
+
+
+---
+# Workplan: Objective 2
+
+*Identify opportunities and methods for incorporating identified ecosystem information into SAFMC management processes, including inter-jurisdictional management decision- making processes, and identify practical requirements for successful implementation (e.g. data quality, frequency of information updates, regional council process consistency, implementation timelines)*
+
+.pull-left[
+**Initial focus on catch specification**
+
+* Climate vulnerability consideration in current SAFMC risk policy?
+* Utility of an ecosystem profile approach?
+* Risk table approaches used/piloted in other regions?
+
+**Alignment of EFH/FEP policies and indicators**
+
+]
+
+.pull-right[
+**Broaden to other processes using a review of 3-5 years of Council actions** 
+
+* Classify management decisions by data needs and process timelines
+* Develop a prioritized list of processes linked to ecosystem information
+* Recommend practical pathways for implementation
+
+**Feedback requested: priority management actions?**
+
+]
+
+---
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
+background-size: 600px
+background-position: right
+
+# Workplan: Objective 3
+
+.pull-left[
+*Identify opportunities to continue to expand cooperative, constituent-engaged data collection and research to improve the available ecosystem information in the South Atlantic region (e.g., study fleets, cooperative research, citizen science).*
+
+**Review existing SAFMC Citizen Science efforts**
+
+Prioritize potential cooperative data collections based on the analysis of SAFMC management processes most likely to benefit from ecosystem information noted under the previous objective, and outline opportunities for expansion to collect this priority data
+
+https://safmc.net/citizen-science/dolphin-wahoo-participatory-workshops/
+
+.footnote[
+https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/  
+]
+]
+
+.pull-right[
+.center[
+]
+]
+
+???
+![South Atlantic physical system](https://media.fisheries.noaa.gov/2021-12/1687x1451-SEFSC-US-South-Atlantic-Marine-Ecosystem.jpg)
+
+---
+# Deliverables and Schedule
+
+**Project duration ~1 year, with regular Project Oversight Team updates**
+
+*  **31 October 2025:** Interim Report on all Councils data products and approaches to Project Oversight Team for feedback and revision
+
+*  **31 January 2026:** Draft Report on all Councils data products and approaches to Council and Presentation at Ecosystem Data Gaps Workshop
+
+*  **30 April 2026:** Draft Report on Pathways for Integrating Ecosystem Information and Prototype Ocean Indicators to SSC and Council Committees for feedback and revision
+
+*  **31 July 2026:** Final Report and summary for South Atlantic Bite to Council
+
+*  **September 2026:** Present all project results at Council meeting
+
+---
+# Coordination
+
+*  Regular meetings with Fishery Management Process Review team
+
+*  Shared interview logistics framework and automation--thank you!
+
+*  All ecosystem data lit review documents ready to share on SAFMC Google Folder
+
+*  Coordinate management action review
+
+*  Other recommendations?
+
+
+---
+.pull-left[
+# Discussion
+
+**Feedback requested:**
+
+Useful summary format for Council ecosystem data products and uses?
+
+*  1 page summary of each data product? Indexed by Council
+*  1 page summary of Council uses to date?
+*  Database of these results for searching?
+*  Synthesis document from these raw materials
+*  Longer term, multi-author review paper with all interviewees
+
+
+Additional questions to ask Council staff?
+
+Priority management actions beyond catch specification?
+
+] 
+
+.pull-right[
+# Thoughts? Thank you!
+
+![:img EAFM Policy Guidance Doc Word Cloud](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png)
+.contrib[
+Word cloud based on [Mid-Atlantic Fishery Management Council EAFM Guidance Document](https://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08-palr.pdf)
+]
+
+]
+
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+???
+
