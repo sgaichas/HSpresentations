@@ -82,16 +82,16 @@ Draft report 31 October, [update available online](https://sgaichas.github.io/SA
 
 .pull-right[
 
-**Structured interviews:** *in progress*
+**Semi-structured interviews:** *in progress*
 
-* Key Council staff and members (2-4 per region)
+* Key Council staff (2-4 per region)
 * Interview Template:
     * Review/validate data products and uses of record from lit review
     * What other uses are not recorded?
     * Successes and challenges with current information and processes?
     * What might be done differently to better meet Council objectives?
 
-35 Contacted, 6 Completed, 5 Scheduled
+35 Contacted, 7 Completed, 4 Scheduled
 ]
 
 ---
@@ -102,10 +102,9 @@ background-position: center
 ## Draft Report Overview
 
 ---
-## Council Comparisons
+## Council Context Comparison
 
-
-```{r}
+```{r CouncilComp}
 proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
 
 proparea |>
@@ -133,38 +132,333 @@ proparea |>
     ) |>
   #flextable::set_table_properties(layout = "autofit", width = 1) |>
   flextable::set_caption("Comparison of Council management context attributes.") |>
-  flextable::width(width = c(1, rep(0.6, 2), rep(0.5, 3), rep(0.6, 4)))
+  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4)))
 
 ```
 
 ---
-## Ecosystem Status Report Comparisons
+## Ecosystem Status Report (ESR) Comparison
 
-```{r}
+```{r ESRs}
 
+compesrdat <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/compesrdat.csv")
+
+summtab <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/summtab.csv")
+
+summtab$Frequency <- dplyr::case_when(summtab$Council == "CFMC" ~ "First",
+                                      summtab$Council %in% c("GFMC", "SAFMC", "WPFMC") ~ "Intermittent",
+                                      TRUE ~ "Annual")
+
+summtab <- summtab |> dplyr::relocate(Frequency, .after = Year)
+
+sectionindcounts <- compesrdat |>
+  dplyr::group_by(Region, Year, Section) |>
+  dplyr::summarise(Nind = n())
+
+indcounts <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::summarise(Nind = n())
+
+sectioncounts <- compesrdat |>
+  dplyr::select(Region, Year, Section) |>
+  dplyr::distinct() |>
+  dplyr::group_by(Region, Year) |>
+  dplyr::summarise(Nsect = n())
+
+order <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::select(Section) |>
+  dplyr::distinct() |>
+  dplyr::mutate(order = 1:length(Section))
+
+esrs <- merge(sectionindcounts, order) |>
+  dplyr::select(Region, Year, Section, Order= order, Nind) |>
+  dplyr::arrange(Region, Order)
+  
+esrsls <- split(esrs, f = esrs$Region)
+
+esrsdetls <- split(compesrdat, f = compesrdat$Region)
+
+flextable::flextable(summtab) |>
+  flextable::colformat_num(
+    j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_header_labels(
+      Npages = "Total pages",
+      Nsect = "Number of Sections",
+      Nind = "Number of Indicators",
+      First = "First Section",
+      Last = "Last Section"
+  ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1)
+  flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
+  flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))
 ```
 
 ---
-## Climate Vulnerability Analysis Comparisons
+## Climate Vulnerability Analysis (CVA) Comparison
 
-```{r}
+```{r CVAs}
 
+CVAs <- proparea |>
+  dplyr::select(CouncilName) |>
+  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                 CouncilName %in% c("North Pacific") ~ 2019,
+                                                 CouncilName %in% c("Western Pacific") ~ 2022,
+                                                 CouncilName %in% c("Pacific", 
+                                                                 "South Atlantic",
+                                                                 "Gulf") ~ 2023,
+                                              TRUE ~ NA),
+                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2022,
+                                              TRUE ~ NA),
+                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                CouncilName %in% c("South Atlantic", 
+                                                                 "Gulf",
+                                                                 "Pacific") ~ 2022,
+                                              TRUE ~ NA),
+                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                             "Gulf",
+                                                             "Caribbean") ~ 2025,
+                                              TRUE ~ NA),
+                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                                "Gulf",
+                                                                "Caribbean") ~ 2023,
+                                              TRUE ~ NA) 
+                )
+
+flextable::flextable(CVAs) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
+  flextable::width(width = c(rep(1,6)))
 ```
 
 ---
-## FEP Comparisons
+## Fishery Ecosystem Plan (FEP) Comparison
 
-```{r}
+```{r FEPs}
 
+FEPactions <- data.frame(Council = c("New England*",
+                                     "Mid-Atlantic",
+                                     "South Atlantic",
+                                     "Gulf",
+                                     "Caribbean",
+                                     "Pacific",
+                                     "North Pacific",
+                                     "Western Pacific"),
+                         EcoDescription = c(1,1,1,NA,1,1,1,1),
+                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA),
+                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1),
+                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA),
+                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA),
+                         EcoHealth = c(NA,NA,NA,NA,NA,NA,NA,1),
+                         Monitoring = c(1,1,1,NA,1,1,1,1),
+                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1))
+
+flextable::flextable(FEPactions) |>
+  flextable::set_header_labels(
+      EcoDescription = "Ecosystem Description",
+      FoodWebConsMod = "Food Web Conceptual Model",
+      FoodWebEFH = "Food Web Essential Fish Habitat",
+      EcoHealth = "Ecosystem Health Objectives",
+      TotRemovals = "Total Removals Objectives",
+      OutsideImpacts = "Other Ocean Uses Considered"
+  ) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
+  flextable::width(width = c(1, rep(0.75,8)))
 ```
 
 ---
+background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2025.png"), url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
+background-size: 660px, 660px
+background-position: bottom right, top right
+
 ## Details for each Council
 
+.pull-left[
+Each section includes an overview of:  
+*  FMPs and species in each
+*  FEPs or similar documents
+*  ESRs available with indicators by section
+*  Stock-specific ecosystem profiles or ESPs
+*  CVAs in the region
+*  Other Council documents or tools:
+    +  Fishery Performance Reports
+    +  Habitat assessments
+    +  Risk assessments
+    +  Conceptual models
+    +  Ecosystem models
+*  Council processes using the information
+*  Regional resources available
+
+*Example process images from Councils:*  &rarr;  
+*Adjust catch advice directly or through risk policy* 
+]
+
+.pull-right[
+]
 
 ---
-## Initial Synthesis
+.pull-left[
+## Beyond Catch Advice
 
+Indicator-based EAFM risk assessment 
+
+*Species level risk elements*
+```{r sptable}
+#tab.cap="Species level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+# spplist     oc,  sc,  flk, scp, bsb, mack, but, lsq, ssq, gtile,  btile,  blu, dog, monk
+risk.species<-data.frame(
+  Species = c("Ocean Quahog", "Surfclam", "Summer flounder", "Scup", "Black sea bass", "Atl. mackerel", "Chub mackerel", "Butterfish", "Longfin squid", "Shortfin squid", "Golden tilefish", "Blueline tilefish", "Bluefish", "Spiny dogfish", "Monkfish", "Unmanaged forage", "Deepsea corals"),
+  Assess  = c("l", "l", "l",  "l", "l", "l", "h", "l", "lm", "h", "lm", "h", "l", "l", "h", "na", "na"),
+  Fstatus = c("l", "l", "h", "l", "l", "l", "lm", "l", "lm", "lm", "h", "h", "l", "l", "lm", "na", "na"),
+  Bstatus = c("l", "l", "lm", "l", "l", "h", "lm", "lm", "lm", "lm", "lm", "mh", "lm", "l", "lm", "na", "na"),
+  #FW1Pred = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l"),
+  #FW1Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "lm", "l"),
+  PreyA = c("tbd", "tbd", "tbd", "tbd", "h", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "lm", "tbd", "tbd", "tbd", "tbd"),
+  PredP = c("l", "l", "tbd", "tbd", "tbd", "mh", "tbd", "mh", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd"),
+  FW2Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "lm", "lm", "l", "l", "l", "l", "l", "lm", "l"),
+  Climate = c("h", "mh", "lm", "lm", "mh", "lm", "na", "l", "l", "l", "mh", "mh","l", "l", "l", "na", "na"),
+  DistShift = c("mh", "mh", "mh", "mh", "mh", "mh", "na", "h", "mh", "h", "l", "l", "mh", "h", "mh", "na", "na"),
+  EstHabitat = c("l", "l", "h", "h", "h", "l", "l", "l", "l", "l", "l", "l", "h", "l", "l", "na", "na"),
+  OffHab = c("tbd", "tbd", "tbd", "tbd", "l", "tbd", "tbd", "tbd", "tbd", "tbd", "l", "tbd", "mh", "tbd", "tbd", "tbd", "tbd")#,
+)
+
+
+
+# these elements were removed by the council
+#  PopDiv = c("na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na"),
+#  FoodSafe = c(),
+
+# one column test
+# risk.species %>%
+#   mutate(Fstatus = 
+#     cell_spec(Fstatus, format="latex", color = "black", align = "c", background =factor(Fstatus, c("na", "l", "lm", "mh", "h"),c("white", "green", "yellow", "orange", "red")))) %>%
+#   kable(risk.species, format="latex", escape = F, booktabs = T, linesep = "")
+
+#convert to longer text for consistency and display in html table
+risk.species <- risk.species %>%
+     mutate_at(vars(-Species), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#generalize to all
+risk.species %>%
+  mutate_at(vars(-Species), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 8) 
+```
+.contrib[
+]  
+
+*Ecosystem level risk elements*
+```{r ecotable}
+#tab.cap="Ecosystem level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+risk.eco<-data.frame(
+  System = c("Mid-Atlantic"),
+  EcoProd = c("lm"),
+  #EcoDiv = c("lm"),
+  CommVal = c("mh"),
+  RecVal = c("lm"),
+  FishRes1 = c("l"),
+  FishRes2 = c("lm"),
+  #CommJobs = c("mh"),
+  #RecJobs = c("l"),
+  ComDiv = c("mh"),
+  RecDiv = c("h"),
+  Social = c("mh"),
+  ComFood = c("mh"),
+  RecFood = c("mh")
+)
+#convert to longer text for consistency and display in html table
+risk.eco <- risk.eco %>%
+     mutate_at(vars(-System), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#make table
+risk.eco %>%
+  mutate_at(vars(-System), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 9) 
+
+```
+.contrib[
+]  
+]  
+.pull-right[
+## How has MAFMC used the risk assessment?
+
+* Risk based prioritization: the Council selected summer flounder for [conceptual modeling](https://nefsc.github.io/READ-SSB-DePiper_Summer_Flounder_Conceptual_Models/sfconsmod_riskfactors_subplots.html)
+
+* Council completed management strategy evaluation (MSE) addressing [recreational fishery discards](https://www.mafmc.org/actions/summer-flounder-mse) based on conceptual modeling
+
+* Stakeholder driven MSE coupled population and recreational demand models
+
+![](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/keepOneNoOFkey.png)
+
+* Results: potential improvement in angler welfare with low risk to stock status, multispecies recreational demand model sets specifications
+]
+
+---
+## Initial Synthesis: Three General Approaches 
+
+1. FMP/Indicator-Based (NPFMC, PFMC, MAFMC, NEFMC) 
+  - Species-based Fishery Management Plans with ecosystem overlays 
+  - Annual ecosystem indicators inform catch specification decisions 
+  - Risk tables and uncertainty frameworks integrate ecosystem considerations 
+  - Non-regulatory Fishery Ecosystem Plans (FEPs) provide actionable pathways
+
+2. FEP/Geography-Based (WPFMC, CFMC) 
+  - Island or place-based ecosystem plans serve as operational management documents 
+  - Co-developed with stakeholders reflecting distinct regional conditions 
+  - Emphasis on human community connections and data-limited fisheries 
+  - Ecosystem considerations embedded in management structure
+
+3. Developing Approaches (SAFMC, GFMC) 
+  - Species-based FMPs with expanding ecosystem integration 
+  - SAFMC uniquely links Essential Fish Habitat (EFH) with ecosystem efforts 
+  - Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
+  - Both regions have recent ecosystem reports and climate vulnerability assessments
+
+
+---
+## Initial Synthesis:  SAFMC Unique Strengths
+
+*  Habitat-Ecosystem Integration: Explicitly links EFH policies with ecosystem approaches through comprehensive policy statements  
+*  Citizen Science: Proactive incorporation of participatory data collection 
+*  Recent Assessments: Current fish CVA (2023) and fishing community CVA (2022) provide ready-to-use information
+*  Existing Tools: ESR, Food web model, Conceptual models
+
+**Suggestions**
+*  SAFMC shares a mix of reef-type or west coast rockfish complex-like data limited species with some high value data rich stocks, so a mix of approaches from other regional Councils may be warranted, rather than adopting a single Council’s approach.
+
+*  SAFMC has identified many ecosystem indicators and objectives in its EFH policy documents and also has a process to consider environmental information in ABC setting for multiple species; evaluation of indicators currently in the South Atlantic ESR and results of the fish and community CVAs are likely to reveal matched information as a basis for moving forward.
+
+*  An explicit process for developing specific ecosystem initiatives, as applied through FEPs or similar policy documents in other regions (Gulf, Mid-Atlantic, Pacific, North Pacific) may allow SAFMC to explore practical ecosystem-based management for a particular fishery or issue.
 
 ---
 # Workplan: Objective 2
@@ -236,51 +530,6 @@ https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/
 *  **31 July 2026:** Final Report and summary for South Atlantic Bite to Council
 
 *  **September 2026:** Present all project results at Council meeting
-
----
-# Coordination
-
-*  Regular meetings with Fishery Management Process Review team
-
-*  Shared interview logistics framework and automation--thank you!
-
-*  All ecosystem data lit review documents ready to share on SAFMC Google Folder
-
-*  Coordinate management action review
-
-*  Other recommendations?
-
-
----
-.pull-left[
-# Discussion
-
-**Feedback requested:**
-
-Useful summary format for Council ecosystem data products and uses?
-
-*  1 page summary of each data product? Indexed by Council
-*  1 page summary of Council uses to date?
-*  Database of these results for searching?
-*  Synthesis document from these raw materials
-*  Longer term, multi-author review paper with all interviewees
-
-
-Additional questions to ask Council staff?
-
-Priority management actions beyond catch specification?
-
-] 
-
-.pull-right[
-# Thoughts? Thank you!
-
-![:img EAFM Policy Guidance Doc Word Cloud](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC_EAFMwordcloud.png)
-.contrib[
-Word cloud based on [Mid-Atlantic Fishery Management Council EAFM Guidance Document](https://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08-palr.pdf)
-]
-
-]
 
 
 .footnote[
