@@ -54,9 +54,9 @@ h3 {
 
 .title-slide {
 	background-color: #fff;
-  background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025.jpeg);
-  background-size: 100%;
-  background-position: center;
+  background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg);
+  background-size: 20%, 100%;
+  background-position: 7% 95%, right;
 	border-bottom: 0px solid  #522D80;
 	box-shadow:  0 55px 0 #fff;
 }
@@ -79,7 +79,7 @@ h3 {
 
 .title-slide h3 {
   font-family: 'Open Sans', sans-serif;
-  color: #FFD700;
+  color: #522D80;
   letter-spacing: -1px;
 	font-size: 20px;
 	padding-top: 50px;
