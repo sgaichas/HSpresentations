@@ -147,12 +147,15 @@ OY: maximum benefit to the Nation in terms of seafood production and recreationa
 .pull-right-30[]
 
 ---
-## More tools and products derived from ecosystem data (examples later)
+## More tools and products derived from or including ecosystem data (examples later)
 
 *  Risk tables or risk assessments
+*  Habitat assessments
 *  Conceptual models
+*  Stock assessment models
 *  Ecosystem models
 *  Management strategy evaluations
+*  Fishery Performance reports
 
 
 ---
