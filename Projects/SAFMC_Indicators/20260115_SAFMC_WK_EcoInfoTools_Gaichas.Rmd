@@ -70,6 +70,10 @@ background-position: center
 ## Ecosystem Information Tools Across Councils
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
+background-size: 400px
+background-position: right
+
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
@@ -79,10 +83,20 @@ background-position: center
 *  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
 *  Also known as State of the Ecosystem (SOE) or Ecosystem Considerations reports. 
 
+![:img GOA brief p1, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-1.png)![:img GOA brief p2, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-2.png)![:img GOA brief p3, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-3.png)
+
 ]
 
-.pull-right-30[]
+.pull-right-30[
+<!--![South Atlantic ESR cover](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)-->
+]
 
+---
+## Ecosystem Status Reports
+
+![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
+
+<!---->
 
 ---
 ## Ecosystem Information: Definitions and abbreviations
