@@ -72,7 +72,7 @@ background-position: center
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
 background-size: 400px
-background-position: right
+background-position: right 50px center
 
 ## Ecosystem Information: Definitions and abbreviations
 
@@ -96,9 +96,12 @@ background-position: right
 
 ![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
 
-<!---->
 
 ---
+background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
+background-size: 460px, 380px
+background-position: top 10px right 30px, bottom 5px right 50px
+
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
@@ -109,9 +112,15 @@ background-position: right
 
 *  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
 
+![:img NECVA, 40%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 35%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
+
 ]
 
-.pull-right-30[]
+.pull-right-30[
+]
+
+![:img NECVA, 35%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 35%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
+
 
 ---
 ## Ecosystem Information: Definitions and abbreviations
