@@ -239,19 +239,34 @@ Commit to a transparent, balanced, and timely decision-making process that allow
 *  Improve communication with stakeholders to ensure the needs of the fishery are understood and considered throughout the Council process. 
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FEPs.png")
+background-size: 390px
+background-position: right 50px center
+
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
 
 **Fishery Ecosystem Plan (FEP)**: a document outlining methods for ecosystem-based fishery management by providing an ecosystem description, overarching ecosystem policies and goals, and methods for coordinating across managed fisheries and addressing ecosystem interactions. 
 
-*  When FEPs contain all components of an FMP, they can be used as FMPs. 
+*  When FEPs contain all components of an FMP, they can be used as FMPs (Western Pacific). 
+
+![:img HawaiiFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/HawaiiFEP.png)![:img MarianaFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MarianaFEP.png)![:img AMSamoaFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/AMSamoaFEP.png)![:img PRIAFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PRIAFEP.png)![:img PelagicFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PelagicFEP.png)
 
 *  FEPs were originally outlined and recommended in a 1999 report to Congress, and operational methods for refining and using FEPs have been advanced more recently.  
 
+.footnote[
+Source: https://www.wpcouncil.org/fishery-ecosystem-plans-amendments/
 ]
 
-.pull-right-30[]
+]
+
+.pull-right-30[
+.footnote[
+Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
+]
+
+]
 
 ---
 ## Fishery Ecosystem Plans
