@@ -69,6 +69,9 @@ background-position: center
 
 ## Ecosystem Information Tools Across Councils
 
+.footnote[
+Source: https://www.fisherycouncils.org/ 
+]
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
 background-size: 400px
@@ -85,22 +88,34 @@ background-position: right 50px center
 
 ![:img GOA brief p1, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-1.png)![:img GOA brief p2, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-2.png)![:img GOA brief p3, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-3.png)
 
+.footnote[
+Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
+]
 ]
 
 .pull-right-30[
 <!--![South Atlantic ESR cover](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)-->
+.footnote[
+Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280) 
+]
 ]
 
+.footnote[
+Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
+]
 ---
 ## Ecosystem Status Reports
 
 ![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
 
+.footnote[
+Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE-MA-02282025-508.pdf) 
+]
 
 ---
 background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
-background-size: 460px, 343px
-background-position: top 10px right 30px, bottom 38px right 70px
+background-size: 460px, 340px
+background-position: top 10px right 30px, bottom 10px right 70px
 
 ## Ecosystem Information: Definitions and abbreviations
 
@@ -109,14 +124,17 @@ background-position: top 10px right 30px, bottom 38px right 70px
 **Climate Vulnerability Analysis (CVA)**: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
 
 *  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
-
 *  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
 
-![:img NECVA, 45%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 38%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
+![:img NECVA, 42%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 36%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
 
 ]
 
 .pull-right-30[
+]
+
+.footnote[
+Sources: [Hare et al. 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) on left, [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) on right
 ]
 
 ---
@@ -124,20 +142,31 @@ background-position: top 10px right 30px, bottom 38px right 70px
 
 .pull-left[
 ![:img SAtl Directionality](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g006)
+
+.footnote[
+Source: [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) 
+]
 ]
 
 .pull-right[
 ![:img HMS CVA](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000530.g004)
+
+.footnote[
+Source: [Loughran et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000530) 
+]
 ]
 
 ???
 ![:img Habitat CVA, 33%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0260654.g003)
+
+Source: Farr et al. 2021 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260654
 
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
 background-size: 450px
 background-position: right 50px center
+
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
@@ -153,8 +182,61 @@ Councils:
 ]
 
 .pull-right-30[
-
+.footnote[
+Source: https://safmc.net/fishery-management/
 ]
+]
+
+---
+## Fishery Management Plan Objectives
+
+Official name: Fishery Management Plan for the Snapper Grouper Fishery of the South Atlantic Region.
+
+.pull-left[
+<span style="color: blue;">**Goal 1 (Science):**</span>
+Management decisions for the snapper grouper fishery are based upon robust, defensible science that considers qualitative and quantitative data analyzed in a timely, clear, and transparent manner that builds stakeholder confidence. 
+.table[
+*  Promote collection of quality data to support management plans and programs considered by the Council. 
+*  Encourage the development of mechanisms to effectively engage and collaborate with stakeholders on cooperative research, data collection, and analysis. 
+*  <span style="color: blue;">**Improve knowledge about the social and economic elements of the snapper grouper fishery in the South Atlantic.**</span> 
+*  Support improved and expanded monitoring and reporting programs for the snapper grouper fishery. 
+*  <span style="color: blue;">**Promote data collection and analysis to support ecosystem and habitat considerations for the snapper grouper fishery.**</span>
+]
+]
+
+.pull-right[
+<span style="color: blue;">**Goal 2 (Management):**</span>
+Adopt management strategies for the snapper grouper fishery that rebuild and maintain fishery resources, adapt to regional differences in the fishery, and consider the social and economic needs of fishing communities. 
+.table[
+*  <span style="color: blue;">**Develop management measures that consider sub-regional differences and issues within the fishery.**</span> 
+*  Develop innovative management measures that allow consistent access to the fishery for all sectors. 
+*  <span style="color: blue;">**Ensure that management decisions help maximize social and economic opportunity for all sectors.**</span> 
+*  Develop management measures that reduce and mitigate discards. 
+*  <span style="color: blue;">**Support management measures that incorporate ecosystem and habitat considerations for the snapper grouper fishery.**</span> 
+*  Develop management measures that support optimal sector allocations for the snapper grouper fishery. 
+]
+]
+
+.footnote[
+Source: https://safmc.net/fishery-management-plans/snapper-grouper/
+]
+
+???
+
+Goal 3 (Communication)
+Employ interactive outreach strategies that encourage continuous participation and support two-way engagement between managers and snapper grouper fishery stakeholders while building a greater understanding of science and management.  
+
+*  Develop communication approaches that provide streamlined and timely information to increase awareness and engage stakeholders. 
+*  Ensure that Council communication encourages and supports engagement with a diverse audience of stakeholders. 
+*  Improve awareness and understanding of fishery science and research and how these inform management. 
+*  Improve awareness and understanding of how social and economic issues are linked to fisheries management measures. 
+
+Goal 4 (Governance)
+Commit to a transparent, balanced, and timely decision-making process that allows flexible yet well-defined protocols and strategies for managing the snapper grouper fishery. 
+
+*  Create an accountable and flexible decision-making process for development and evaluation of management measures. 
+*  Build capacity to streamline management efforts and better coordinate with management partners. 
+*  Improve communication with stakeholders to ensure the needs of the fishery are understood and considered throughout the Council process. 
 
 ---
 ## Ecosystem Information: Definitions and abbreviations
@@ -172,6 +254,11 @@ Councils:
 .pull-right-30[]
 
 ---
+## Fishery Ecosystem Plans
+
+
+
+---
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
@@ -181,10 +268,15 @@ Councils:
 *  Based on a life history conceptual model identifying key bottlenecks and drivers
 *  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
 *  Trends and status of indicators can contribute to risk assessment at the stock level. 
+*  Alaska invented, Northeast adopted but does not use in the same way
 
 ]
 
 .pull-right-30[]
+
+---
+## Ecosystem Socioeconomic Profiles
+
 
 ---
 ## More tools and products derived from or including ecosystem data (examples later)
@@ -392,7 +484,7 @@ background-position: bottom right, top right
 ## Details for each Council
 
 .pull-left[
-Each section includes an overview of:  
+Each [report section](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataReview.html#42_Review_of_Products_and_Processes_by_Council_(pre-interview) includes an overview of:  
 *  FMPs and species in each
 *  FEPs or similar documents
 *  ESRs available with indicators by section
@@ -541,6 +633,7 @@ risk.eco %>%
   - Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
   - Both regions have recent ecosystem reports and climate vulnerability assessments
 
+## Potential for wider use of CVAs 
 
 ---
 ## Ecosystem Information in the South Atlantic: Details from Mandy!
