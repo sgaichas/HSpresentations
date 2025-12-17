@@ -332,32 +332,49 @@ Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheri
 
 ]
 
+---
+## North Pacific example ESP indicators &rarr; risks: ([Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634))
 
+```{r}
+
+Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
+names(Tab1)[1] <- "Risk level"
+
+Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
+
+flextable::flextable(Tab1)|>
+  flextable::set_caption("Risk classification table for assessment, population dynamics, and environmental/ecosystem considerations.") |>
+  flextable::width(width = c(2, rep(3,3)))
+```
+
+--
+
+```{r}
+flextable::flextable(Tab2)|>
+  flextable::set_caption("Risk table evaluation for Gulf of Alaska pollock in the 2018 stock assessment.") |>
+  flextable::width(width = c(3.5, 3.5, 4.5))
+```
 
 ---
+background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
+background-size: 380px
+background-position: right 50px center
+
 ## More tools and products derived from or including ecosystem data
 
-.pull-left-30[
-*  Risk tables or risk assessments
+*  SSC Assessment uncertainty determinations
+*  Ecosystem risk assessments
 *  Habitat assessments
 *  Conceptual models
 *  Stock assessment models
 *  Ecosystem models
 *  Management strategy evaluations
 *  Fishery Performance reports
+
+![:img Carib consensus model, 50%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+.footnote[
+Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
 ]
-
-.pull-right-70[
-```{r}
-
-Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
-
-Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
-```
-
-
-]
-
 ---
 ## Council Context Comparison
 
@@ -701,12 +718,31 @@ risk.eco %>%
   - Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
   - Both regions have recent ecosystem reports and climate vulnerability assessments
 
-## Potential for wider use of CVAs 
+## Potential for wider use of CVAs across regions
 
 ---
-## Ecosystem Information in the South Atlantic: Details from Mandy!
+## Common Management Concerns
 
+**Forage Fish Ecology:** Multiple Councils have implemented protections for unmanaged forage species or developed harvest control rules accounting for ecosystem services (notably ASMFC’s ecological reference points for Atlantic menhaden).
 
+**Climate Change Impacts:** All regions are addressing rapid ecosystem changes, though even data-rich systems with long-term ecosystem reporting have experienced unexpected stock collapses, highlighting the need for climate-ready management approaches.
+
+## Promising Practices
+
+**Risk-Based Frameworks:** North Pacific, Pacific, New England, and Mid-Atlantic are developing or implementing indicator-based risk assessments to adjust catch advice
+
+**Stakeholder Co-Production:** Most FEPs emphasize collaborative development of ecosystem models and indicators with fishers, managers, and scientists
+
+**Actionable Processes:** “Action modules” (North Pacific), “Initiatives” (Pacific), and “Fishery Ecosystem Issues” (Gulf) provide structured pathways from ecosystem plans to management action
+
+**Ecosystem and Socioeconomic Profiles (ESPs):** Stock-specific ecosystem reports (pioneered by North Pacific, adopted by Northeast) link environmental drivers to individual stock productivity
+
+---
+.center[
+# Thoughts? Questions?
+
+# Thank you!
+]
 
 
 .footnote[

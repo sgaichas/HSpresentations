@@ -26,6 +26,8 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20251201_SAFMC_POT2_Gaichas.html" target="_blank">Project Oversight Team meeting - December 1, 2025</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260115_SAFMC_WK_EcoInfoTools_Gaichas.html" target="_blank">Ecosystem Data Workshop plenary comparing Council Tool Use - January 15, 2026</a>
+
 
 ## Scientific Conferences
 
