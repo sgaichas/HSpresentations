@@ -297,7 +297,6 @@ background-position: right 50px center
 *  Based on a life history conceptual model identifying key bottlenecks and drivers
 *  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
 *  Trends and status of indicators can contribute to risk assessment at the stock level. 
-
 *  Alaska invented, Northeast adopted (but does not use in the same way)
 
 ]
@@ -314,10 +313,10 @@ Source: https://www.fisheries.noaa.gov/feature-story/integrating-ecosystem-and-s
 
 ![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
 
-![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+![:img BSB ESP conceptual model](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB-consmod.png)
 
 .footnote[
-Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), and Abigail Tyrell and Emily Liljestrand, NEFSC
+Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), [NEFSC](https://repository.library.noaa.gov/view/noaa/66453), and Abigail Tyrell and Emily Liljestrand, NEFSC
 ]
 
 ]
@@ -331,6 +330,9 @@ Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheri
 ![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
 
 ]
+
+???
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
 
 ---
 ## North Pacific example ESP indicators &rarr; risks: ([Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634))
