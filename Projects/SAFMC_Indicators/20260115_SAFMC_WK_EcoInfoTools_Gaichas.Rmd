@@ -271,9 +271,23 @@ Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP 
 ---
 ## Fishery Ecosystem Plans
 
+"Umbrella" documents establishing processes to turn the ecosystem plan into tangible action on a topic: Pacific, Mid-Atlantic, North Pacific (Bering Sea), Gulf
+.pull-left[
+![:img Pacific Ecosystem Initiatives, 30%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Pacific-EcoInitiatives.png)![:img Bering FEP, 30%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/BeringFEPcover.png)![:img Gulf FEP, 30%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Gulf-FEP.png)![:img Bering Action Modules, 100%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Bering-ActionModule.png)
+]
 
+.pull-right[
+![:img Gulf Fishery Ecosystem Initiatives, 100%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Gulf-FEI.png)
 
+.footnote[
+Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-fishery-ecosystem-plan-march-2022.pdf/) and [Initiatives Appendix](https://www.pcouncil.org/documents/2022/09/fep_initiatives_appendix_post_03_17_final_170509.pdf/), [Bering FEP](https://meetings.npfmc.org/CommentReview/DownloadFile?p=c334ad33-4139-4b5a-b205-a8b7c5028562.pdf&fileName=D6%20Final%20BS%20FEP%20Jan%202019.pdf), [Draft Gulf FEP](https://gulf-council-media.s3.amazonaws.com/uploads/2025/10/Q-4a-Gulf_FEP_2025.pdf)
+]
+]
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ESPfigShotwell.png")
+background-size: 450px
+background-position: right 50px center
+
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
@@ -283,19 +297,47 @@ Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP 
 *  Based on a life history conceptual model identifying key bottlenecks and drivers
 *  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
 *  Trends and status of indicators can contribute to risk assessment at the stock level. 
-*  Alaska invented, Northeast adopted but does not use in the same way
+
+*  Alaska invented, Northeast adopted (but does not use in the same way)
 
 ]
 
-.pull-right-30[]
+.pull-right-30[
+.footnote[
+Source: https://www.fisheries.noaa.gov/feature-story/integrating-ecosystem-and-socioeconomic-information-fisheries-management
+]
+]
 
 ---
 ## Ecosystem Socioeconomic Profiles
+.pull-left-40[
+
+![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+.footnote[
+Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), and Abigail Tyrell and Emily Liljestrand, NEFSC
+]
+
+]
+
+--
+
+.pull-right-60[
+
+![:img bottom temp in BSB assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png)![:img GOA cod risk assessment, 50%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/GOApcodESPrisk.png)
+
+![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
+
+]
+
 
 
 ---
-## More tools and products derived from or including ecosystem data (examples later)
+## More tools and products derived from or including ecosystem data
 
+.pull-left-30[
 *  Risk tables or risk assessments
 *  Habitat assessments
 *  Conceptual models
@@ -303,7 +345,18 @@ Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP 
 *  Ecosystem models
 *  Management strategy evaluations
 *  Fishery Performance reports
+]
 
+.pull-right-70[
+```{r}
+
+Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
+
+Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
+```
+
+
+]
 
 ---
 ## Council Context Comparison
