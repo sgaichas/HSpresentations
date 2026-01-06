@@ -72,6 +72,60 @@ background-position: center
 .footnote[
 Source: https://www.fisherycouncils.org/ 
 ]
+
+---
+## Council Context Comparison
+
+```{r CouncilComp}
+proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
+
+proparea |>
+  dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
+                PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
+  flextable::flextable() |>
+  flextable::colformat_double(
+    j = c("Percarea", "PercComTons", "PercRecTons",
+          "PercComRev", "PercRecExpend"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    digits = 2,                  # Specify the number of decimal places
+    na_str = "-"      # missing value
+  ) |>
+  flextable::set_header_labels(
+    CouncilName = "Council",
+    EEZArea = "EEZ Area (sq km)",
+    Percarea = "Percent of U.S. EEZ", 
+    Nstates = "Number of States or Territories",
+    NFMPs = "Number of FMPs",
+    NFEPs = "Number of FEPs",
+    PercComTons = "Percent of 2023 U.S. Commercial Landings",
+    PercRecTons = "Percent of 2023 U.S. Recreational Landings",
+    PercComRev = "Percent of 2023 U.S. Commercial Revenue",
+    PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
+  ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1) |>
+  flextable::set_caption("Comparison of Council management context attributes.") |>
+  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) |>
+  #flextable::bg(i = ~ CouncilName == "South Atlantic", bg = "yellow", part = "body") |>
+  #flextable::surround(i = ~ CouncilName == "South Atlantic", 
+  #                    border = flextable::fp_border_default(color = "red", width = 1.5),
+  #                    part = "body") |>
+  flextable::hline(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+
+```
+
+
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
 background-size: 400px
@@ -80,7 +134,7 @@ background-position: right 50px center
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
-**Ecosystem Status Report (ESR)**: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
+<span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
 
 *  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
 *  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
@@ -113,6 +167,82 @@ Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE
 ]
 
 ---
+## Ecosystem Status Report (ESR) Comparison
+
+```{r ESRs}
+
+compesrdat <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/compesrdat.csv")
+
+summtab <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/summtab.csv")
+
+summtab$Frequency <- dplyr::case_when(summtab$Council == "CFMC" ~ "First",
+                                      summtab$Council %in% c("GFMC", "SAFMC", "WPFMC") ~ "Intermittent",
+                                      TRUE ~ "Annual")
+
+summtab <- summtab |> dplyr::relocate(Frequency, .after = Year)
+
+sectionindcounts <- compesrdat |>
+  dplyr::group_by(Region, Year, Section) |>
+  dplyr::summarise(Nind = n())
+
+indcounts <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::summarise(Nind = n())
+
+sectioncounts <- compesrdat |>
+  dplyr::select(Region, Year, Section) |>
+  dplyr::distinct() |>
+  dplyr::group_by(Region, Year) |>
+  dplyr::summarise(Nsect = n())
+
+order <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::select(Section) |>
+  dplyr::distinct() |>
+  dplyr::mutate(order = 1:length(Section))
+
+esrs <- merge(sectionindcounts, order) |>
+  dplyr::select(Region, Year, Section, Order= order, Nind) |>
+  dplyr::arrange(Region, Order)
+  
+esrsls <- split(esrs, f = esrs$Region)
+
+esrsdetls <- split(compesrdat, f = compesrdat$Region)
+
+flextable::flextable(summtab) |>
+  flextable::colformat_num(
+    j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_header_labels(
+      Npages = "Total pages",
+      Nsect = "Number of Sections",
+      Nind = "Number of Indicators",
+      First = "First Section",
+      Last = "Last Section"
+  ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1)
+  flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
+  flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))|>
+  flextable::bg(j = c("Year", "Frequency", "Nind"), bg = "yellow", part = "body")|>
+  flextable::hline(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Council, "SAFMC"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+```
+
+[More detailed ESR comparison](https://sgaichas.github.io/SAFMCindicators/ESRcomparisons.html) 
+
+---
 background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
 background-size: 460px, 340px
 background-position: top 10px right 30px, bottom 10px right 70px
@@ -121,7 +251,7 @@ background-position: top 10px right 30px, bottom 10px right 70px
 
 .pull-left-60[
 
-**Climate Vulnerability Analysis (CVA)**: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
+<span style="color: blue;">**Climate Vulnerability Analysis (CVA)**</span>: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
 
 *  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
 *  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
@@ -161,6 +291,66 @@ Source: [Loughran et al. 2025](https://journals.plos.org/climate/article?id=10.1
 
 Source: Farr et al. 2021 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260654
 
+---
+## Climate Vulnerability Analysis (CVA) Comparison
+
+```{r CVAs}
+
+CVAs <- proparea |>
+  dplyr::select(CouncilName) |>
+  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                 CouncilName %in% c("North Pacific") ~ 2019,
+                                                 CouncilName %in% c("Western Pacific") ~ 2022,
+                                                 CouncilName %in% c("Pacific", 
+                                                                 "South Atlantic",
+                                                                 "Gulf") ~ 2023,
+                                              TRUE ~ NA),
+                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2022,
+                                              TRUE ~ NA),
+                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                CouncilName %in% c("South Atlantic", 
+                                                                 "Gulf",
+                                                                 "Pacific") ~ 2022,
+                                              TRUE ~ NA),
+                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                             "Gulf",
+                                                             "Caribbean") ~ 2025,
+                                              TRUE ~ NA),
+                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                                "Gulf",
+                                                                "Caribbean") ~ 2023,
+                                              TRUE ~ NA) 
+                )
+
+flextable::flextable(CVAs) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
+  flextable::width(width = c(rep(1,6))) |>
+  flextable::hline(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+```
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
@@ -170,7 +360,7 @@ background-position: right 50px center
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
-**Fishery Management Plan (FMP)**: a legally required document outlining methods (management measures, regulations, monitoring, research) to achieve fishery management objectives as specified in the U.S. Magnuson-Stevens Fishery Conservation and Management Act. 
+<span style="color: blue;">**Fishery Management Plan (FMP)**</span>: a legally required document outlining methods (management measures, regulations, monitoring, research) to achieve fishery management objectives as specified in the U.S. Magnuson-Stevens Fishery Conservation and Management Act. 
 
 Councils:
 *  determine which fisheries are included in an FMP, 
@@ -247,7 +437,7 @@ background-position: right 50px center
 
 .pull-left-60[
 
-**Fishery Ecosystem Plan (FEP)**: a document outlining methods for ecosystem-based fishery management by providing an ecosystem description, overarching ecosystem policies and goals, and methods for coordinating across managed fisheries and addressing ecosystem interactions. 
+<span style="color: blue;">**Fishery Ecosystem Plan (FEP)**</span>: a document outlining methods for ecosystem-based fishery management by providing an ecosystem description, overarching ecosystem policies and goals, and methods for coordinating across managed fisheries and addressing ecosystem interactions. 
 
 *  When FEPs contain all components of an FMP, they can be used as FMPs (Western Pacific). 
 
@@ -283,6 +473,62 @@ Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP 
 Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-fishery-ecosystem-plan-march-2022.pdf/) and [Initiatives Appendix](https://www.pcouncil.org/documents/2022/09/fep_initiatives_appendix_post_03_17_final_170509.pdf/), [Bering FEP](https://meetings.npfmc.org/CommentReview/DownloadFile?p=c334ad33-4139-4b5a-b205-a8b7c5028562.pdf&fileName=D6%20Final%20BS%20FEP%20Jan%202019.pdf), [Draft Gulf FEP](https://gulf-council-media.s3.amazonaws.com/uploads/2025/10/Q-4a-Gulf_FEP_2025.pdf)
 ]
 ]
+
+---
+## Fishery Ecosystem Plan (FEP) Comparison
+
+```{r FEPs}
+
+FEPactions <- data.frame(Council = c("New England*",
+                                     "Mid-Atlantic",
+                                     "South Atlantic",
+                                     "Gulf",
+                                     "Caribbean",
+                                     "Pacific",
+                                     "North Pacific",
+                                     "Western Pacific"),
+                         EcoDescription = c(1,1,1,NA,1,1,1,1),
+                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA),
+                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1),
+                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA),
+                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA),
+                         EcoHealth = c(NA,NA,NA,NA,NA,NA,NA,1),
+                         Monitoring = c(1,1,1,NA,1,1,1,1),
+                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1))
+
+flextable::flextable(FEPactions) |>
+  flextable::set_header_labels(
+      EcoDescription = "Ecosystem Description",
+      FoodWebConsMod = "Food Web Conceptual Model",
+      FoodWebEFH = "Food Web Essential Fish Habitat",
+      EcoHealth = "Ecosystem Health Objectives",
+      TotRemovals = "Total Removals Objectives",
+      OutsideImpacts = "Other Ocean Uses Considered"
+  ) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
+  flextable::width(width = c(1, rep(0.75,8))) |>
+  flextable::bg(j = c("Uncertainty"), bg = "yellow", part = "body")|>
+  flextable::hline(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Council, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+```
+
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ESPfigShotwell.png")
 background-size: 450px
@@ -291,7 +537,7 @@ background-position: right 50px center
 ## Ecosystem Information: Definitions and abbreviations
 
 .pull-left-60[
-**Ecosystem Socioeconomic Profile (ESP)**: a document summarizing ecosystem information for a particular *stock*, spanning physical, biological, economic, and social information. 
+<span style="color: blue;">**Ecosystem Socioeconomic Profile (ESP)**</span>: a document summarizing ecosystem information for a particular *stock*, spanning physical, biological, economic, and social information. 
 
 *  *ESR for a stock*
 *  Based on a life history conceptual model identifying key bottlenecks and drivers
@@ -373,14 +619,35 @@ flextable::flextable(Tab1)|>
   flextable::width(width = c(2, rep(3,3)))
 ```
 
---
+---
+## North Pacific example ESP indicators &rarr; risks: ([Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634))
+
+```{r}
+
+Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
+names(Tab1)[1] <- "Risk level"
+
+Tab1 <- Tab1[1:3,]
+
+Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
+
+flextable::flextable(Tab1)|>
+  flextable::set_caption("Risk classification table for assessment, population dynamics, and environmental/ecosystem considerations.") |>
+  flextable::width(width = c(2, rep(3,3))) |>
+  flextable::bg(i = ~ `Risk level` == "Level 2: Substantially increased concerns", bg = "yellow", part = "body")
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ```{r}
 flextable::flextable(Tab2)|>
   flextable::set_caption("Risk table evaluation for Gulf of Alaska pollock in the 2018 stock assessment.") |>
   flextable::width(width = c(3.5, 3.5, 4.5))
 ```
-
 ---
 background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
 background-size: 380px
@@ -401,191 +668,7 @@ background-position: right 50px center
 .footnote[
 Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
 ]
----
-## Council Context Comparison
 
-```{r CouncilComp}
-proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
-
-proparea |>
-  dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
-                PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
-  flextable::flextable() |>
-  flextable::colformat_double(
-      j = c("Percarea", "PercComTons", "PercRecTons",
-            "PercComRev", "PercRecExpend"), # Specify the columns to format
-      big.mark = "",             # Set big.mark to an empty string to remove commas
-      digits = 2,                  # Specify the number of decimal places
-      na_str = "-"      # missing value
-    ) |>
-  flextable::set_header_labels(
-      CouncilName = "Council",
-      EEZArea = "EEZ Area (sq km)",
-      Percarea = "Percent of U.S. EEZ", 
-      Nstates = "Number of States or Territories",
-      NFMPs = "Number of FMPs",
-      NFEPs = "Number of FEPs",
-      PercComTons = "Percent of 2023 U.S. Commercial Landings",
-      PercRecTons = "Percent of 2023 U.S. Recreational Landings",
-      PercComRev = "Percent of 2023 U.S. Commercial Revenue",
-      PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
-    ) |>
-  #flextable::set_table_properties(layout = "autofit", width = 1) |>
-  flextable::set_caption("Comparison of Council management context attributes.") |>
-  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4)))
-
-```
-
----
-## Ecosystem Status Report (ESR) Comparison
-
-```{r ESRs}
-
-compesrdat <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/compesrdat.csv")
-
-summtab <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/summtab.csv")
-
-summtab$Frequency <- dplyr::case_when(summtab$Council == "CFMC" ~ "First",
-                                      summtab$Council %in% c("GFMC", "SAFMC", "WPFMC") ~ "Intermittent",
-                                      TRUE ~ "Annual")
-
-summtab <- summtab |> dplyr::relocate(Frequency, .after = Year)
-
-sectionindcounts <- compesrdat |>
-  dplyr::group_by(Region, Year, Section) |>
-  dplyr::summarise(Nind = n())
-
-indcounts <- compesrdat |>
-  dplyr::group_by(Region) |>
-  dplyr::summarise(Nind = n())
-
-sectioncounts <- compesrdat |>
-  dplyr::select(Region, Year, Section) |>
-  dplyr::distinct() |>
-  dplyr::group_by(Region, Year) |>
-  dplyr::summarise(Nsect = n())
-
-order <- compesrdat |>
-  dplyr::group_by(Region) |>
-  dplyr::select(Section) |>
-  dplyr::distinct() |>
-  dplyr::mutate(order = 1:length(Section))
-
-esrs <- merge(sectionindcounts, order) |>
-  dplyr::select(Region, Year, Section, Order= order, Nind) |>
-  dplyr::arrange(Region, Order)
-  
-esrsls <- split(esrs, f = esrs$Region)
-
-esrsdetls <- split(compesrdat, f = compesrdat$Region)
-
-flextable::flextable(summtab) |>
-  flextable::colformat_num(
-    j = c("Year"), # Specify the columns to format
-    big.mark = "",             # Set big.mark to an empty string to remove commas
-    digits = 0                  # Specify the number of decimal places
-  ) |>
-  flextable::set_header_labels(
-      Npages = "Total pages",
-      Nsect = "Number of Sections",
-      Nind = "Number of Indicators",
-      First = "First Section",
-      Last = "Last Section"
-  ) |>
-  #flextable::set_table_properties(layout = "autofit", width = 1)
-  flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
-  flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))
-```
-
----
-## Climate Vulnerability Analysis (CVA) Comparison
-
-```{r CVAs}
-
-CVAs <- proparea |>
-  dplyr::select(CouncilName) |>
-  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2016,
-                                                 CouncilName %in% c("North Pacific") ~ 2019,
-                                                 CouncilName %in% c("Western Pacific") ~ 2022,
-                                                 CouncilName %in% c("Pacific", 
-                                                                 "South Atlantic",
-                                                                 "Gulf") ~ 2023,
-                                              TRUE ~ NA),
-                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2022,
-                                              TRUE ~ NA),
-                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2016,
-                                                CouncilName %in% c("South Atlantic", 
-                                                                 "Gulf",
-                                                                 "Pacific") ~ 2022,
-                                              TRUE ~ NA),
-                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England",
-                                                                "South Atlantic",
-                                                             "Gulf",
-                                                             "Caribbean") ~ 2025,
-                                              TRUE ~ NA),
-                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England",
-                                                                "South Atlantic",
-                                                                "Gulf",
-                                                                "Caribbean") ~ 2023,
-                                              TRUE ~ NA) 
-                )
-
-flextable::flextable(CVAs) |>
-  flextable::colformat_num(
-    #j = c("Year"), # Specify the columns to format
-    big.mark = "",             # Set big.mark to an empty string to remove commas
-    na_str = "-",      # missing value
-    digits = 0                  # Specify the number of decimal places
-  ) |>
-  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
-  flextable::width(width = c(rep(1,6)))
-```
-
----
-## Fishery Ecosystem Plan (FEP) Comparison
-
-```{r FEPs}
-
-FEPactions <- data.frame(Council = c("New England*",
-                                     "Mid-Atlantic",
-                                     "South Atlantic",
-                                     "Gulf",
-                                     "Caribbean",
-                                     "Pacific",
-                                     "North Pacific",
-                                     "Western Pacific"),
-                         EcoDescription = c(1,1,1,NA,1,1,1,1),
-                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA),
-                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1),
-                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA),
-                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA),
-                         EcoHealth = c(NA,NA,NA,NA,NA,NA,NA,1),
-                         Monitoring = c(1,1,1,NA,1,1,1,1),
-                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1))
-
-flextable::flextable(FEPactions) |>
-  flextable::set_header_labels(
-      EcoDescription = "Ecosystem Description",
-      FoodWebConsMod = "Food Web Conceptual Model",
-      FoodWebEFH = "Food Web Essential Fish Habitat",
-      EcoHealth = "Ecosystem Health Objectives",
-      TotRemovals = "Total Removals Objectives",
-      OutsideImpacts = "Other Ocean Uses Considered"
-  ) |>
-  flextable::colformat_num(
-    #j = c("Year"), # Specify the columns to format
-    big.mark = "",             # Set big.mark to an empty string to remove commas
-    na_str = "-",      # missing value
-    digits = 0                  # Specify the number of decimal places
-  ) |>
-  flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
-  flextable::width(width = c(1, rep(0.75,8)))
-```
 
 ---
 background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2025.png"), url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
