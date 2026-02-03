@@ -33,17 +33,6 @@ library(ggrepel)
 library(here)
 library(ecodata)
 
-#General inline text input for report
-#Council
-council <- "Mid-Atlantic Fishery Management Council"
-council_abbr <- "MAFMC"
-
-#Region identifiers
-epu <- "Mid-Atlantic Bight"
-epu_abbr <- "MAB"
-region <- "Mid-Atlantic"
-region_abbr <- "MA" #Some commercial data organized by "MA" or "NE" regions, not by EPU 
-
 ```
 
 ```{r, load_refs, include=FALSE, cache=FALSE}
@@ -63,7 +52,7 @@ myBib <- ReadBib("./DeepUncertaintyMSE.bib", check = FALSE)
 ```
 
 
-## Fishery management in the US: participatory, with wicked problems
+## Fishery management in the US: participatory regional process
 
 Eight regional Fishery Management Councils establish plans for sustainable management of stocks within their jurisdictions. All are governed by the same law, but tailor management to their regional stakeholder needs.  
 .center[
@@ -113,39 +102,6 @@ a$p + ggplot2::coord_cartesian(xlim=c(0,2), ylim=c(0,2)) +
 
 
 ---
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
-background-size: 1100px
----
-## Details
-
-Optimum Yield (OY) definition
-
-*Magnuson-Stevens Act section (3)(33) defines “optimum,” with respect to the yield from a fishery, as the amount of fish that will provide the greatest overall benefit to the Nation, particularly with respect to food production and recreational opportunities and taking into account the protection of marine ecosystems;* 
-
-*that is prescribed on the basis of the MSY from the fishery, as reduced by any relevant economic, social, or ecological factor;* 
-
-*and, in the case of an overfished fishery, that provides for rebuilding to a level consistent with producing the MSY in such fishery.*
-
----
-## Details
-
-National standards
-
->Standard 1. Conservation and management measures shall prevent overfishing while achieving, on a continuing basis, the optimum yield (OY) from each fishery for the U.S. fishing industry.
->
-[...] guidance on:
->
-(i) Specifying maximum sustainable yield (MSY) and OY;
->
-(ii) Specifying status determination criteria (SDC) so that overfishing and overfished determinations can be made for stocks and stock complexes in an FMP;
->
-(iii) Preventing overfishing and achieving OY, incorporation of scientific and management uncertainty in control rules, and adaptive management using annual catch limits (ACL) and measures to ensure accountability (i.e., accountability measures (AMs)); and
->
-(iv) Rebuilding stocks and stock complexes. 
-
-## Regional and Fishery Management Plan (FMP) specific implementation
-
----
 background-image: url("https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/OFLABCACLetc.png")
 background-position: left
 
@@ -158,15 +114,27 @@ MFMT = Maximum Fishing
 Mortality Threshold,  
 typically $F_{MSY}$
 
-**Councils all do this differently**
+
+
+**Councils have different methods**
+
+**But all use F buffers**
 ]
 
 ---
-## Free et al review paper
+## "In both constant F and ramped F control rules, precautionary buffers are used to reduce the OFL to the ABC to protect against scientific uncertainty." `r Citep(myBib, "free_harvest_2023")` Fig. 2
 
+.center[
+![:img Free et al 2023 Figure 2, 80%](https://onlinelibrary.wiley.com/cms/asset/39ed2c6b-9114-4398-952e-5d899f518bed/faf12724-fig-0002-m.jpg)
+]
 
 ---
-## Acceptable Biological Catch (ABC) determination: MAFMC approach
+## Where can precaution increased or reduced? Free et al 2023 Figure 6
+
+![:img Free et al 2023 Figure 6, 80%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
+
+---
+## Acceptable Biological Catch (ABC) determination: Mid Atlantic approach
 
 .pull-left[
 ### Council Risk Policy
@@ -229,27 +197,15 @@ print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
 See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
 ]
 
----
-## Where can environmental change come in? National standard 1
-
->(v) Specifying MSY. (A) ... MSY ... should be re-estimated as required by changes in long-term environmental or ecological conditions, fishery technological characteristics, or new scientific information.  
-...  
-(C) The MSY for a stock or stock complex is influenced by its interactions with other stocks in its ecosystem and these interactions may shift as multiple stocks in an ecosystem are fished. Ecological and environmental information should be taken into account, to the extent practicable, when assessing stocks and specifying MSY. Ecological and environmental information that is not directly accounted for in the specification of MSY can be among the ecological factors considered when setting OY below MSY.
-
->(iii) Relationship of Status Determination Criteria (SDC) to environmental and habitat change. 
-...  
-(A) If environmental changes cause a stock or stock complex to fall below its MSST without affecting its long-term reproductive potential, fishing mortality must be constrained sufficiently to allow rebuilding within an acceptable time frame .... SDC should not be respecified.  
-
->(B) If environmental, ecosystem, or habitat changes affect the long-term reproductive potential of the stock or stock complex, one or more components of the SDC must be respecified. Once SDC have been respecified, fishing mortality may or may not have to be reduced, depending on the status of the stock or stock complex with respect to the new criteria.
-
-
 
 ---
 ## References
 
+.table[
 ```{r refs, echo=FALSE, results="asis"}
 PrintBibliography(myBib)
 ```
+]
 
 ## Additional resources
 
@@ -266,3 +222,62 @@ Slides available at https://sgaichas.github.io/HSpresentations/
 Contact: <sarah.gaichas@ices.dk>
 
 ]
+
+---
+class: middle
+
+.center[
+# Extra
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
+background-size: 1100px
+
+---
+class: top, left
+
+## Details
+
+Optimum Yield (OY) definition
+
+*Magnuson-Stevens Act section (3)(33) defines “optimum,” with respect to the yield from a fishery, as the amount of fish that will provide the greatest overall benefit to the Nation, particularly with respect to food production and recreational opportunities and taking into account the protection of marine ecosystems;* 
+
+*that is prescribed on the basis of the MSY from the fishery, as reduced by any relevant economic, social, or ecological factor;* 
+
+*and, in the case of an overfished fishery, that provides for rebuilding to a level consistent with producing the MSY in such fishery.*
+
+---
+## Details
+
+National standards
+
+>Standard 1. Conservation and management measures shall prevent overfishing while achieving, on a continuing basis, the optimum yield (OY) from each fishery for the U.S. fishing industry.
+>
+[...] guidance on:
+>
+(i) Specifying maximum sustainable yield (MSY) and OY;
+>
+(ii) Specifying status determination criteria (SDC) so that overfishing and overfished determinations can be made for stocks and stock complexes in an FMP;
+>
+(iii) Preventing overfishing and achieving OY, incorporation of scientific and management uncertainty in control rules, and adaptive management using annual catch limits (ACL) and measures to ensure accountability (i.e., accountability measures (AMs)); and
+>
+(iv) Rebuilding stocks and stock complexes. 
+
+## Regional and Fishery Management Plan (FMP) specific implementation
+
+---
+## Where can environmental change come in? National standard 1
+
+>(v) Specifying MSY. (A) ... MSY ... should be re-estimated as required by changes in long-term environmental or ecological conditions, fishery technological characteristics, or new scientific information.  
+...  
+(C) The MSY for a stock or stock complex is influenced by its interactions with other stocks in its ecosystem and these interactions may shift as multiple stocks in an ecosystem are fished. Ecological and environmental information should be taken into account, to the extent practicable, when assessing stocks and specifying MSY. Ecological and environmental information that is not directly accounted for in the specification of MSY can be among the ecological factors considered when setting OY below MSY.
+
+>(iii) Relationship of Status Determination Criteria (SDC) to environmental and habitat change. 
+...  
+(A) If environmental changes cause a stock or stock complex to fall below its MSST without affecting its long-term reproductive potential, fishing mortality must be constrained sufficiently to allow rebuilding within an acceptable time frame .... SDC should not be respecified.  
+
+>(B) If environmental, ecosystem, or habitat changes affect the long-term reproductive potential of the stock or stock complex, one or more components of the SDC must be respecified. Once SDC have been respecified, fishing mortality may or may not have to be reduced, depending on the status of the stock or stock complex with respect to the new criteria.
+
+
+

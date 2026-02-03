@@ -1,0 +1,148 @@
+---
+title: "Productivity Changes in Northeast US stocks"
+subtitle: "ICES ACOM, 6 February 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "<br />Sarah Gaichas, ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+library(ecodata)
+library(widgetframe)
+library(patchwork)
+
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./DeepUncertaintyMSE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+## Stock productivity: multiple species, multiple sources
+
+.pull-left[
+Fish productivity from surveys, Mid Atlantic
+
+```{r productivity-anomaly, fig.alt = "Fish productivity measures. Small fish per large fish survey biomass anomaly in the Mid-Atlantic Bight. The summed anomaly across species is shown by the black line, drawn across all years with the same number of stocks analyzed.", fig.width=8, fig.asp=0.9}
+#out.width='49%', fig.show='hold',
+a <- ecodata::plot_productivity_anomaly(report = "MidAtlantic") + 
+  ggplot2::ggtitle("") +
+  ggplot2::guides(fill=guide_legend(ncol=1)) + 
+  ggplot2::theme(legend.position = "right",
+                      legend.title = ggplot2::element_blank(),
+                 plot.title =element_text(size = 11))
+
+
+a 
+
+```
+]
+
+.pull-right[
+
+Fish productivity from assessments, Mid Atlantic
+
+```{r mab-cf, fig.alt = "Assessment recruitment per spawning stock biomass anomaly for stocks mainly in the Mid-Atlantic. The summed anomaly across species is shown by the black line, drawn across all years with the same number of stocks analyzed.", fig.width=8, fig.asp=0.9}
+
+b <- ecodata::plot_productivity_anomaly(report = "MidAtlantic", varName = "assessment")+ 
+  ggplot2::ggtitle("") +
+  ggplot2::labs(y = "Recruits/Mature biomass (anomaly)") +
+  ggplot2::guides(fill=guide_legend(ncol=1)) +
+  ggplot2::theme(legend.position = "right",
+                      legend.title = ggplot2::element_blank(),
+                 plot.title =element_text(size = 11))
+
+b
+```
+]
+
+.footnote[
+Updated from `r Citep(myBib, 'perretti_regime_2017')`
+]
+
+---
+## Recruits/Spawner from a single assessment (Herring)
+
+.pull-left[
+Change point analysis: 2024 SCAA model
+
+![ASAP model recruits per spawner](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RecPerSpawner2024HerringASAP.png)
+
+]
+
+.footnote[
+Figures courtesy Jon Deroba, NOAA Northeast Fisheries Science Center
+]
+
+--
+
+
+.pull-right[
+Change point analysis: 2025 State space model
+
+![WHAM model recruits per spawner](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RecPerSpawner2025HerringWHAM.png)
+
+]
+
+
+
+---
+class: middle
+
+# Use multiple lines of evidence for productivity change?
+
+---
+class: top, left
+
+## References
+
+.table[
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib)
+```
+]
+
+## Additional resources
+
+[Anomaly plots for lots of Northeast US stocks](https://noaa-edab.github.io/stockstatusindicator/MultisppRec2024.html#use-perretti-code-to-make-anomaly-plots)
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+]
