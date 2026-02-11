@@ -1,0 +1,919 @@
+---
+title: "Diversity, Evolution, and Innovation: <br />Learning from U.S. Fishery Management Councils' Ecosystem Approaches"
+subtitle: "University of Washinton Bevan Seminar Series <br />19 February 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+## The Issue
+
+"...while ample ecosystem science and mandates often exist, steep challenges to EBFM and EBM implementation remain in the areas of governance, coordination, and political will ([Harvey et al. 2025](https://onlinelibrary.wiley.com/doi/10.1111/faf.70012))."
+
+--
+
+Let's sidestep the steep general challenge, and proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.
+
+--
+
+## The Bottom Line
+
+*  All US Fishery Management Councils have some kind of ecosystem approach embedded in management or in progress
+
+*  Councils want to use ecosystem information, but are often overwhelmed by it
+
+*  Collaboration is required for scientists to provide the right info at the right time to make a decision
+
+*  Councils need ecosystem information in "digestible packets"
+
+???
+Understand and work in the "specific framework" described by Chris Harvey, what is the realm of the possible in each region–regional, credible, cooperative. This is just how fisheries management works in general. Nobody makes all the Councils use the same harvest control rules or risk policies, why should they all have the same ecosystem approach? 
+
+
+
+---
+## Alternate Titles
+
+# Maintaining our momentum: Collaborating on ecosystem approaches with managers
+
+--
+
+# How do we use this? Merging ecosystem information and management decisions
+
+--
+
+# Providing scientific advice: advice for scientists
+
+--
+
+# Five things I did this week
+
+
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025.png")
+background-size: 1200px
+background-position: center
+
+## Ecosystem Information Tools Across Councils
+
+.footnote[
+Source: https://www.fisherycouncils.org/ 
+]
+
+---
+## Council Context Comparison
+
+```{r CouncilComp}
+proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
+
+proparea |>
+  dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
+                PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
+  flextable::flextable() |>
+  flextable::colformat_double(
+    j = c("Percarea", "PercComTons", "PercRecTons",
+          "PercComRev", "PercRecExpend"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    digits = 2,                  # Specify the number of decimal places
+    na_str = "-"      # missing value
+  ) |>
+  flextable::set_header_labels(
+    CouncilName = "Council",
+    EEZArea = "EEZ Area (sq km)",
+    Percarea = "Percent of U.S. EEZ", 
+    Nstates = "Number of States or Territories",
+    NFMPs = "Number of FMPs",
+    NFEPs = "Number of FEPs",
+    PercComTons = "Percent of 2023 U.S. Commercial Landings",
+    PercRecTons = "Percent of 2023 U.S. Recreational Landings",
+    PercComRev = "Percent of 2023 U.S. Commercial Revenue",
+    PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
+  ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1) |>
+  flextable::set_caption("Comparison of Council management context attributes.") |>
+  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) |>
+  #flextable::bg(i = ~ CouncilName == "South Atlantic", bg = "yellow", part = "body") |>
+  #flextable::surround(i = ~ CouncilName == "South Atlantic", 
+  #                    border = flextable::fp_border_default(color = "red", width = 1.5),
+  #                    part = "body") |>
+  flextable::hline(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+
+```
+
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
+background-size: 400px
+background-position: right 50px center
+
+## Ecosystem Information: Definitions and abbreviations
+
+.pull-left-60[
+<span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
+
+*  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
+*  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
+*  Also known as State of the Ecosystem (SOE) or Ecosystem Considerations reports. 
+
+![:img GOA brief p1, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-1.png)![:img GOA brief p2, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-2.png)![:img GOA brief p3, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-3.png)
+
+.footnote[
+Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
+]
+]
+
+.pull-right-30[
+<!--![South Atlantic ESR cover](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)-->
+.footnote[
+Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280) 
+]
+]
+
+.footnote[
+Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
+]
+---
+## Ecosystem Status Reports
+
+![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
+
+.footnote[
+Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE-MA-02282025-508.pdf) 
+]
+
+---
+## Ecosystem Status Report (ESR) Comparison
+
+```{r ESRs}
+
+compesrdat <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/compesrdat.csv")
+
+summtab <- readr::read_csv("https://github.com/sgaichas/SAFMCindicators/raw/main/summtab.csv")
+
+summtab$Frequency <- dplyr::case_when(summtab$Council == "CFMC" ~ "First",
+                                      summtab$Council %in% c("GFMC", "SAFMC", "WPFMC") ~ "Intermittent",
+                                      TRUE ~ "Annual")
+
+summtab <- summtab |> dplyr::relocate(Frequency, .after = Year)
+
+sectionindcounts <- compesrdat |>
+  dplyr::group_by(Region, Year, Section) |>
+  dplyr::summarise(Nind = n())
+
+indcounts <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::summarise(Nind = n())
+
+sectioncounts <- compesrdat |>
+  dplyr::select(Region, Year, Section) |>
+  dplyr::distinct() |>
+  dplyr::group_by(Region, Year) |>
+  dplyr::summarise(Nsect = n())
+
+order <- compesrdat |>
+  dplyr::group_by(Region) |>
+  dplyr::select(Section) |>
+  dplyr::distinct() |>
+  dplyr::mutate(order = 1:length(Section))
+
+esrs <- merge(sectionindcounts, order) |>
+  dplyr::select(Region, Year, Section, Order= order, Nind) |>
+  dplyr::arrange(Region, Order)
+  
+esrsls <- split(esrs, f = esrs$Region)
+
+esrsdetls <- split(compesrdat, f = compesrdat$Region)
+
+flextable::flextable(summtab) |>
+  flextable::colformat_num(
+    j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_header_labels(
+      Npages = "Total pages",
+      Nsect = "Number of Sections",
+      Nind = "Number of Indicators",
+      First = "First Section",
+      Last = "Last Section"
+  ) |>
+  #flextable::set_table_properties(layout = "autofit", width = 1)
+  flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
+  flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))|>
+  flextable::bg(j = c("Year", "Frequency", "Nind"), bg = "yellow", part = "body")|>
+  flextable::hline(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Council, "SAFMC"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Council == "SAFMC",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+```
+
+[More detailed ESR comparison](https://sgaichas.github.io/SAFMCindicators/ESRcomparisons.html) 
+
+---
+background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
+background-size: 460px, 340px
+background-position: top 10px right 30px, bottom 10px right 70px
+
+## Ecosystem Information: Definitions and abbreviations
+
+.pull-left-60[
+
+<span style="color: blue;">**Climate Vulnerability Analysis (CVA)**</span>: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
+
+*  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
+*  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
+
+![:img NECVA, 42%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 36%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
+
+]
+
+.pull-right-30[
+]
+
+.footnote[
+Sources: [Hare et al. 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) on left, [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) on right
+]
+
+---
+## Climate Vulnerability Analysis
+
+.pull-left[
+![:img SAtl Directionality](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g006)
+
+.footnote[
+Source: [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) 
+]
+]
+
+.pull-right[
+![:img HMS CVA](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000530.g004)
+
+.footnote[
+Source: [Loughran et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000530) 
+]
+]
+
+???
+![:img Habitat CVA, 33%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0260654.g003)
+
+Source: Farr et al. 2021 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260654
+
+---
+## Climate Vulnerability Analysis (CVA) Comparison
+
+```{r CVAs}
+
+CVAs <- proparea |>
+  dplyr::select(CouncilName) |>
+  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                 CouncilName %in% c("North Pacific") ~ 2019,
+                                                 CouncilName %in% c("Western Pacific") ~ 2022,
+                                                 CouncilName %in% c("Pacific", 
+                                                                 "South Atlantic",
+                                                                 "Gulf") ~ 2023,
+                                              TRUE ~ NA),
+                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2022,
+                                              TRUE ~ NA),
+                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                CouncilName %in% c("South Atlantic", 
+                                                                 "Gulf",
+                                                                 "Pacific") ~ 2022,
+                                              TRUE ~ NA),
+                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                             "Gulf",
+                                                             "Caribbean") ~ 2025,
+                                              TRUE ~ NA),
+                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                                "Gulf",
+                                                                "Caribbean") ~ 2023,
+                                              TRUE ~ NA) 
+                )
+
+flextable::flextable(CVAs) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
+  flextable::width(width = c(rep(1,6))) |>
+  flextable::hline(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+```
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
+background-size: 450px
+background-position: right 50px center
+
+## Ecosystem Information: Definitions and abbreviations
+
+.pull-left-60[
+<span style="color: blue;">**Fishery Management Plan (FMP)**</span>: a legally required document outlining methods (management measures, regulations, monitoring, research) to achieve fishery management objectives as specified in the U.S. Magnuson-Stevens Fishery Conservation and Management Act. 
+
+Councils:
+*  determine which fisheries are included in an FMP, 
+*  describe targeted species and fishing methods, 
+*  identify essential habitat, and 
+*  design methods to ensure sustainable Optimum Yield* while meeting other objectives such as bycatch reduction and other legal mandates for protected species. 
+
+*OY: maximum benefit to the Nation in terms of seafood production and recreational opportunities while accounting for the protection of marine ecosystems
+]
+
+.pull-right-30[
+.footnote[
+Source: https://safmc.net/fishery-management/
+]
+]
+
+---
+## Fishery Management Plan Objectives
+
+Official name: Fishery Management Plan for the Snapper Grouper Fishery of the South Atlantic Region.
+
+.pull-left[
+<span style="color: blue;">**Goal 1 (Science):**</span>
+Management decisions for the snapper grouper fishery are based upon robust, defensible science that considers qualitative and quantitative data analyzed in a timely, clear, and transparent manner that builds stakeholder confidence. 
+.table[
+*  Promote collection of quality data to support management plans and programs considered by the Council. 
+*  Encourage the development of mechanisms to effectively engage and collaborate with stakeholders on cooperative research, data collection, and analysis. 
+*  <span style="color: blue;">**Improve knowledge about the social and economic elements of the snapper grouper fishery in the South Atlantic.**</span> 
+*  Support improved and expanded monitoring and reporting programs for the snapper grouper fishery. 
+*  <span style="color: blue;">**Promote data collection and analysis to support ecosystem and habitat considerations for the snapper grouper fishery.**</span>
+]
+]
+
+.pull-right[
+<span style="color: blue;">**Goal 2 (Management):**</span>
+Adopt management strategies for the snapper grouper fishery that rebuild and maintain fishery resources, adapt to regional differences in the fishery, and consider the social and economic needs of fishing communities. 
+.table[
+*  <span style="color: blue;">**Develop management measures that consider sub-regional differences and issues within the fishery.**</span> 
+*  Develop innovative management measures that allow consistent access to the fishery for all sectors. 
+*  <span style="color: blue;">**Ensure that management decisions help maximize social and economic opportunity for all sectors.**</span> 
+*  Develop management measures that reduce and mitigate discards. 
+*  <span style="color: blue;">**Support management measures that incorporate ecosystem and habitat considerations for the snapper grouper fishery.**</span> 
+*  Develop management measures that support optimal sector allocations for the snapper grouper fishery. 
+]
+]
+
+.footnote[
+Source: https://safmc.net/fishery-management-plans/snapper-grouper/
+]
+
+???
+
+Goal 3 (Communication)
+Employ interactive outreach strategies that encourage continuous participation and support two-way engagement between managers and snapper grouper fishery stakeholders while building a greater understanding of science and management.  
+
+*  Develop communication approaches that provide streamlined and timely information to increase awareness and engage stakeholders. 
+*  Ensure that Council communication encourages and supports engagement with a diverse audience of stakeholders. 
+*  Improve awareness and understanding of fishery science and research and how these inform management. 
+*  Improve awareness and understanding of how social and economic issues are linked to fisheries management measures. 
+
+Goal 4 (Governance)
+Commit to a transparent, balanced, and timely decision-making process that allows flexible yet well-defined protocols and strategies for managing the snapper grouper fishery. 
+
+*  Create an accountable and flexible decision-making process for development and evaluation of management measures. 
+*  Build capacity to streamline management efforts and better coordinate with management partners. 
+*  Improve communication with stakeholders to ensure the needs of the fishery are understood and considered throughout the Council process. 
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FEPs.png")
+background-size: 390px
+background-position: right 50px center
+
+## Ecosystem Information: Definitions and abbreviations
+
+.pull-left-60[
+
+<span style="color: blue;">**Fishery Ecosystem Plan (FEP)**</span>: a document outlining methods for ecosystem-based fishery management by providing an ecosystem description, overarching ecosystem policies and goals, and methods for coordinating across managed fisheries and addressing ecosystem interactions. 
+
+*  When FEPs contain all components of an FMP, they can be used as FMPs (Western Pacific). 
+
+![:img HawaiiFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/HawaiiFEP.png)![:img MarianaFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MarianaFEP.png)![:img AMSamoaFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/AMSamoaFEP.png)![:img PRIAFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PRIAFEP.png)![:img PelagicFEP, 20%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PelagicFEP.png)
+
+*  FEPs were originally outlined and recommended in a 1999 report to Congress, and operational methods for refining and using FEPs have been advanced more recently.  
+
+.footnote[
+Source: https://www.wpcouncil.org/fishery-ecosystem-plans-amendments/
+]
+
+]
+
+.pull-right-30[
+.footnote[
+Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
+]
+
+]
+
+---
+## Fishery Ecosystem Plans: Implementation Pathways
+
+"Umbrella" documents establishing processes to turn the ecosystem plan into tangible action on a topic: Pacific, Mid-Atlantic, North Pacific (Bering Sea), Gulf
+.pull-left[
+![:img Pacific Ecosystem Initiatives, 30%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Pacific-EcoInitiatives.png)![:img Bering FEP, 30%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/BeringFEPcover.png)![:img Gulf FEP, 30%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Gulf-FEP.png)![:img Bering Action Modules, 100%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Bering-ActionModule.png)
+]
+
+.pull-right[
+![:img Gulf Fishery Ecosystem Initiatives, 100%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Gulf-FEI.png)
+
+.footnote[
+Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-fishery-ecosystem-plan-march-2022.pdf/) and [Initiatives Appendix](https://www.pcouncil.org/documents/2022/09/fep_initiatives_appendix_post_03_17_final_170509.pdf/), [Bering FEP](https://meetings.npfmc.org/CommentReview/DownloadFile?p=c334ad33-4139-4b5a-b205-a8b7c5028562.pdf&fileName=D6%20Final%20BS%20FEP%20Jan%202019.pdf), [Draft Gulf FEP](https://gulf-council-media.s3.amazonaws.com/uploads/2025/10/Q-4a-Gulf_FEP_2025.pdf)
+]
+]
+
+---
+## Fishery Ecosystem Plan (FEP) Comparison
+
+```{r FEPs}
+
+FEPactions <- data.frame(Council = c("New England*",
+                                     "Mid-Atlantic",
+                                     "South Atlantic",
+                                     "Gulf",
+                                     "Caribbean",
+                                     "Pacific",
+                                     "North Pacific",
+                                     "Western Pacific"),
+                         EcoDescription = c(1,1,1,NA,1,1,1,1),
+                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA),
+                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1),
+                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA),
+                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA),
+                         EcoHealth = c(NA,NA,NA,NA,NA,NA,NA,1),
+                         Monitoring = c(1,1,1,NA,1,1,1,1),
+                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1))
+
+flextable::flextable(FEPactions) |>
+  flextable::set_header_labels(
+      EcoDescription = "Ecosystem Description",
+      FoodWebConsMod = "Food Web Conceptual Model",
+      FoodWebEFH = "Food Web Essential Fish Habitat",
+      EcoHealth = "Ecosystem Health Objectives",
+      TotRemovals = "Total Removals Objectives",
+      OutsideImpacts = "Other Ocean Uses Considered"
+  ) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
+  flextable::width(width = c(1, rep(0.75,8))) |>
+  flextable::bg(j = c("Uncertainty"), bg = "yellow", part = "body")|>
+  flextable::hline(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Council, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Council == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+```
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ESPfigShotwell.png")
+background-size: 450px
+background-position: right 50px center
+
+## Ecosystem Information: Definitions and abbreviations
+
+.pull-left-60[
+<span style="color: blue;">**Ecosystem Socioeconomic Profile (ESP)**</span>: a document summarizing ecosystem information for a particular *stock*, spanning physical, biological, economic, and social information. 
+
+*  *ESR for a stock*
+*  Based on a life history conceptual model identifying key bottlenecks and drivers
+*  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
+*  Trends and status of indicators can contribute to risk assessment at the stock level. 
+*  Alaska invented, Northeast adopted (but does not use in the same way)
+
+]
+
+.pull-right-30[
+.footnote[
+Source: https://www.fisheries.noaa.gov/feature-story/integrating-ecosystem-and-socioeconomic-information-fisheries-management
+]
+]
+
+---
+## Ecosystem Socioeconomic Profiles: Conceptual Models and Indicators
+.pull-left[
+
+![GOA pcod ESP conceptual model](https://media.fisheries.noaa.gov/styles/media_750_x500/s3/2022-03/Working_Conceptual_Model_EBS%20Pcod.png)
+]
+
+.pull-right[
+![:img BSB ESP conceptual model](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB-consmod.png)
+
+]
+
+.footnote[
+Images courtesy [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review), [NEFSC](https://repository.library.noaa.gov/view/noaa/66453)
+]
+
+---
+## Ecosystem Socioeconomic Profiles: Applications
+
+![:img ESP decisions](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/ESPdecisionsupporttable2.png)
+
+]
+
+.footnote[
+Image courtesy Abigail Tyrell, NEFSC
+]
+
+---
+## Ecosystem Socioeconomic Profiles: Applications
+
+.pull-left[
+### Quantitiatve Covariate in the Model
+
+![:img bottom temp in BSB assessment, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Ecov_1_North_BT.png)
+]
+
+.pull-right[
+### Qualitative ABC Decision Outside the Model
+
+![:img GOA cod risk assessment, 90%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/GOApcodESPrisk.png)
+]
+
+.footnote[
+Images courtesy Emily Liljestrand, NEFSC, and [ASFC](https://www.fisheries.noaa.gov/alaska/2021-alaska-fisheries-science-center-year-review)
+]
+
+???
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+---
+## North Pacific example ESP indicators &rarr; risks: ([Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634))
+
+```{r}
+
+Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
+names(Tab1)[1] <- "Risk level"
+
+Tab1 <- Tab1[1:3,]
+
+Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
+
+flextable::flextable(Tab1)|>
+  flextable::set_caption("Risk classification table for assessment, population dynamics, and environmental/ecosystem considerations.") |>
+  flextable::width(width = c(2, rep(3,3)))
+```
+
+---
+## North Pacific example ESP indicators &rarr; risks: ([Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634))
+
+```{r}
+
+Tab1 <- readr::read_csv(here::here("data/DornZador2020Table1.csv"))
+names(Tab1)[1] <- "Risk level"
+
+Tab1 <- Tab1[1:3,]
+
+Tab2 <- readr::read_csv(here::here("data/DornZador2020Table2.csv"))
+
+flextable::flextable(Tab1)|>
+  flextable::set_caption("Risk classification table for assessment, population dynamics, and environmental/ecosystem considerations.") |>
+  flextable::width(width = c(2, rep(3,3))) |>
+  flextable::bg(i = ~ `Risk level` == "Level 2: Substantially increased concerns", bg = "yellow", part = "body")
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+```{r}
+flextable::flextable(Tab2)|>
+  flextable::set_caption("Risk table evaluation for Gulf of Alaska pollock in the 2018 stock assessment.") |>
+  flextable::width(width = c(3.5, 3.5, 4.5))
+```
+---
+background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
+background-size: 380px
+background-position: right 50px center
+
+## More tools and products derived from or including ecosystem data
+
+*  SSC Assessment uncertainty determinations
+*  Ecosystem risk assessments
+*  Habitat assessments
+*  Conceptual models
+*  Stock assessment models
+*  Ecosystem models
+*  Management strategy evaluations
+*  Fishery Performance reports
+
+![:img Carib consensus model, 50%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+.footnote[
+Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
+]
+
+
+---
+background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2025.png"), url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
+background-size: 660px, 660px
+background-position: bottom right, top right
+
+## Details for each Council
+
+.pull-left[
+Each [report section](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataReview.html#42_Review_of_Products_and_Processes_by_Council_(pre-interview) includes an overview of:  
+*  FMPs and species in each
+*  FEPs or similar documents
+*  ESRs available with indicators by section
+*  Stock-specific ecosystem profiles or ESPs
+*  CVAs in the region
+*  Other Council documents or tools:
+    +  Fishery Performance Reports
+    +  Habitat assessments
+    +  Risk assessments
+    +  Conceptual models
+    +  Ecosystem models
+*  Council processes using the information
+*  Regional resources available
+
+*Example process images from Councils:*  &rarr;  
+*Adjust catch advice directly or through risk policy* 
+]
+
+.pull-right[
+]
+
+---
+.pull-left[
+## Beyond Catch Advice
+
+Indicator-based EAFM risk assessment 
+
+*Species level risk elements*
+```{r sptable}
+#tab.cap="Species level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+# spplist     oc,  sc,  flk, scp, bsb, mack, but, lsq, ssq, gtile,  btile,  blu, dog, monk
+risk.species<-data.frame(
+  Species = c("Ocean Quahog", "Surfclam", "Summer flounder", "Scup", "Black sea bass", "Atl. mackerel", "Chub mackerel", "Butterfish", "Longfin squid", "Shortfin squid", "Golden tilefish", "Blueline tilefish", "Bluefish", "Spiny dogfish", "Monkfish", "Unmanaged forage", "Deepsea corals"),
+  Assess  = c("l", "l", "l",  "l", "l", "l", "h", "l", "lm", "h", "lm", "h", "l", "l", "h", "na", "na"),
+  Fstatus = c("l", "l", "h", "l", "l", "l", "lm", "l", "lm", "lm", "h", "h", "l", "l", "lm", "na", "na"),
+  Bstatus = c("l", "l", "lm", "l", "l", "h", "lm", "lm", "lm", "lm", "lm", "mh", "lm", "l", "lm", "na", "na"),
+  #FW1Pred = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l"),
+  #FW1Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "l", "lm", "l"),
+  PreyA = c("tbd", "tbd", "tbd", "tbd", "h", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "lm", "tbd", "tbd", "tbd", "tbd"),
+  PredP = c("l", "l", "tbd", "tbd", "tbd", "mh", "tbd", "mh", "lm", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd", "tbd"),
+  FW2Prey = c("l", "l", "l", "l", "l", "l", "l", "l", "lm", "lm", "l", "l", "l", "l", "l", "lm", "l"),
+  Climate = c("h", "mh", "lm", "lm", "mh", "lm", "na", "l", "l", "l", "mh", "mh","l", "l", "l", "na", "na"),
+  DistShift = c("mh", "mh", "mh", "mh", "mh", "mh", "na", "h", "mh", "h", "l", "l", "mh", "h", "mh", "na", "na"),
+  EstHabitat = c("l", "l", "h", "h", "h", "l", "l", "l", "l", "l", "l", "l", "h", "l", "l", "na", "na"),
+  OffHab = c("tbd", "tbd", "tbd", "tbd", "l", "tbd", "tbd", "tbd", "tbd", "tbd", "l", "tbd", "mh", "tbd", "tbd", "tbd", "tbd")#,
+)
+
+
+
+# these elements were removed by the council
+#  PopDiv = c("na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na", "na"),
+#  FoodSafe = c(),
+
+# one column test
+# risk.species %>%
+#   mutate(Fstatus = 
+#     cell_spec(Fstatus, format="latex", color = "black", align = "c", background =factor(Fstatus, c("na", "l", "lm", "mh", "h"),c("white", "green", "yellow", "orange", "red")))) %>%
+#   kable(risk.species, format="latex", escape = F, booktabs = T, linesep = "")
+
+#convert to longer text for consistency and display in html table
+risk.species <- risk.species %>%
+     mutate_at(vars(-Species), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#generalize to all
+risk.species %>%
+  mutate_at(vars(-Species), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 8) 
+```
+.contrib[
+]  
+
+*Ecosystem level risk elements*
+```{r ecotable}
+#tab.cap="Ecosystem level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
+
+risk.eco<-data.frame(
+  System = c("Mid-Atlantic"),
+  EcoProd = c("lm"),
+  #EcoDiv = c("lm"),
+  CommVal = c("mh"),
+  RecVal = c("lm"),
+  FishRes1 = c("l"),
+  FishRes2 = c("lm"),
+  #CommJobs = c("mh"),
+  #RecJobs = c("l"),
+  ComDiv = c("mh"),
+  RecDiv = c("h"),
+  Social = c("mh"),
+  ComFood = c("mh"),
+  RecFood = c("mh")
+)
+#convert to longer text for consistency and display in html table
+risk.eco <- risk.eco %>%
+     mutate_at(vars(-System), function(x){
+       recode(x,'tbd' = "tbd", 'l'="lowest",'lm'="lowmod",'mh'="modhigh",'h'="highest")}) %>%
+     as.data.frame()
+
+#make table
+risk.eco %>%
+  mutate_at(vars(-System), function(x){ 
+    cell_spec(x, format="html", color = factor(x, c("tbd", "na", "lowest", "lowmod", "modhigh", "highest"),c("grey","black", "black", "black", "black", "white")), align = "c", background =factor(x, c("tbd","na", "lowest", "lowmod", "modhigh", "highest"),c("grey","white", "lightgreen", "yellow", "orange", "red")), background_as_tile=F)}) %>%
+  kable(format = "html", escape = F, table.attr='class="risktable"') %>%
+  kable_styling(font_size = 9) 
+
+```
+.contrib[
+]  
+]  
+.pull-right[
+## How has MAFMC used the risk assessment?
+
+* Risk based prioritization: the Council selected summer flounder for [conceptual modeling](https://nefsc.github.io/READ-SSB-DePiper_Summer_Flounder_Conceptual_Models/sfconsmod_riskfactors_subplots.html)
+
+* Council completed management strategy evaluation (MSE) addressing [recreational fishery discards](https://www.mafmc.org/actions/summer-flounder-mse) based on conceptual modeling
+
+* Stakeholder driven MSE coupled population and recreational demand models
+
+![](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/keepOneNoOFkey.png)
+
+* Results: potential improvement in angler welfare with low risk to stock status, multispecies recreational demand model sets specifications
+]
+
+---
+## Initial Synthesis: Three General Approaches to using Ecosystem Information
+
+**1. FMP/Indicator-Based (NPFMC, PFMC, MAFMC, NEFMC)** 
+- Species-based Fishery Management Plans with ecosystem overlays 
+- Annual ecosystem indicators inform catch specification decisions 
+- Risk tables and uncertainty frameworks integrate ecosystem considerations 
+- Non-regulatory Fishery Ecosystem Plans (FEPs) provide actionable pathways 
+- High-value, data-rich stocks with complex assessments 
+
+**2. FEP/Geography-Based (WPFMC, CFMC)** 
+- Place-based ecosystem or fishery management plans serve as operational management documents 
+- Co-developed with stakeholders reflecting distinct regional conditions 
+- Emphasis on human community connections and data-limited fisheries 
+- Ecosystem considerations embedded in management structure 
+- Caribbean non-regulatory FEP in development to provide actionable pathways 
+
+**3. Developing Approaches (SAFMC, GFMC)** 
+- Species-based FMPs with expanding ecosystem integration 
+- Recreational fishery dominance with fewer assessments relative to managed species 
+- SAFMC uniquely links Essential Fish Habitat (EFH) with ecosystem efforts 
+- Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
+- Both regions have recent ecosystem reports and climate vulnerability assessments 
+
+## Potential for wider use of CVAs across regions
+
+---
+## Common Management Concerns
+
+**Forage Fish Ecology**: Multiple Councils have implemented protections for unmanaged forage species or developed harvest control rules accounting for ecosystem services (notably ASMFC's ecological reference points for Atlantic menhaden).
+
+**Climate Change Impacts**: All regions are addressing rapid ecosystem changes, though even data-rich systems with long-term ecosystem reporting have experienced unexpected stock collapses, highlighting the need for climate-ready management approaches.
+
+**Complexity of Ecosystem Information**: Council staff emphasize the need to provide information in "digestible packets," with clear linkages to management processes and decisions.
+
+**Resource constraints**: Even data-rich regions identify capacity limitations for integrating ecosystem information into management.
+
+**Stakeholder perceptions**: In some regions, considering ecosystem information is viewed as only increasing restrictions, rather than expanding opportunities. 
+
+---
+## Successful Practices
+
+1. **Iterative Co-Development**: Ecosystem reports have been restructured with Council feedback in several regions, enhancing report utility. Most FEPs emphasize collaborative development of problem statements, analyses, conceptual models, model scenarios, and indicators with fishers, managers, and scientists.
+
+2. **Risk-Based Frameworks**: North Pacific, Pacific, New England, Mid-Atlantic, and Caribbean are developing or have implemented indicator-based risk assessments to adjust catch advice and/or to support strategic decisions.
+
+3. **Actionable FEPs**: "Action modules" (North Pacific), "Initiatives" (Pacific), and "Fishery Ecosystem Issues" (Gulf) provide structured pathways from fishery ecosystem plans to management action for specific, Council-selected issues.
+
+4. **Multi-scale Ecosystem Information**: Regular reporting at the ecosystem scale provides context for decisions and familiarity with ecosystem data. Stock-specific ecosystem reports link environmental drivers to individual stock productivity for use in stock assessment and catch specification. A structured dialogue process between ecosystem and stock assessment scientists is producing similar stock-level information in the Pacific.
+
+
+---
+.center[
+# Thoughts? Questions?
+
+# Thank you!
+]
+
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+
+???
+

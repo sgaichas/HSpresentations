@@ -47,6 +47,9 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20250918_ICESASC_BalticPanel2_Gaichas.html" target="_blank">Single slide for Baltic Side Event Panel 2 - ICES ASC, September 18, 2025</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260219_Bevan_Gaichas.html" target="_blank"> Diversity, Evolution, and Innovation: Learning from U.S. Fishery Management Councils' Ecosystem Approaches
+ - February 19, 2026</a>
+
 
 
 
