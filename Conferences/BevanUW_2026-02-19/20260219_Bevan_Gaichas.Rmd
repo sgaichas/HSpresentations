@@ -63,49 +63,92 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 ```
 
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size: 20%, 100%
+background-position: 7% 95%, right
+
+<div style="line-height: 0.9;">
+
+.right[
+# Maintaining our momentum: Collaborating on ecosystem approaches with managers
+]
+
+--
+
+.right[
+<br />
+# How do we use this? Merging ecosystem information and management decisions
+]
+
+--
+
+.right[
+<br />
+# Providing scientific advice: advice for scientists
+]
+
+--
+
+.right[
+<br /><br /><br /><br />
+# Five things I did this week
+]
+
+</div>
+---
 ## The Issue
 
 "...while ample ecosystem science and mandates often exist, steep challenges to EBFM and EBM implementation remain in the areas of governance, coordination, and political will ([Harvey et al. 2025](https://onlinelibrary.wiley.com/doi/10.1111/faf.70012))."
 
 --
 
-Let's sidestep the steep general challenge, and proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.
+Let's proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.
 
---
-
+---
 ## The Bottom Line
 
-*  All US Fishery Management Councils have some kind of ecosystem approach embedded in management or in progress
+*  **Governance:** All US Fishery Management Councils have some kind of ecosystem approach already embedded in management or in progress
 
-*  Councils want to use ecosystem information, but are often overwhelmed by it
+*  **Will:** Councils want to use ecosystem information, but are often overwhelmed by it
 
-*  Collaboration is required for scientists to provide the right info at the right time to make a decision
+*  **Coordination:** Collaboration is required for scientists to provide the right info at the right time to make a decision
 
-*  Councils need ecosystem information in "digestible packets"
+## How Do We Proceed?
+
+*  Iterative co-production: work together, over and over again 
+
+*  Science communication: Councils need ecosystem information in "digestible packets"
 
 ???
 Understand and work in the "specific framework" described by Chris Harvey, what is the realm of the possible in each region–regional, credible, cooperative. This is just how fisheries management works in general. Nobody makes all the Councils use the same harvest control rules or risk policies, why should they all have the same ecosystem approach? 
 
 
 
+
 ---
-## Alternate Titles
+# Diversity
 
-# Maintaining our momentum: Collaborating on ecosystem approaches with managers
+A range of contexts, fisheries, data availability, resources, and issues. Range of approaches. One size does not fit all. 
 
---
+---
+# Evolution
 
-# How do we use this? Merging ecosystem information and management decisions
+ESRs --> SOEs --> Graphical Summaries --> Council feedback for management relevance
 
---
+Structure and presentation
 
-# Providing scientific advice: advice for scientists
+FEPs
 
---
+Descriptive --> Actionable 
 
-# Five things I did this week
+Convergent evolution of risk tables
 
+---
+# Innovation
 
+Caribbean EBFM conceptual modeling --> structure FEP, indicators for reporting, risk assessment
+
+Mid Atlantic MSE considering angler welfare --> operational tool for multispecies recreational specs
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025.png")
