@@ -98,11 +98,17 @@ background-position: 7% 95%, right
 ---
 ## The Issue
 
+.pull-left-30[
 "...while ample ecosystem science and mandates often exist, steep challenges to EBFM and EBM implementation remain in the areas of governance, coordination, and political will ([Harvey et al. 2025](https://onlinelibrary.wiley.com/doi/10.1111/faf.70012))."
+]
 
 --
 
-Let's proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.
+.pull-right-70[
+Let's proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.  
+
+![Harvey Bevan slide 32](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/HarveyBevanNextSteps.png)
+]
 
 ---
 ## The Bottom Line
@@ -151,7 +157,7 @@ Caribbean EBFM conceptual modeling --> structure FEP, indicators for reporting, 
 Mid Atlantic MSE considering angler welfare --> operational tool for multispecies recreational specs
 
 ---
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025.png")
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025_Bevan.png")
 background-size: 1200px
 background-position: center
 
