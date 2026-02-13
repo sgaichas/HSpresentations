@@ -106,10 +106,12 @@ Understand and work in the "specific framework" described by Chris Harvey, what 
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025_Bevan.png")
-background-size: 1200px
-background-position: center
+background-size: 1150px
+background-position: center bottom 40px
 
 ## Context: Fishery Management in the US
+
+Eight regional Fishery Management Councils establish plans for sustainable management of stocks within their jurisdictions. All are governed by the same law, but tailor management to their regional stakeholder needs. 
 
 .footnote[
 Source: https://www.fisherycouncils.org/ 
@@ -119,10 +121,8 @@ Source: https://www.fisherycouncils.org/
 ---
 # Diversity
 
-A range of contexts, fisheries, data availability, resources, and issues. Range of approaches. One size does not fit all. 
+A range of contexts, fisheries, data availability, resources, and issues &rarr; range of approaches. One size does not fit all. 
 
----
-## Diversity: Council Context Comparison
 
 ```{r CouncilComp}
 proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
@@ -290,7 +290,7 @@ flextable::flextable(summtab) |>
   #flextable::set_table_properties(layout = "autofit", width = 1)
   flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
   flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))|>
-  flextable::bg(j = c("Year", "Frequency", "Nind"), bg = "yellow", part = "body")#|>
+  flextable::bg(j = c("Year", "Frequency"), bg = "yellow", part = "body")#|>
   # flextable::hline(i = ~ Council == "SAFMC",
   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
   #                     part = "body") |>
@@ -442,15 +442,16 @@ FEPactions <- data.frame(Council = c("New England*",
                                      "Caribbean",
                                      "Pacific",
                                      "North Pacific",
-                                     "Western Pacific"),
-                         EcoDescription = c(1,1,1,NA,1,1,1,1),
-                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA),
-                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1),
-                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA),
-                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA),
-                         EcoHealth = c(NA,NA,NA,NA,NA,NA,NA,1),
-                         Monitoring = c(1,1,1,NA,1,1,1,1),
-                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1))
+                                     "Western Pacific",
+                                     NA),
+                         EcoDescription = c(1,1,1,NA,1,1,1,1,NA),
+                         FoodWebConsMod = c(1,1,1,NA,1,1,1,NA,NA),
+                         FoodWebEFH = c(NA,1,1,NA,1,1,1,1,NA),
+                         TotRemovals = c(1,NA,NA,NA,NA,NA,1,NA,NA),
+                         Uncertainty = c(NA,NA,NA,NA,NA,NA,NA,NA,1),
+                         EcoHealth = c(NA,NA,NA,NA,1,NA,NA,1,NA),
+                         Monitoring = c(1,1,1,NA,1,1,1,1,NA),
+                         OutsideImpacts = c(NA,1,1,NA,1,1,1,1,NA))
 
 flextable::flextable(FEPactions) |>
   flextable::set_header_labels(
@@ -469,6 +470,7 @@ flextable::flextable(FEPactions) |>
   ) |>
   flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
   flextable::width(width = c(1, rep(0.75,8))) |>
+  flextable::delete_rows(i = 9, part = "body") |>
   flextable::bg(j = c("Uncertainty"), bg = "yellow", part = "body") #|>
   # flextable::hline(i = ~ Council == "South Atlantic",
   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
