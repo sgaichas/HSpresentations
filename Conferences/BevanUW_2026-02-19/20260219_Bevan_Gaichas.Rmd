@@ -91,9 +91,7 @@ background-image: url("https://imgs.xkcd.com/comics/pep_talk.png")
 background-size: 300px
 background-position: right 20px bottom 20px
 
-# Pep Talk!
-
-## The Bottom Line: Work in progress *IS* progress
+# Pep Talk!  Bottom Line: Work in progress *IS* progress
 
 *  **Governance:** All US Fishery Management Councils have some kind of ecosystem approach already embedded in management or in progress
 
@@ -111,6 +109,9 @@ background-position: right 20px bottom 20px
 
 *  Actionable ecosystem plans: Address management issues in digestible packets too!
 
+.footnote[
+https://xkcd.com/544/
+]
 
 ???
 Understand and work in the "specific framework" described by Chris Harvey, what is the realm of the possible in each region–regional, credible, cooperative. This is just how fisheries management works in general. Nobody makes all the Councils use the same harvest control rules or risk policies, why should they all have the same ecosystem approach? 
