@@ -63,40 +63,8 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 ```
 
-background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
-background-size: 20%, 100%
-background-position: 7% 95%, right
 
-<div style="line-height: 0.9;">
-
-.right[
-# Maintaining our momentum: Collaborating on ecosystem approaches with managers
-]
-
---
-
-.right[
-<br />
-# How do we use this? Merging ecosystem information and management decisions
-]
-
---
-
-.right[
-<br />
-# Providing scientific advice: advice for scientists
-]
-
---
-
-.right[
-<br /><br /><br /><br />
-# Five things I did this week
-]
-
-</div>
----
-## The Issue
+## The Issue: Will we ever have Ecosystem Based Management (EBM) or Fishery Management (EBFM)?
 
 .pull-left-30[
 "...while ample ecosystem science and mandates often exist, steep challenges to EBFM and EBM implementation remain in the areas of governance, coordination, and political will ([Harvey et al. 2025](https://onlinelibrary.wiley.com/doi/10.1111/faf.70012))."
@@ -111,24 +79,41 @@ Let's proceed in Chris Harvey's "realm of the possible" and work in specific fra
 ]
 
 ---
-## The Bottom Line
+# Pep Talk!
+
+## The Bottom Line: Work in progress *IS* progress
 
 *  **Governance:** All US Fishery Management Councils have some kind of ecosystem approach already embedded in management or in progress
 
 *  **Will:** Councils want to use ecosystem information, but are often overwhelmed by it
 
-*  **Coordination:** Collaboration is required for scientists to provide the right info at the right time to make a decision
+*  **Coordination:** Collaboration is required for managers to prioritize needs and for scientists to provide the right information at the right time to make a decision
 
 ## How Do We Proceed?
 
-*  Iterative co-production: work together, over and over again 
+*  Iterative co-production of processes and products: Learn by doing, refine and adjust over tine 
+
+*  Risk-based methods: Adaptable to many decision processes
 
 *  Science communication: Councils need ecosystem information in "digestible packets"
+
+*  Actionable ecosystem plans: Address management issues in digestible packets too!
+
+
 
 ???
 Understand and work in the "specific framework" described by Chris Harvey, what is the realm of the possible in each region–regional, credible, cooperative. This is just how fisheries management works in general. Nobody makes all the Councils use the same harvest control rules or risk policies, why should they all have the same ecosystem approach? 
 
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025_Bevan.png")
+background-size: 1200px
+background-position: center
 
+## Context: Fishery Management in the US
+
+.footnote[
+Source: https://www.fisherycouncils.org/ 
+]
 
 
 ---
@@ -137,38 +122,7 @@ Understand and work in the "specific framework" described by Chris Harvey, what 
 A range of contexts, fisheries, data availability, resources, and issues. Range of approaches. One size does not fit all. 
 
 ---
-# Evolution
-
-ESRs --> SOEs --> Graphical Summaries --> Council feedback for management relevance
-
-Structure and presentation
-
-FEPs
-
-Descriptive --> Actionable 
-
-Convergent evolution of risk tables
-
----
-# Innovation
-
-Caribbean EBFM conceptual modeling --> structure FEP, indicators for reporting, risk assessment
-
-Mid Atlantic MSE considering angler welfare --> operational tool for multispecies recreational specs
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025_Bevan.png")
-background-size: 1200px
-background-position: center
-
-## Ecosystem Information Tools Across Councils
-
-.footnote[
-Source: https://www.fisherycouncils.org/ 
-]
-
----
-## Council Context Comparison
+## Diversity: Council Context Comparison
 
 ```{r CouncilComp}
 proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
@@ -198,26 +152,43 @@ proparea |>
   ) |>
   #flextable::set_table_properties(layout = "autofit", width = 1) |>
   flextable::set_caption("Comparison of Council management context attributes.") |>
-  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) |>
+  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) #|>
   #flextable::bg(i = ~ CouncilName == "South Atlantic", bg = "yellow", part = "body") |>
   #flextable::surround(i = ~ CouncilName == "South Atlantic", 
   #                    border = flextable::fp_border_default(color = "red", width = 1.5),
   #                    part = "body") |>
-  flextable::hline(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")  |>
-  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")
+  # flextable::hline(i = ~ CouncilName == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")  |>
+  # flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")
 
 
 ```
+
+
+
+---
+# Evolution
+
+## Scientific reporting
+
+ESRs --> SOEs --> Graphical Summaries --> Council feedback for management relevance
+
+Structure and presentation
+
+## Management frameworks
+
+FEPs
+
+Descriptive --> Actionable 
 
 
 ---
@@ -225,7 +196,7 @@ background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs
 background-size: 400px
 background-position: right 50px center
 
-## Ecosystem Information: Definitions and abbreviations
+## Evolution of Scientific Reporting
 
 .pull-left-60[
 <span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
@@ -252,7 +223,7 @@ Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280
 Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
 ]
 ---
-## Ecosystem Status Reports
+## Evolution of Scientific Reporting
 
 ![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
 
@@ -319,139 +290,30 @@ flextable::flextable(summtab) |>
   #flextable::set_table_properties(layout = "autofit", width = 1)
   flextable::set_caption("Comparison of most recent Ecosystem Status Reports (ESRs) across Council regions.") |>
   flextable::width(width = c(1.6, 1.2, rep(0.5, 5), 2.2, 2.2))|>
-  flextable::bg(j = c("Year", "Frequency", "Nind"), bg = "yellow", part = "body")|>
-  flextable::hline(i = ~ Council == "SAFMC",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::hline(i = ~ before(Council, "SAFMC"),
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::vline_left(i = ~ Council == "SAFMC",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")  |>
-  flextable::vline_right(i = ~ Council == "SAFMC",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")
+  flextable::bg(j = c("Year", "Frequency", "Nind"), bg = "yellow", part = "body")#|>
+  # flextable::hline(i = ~ Council == "SAFMC",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::hline(i = ~ before(Council, "SAFMC"),
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::vline_left(i = ~ Council == "SAFMC",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")  |>
+  # flextable::vline_right(i = ~ Council == "SAFMC",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")
+
 ```
 
 [More detailed ESR comparison](https://sgaichas.github.io/SAFMCindicators/ESRcomparisons.html) 
-
----
-background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
-background-size: 460px, 340px
-background-position: top 10px right 30px, bottom 10px right 70px
-
-## Ecosystem Information: Definitions and abbreviations
-
-.pull-left-60[
-
-<span style="color: blue;">**Climate Vulnerability Analysis (CVA)**</span>: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
-
-*  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
-*  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
-
-![:img NECVA, 42%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 36%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
-
-]
-
-.pull-right-30[
-]
-
-.footnote[
-Sources: [Hare et al. 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) on left, [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) on right
-]
-
----
-## Climate Vulnerability Analysis
-
-.pull-left[
-![:img SAtl Directionality](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g006)
-
-.footnote[
-Source: [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) 
-]
-]
-
-.pull-right[
-![:img HMS CVA](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000530.g004)
-
-.footnote[
-Source: [Loughran et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000530) 
-]
-]
-
-???
-![:img Habitat CVA, 33%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0260654.g003)
-
-Source: Farr et al. 2021 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260654
-
----
-## Climate Vulnerability Analysis (CVA) Comparison
-
-```{r CVAs}
-
-CVAs <- proparea |>
-  dplyr::select(CouncilName) |>
-  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2016,
-                                                 CouncilName %in% c("North Pacific") ~ 2019,
-                                                 CouncilName %in% c("Western Pacific") ~ 2022,
-                                                 CouncilName %in% c("Pacific", 
-                                                                 "South Atlantic",
-                                                                 "Gulf") ~ 2023,
-                                              TRUE ~ NA),
-                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2022,
-                                              TRUE ~ NA),
-                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England") ~ 2016,
-                                                CouncilName %in% c("South Atlantic", 
-                                                                 "Gulf",
-                                                                 "Pacific") ~ 2022,
-                                              TRUE ~ NA),
-                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England",
-                                                                "South Atlantic",
-                                                             "Gulf",
-                                                             "Caribbean") ~ 2025,
-                                              TRUE ~ NA),
-                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
-                                                                 "New England",
-                                                                "South Atlantic",
-                                                                "Gulf",
-                                                                "Caribbean") ~ 2023,
-                                              TRUE ~ NA) 
-                )
-
-flextable::flextable(CVAs) |>
-  flextable::colformat_num(
-    #j = c("Year"), # Specify the columns to format
-    big.mark = "",             # Set big.mark to an empty string to remove commas
-    na_str = "-",      # missing value
-    digits = 0                  # Specify the number of decimal places
-  ) |>
-  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
-  flextable::width(width = c(rep(1,6))) |>
-  flextable::hline(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")  |>
-  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")
-```
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
 background-size: 450px
 background-position: right 50px center
 
-## Ecosystem Information: Definitions and abbreviations
+## Evolution of Management Frameworks
 
 .pull-left-60[
 <span style="color: blue;">**Fishery Management Plan (FMP)**</span>: a legally required document outlining methods (management measures, regulations, monitoring, research) to achieve fishery management objectives as specified in the U.S. Magnuson-Stevens Fishery Conservation and Management Act. 
@@ -527,7 +389,7 @@ background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs
 background-size: 390px
 background-position: right 50px center
 
-## Ecosystem Information: Definitions and abbreviations
+## Evolution of Management Frameworks
 
 .pull-left-60[
 
@@ -553,7 +415,7 @@ Sources: [SAFMC FEP I](https://safmc.net/documents/combined-fep_toc-pdf/), [FEP 
 ]
 
 ---
-## Fishery Ecosystem Plans: Implementation Pathways
+## Evolution of Fishery Ecosystem Plans: Implementation Pathways
 
 "Umbrella" documents establishing processes to turn the ecosystem plan into tangible action on a topic: Pacific, Mid-Atlantic, North Pacific (Bering Sea), Gulf
 .pull-left[
@@ -607,28 +469,39 @@ flextable::flextable(FEPactions) |>
   ) |>
   flextable::set_caption("Comparison of Council FEPs with FEP components suggested by EPAP 1999. 1 = Included.") |>
   flextable::width(width = c(1, rep(0.75,8))) |>
-  flextable::bg(j = c("Uncertainty"), bg = "yellow", part = "body")|>
-  flextable::hline(i = ~ Council == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::hline(i = ~ before(Council, "South Atlantic"),
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body") |>
-  flextable::vline_left(i = ~ Council == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")  |>
-  flextable::vline_right(i = ~ Council == "South Atlantic",
-                      border = flextable::fp_border_default(color = "blue", width = 1.5),
-                      part = "body")
+  flextable::bg(j = c("Uncertainty"), bg = "yellow", part = "body") #|>
+  # flextable::hline(i = ~ Council == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::hline(i = ~ before(Council, "South Atlantic"),
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body") |>
+  # flextable::vline_left(i = ~ Council == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")  |>
+  # flextable::vline_right(i = ~ Council == "South Atlantic",
+  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+  #                     part = "body")
 
 ```
+
+
+---
+# Innovation
+
+Stock assessment integration and many ways to use risk-based frameworks
+
+Mid Atlantic EAFM: risk assessment, conceptual modeling, MSE considering angler welfare --> operational tool for multispecies recreational specs
+
+Caribbean EBFM: conceptual modeling --> structure FEP, indicators for reporting, risk assessment
+
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ESPfigShotwell.png")
 background-size: 450px
 background-position: right 50px center
 
-## Ecosystem Information: Definitions and abbreviations
+## Innovation: Stock Assessment Integration
 
 .pull-left-60[
 <span style="color: blue;">**Ecosystem Socioeconomic Profile (ESP)**</span>: a document summarizing ecosystem information for a particular *stock*, spanning physical, biological, economic, and social information. 
@@ -742,27 +615,6 @@ flextable::flextable(Tab2)|>
   flextable::set_caption("Risk table evaluation for Gulf of Alaska pollock in the 2018 stock assessment.") |>
   flextable::width(width = c(3.5, 3.5, 4.5))
 ```
----
-background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
-background-size: 380px
-background-position: right 50px center
-
-## More tools and products derived from or including ecosystem data
-
-*  SSC Assessment uncertainty determinations
-*  Ecosystem risk assessments
-*  Habitat assessments
-*  Conceptual models
-*  Stock assessment models
-*  Ecosystem models
-*  Management strategy evaluations
-*  Fishery Performance reports
-
-![:img Carib consensus model, 50%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
-.footnote[
-Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
-]
-
 
 ---
 background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2025.png"), url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
@@ -793,12 +645,35 @@ Each [report section](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataR
 
 .pull-right[
 ]
+---
+background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
+background-size: 380px
+background-position: right 50px center
+
+## More tools and products derived from or including ecosystem data
+
+*  SSC Assessment uncertainty determinations
+*  Ecosystem risk assessments
+*  Habitat assessments
+*  Conceptual models
+*  Stock assessment models
+*  Ecosystem models
+*  Management strategy evaluations
+*  Fishery Performance reports
+
+![:img Carib consensus model, 50%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+.footnote[
+Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
+]
+
+
+
 
 ---
 .pull-left[
-## Beyond Catch Advice
+## Innovation: Mid-Atlantic Ecosystem Approach
 
-Indicator-based EAFM risk assessment 
+Beyond Catch Advice: Indicator-based EAFM risk assessment 
 
 *Species level risk elements*
 ```{r sptable}
@@ -950,6 +825,39 @@ risk.eco %>%
 
 4. **Multi-scale Ecosystem Information**: Regular reporting at the ecosystem scale provides context for decisions and familiarity with ecosystem data. Stock-specific ecosystem reports link environmental drivers to individual stock productivity for use in stock assessment and catch specification. A structured dialogue process between ecosystem and stock assessment scientists is producing similar stock-level information in the Pacific.
 
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size: 20%, 100%
+background-position: 7% 95%, right
+
+<div style="line-height: 0.9;">
+
+.right[
+# Maintaining our momentum: Collaborating on ecosystem approaches with managers
+]
+
+--
+
+.right[
+<br />
+# How do we use this? Merging ecosystem information and management decisions
+]
+
+--
+
+.right[
+<br />
+# Providing scientific advice: advice for scientists
+]
+
+--
+
+.right[
+<br /><br /><br /><br />
+# Five things I did this week
+]
+
+</div>
 
 ---
 .center[
@@ -965,4 +873,115 @@ Contact: <sgaichas@hydrascientificllc.com>
 ]
 
 ???
+
+---
+background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
+background-size: 460px, 340px
+background-position: top 10px right 30px, bottom 10px right 70px
+
+## Climate Vulnerability Analysis
+
+.pull-left-60[
+
+<span style="color: blue;">**Climate Vulnerability Analysis (CVA)**</span>: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
+
+*  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
+*  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
+
+![:img NECVA, 42%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g003)![:img NECVAdist, 36%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0146756.g004)
+
+]
+
+.pull-right-30[
+]
+
+.footnote[
+Sources: [Hare et al. 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) on left, [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) on right
+]
+
+---
+## Climate Vulnerability Analysis
+
+.pull-left[
+![:img SAtl Directionality](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g006)
+
+.footnote[
+Source: [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543) 
+]
+]
+
+.pull-right[
+![:img HMS CVA](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000530.g004)
+
+.footnote[
+Source: [Loughran et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000530) 
+]
+]
+
+???
+![:img Habitat CVA, 33%](https://journals.plos.org/plosone/article/figure/image?size=large&download=&id=10.1371/journal.pone.0260654.g003)
+
+Source: Farr et al. 2021 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260654
+
+---
+## Climate Vulnerability Analysis (CVA) Comparison
+
+```{r CVAs}
+
+CVAs <- proparea |>
+  dplyr::select(CouncilName) |>
+  dplyr::mutate(FishInvertCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                 CouncilName %in% c("North Pacific") ~ 2019,
+                                                 CouncilName %in% c("Western Pacific") ~ 2022,
+                                                 CouncilName %in% c("Pacific", 
+                                                                 "South Atlantic",
+                                                                 "Gulf") ~ 2023,
+                                              TRUE ~ NA),
+                HabitatCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2022,
+                                              TRUE ~ NA),
+                CommunityCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England") ~ 2016,
+                                                CouncilName %in% c("South Atlantic", 
+                                                                 "Gulf",
+                                                                 "Pacific") ~ 2022,
+                                              TRUE ~ NA),
+                HMSCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                             "Gulf",
+                                                             "Caribbean") ~ 2025,
+                                              TRUE ~ NA),
+                MammalCVA = dplyr::case_when(CouncilName %in% c("Mid-Atlantic", 
+                                                                 "New England",
+                                                                "South Atlantic",
+                                                                "Gulf",
+                                                                "Caribbean") ~ 2023,
+                                              TRUE ~ NA) 
+                )
+
+flextable::flextable(CVAs) |>
+  flextable::colformat_num(
+    #j = c("Year"), # Specify the columns to format
+    big.mark = "",             # Set big.mark to an empty string to remove commas
+    na_str = "-",      # missing value
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_caption("Comparison of Climate Vulnerability Analyses (CVAs) available to each Council, with publication year.") |>
+  flextable::width(width = c(rep(1,6))) |>
+  flextable::hline(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+```
+
 
