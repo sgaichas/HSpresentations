@@ -63,6 +63,10 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 ```
 
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Harvey_wompwomp.png")
+background-size: 200px
+background-position: left 90px bottom 40px
+
 
 ## The Issue: Will we ever have Ecosystem Based Management (EBM) or Fishery Management (EBFM)?
 
@@ -76,9 +80,17 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 Let's proceed in Chris Harvey's "realm of the possible" and work in specific frameworks that are regional, credible, and cooperative.  
 
 ![Harvey Bevan slide 32](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/HarveyBevanNextSteps.png)
+.footnote[
+Slide courtesy Chris Harvey
+]
+
 ]
 
 ---
+background-image: url("https://imgs.xkcd.com/comics/pep_talk.png")
+background-size: 300px
+background-position: right 20px bottom 20px
+
 # Pep Talk!
 
 ## The Bottom Line: Work in progress *IS* progress
@@ -98,7 +110,6 @@ Let's proceed in Chris Harvey's "realm of the possible" and work in specific fra
 *  Science communication: Councils need ecosystem information in "digestible packets"
 
 *  Actionable ecosystem plans: Address management issues in digestible packets too!
-
 
 
 ???
@@ -122,7 +133,6 @@ Source: https://www.fisherycouncils.org/
 # Diversity
 
 A range of contexts, fisheries, data availability, resources, and issues &rarr; range of approaches. One size does not fit all. 
-
 
 ```{r CouncilComp}
 proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
@@ -182,7 +192,7 @@ proparea |>
 
 ESRs --> SOEs --> Graphical Summaries --> Council feedback for management relevance
 
-Structure and presentation
+Structure, presentation, transparency and reproducibility
 
 ## Management frameworks
 
@@ -219,16 +229,41 @@ Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280
 ]
 ]
 
-.footnote[
-Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
-]
 ---
-## Evolution of Scientific Reporting
+## Evolution of Scientific Reporting: Structure
 
 ![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
 
+Indicators &rarr; Management objectives, Risks to meeting objectives, Observations from fisheries and scientists
+
 .footnote[
 Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE-MA-02282025-508.pdf) 
+]
+
+---
+## Evolution of Scientific Reporting: Open Science
+
+The 2025 Caribbean Report is structured around FMP objectives and uses management performance and risk indicators identified in EBFM conceptual models*
+
+.pull-left-70[
+![Mandy's slide](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MandyKarnauskas_OpenScienceESR.png)
+
+.footnote[
+Slide courtesy Mandy Karnauskas, NOAA Southeast Fisheries Science Center
+
+*more on this later
+]
+]
+
+.pull-right-30[
+Caribbean Ecosystem Status Report available in [pdf](https://repository.library.noaa.gov/view/noaa/71118) and [online](https://gulf-iea.github.io/Caribbean-ESR-2/) formats
+
+Reproducible and open-source
+
+All code and public data available on GitHub: https://github.com/Gulf-IEA/Caribbean-ESR-2
+
+Production in weeks not years
+
 ]
 
 ---
@@ -307,6 +342,7 @@ flextable::flextable(summtab) |>
 ```
 
 [More detailed ESR comparison](https://sgaichas.github.io/SAFMCindicators/ESRcomparisons.html) 
+
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
@@ -862,16 +898,24 @@ background-position: 7% 95%, right
 </div>
 
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size: 20%, 100%
+background-position: 7% 95%, right
+
 .center[
 # Thoughts? Questions?
 
 # Thank you!
 ]
 
-
+.pull-left-70[]
+.pull-right-30[
 .footnote[
-Slides available at https://sgaichas.github.io/HSpresentations  
+.right[
+Slides at https://sgaichas.github.io/HSpresentations  
 Contact: <sgaichas@hydrascientificllc.com>
+]
+]
 ]
 
 ???
