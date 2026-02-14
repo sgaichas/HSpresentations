@@ -184,7 +184,108 @@ proparea |>
 
 ```
 
+```{r CouncicompareMap, eval=FALSE}
+# 
+# ContigCouncilMap <- usmap::plot_usmap("states", exclude = c("AK","HI"))
+# 
+# AKmap <- usmap::us_map(include = c("AK")) |>
+#     dplyr::mutate(Council = dplyr::case_when(full %in% c("Alaska") ~ "NPFMC",
+#                                            TRUE ~ NA)) 
+# 
+# HImap <- usmap::us_map(include = c("HI")) |>
+#     dplyr::mutate(Council = dplyr::case_when(full %in% c("Hawaii") ~ "WPFMC",
+#                                            TRUE ~ NA)) 
+# 
+# CaribMap <- usmap::plot_usmap("states", include = c("PR"), fill = "grey")
+# 
+# states_df <- usmap::us_map(exclude = c("AK","HI"))
+# 
+# Councilmap <- states_df |>
+#     dplyr::mutate(Council = dplyr::case_when(full %in% c("District of Columbia", 
+#                                                         "New Jersey",
+#                                                         "Maryland",
+#                                                         "Delaware",
+#                                                         "New York",
+#                                                         "Pennsylvania",
+#                                                         "Virginia") ~ "MAFMC",
+#                                            full %in% c("Rhode Island",
+#                                                         "Massachusetts",
+#                                                         "Connecticut",
+#                                                         "New Hampshire",
+#                                                         "Maine") ~"NEFMC",
+#                                            full %in% c("Puerto Rico",
+#                                                         "U.S.VirginIslands") ~ "CFMC",
+#                                            full %in% c("Guam",
+#                                                         "American Samoa",
+#                                                         "Northern Mariana Islands",
+#                                                         "Hawaii") ~ "WPFMC",
+#                                            full %in% c("Florida",
+#                                                         "North Carolina",
+#                                                         "Georgia",
+#                                                         "South Carolina") ~ "SAFMC",
+#                                            full %in% c("California",
+#                                                         "Washington",
+#                                                         "Oregon") ~ "PFMC",
+#                                            full %in% c("Texas",
+#                                                         "Florida",
+#                                                         "Louisiana",
+#                                                         "Alabama",
+#                                                         "Mississippi") ~ "GFMC",
+#                                            full %in% c("Alaska") ~ "NPFMC",
+#                                            TRUE ~ NA)) 
+# 
+# Contig <- ggplot2::ggplot(Councilmap) + ggplot2::geom_sf(aes(fill = Council)) + theme(legend.position = 'none')
+# 
+# AK <- ggplot2::ggplot(AKmap) + ggplot2::geom_sf(aes(fill = Council)) + theme(legend.position = 'none')
+# 
+# HI <- ggplot2::ggplot(HImap) + ggplot2::geom_sf(aes(fill = Council)) + theme(legend.position = 'none')
+# 
+# PR <- ggplot2::ggplot(PRmap) + ggplot2::geom_sf(aes(fill = Council)) + theme(legend.position = 'none')
+# 
+# design <-"
+#   133
+#   233
+# "
+# 
+# AK + HI + Contig + plot_layout(design = design)
 
+```
+
+---
+## Diversity: Area Managed
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/FisheriesIdentityUSWPAC_FEUS2026.png")
+background-size: 1050px
+background-position: center bottom 40px
+
+## Diversity
+
+.footnote[
+Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/CommLandRev2023.png")
+background-size: 1050px
+background-position: center bottom 40px
+
+## Diversity
+
+.footnote[
+Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RecTripExpenditures2023.png")
+background-size: 1040px
+background-position: center bottom 40px
+
+## Diversity
+
+.footnote[
+Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
+]
 
 ---
 # Evolution
