@@ -131,56 +131,82 @@ Source: https://www.fisherycouncils.org/
 
 
 ---
+
+background-image: url("https://ecowatch.noaa.gov/sites/default/files/2025-09/regions-map-vector-revised_new.jpg")
+background-size: 850px
+background-position: right
+
 # Diversity
 
-A range of contexts, fisheries, data availability, resources, and issues &rarr; range of approaches. One size does not fit all. 
+.pull-left-30[
+A range of contexts, 
+
+fisheries, 
+
+data availability,
+
+resources, 
+
+and issues &rarr; 
+
+range of approaches. 
+
+
+One size does not fit all. 
+]
+
+.pull-right-70[
+.footnote[
+Source: https://ecowatch.noaa.gov/about
+]
+]
 
 ```{r CouncilComp}
-proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
-
-proparea |>
-  dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
-                PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
-  flextable::flextable() |>
-  flextable::colformat_double(
-    j = c("Percarea", "PercComTons", "PercRecTons",
-          "PercComRev", "PercRecExpend"), # Specify the columns to format
-    big.mark = "",             # Set big.mark to an empty string to remove commas
-    digits = 2,                  # Specify the number of decimal places
-    na_str = "-"      # missing value
-  ) |>
-  flextable::set_header_labels(
-    CouncilName = "Council",
-    EEZArea = "EEZ Area (sq km)",
-    Percarea = "Percent of U.S. EEZ", 
-    Nstates = "Number of States or Territories",
-    NFMPs = "Number of FMPs",
-    NFEPs = "Number of FEPs",
-    PercComTons = "Percent of 2023 U.S. Commercial Landings",
-    PercRecTons = "Percent of 2023 U.S. Recreational Landings",
-    PercComRev = "Percent of 2023 U.S. Commercial Revenue",
-    PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
-  ) |>
-  #flextable::set_table_properties(layout = "autofit", width = 1) |>
-  flextable::set_caption("Comparison of Council management context attributes.") |>
-  flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) #|>
-  #flextable::bg(i = ~ CouncilName == "South Atlantic", bg = "yellow", part = "body") |>
-  #flextable::surround(i = ~ CouncilName == "South Atlantic", 
-  #                    border = flextable::fp_border_default(color = "red", width = 1.5),
-  #                    part = "body") |>
-  # flextable::hline(i = ~ CouncilName == "South Atlantic",
-  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
-  #                     part = "body") |>
-  # flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
-  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
-  #                     part = "body") |>
-  # flextable::vline_left(i = ~ CouncilName == "South Atlantic",
-  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
-  #                     part = "body")  |>
-  # flextable::vline_right(i = ~ CouncilName == "South Atlantic",
-  #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
-  #                     part = "body")
-
+ proparea <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/proparea.csv")
+# 
+# proparea |>
+#   dplyr::select(CouncilName, EEZArea, Percarea, Nstates, NFMPs, NFEPs, 
+#                 PercComTons, PercRecTons, PercComRev, PercRecExpend) |>
+#   flextable::flextable() |>
+#   flextable::colformat_double(
+#     j = c("Percarea", "PercComTons", "PercRecTons",
+#           "PercComRev", "PercRecExpend"), # Specify the columns to format
+#     big.mark = "",             # Set big.mark to an empty string to remove commas
+#     digits = 2,                  # Specify the number of decimal places
+#     na_str = "-"      # missing value
+#   ) |>
+#   flextable::set_header_labels(
+#     CouncilName = "Council",
+#     EEZArea = "EEZ Area (sq km)",
+#     Percarea = "Percent of U.S. EEZ", 
+#     Nstates = "Number of States or Territories",
+#     NFMPs = "Number of FMPs",
+#     NFEPs = "Number of FEPs",
+#     PercComTons = "Percent of 2023 U.S. Commercial Landings",
+#     PercRecTons = "Percent of 2023 U.S. Recreational Landings",
+#     PercComRev = "Percent of 2023 U.S. Commercial Revenue",
+#     PercRecExpend = "Percent of 2022 U.S. Recreational Expenditures"
+#   ) |>
+#   #flextable::set_table_properties(layout = "autofit", width = 1) |>
+#   flextable::set_caption("Comparison of Council management context attributes.") |>
+#   flextable::width(width = c(1.5, rep(0.7, 2), 0.9, rep(0.7, 2), rep(0.7, 4))) #|>
+#   #flextable::bg(i = ~ CouncilName == "South Atlantic", bg = "yellow", part = "body") |>
+#   #flextable::surround(i = ~ CouncilName == "South Atlantic", 
+#   #                    border = flextable::fp_border_default(color = "red", width = 1.5),
+#   #                    part = "body") |>
+#   # flextable::hline(i = ~ CouncilName == "South Atlantic",
+#   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+#   #                     part = "body") |>
+#   # flextable::hline(i = ~ before(CouncilName, "South Atlantic"),
+#   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+#   #                     part = "body") |>
+#   # flextable::vline_left(i = ~ CouncilName == "South Atlantic",
+#   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+#   #                     part = "body")  |>
+#   # flextable::vline_right(i = ~ CouncilName == "South Atlantic",
+#   #                     border = flextable::fp_border_default(color = "blue", width = 1.5),
+#   #                     part = "body")
+# 
 
 ```
 
@@ -252,14 +278,11 @@ proparea |>
 ```
 
 ---
-## Diversity: Area Managed
-
----
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/FisheriesIdentityUSWPAC_FEUS2026.png")
 background-size: 1050px
 background-position: center bottom 40px
 
-## Diversity
+## Diversity: Human Communities
 
 .footnote[
 Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
@@ -270,7 +293,7 @@ background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs
 background-size: 1050px
 background-position: center bottom 40px
 
-## Diversity
+## Diversity: Commercial Fisheries
 
 .footnote[
 Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
@@ -281,7 +304,7 @@ background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs
 background-size: 1040px
 background-position: center bottom 40px
 
-## Diversity
+## Diversity: Recreational Fisheries
 
 .footnote[
 Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf 
