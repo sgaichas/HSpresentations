@@ -597,9 +597,18 @@ Figure courtesy Ebett Siddon, AFSC
 ]
 
 ---
-## North Pacific example ESP indicators &rarr; risks: in progress for Crab stocks
+## North Pacific example ESP indicators &rarr; risks
 
+```{r}
+Tab5 <- readr::read_csv(here::here("data/NPacRiskFramework.csv"))
 
+flextable::flextable(Tab5)|>
+  flextable::set_caption("Draft Risk Table for Bristol Bay Red King Crab 2025.") |>
+  flextable::width(width = c(2,2,2,2,2))
+```
+
+Potential Action: No Catch Reduction, Some Catch Reduction, More Catch Reduction
+<!--
 ```{r}
 
 Tab2 <- readr::read_csv(here::here("data/BBRKC2025risks.csv"))
@@ -612,9 +621,24 @@ flextable::flextable(Tab2)|>
 .footnote[
 Source: [2025 Bristol Bay Red King Crab SAFE, Appendix D](https://meetings.npfmc.org/CommentReview/DownloadFile?p=5be176e2-730a-4174-b9ca-2fa22dc53937.pdf&fileName=BBRKC%20SAFE%202025%20Appendix%20D.pdf)
 ]
+-->
 ---
 ## Innovation: Pacific Risk Tables (in testing)
 
+```{r}
+
+Tab4 <- readr::read_csv(here::here("data/WestCoastRiskFramework.csv"))
+
+flextable::flextable(Tab4)|>
+  flextable::set_caption("Pilot Risk Criteria.") |>
+  flextable::width(width = c(4,4,4,4))
+```
+
+Potential Action: Decrease Risk Buffer, Standard Risk Buffer, Increase Risk Buffer
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
 
 ---
 background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2026.png")
@@ -1082,6 +1106,21 @@ flextable::flextable(FEPactions) |>
 
 ```
 
+---
+## Innovation: Pacific Risk Tables (in testing)
+
+```{r}
+
+Tab3 <- readr::read_csv(here::here("data/SablefishRiskPilot.csv"))
+
+flextable::flextable(Tab3)|>
+  flextable::set_caption("Draft Risk Table for West Coast Sablefish 2025.") |>
+  flextable::width(width = c(4,4,4))
+```
+
+.footnote[
+Source: [Status of the Sablefish 2025](https://www.pcouncil.org/documents/2025/08/g-3-attachment-5-status-of-the-sablefish-off-u-s-west-coast-in-2025.pdf/)
+]
 
 ---
 background-image: url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002"), url("https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005")
