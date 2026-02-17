@@ -617,7 +617,11 @@ flextable::flextable(Tab5)|>
 Potential Action:  
 Minimal Concern &rarr; No Catch Reduction from Maximum Allowed  
 Increased Concern &rarr; <span style="background-color:#FFFF0050;">Some Catch Reduction</span>   
-Extreme Concern &rarr; <span style="background-color:#FF000050;">More Catch Reduction</span>  
+Extreme Concern &rarr; <span style="background-color:#FF000050;">More Catch Reduction</span> 
+
+.footnote[
+Source: [Draft 2025 Blue King Crab Risk Table](https://meetings.npfmc.org/CommentReview/DownloadFile?p=db212742-5381-4c72-b8cf-f95a7913d11e.pdf&fileName=PIBKC%20SAFE%202025%20Appendix%20B.pdf)
+]
 
 ---
 ## Innovation: Pacific Risk Tables (in testing): Two Way Street
@@ -665,6 +669,10 @@ http://www.mafmc.org/s/EAFM-Doc-Revised-2019-02-08.pdf)
 * Mid-Atlantic EAFM framework:
 .center[
 ![:img Mid-Atlantic EAFM framework, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/Framework.png)
+]
+
+.footnote[
+See [Gaichas et al. 2016](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2016.00105/full), [Muffley et al. 2021](https://www.tandfonline.com/doi/full/10.1080/08920753.2021.1846156)
 ]
 
 ]
@@ -777,7 +785,7 @@ risk.species %>%
 ]  
 -->
 
-*Ecosystem level risk elements*
+*Ecosystem level risk elements 2025*
 ```{r ecotable}
 #tab.cap="Ecosystem level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
 
@@ -814,7 +822,7 @@ risk.eco %>%
 .contrib[
 ]  
 
-*Species and Sector level risk elements*
+*Species and Sector level risk elements 2025*
 ```{r mgttable,  echo=FALSE, message=FALSE, warnings=FALSE}
 #tab.cap="Species and sector level risk analysis results; l=low risk (green), lm= low-moderate risk (yellow), mh=moderate to high risk (orange), h=high risk (red)\\label{sptable}",
 
@@ -848,6 +856,10 @@ risk.sppsector %>%
   kable_styling(font_size = 9) 
 
 ```
+
+.footnote[
+See [Gaichas et al. 2018](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2018.00442/full)
+]
 ]  
 
 
@@ -880,6 +892,10 @@ frameWidget(conmod)
 
 ```
 
+
+.footnote[
+See [DePiper et al. 2021](https://academic.oup.com/icesjms/article/78/4/1217/6207633)
+]
 ]
 
 .pull-right[
@@ -897,10 +913,46 @@ frameWidget(conmod)
 ]
 
 ---
+.pull-left[
+## Innovation: Caribbean EBFM Development
+
+Challenge: resource limitations and knowledge gaps combined with diverse and complex island-based contexts
+
+Solution: develop stakeholder-driven conceptual models of the full ecosystem
+
+* connect ecological, economic, social, institutional aspects
+* include fishers, managers, businesses, ENGOs, scientists, and the Council
+* evaluate island and group models and combine into a consensus model
+
+How?
+
+* conducted 29 workshops over 5 years!
+* evaluate agreement and distinction across regions, groups
+
+
+]
+
+.pull-right[
+![:img Carib consensus model, 90%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+
+![:img Carib NMDS, 100%](https://journals.plos.org/plosone/article/figure/image?download&size=large&id=10.1371/journal.pone.0304101.g004)
+
+]
+
+.footnote[
+Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101) Figs 3b (top) and 4 (bottom)
+]
+
+---
+## Innovation: Caribbean EBFM
+
+*  [Caribbean EBFM development](https://issuu.com/caribbeanfmc/docs/conceptual_models_presentation_dap_meeting_august_) 
+
+
+---
 ## Initial Synthesis: Three General Approaches to using Ecosystem Information
 
 **1. FMP/Indicator-Based (NPFMC, PFMC, MAFMC, NEFMC)** 
-- Species-based Fishery Management Plans with ecosystem overlays 
 - Annual ecosystem indicators inform catch specification decisions 
 - Risk tables and uncertainty frameworks integrate ecosystem considerations 
 - Non-regulatory Fishery Ecosystem Plans (FEPs) provide actionable pathways 
@@ -918,9 +970,6 @@ frameWidget(conmod)
 - Recreational fishery dominance with fewer assessments relative to managed species 
 - SAFMC uniquely links Essential Fish Habitat (EFH) with ecosystem efforts 
 - Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
-- Both regions have recent ecosystem reports and climate vulnerability assessments 
-
-## Potential for wider use of CVAs across regions
 
 ---
 ## Common Management Concerns
@@ -1338,10 +1387,6 @@ flextable::flextable(CVAs) |>
 ```
 
 ---
-background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2025.png"), url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
-background-size: 660px, 660px
-background-position: bottom right, top right
-
 ## Details for each Council
 
 .pull-left[
@@ -1360,17 +1405,9 @@ Each [report section](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataR
 *  Council processes using the information
 *  Regional resources available
 
-*Example process images from Councils:*  &rarr;  
-*Adjust catch advice directly or through risk policy* 
 ]
 
 .pull-right[
-]
----
-background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/SAFMC_FWmodel.png")
-background-size: 380px
-background-position: right 50px center
-
 ## More tools and products derived from or including ecosystem data
 
 *  SSC Assessment uncertainty determinations
@@ -1381,11 +1418,8 @@ background-position: right 50px center
 *  Ecosystem models
 *  Management strategy evaluations
 *  Fishery Performance reports
-
-![:img Carib consensus model, 50%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
-.footnote[
-Sources: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101), [South Atlantic food web in FEP II](https://safmc.net/documents/fishery-ecosystem-plan-2-fep-ii/)
 ]
+
 
 
 
