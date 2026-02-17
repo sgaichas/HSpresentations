@@ -351,7 +351,7 @@ Slide courtesy Mandy Karnauskas, NOAA Southeast Fisheries Science Center
 .pull-right-30[
 Caribbean Ecosystem Status Report available in [pdf](https://repository.library.noaa.gov/view/noaa/71118) and [online](https://gulf-iea.github.io/Caribbean-ESR-2/) formats
 
-Reproducible and open-source
+Reproducible and open-source workflow (credit: Carissa Gervasi)
 
 All code and public data available on GitHub: https://github.com/Gulf-IEA/Caribbean-ESR-2
 
@@ -944,10 +944,29 @@ Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371
 ]
 
 ---
+background-image: url("https://journals.plos.org/plosone/article/figure/image?download&size=large&id=10.1371/journal.pone.0304101.g005")
+background-size: 800px
+background-position: top right
+
 ## Innovation: Caribbean EBFM
 
-*  [Caribbean EBFM development](https://issuu.com/caribbeanfmc/docs/conceptual_models_presentation_dap_meeting_august_) 
+.pull-left-30[
+Conceptual models are a rich source of information:
 
+*  Indicators listed in the draft FEP supporting EBFM objectives
+*  Indicators incorporated into the [Caribbean Ecosystem Status Report](https://gulf-iea.github.io/Caribbean-ESR-2/)
+*  Indicators used in a new risk assessment framework
+
+Co-development with stakeholders improved support for EBFM
+
+*  [Caribbean EBFM development](https://issuu.com/caribbeanfmc/docs/conceptual_models_presentation_dap_meeting_august_) 
+]
+
+.pull-right-70[]
+
+.footnote[
+Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101) Fig. 5 Drivers and Receivers
+]
 
 ---
 ## Initial Synthesis: Three General Approaches to using Ecosystem Information
