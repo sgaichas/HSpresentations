@@ -482,7 +482,9 @@ Production in weeks not years
 ---
 # Innovation
 
-Stock assessment-ecosystem indicator integration and risk-based frameworks for catch specification
+Stock assessment-ecosystem indicator integration
+
+Risk-based frameworks for catch specification
 
 Mid Atlantic EAFM: learning by doing
 
@@ -643,14 +645,14 @@ Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1
 
 ---
 background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2026.png")
-background-size: 800px
-background-position: center
+background-size: 900px
+background-position: center bottom 45px 
 
 ## Innovation: New England Risk Policy (in development)
 
 Factors are scored, weighted, and combined for each stock to recommend risk tolerance
 
-Risk tolerance affects proportion of Fmsy and probability in HCRs
+Risk tolerance &rarr; proportion of maximum fishing rate in harvest control rules
 
 
 .footnote[
@@ -977,33 +979,41 @@ Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371
 *  Expert knowledge used to prioritize research
 
 ---
-## Learning from the Councils: Approaches to using Ecosystem Information
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025_Bevan.png")
+background-size: 430px
+background-position: top right
 
-**1. FMP/Indicator-Based (NPFMC, PFMC, MAFMC, NEFMC)** 
-- Annual ecosystem indicators inform catch specification decisions 
+## Learning from the Councils: Diverse Ecosystem Approaches
+
+**1. FMP/Indicator-Based (North Pacific, Pacific, Mid-Atlantic, New England)** 
+- High-value, data-rich stocks with complex assessments 
+- Annual ecosystem reports, indicators can inform assessments 
 - Risk tables and uncertainty frameworks integrate ecosystem considerations 
 - Non-regulatory Fishery Ecosystem Plans (FEPs) provide actionable pathways 
-- High-value, data-rich stocks with complex assessments 
 
-**2. FEP/Geography-Based (WPFMC, CFMC)** 
+**2. FEP/Geography-Based (Western Pacific, Caribbean)** 
+- Human community connections to complex and data-limited fisheries 
 - Place-based ecosystem or fishery management plans serve as operational management documents 
 - Co-developed with stakeholders reflecting distinct regional conditions 
-- Emphasis on human community connections and data-limited fisheries 
 - Ecosystem considerations embedded in management structure 
-- Caribbean non-regulatory FEP in development to provide actionable pathways 
 
-**3. Developing Approaches (SAFMC, GFMC)** 
-- Species-based FMPs with expanding ecosystem integration 
+**3. Developing Approaches (South Atlantic, Gulf)** 
 - Recreational fishery dominance with fewer assessments relative to managed species 
-- SAFMC uniquely links Essential Fish Habitat (EFH) with ecosystem efforts 
-- Gulf developing Fishery Ecosystem Issues (FEIs) as action-oriented framework 
+- Species-based FMPs with expanding ecosystem integration 
+- South Atlantic links Essential Fish Habitat with ecosystem efforts 
+- Gulf developing Fishery Ecosystem Issues as action-oriented framework 
 
 ---
 ## Common Management Concerns
 
-**Forage Fish Ecology**: Multiple Councils have implemented protections for unmanaged forage species or developed harvest control rules accounting for ecosystem services (notably ASMFC's ecological reference points for Atlantic menhaden).
+.pull-left[
+**Forage Fish**: Multiple Councils have implemented protections for unmanaged forage species or developed harvest control rules accounting for ecosystem services.
+]
+.pull-right[
+**Climate Change**: All regions are addressing rapid ecosystem changes. Data-rich systems with long-term ecosystem reporting have experienced unexpected stock collapses, highlighting the need for climate-ready management approaches.
+]
 
-**Climate Change Impacts**: All regions are addressing rapid ecosystem changes, though even data-rich systems with long-term ecosystem reporting have experienced unexpected stock collapses, highlighting the need for climate-ready management approaches.
+--
 
 ## Common Challenges
 
@@ -1014,7 +1024,45 @@ Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371
 **Stakeholder perceptions**: In some regions, considering ecosystem information is viewed as only increasing restrictions, rather than expanding opportunities. 
 
 ---
-## Successful Practices
+## Where to next?
+
+.pull-left[
+### Complexity
+
+![My PhD](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PhDFlyer.png)
+
+]
+
+--
+
+.pull-right[
+### Digestible complexity
+
+![AAAS comms](https://www.aaas.org/sites/default/files/styles/media_ref/public/2018-10/AAAS-Center-for-Public-Engagement-Different-Styles-of-Communication-Triangles_0.png?itok=MsmS-eRJ)
+
+![:img Carib consensus model, 90%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+]
+
+---
+## Where to next?
+
+.pull-left[
+### Open source, reproducible data and science
+
+
+
+]
+
+--
+
+.pull-right[
+### Two way street
+
+Capitalize on opportunities as well as increasing precaution
+
+]
+
+???
 
 1. **Iterative Co-Development**: Ecosystem reports have been restructured with Council feedback in several regions, enhancing report utility. Most FEPs emphasize collaborative development of problem statements, analyses, conceptual models, model scenarios, and indicators with fishers, managers, and scientists.
 
