@@ -1036,11 +1036,15 @@ background-position: top right
 --
 
 .pull-right[
-### Digestible complexity
+### Digestible complexity?
 
 ![AAAS comms](https://www.aaas.org/sites/default/files/styles/media_ref/public/2018-10/AAAS-Center-for-Public-Engagement-Different-Styles-of-Communication-Triangles_0.png?itok=MsmS-eRJ)
 
-![:img Carib consensus model, 90%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+![:img Carib consensus model, 80%](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/CaribConsensusModel.png)
+
+.footnote[
+See https://www.aaas.org/resources/communication-toolkit, [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101)
+]
 ]
 
 ---
@@ -1049,16 +1053,23 @@ background-position: top right
 .pull-left[
 ### Open source, reproducible data and science
 
+![Mandy's slide](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MandyKarnauskas_OpenScienceESR.png)
 
-
+Addresses resource constraints and helps future you!
 ]
 
 --
 
 .pull-right[
-### Two way street
+### Traveling Together on a Two Way Street
 
-Capitalize on opportunities as well as increasing precaution
+Collaborative development of problem statements, analyses, conceptual models, model scenarios, and indicators with fishers, managers, and scientists.
+
+![Brandons Paper](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MuffleyNoIinEAFM.png)
+
+Capitalize on opportunities as well as increasing precaution.
+
+"EBFM is slow, iterative, and messy." But worth it.
 
 ]
 
