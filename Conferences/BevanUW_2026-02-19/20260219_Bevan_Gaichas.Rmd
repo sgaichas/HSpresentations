@@ -282,83 +282,15 @@ Source: https://www.fisheries.noaa.gov/s3//2026-02/FEUS-2023-web_0.pdf
 ---
 # Evolution
 
-## Scientific Ecosystem Reporting
-
-Structure, presentation, transparency, and reproducibility have changed over time with Council feedback
-
 ## Management Frameworks
 
 Fishery Management Plans include ecosystem goals and objectives
 
 Fishery Ecosystem Plans have changed over time from descriptive &rarr; actionable
 
+## Scientific Ecosystem Reporting
 
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
-background-size: 400px
-background-position: right 50px center
-
-## Evolution of Scientific Reporting
-
-.pull-left-60[
-<span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
-
-*  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
-*  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
-*  Also known as State of the Ecosystem (SOE) or Ecosystem Considerations reports. 
-
-![:img GOA brief p1, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-1.png)![:img GOA brief p2, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-2.png)![:img GOA brief p3, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-3.png)
-
-.footnote[
-Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
-]
-]
-
-.pull-right-30[
-<!--![South Atlantic ESR cover](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)-->
-.footnote[
-Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280) 
-]
-]
-
----
-## Evolution of Scientific Reporting: Structure
-
-![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
-
-Indicators &rarr; Management objectives, Risks to meeting objectives, Observations from fisheries and scientists
-
-.footnote[
-Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE-MA-02282025-508.pdf) 
-]
-
----
-## Evolution of Scientific Reporting: Open Science
-
-The 2025 Caribbean Report is structured around FMP objectives and uses management performance and risk indicators identified in EBFM conceptual models*
-
-.pull-left-70[
-![Mandy's slide](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MandyKarnauskas_OpenScienceESR.png)
-
-.footnote[
-Slide courtesy Mandy Karnauskas, NOAA Southeast Fisheries Science Center
-
-*more on this later
-]
-]
-
-.pull-right-30[
-Caribbean Ecosystem Status Report available in [pdf](https://repository.library.noaa.gov/view/noaa/71118) and [online](https://gulf-iea.github.io/Caribbean-ESR-2/) formats
-
-Reproducible and open-source workflow (credit: Carissa Gervasi)
-
-All code and public data available on GitHub: https://github.com/Gulf-IEA/Caribbean-ESR-2
-
-Production in weeks not years
-
-]
-
+Structure, presentation, transparency, and reproducibility have changed over time with Council feedback
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMC-FMPs.png")
@@ -482,11 +414,75 @@ Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-
 ]
 ]
 
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png")
+background-size: 400px
+background-position: right 50px center
+
+## Evolution of Scientific Reporting
+
+.pull-left-60[
+<span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
+
+*  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
+*  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
+*  Also known as State of the Ecosystem (SOE) or Ecosystem Considerations reports. 
+
+![:img GOA brief p1, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-1.png)![:img GOA brief p2, 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-2.png)![:img GOA brief p3, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/GOA-ESR-Brief-3.png)
+
+.footnote[
+Source: [Gulf of Alaska ESR in Brief](https://apex.psmfc.org/akfin/r/akfin/151/files/static/v154/2024/GOA_ESR_Brief_2024.pdf) 
+]
+]
+
+.pull-right-30[
+<!--![South Atlantic ESR cover](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)-->
+.footnote[
+Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280) 
+]
+]
+
+---
+## Evolution of Scientific Reporting: Structure
+
+![:img State of the Ecosystem page 1 summary table, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-performance.png)![:img State of the Ecosystem page 2 risk bullets, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png)![:img State of the Ecosystem page 3 highlights, 33%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-highlights.png)
+
+Indicators &rarr; Management objectives, Risks to meeting objectives, Observations from fisheries and scientists
+
+.footnote[
+Source: [Mid-Atlantic SOE Summary](https://www.fisheries.noaa.gov/s3/2025-05/SOE-MA-02282025-508.pdf) 
+]
+
+---
+## Evolution of Scientific Reporting: Open Science
+
+The 2025 Caribbean Report is structured around FMP objectives and uses management performance and risk indicators identified in EBFM conceptual models*
+
+.pull-left-70[
+![Mandy's slide](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MandyKarnauskas_OpenScienceESR.png)
+
+.footnote[
+Slide courtesy Mandy Karnauskas, NOAA Southeast Fisheries Science Center
+
+*more on this later
+]
+]
+
+.pull-right-30[
+Caribbean Ecosystem Status Report available in [pdf](https://repository.library.noaa.gov/view/noaa/71118) and [online](https://gulf-iea.github.io/Caribbean-ESR-2/) formats
+
+Reproducible and open-source workflow (credit: Carissa Gervasi)
+
+All code and public data available on GitHub: https://github.com/Gulf-IEA/Caribbean-ESR-2
+
+Production in weeks not years
+
+]
 
 ---
 # Innovation
 
-Stock assessment-ecosystem indicator integration and risk-based frameworks for catch adjustment
+Stock assessment-ecosystem indicator integration and risk-based frameworks for catch specification
 
 Mid Atlantic EAFM: learning by doing
 
@@ -652,6 +648,14 @@ background-position: center
 
 ## Innovation: New England Risk Policy (in development)
 
+Factors are scored, weighted, and combined for each stock to recommend risk tolerance
+
+Risk tolerance affects proportion of Fmsy and probability in HCRs
+
+
+.footnote[
+Source: [January 2026 Council Meeting](https://d23h0vhsm26o6d.cloudfront.net/8b.-Kerr_Council_RiskPolicy_1_28_26.pdf)
+]
 ---
 ## Innovation: Mid Atlantic Ecosystem Approach
 
@@ -953,13 +957,13 @@ background-position: top right
 .pull-left-30[
 Conceptual models are a rich source of information:
 
-*  Indicators listed in the draft FEP supporting EBFM objectives
+*  Include expert knowledge despite data gaps
+*  High agreement ecosystem elements &rarr; EBFM objectives 
+*  Threats identified in models used in a new risk assessment framework
 *  Indicators incorporated into the [Caribbean Ecosystem Status Report](https://gulf-iea.github.io/Caribbean-ESR-2/)
-*  Indicators used in a new risk assessment framework
 
 Co-development with stakeholders improved support for EBFM
 
-*  [Caribbean EBFM development](https://issuu.com/caribbeanfmc/docs/conceptual_models_presentation_dap_meeting_august_) 
 ]
 
 .pull-right-70[]
@@ -968,8 +972,12 @@ Co-development with stakeholders improved support for EBFM
 Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304101) Fig. 5 Drivers and Receivers
 ]
 
+???
+*  Linkages across agency jurisdictions--basis for improved collaboration
+*  Expert knowledge used to prioritize research
+
 ---
-## Initial Synthesis: Three General Approaches to using Ecosystem Information
+## Learning from the Councils: Approaches to using Ecosystem Information
 
 **1. FMP/Indicator-Based (NPFMC, PFMC, MAFMC, NEFMC)** 
 - Annual ecosystem indicators inform catch specification decisions 
@@ -996,6 +1004,8 @@ Source: [Seara et al. 2024](https://journals.plos.org/plosone/article?id=10.1371
 **Forage Fish Ecology**: Multiple Councils have implemented protections for unmanaged forage species or developed harvest control rules accounting for ecosystem services (notably ASMFC's ecological reference points for Atlantic menhaden).
 
 **Climate Change Impacts**: All regions are addressing rapid ecosystem changes, though even data-rich systems with long-term ecosystem reporting have experienced unexpected stock collapses, highlighting the need for climate-ready management approaches.
+
+## Common Challenges
 
 **Complexity of Ecosystem Information**: Council staff emphasize the need to provide information in "digestible packets," with clear linkages to management processes and decisions.
 
