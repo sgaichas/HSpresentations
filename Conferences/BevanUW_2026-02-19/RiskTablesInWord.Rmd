@@ -1,7 +1,4 @@
 ---
-title: "Risk Tables In Word"
-author: "Sarah Gaichas"
-date: "`r Sys.Date()`"
 output:
   word_document: default
   html_document: default
@@ -13,7 +10,46 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE)
 ```
 
-## Stock Assessment Risk Table Examples
+# Annex 2. Risk table examples for individual stocks
+
+## North Pacific Risk Tables
+
+The US North Pacific (Alaska) region uses ecosystem indicators presented in an ecosystem status report (comparable to an ICES ecosystem overview) and indicators presented for individual stocks in an Ecosystem Socioeconomic Profile report (see [Shotwell et al. 2023](https://www.tandfonline.com/doi/full/10.1080/08920753.2023.2291858)).
+
+```{r AKrisk, fig.cap = "Flow of ecosystem information in North Pacific fishery catch advice. Figure courtesy Ebett Siddon, NOAA Alaska Fisheries Science Center."}
+
+knitr::include_graphics("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
+
+```
+
+
+Since risk tables were introduced (2018), 14 stocks have had reductions from the maximum permissible recommended catch due to risk information regarding stock assessment, population dynamics, fishery concerns, and ecosystem concerns.
+
+See [Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634) for details on risk table development.
+
+In the North Pacific, increased risk leads to increased precaution. 
+
+```{r}
+Tab5 <- readr::read_csv(here::here("data/NPacRiskFramework.csv"))
+
+flextable::flextable(Tab5)|>
+  flextable::set_caption("North Pacific Risk Levels and Indicator Criteria") |>
+  flextable::width(width = c(1.8,1.9,1.9,2.5,1.9)) |>
+  #flextable::bg(i = c(1:3), bg=c("white", "#FFFF0050", "#FF000050")) |>
+  flextable::height(height = 0.8, part = "header") |>
+  flextable::height(i = 1:3, height = c(0.8, 1.8, 1.6), part = "body") |>
+  flextable::hrule(rule = "exact") |>
+  flextable::fontsize(size = 10, part = "all")
+```
+
+Potential action that can be taken for each risk category:   
+* Minimal Concern leads to no catch reduction from maximum allowed   
+* Increased Concern can lead to some catch reduction from maximum allowed  
+* Extreme Concern can lead to more catch reduction from maximum allowed 
+
+Source: [Draft 2025 Blue King Crab Risk Table](https://meetings.npfmc.org/CommentReview/DownloadFile?p=db212742-5381-4c72-b8cf-f95a7913d11e.pdf&fileName=PIBKC%20SAFE%202025%20Appendix%20B.pdf)
+
+## North Pacific Risk Table Example
 
 ```{r}
 
@@ -31,7 +67,32 @@ flextable::flextable(Tab2)|>
 
 Source: [2025 Bristol Bay Red King Crab SAFE, Appendix D](https://meetings.npfmc.org/CommentReview/DownloadFile?p=5be176e2-730a-4174-b9ca-2fa22dc53937.pdf&fileName=BBRKC%20SAFE%202025%20Appendix%20D.pdf)
 
+## Pacific Risk Tables (currently in testing)
 
+In the US Pacific Council region, risk tables are being tested for use that allow for both increased catch recommendations during favorable conditions and decreased catch recommendations during unfavorable conditions. 
+
+```{r}
+
+Tab4 <- readr::read_csv(here::here("data/WestCoastRiskFramework.csv"))
+
+flextable::flextable(Tab4)|>
+  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
+  flextable::width(width = c(4,4,4,4)) |>
+  #flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))|>
+  flextable::height(height = 0.8, part = "header") |>
+  flextable::height(i = 1:3, height = c(1.8, 1.2, 1.8), part = "body") |>
+  flextable::hrule(rule = "exact") |>
+  flextable::fontsize(size = 10, part = "all")
+```
+
+Potential action that can be taken for each risk category:  
+* Favorable Conditions lead to a decreased risk buffer (higher catch recommendation)  
+* Neutral Conditions lead to a the standard risk buffer (standard catch recommendation)   
+* Unfavorable Conditions lead to an increased risk buffer (lower catch recommendation)  
+
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/). 
+
+## Pacific Risk Table Example  
 
 ```{r}
 
