@@ -77,6 +77,8 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 
 All 8 Councils, including SAFMC, plus selected others
 
+Presented [Tool and Use summary](https://sgaichas.github.io/HSpresentations/20260115_SAFMC_WK_EcoInfoTools_Gaichas.html) at the Ecosystem Data Workshop 15 January
+
 ]
 
 .pull-right[
@@ -101,8 +103,6 @@ Final Report for POT review circulated 25 February 2026 and [posted online](http
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RFMC+Map+2025.png")
 background-size: 430px
 background-position: top right
-
-## Presented [Tool and Use summary](https://sgaichas.github.io/HSpresentations/20260115_SAFMC_WK_EcoInfoTools_Gaichas.html) at the Ecosystem Data Workshop
 
 ## Learning from the Councils: Diverse Ecosystem Approaches
 
@@ -192,7 +192,7 @@ The South Atlantic’s combination of habitat focus, existing ecosystem tools, a
 *  Explore Novel Approaches: Evaluate multispecies management strategies using the existing food web model, considering both commercial yield and recreational fishing opportunity objectives
 
 ---
-# Workplan: Objective 2
+# Project Update: Objective 2
 
 *Identify opportunities and methods for incorporating identified ecosystem information into SAFMC management processes, including inter-jurisdictional management decision- making processes, and identify practical requirements for successful implementation (e.g. data quality, frequency of information updates, regional council process consistency, implementation timelines)*
 
@@ -225,7 +225,7 @@ The South Atlantic’s combination of habitat focus, existing ecosystem tools, a
 ## Opportunities within the [recently approved Comprehensive ABC Control Rule](https://safmc.net/documents/abccram_06052023_submittal-pdf/)
 
 .pull-left[
-Dolfin-Wahoo, Golden Crab, Snapper Grouper FMPs
+Dolphin-Wahoo, Golden Crab, Snapper Grouper
 
 ```{r ABCSAFMC}
 
@@ -380,8 +380,8 @@ Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1
 ]
 
 ---
+.pull-left[
 ## Prototype Ocean Indicators
-
 
 Regional ocean models and global ocean models already provide both hindcasts and forecasts of ocean temperature and salinity for the South Atlantic.
 *  NOAA MOM6 model (https://psl.noaa.gov/cefi_portal/)
@@ -389,23 +389,28 @@ Regional ocean models and global ocean models already provide both hindcasts and
 
 NEFSC has developed code to derive indicators from these data sources for the region north of Cape Hatteras. The code could be modified to derive prototype indicators for the South Atlantic region. 
 
+**Feedback requested: Is this worth persuing? What work has been done already?**
+]
 
-One potential extension of existing South Atlantic cooperative data collection could be ocean temperature observations for comparison with regional or global ocean data products such as MOM6 and GLORYS. 
+.pull-right[
+*2024 NEFSC SOE Report: Number of days at scallop-stressing bottom temperature in 2023*
+.center[
 
-Comparisons of vessel-collected temperature with model assimilated temperature can identify where improvements can be made to models as well as provide more direct information for management in near-real time. 
+![:img scallop stress bottom temp, 75%](https://github.com/NOAA-EDAB/ecodata/raw/dev/data-raw/workshop/images/bottom_temp_threshold_17_19_Elephant_Trunk.png)
 
+]
 
-Another opportunity could be using a study fleet to collect data for ecosystem indicators. Data collected by vessels participating in the NEFSC study fleet program have been used in species distribution modeling, biological studies, evaluation of potential ocean industry user conflicts, and as supporting data for stock assessment [25]. This program also collects oceanographic indicators which are directly associated with haul level catch data, allowing analysis of habitat associations.
-
-???
-The Northeast U.S. eMOLT (Environmental Monitors on Lobster Traps and Large Trawlers) program regularly compares bottom temperature data collected aboard fishing vessels with regional ocean model bottom temperature predictions, highlighting both areas of agreement and areas where measurements and model predictions diverge.
+.footnote[
+Image courtesy Joseph Caracappa, NEFSC
+]
+]
 
 ---
 background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
 background-size: 600px
 background-position: right
 
-# Workplan: Objective 3
+# Project Update: Objective 3
 
 .pull-left[
 *Identify opportunities to continue to expand cooperative, constituent-engaged data collection and research to improve the available ecosystem information in the South Atlantic region (e.g., study fleets, cooperative research, citizen science).*
@@ -428,6 +433,48 @@ https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/
 
 ???
 ![South Atlantic physical system](https://media.fisheries.noaa.gov/2021-12/1687x1451-SEFSC-US-South-Atlantic-Marine-Ecosystem.jpg)
+
+---
+## Integration with Citizen Science
+
+One potential extension of existing South Atlantic cooperative data collection could be ocean temperature observations for comparison with regional or global ocean data products such as MOM6 and GLORYS. 
+
+.pull-left[
+Comparisons of vessel-collected temperature with model assimilated temperature can identify where improvements can be made to models as well as provide more direct information for management in near-real time. 
+
+The Northeast U.S. eMOLT (Environmental Monitors on Lobster Traps and Large Trawlers) program regularly compares bottom temperature data collected aboard fishing vessels with regional ocean model bottom temperature predictions, highlighting both areas of agreement and areas where measurements and model predictions diverge.
+
+.footnote[
+Source: weekly eMOLT update email, George Maynard, eMOLT coordinator
+]
+]
+.pull-right[
+![eMOLT comparison 13 March 2026](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Doppio_eMOLTMarch2026.png)
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/StudyFleet_Infographic_v2_text.png")
+background-size: 800px
+background-position: right
+
+.pull-left-30[
+## Cooperative Research
+
+Multiple [cooperative research programs](https://www.fisheries.noaa.gov/southeast/science-data/cooperative-research-southeast) exist in the Southeast. A [study fleet](https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/cooperative-research-northeast#study-fleet) could collect data for ecosystem indicators. 
+
+Data collected by vessels participating in the NEFSC study fleet program have been used in species distribution modeling, biological studies, evaluation of potential ocean industry user conflicts, and as supporting data for stock assessment. 
+
+This program also collects oceanographic indicators which are directly associated with haul level catch data, allowing analysis of habitat associations.
+]
+
+.pull-right-70[
+
+.footnote[
+Source: https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/cooperative-research-northeast
+]
+]
+???
+
 
 ---
 # Deliverables and Schedule
