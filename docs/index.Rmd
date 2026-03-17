@@ -33,6 +33,9 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20260115_SAFMC_WK_EcoInfoTools_Gaichas.html" target="_blank">Ecosystem Data Workshop plenary comparing Council Tool Use - January 15, 2026</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260318_SAFMC_POT3_Gaichas.html" target="_blank">Project Oversight Team meeting - March 18, 2026</a>
+
+
 ### ICES ACOM
 
 <a href="https://sgaichas.github.io/HSpresentations/20260205_USrefpts_Gaichas.html" target="_blank">US Reference Points and Buffers - February 5, 2026</a>
