@@ -1,0 +1,11 @@
+#title: indicatorsproject-miniwk
+#stroke: #522D80
+#direction: down
+#.box: fill=lightgreen
+[<box> Management Objectives]-->[<box> Management Decisions]-->[<box> Information Supporting Decisions]-->[<box> Indicator Development]-->[Indicator Testing]
+
+[<box> Management Objectives]-->[<box> Targets and Thresholds]-->[Indicator Performance Metrics]
+
+[Indicator Development]<-->[Targets and Thresholds]
+  
+[Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
