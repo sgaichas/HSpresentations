@@ -274,6 +274,91 @@ Prototype to sort indicators by attributes
     * Use models at the appropriate level of complexity for the management decision
  
 ---
+# [Poll](https://forms.gle/BjZPoK4ia1Sp2fts8) Results 
+
+```{r getsurvey}
+#survey link 
+#results https://docs.google.com/spreadsheets/d/154xfYtsjwtNlMZV1-UnvEb8-XEMViV_AXNqUUqV6Vhk/edit?resourcekey=&gid=1974845638#gid=1974845638
+
+# this code gets from google drive, need to enter oauth token so probably not bulletproof for all users
+
+  # resultfile <- googledrive::drive_get("https://docs.google.com/spreadsheets/d/154xfYtsjwtNlMZV1-UnvEb8-XEMViV_AXNqUUqV6Vhk/edit?resourcekey=&gid=1974845638#gid=1974845638")
+  # responses <- googledrive::drive_download(resultfile, type = "csv", overwrite = TRUE) %>%
+  #   {read.csv(.$local_path)} 
+
+# once file has been downloaded use this
+responses <- read.csv("Priority Management Decisions (Responses).csv",header=T)
+
+# separate question number and element name? numbers are duplicates so just use name
+
+#names(responses) <- sub("^X.*\\.\\.\\.","",names(responses))
+names(responses)[-1] <- c("Priority1", "Scope1", "Species1", "Priority2", "Scope2", "Species2")
+
+lookup <- c(
+  #long = short
+  "Develop a detailed example tailored to a particular species (Please write in species below)" = "Detailed example",
+  "Develop a general process that could work across species/FMPs" = "General process"
+)
+
+responses$Scope1Brief <- unname(lookup[responses$Scope1])
+responses$Scope2Brief <- unname(lookup[responses$Scope2])
+
+```
+
+We had `r nrow(responses)` responses.
+
+.pull-left-70[
+```{r priority1, fig.asp=0.5}
+
+# plotdef <- function(elements){
+#   for(i in 1:length(names(elements))){
+#     n <- names(elements)[i]
+#     barpl <- elements[i] |>
+#       map_df(str_squish) |> # removes whitespace
+#       filter(.data[[n]]!= "") |>
+#       ggplot(aes(x = reorder(.data[[n]],.data[[n]], function(x)-length(x)))) +
+#       geom_bar() +
+#       theme_bw() +
+#       scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+#       xlab(NULL) +
+#       labs(title = n)
+#     cat("\n")
+#     print(barpl)
+#     cat("\n")
+#   }
+#   
+# }
+
+p1 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority1)))) +
+  ggplot2::geom_bar() +
+  ggplot2::ggtitle("Priority 1") +
+  ggplot2::xlab(NULL) +
+  ggplot2::coord_flip()
+
+p2 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority2)))) +
+  ggplot2::geom_bar() +
+  ggplot2::ggtitle("Priority 2") +
+  ggplot2::xlab(NULL) +
+  ggplot2::coord_flip()
+
+p1 + p2
+
+```
+
+All who prioritized "Risk Policy" would focus on "General" scope
+]
+
+.pull-right-30[
+```{r priority2}
+
+
+
+```
+
+
+]
+
+---
 # Priority Decision 1: 
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
