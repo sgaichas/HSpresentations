@@ -274,7 +274,6 @@ Prototype to sort indicators by attributes
     * Use models at the appropriate level of complexity for the management decision
  
 ---
-# [Poll](https://forms.gle/BjZPoK4ia1Sp2fts8) Results 
 
 ```{r getsurvey}
 #survey link 
@@ -284,7 +283,7 @@ Prototype to sort indicators by attributes
 
   # resultfile <- googledrive::drive_get("https://docs.google.com/spreadsheets/d/154xfYtsjwtNlMZV1-UnvEb8-XEMViV_AXNqUUqV6Vhk/edit?resourcekey=&gid=1974845638#gid=1974845638")
   # responses <- googledrive::drive_download(resultfile, type = "csv", overwrite = TRUE) %>%
-  #   {read.csv(.$local_path)} 
+  #   {read.csv(.$local_path)}
 
 # once file has been downloaded use this
 responses <- read.csv("Priority Management Decisions (Responses).csv",header=T)
@@ -303,87 +302,77 @@ lookup <- c(
 responses$Scope1Brief <- unname(lookup[responses$Scope1])
 responses$Scope2Brief <- unname(lookup[responses$Scope2])
 
+respsumm <- responses |>
+  dplyr::select(Priority1, Scope1Brief, Species1, Priority2, Scope2Brief, Species2) |>
+  tibble::rownames_to_column("ID") |>
+  tidyr::pivot_longer(-ID, names_to = "Var", values_to = "Val") 
+  
+totprior <- respsumm |>
+  dplyr::filter(Var %in% c("Priority1", "Priority2")) |>
+  dplyr::group_by(Val) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(responses)*100) |>
+  dplyr::arrange(desc(perc))
+
+prior1 <- totprior[1,]
+
+prior2 <- totprior[2,]
+
 ```
 
-We had `r nrow(responses)` responses.
-
 .pull-left-70[
-```{r priority1, fig.asp=0.5}
+```{r priority1, fig.asp=0.9, out.width="100%"}
 
-# plotdef <- function(elements){
-#   for(i in 1:length(names(elements))){
-#     n <- names(elements)[i]
-#     barpl <- elements[i] |>
-#       map_df(str_squish) |> # removes whitespace
-#       filter(.data[[n]]!= "") |>
-#       ggplot(aes(x = reorder(.data[[n]],.data[[n]], function(x)-length(x)))) +
-#       geom_bar() +
-#       theme_bw() +
-#       scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
-#       xlab(NULL) +
-#       labs(title = n)
-#     cat("\n")
-#     print(barpl)
-#     cat("\n")
-#   }
-#   
-# }
+decision_cols <- c("Risk Policy" = "red", "Catch/Quota Setting" = "blue", "Measures Setting" = "purple","Spatial Measures" = "green" )
 
-p1 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority1)))) +
+p1 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority1)),
+                                              fill = Priority1)) +
   ggplot2::geom_bar() +
   ggplot2::ggtitle("Priority 1") +
   ggplot2::xlab(NULL) +
-  ggplot2::coord_flip()
+  ggplot2::scale_fill_manual(values = decision_cols) +
+  ggplot2::coord_flip() +
+  ggplot2::theme(legend.position = "none")
 
-p2 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority2)))) +
+p2 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority2)),
+                                              fill = Priority2)) +
   ggplot2::geom_bar() +
   ggplot2::ggtitle("Priority 2") +
   ggplot2::xlab(NULL) +
-  ggplot2::coord_flip()
+  ggplot2::scale_fill_manual(values = decision_cols) +
+  ggplot2::coord_flip() +
+  ggplot2::theme(legend.position = "none")
 
-p1 + p2
+#print(p1 + p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+p1/p2
 
 ```
 
-All who prioritized "Risk Policy" would focus on "General" scope
 ]
 
 .pull-right-30[
-```{r priority2}
+# [Poll](https://forms.gle/BjZPoK4ia1Sp2fts8) Results 
 
+We had `r nrow(responses)` responses.
 
+All who prioritized "Risk Policy" would focus on "General" scope
 
-```
+"Catch/Quota Setting" had mixed focus with 60% recommending a "Detailed example"
 
+Species suggested included Summer flounder and Illex squid
 
 ]
 
 ---
-# Priority Decision 1: 
+# Priority Decision 1: Risk Policy
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
-.pull-left-30[
-**Example analyses if ABC is a priority decision**
-
-* Extend current process using risk table approaches from other regions?
-* Standardize ecosystem profile approach for within stock assessment use?
-* Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-* Simulation testing
+.pull-left[
 
 ]
 
-.pull-right-70[
-**Example analyses for other management decisions if selected as priorities** 
-
-* Hypothetical: spatial management measures 
-    * Evaluate with indicators of fishery and species spatial overlap
-    * Simulate distribution shifts, fleet movement constraints, etc.
-    * Which spatial management measures meet objectives with minimal side effects?
-* Hypothetical: habitat productivity 
-    * Evaluate indicators of favorable or unfavorable habitat conditions 
-    * Simulate management with different risk tolerance under different environmental conditions
-    * Which habitat-adjusted risk tolerance meets objectives across species portfolio?
+.pull-right[
 
 ]
 
@@ -391,32 +380,33 @@ All who prioritized "Risk Policy" would focus on "General" scope
 * Recommend practical pathways for implementation
 
 ---
-# Priority Decision 2: 
+# Priority Decision 2: Catch/Quota Setting
+
+---
+# Priority Decision 2: Catch/Quota Setting
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
-.pull-left-30[
-**Example analyses if ABC is a priority decision**
+.pull-left[
+**Multistep Process--Focus?**
 
-* Extend current process using risk table approaches from other regions?
-* Standardize ecosystem profile approach for within stock assessment use?
+* Develop indicators for NRCC prioritization?
+* Standardize ecosystem profile approach for use in stock assessments?
 * Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-* Simulation testing
+* Extend current process using risk table approaches from other regions?
+* Develop indicator process for monitoring committee?
 
 ]
 
-.pull-right-70[
-**Example analyses for other management decisions if selected as priorities** 
+.pull-right[
+**Standard process tested with species?** 
 
-* Hypothetical: spatial management measures 
-    * Evaluate with indicators of fishery and species spatial overlap
-    * Simulate distribution shifts, fleet movement constraints, etc.
-    * Which spatial management measures meet objectives with minimal side effects?
-* Hypothetical: habitat productivity 
-    * Evaluate indicators of favorable or unfavorable habitat conditions 
-    * Simulate management with different risk tolerance under different environmental conditions
-    * Which habitat-adjusted risk tolerance meets objectives across species portfolio?
-
+* Represent range of species 
+    * Data rich -- data challenged
+    * Range of sectors and fleets
+    * Life history and climate sensitivity range
+    * (Fluke and Illex might be good)
+* 
 ]
 
 ???
