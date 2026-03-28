@@ -364,26 +364,160 @@ Species suggested included Summer flounder and Illex squid
 ]
 
 ---
-# Priority Decision 1: Risk Policy
+## Priority Decision 1: Risk Policy
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
 .pull-left[
+### Council Risk Policy
+
+```{r MAFMCriskpolicy, fig.asp = 0.7}
+
+riskpol <- data.frame(Bfrac = c(0, 0.1, 1.0, 1.5, 2.5),
+                      Current = c(0, 0, 0.45, 0.49, 0.49),
+                      Pre2020 = c(0, 0, 0.4, 0.4, 0.4)
+)
+
+riskpol <- riskpol %>%
+  pivot_longer(-Bfrac, names_to = "pstar")
+
+p1 <- ggplot2::ggplot(riskpol, aes(x=Bfrac, y=value, linetype = pstar)) +
+  geom_path(show.legend = TRUE) +
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("p*") +
+  labs(linetype = "Policy")#+
+  #theme(legend.position="bottom")
+
+
+print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+```
 
 ]
 
 .pull-right[
+### ABC proportion of OFL given OFL CV
 
+```{r OFLCVtoABC, fig.asp = 0.7}
+
+ABCprop <- data.frame(Bfrac = seq(0, 2.5, 0.01)) %>%
+  dplyr::mutate(pstar = case_when(Bfrac <= 0.1 ~ 0,
+                                  Bfrac > 0.1 & Bfrac <= 1.0 ~ (Bfrac-0.1)*((0.45-0)/(1-0.1)) ,
+                                  Bfrac > 1.0 & Bfrac <= 1.5 ~ (Bfrac-1.0)*((0.49-0.45)/(1.5-1))+0.45,
+                                  Bfrac > 1.5 ~ 0.49)) %>%
+  dplyr::mutate("CV=60%" = qlnorm(pstar, log(1), log(0.60 + 1)),
+                "CV=100%" = qlnorm(pstar, log(1), log(1.00 + 1)),
+                "CV=150%" = qlnorm(pstar, log(1), log(1.50 + 1))) %>%
+  pivot_longer(-c(Bfrac, pstar), names_to = "CVlevel")
+                       
+
+p2 <- ggplot2::ggplot(ABCprop, aes(x=Bfrac, y=value, colour=CVlevel)) +
+  geom_line()+  
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("ABC/OFL proportion") +
+  labs(colour = "OFL CV") #+
+  #theme(legend.position="bottom")
+
+print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+  
+```
+
+]
+
+.footnote[
+See [2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf) and [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf)
 ]
 
 ???
 * Recommend practical pathways for implementation
 
 ---
-# Priority Decision 2: Catch/Quota Setting
+.pull-left-60[
+## Priority Decision 1: Risk Policy
+
+### Potential Indicator Sources
+
+[Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators for MAFMC stocks: 
+
+*  Black Sea Bass
+*  Bluefish 
+*  Golden Tilefish
+*  Longfin squid 
+*  Shortfin squid
+
+[State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf) and [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf) indicators
+
+### Potential Pathways
+*  Evaluate indicators of favorable or unfavorable habitat or socioeconomic conditions for a species or life history type
+*  Simulate management with different risk tolerance under different conditions (update MSE?)
+*  Compare indicator-based approach vs. status quo: Which indicator-adjusted risk tolerance meets objectives across species portfolio or for a selected individual species?
+
+]
+
+.pull-right-40[
+.ltgreenbox[ 
+.center[
+```{r newriskpol, out.width="90%"}
+
+knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/main/onepagers/RiskPolInds.png")
+
+#See an [example indicator adjusted control rule for northern shrimp](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full#supplementaryMaterial) by [Roux et al. 2022](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full):     
+
+#knitr::include_graphics("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+#DFOpandalidHCR
+#magick::image_read("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+```
+]
+]
+
+.ltpurplebox[
+## Information gaps 
+
+Ecosystem and Socioeconomic Profiles do not yet exist for the species originally used to evaluate the Risk Policy: summer flounder, scup, and butterfish.
+]
+]
 
 ---
-# Priority Decision 2: Catch/Quota Setting
+.pull-left[
+## Priority Decision 2: Catch/Quota Setting
+
+.ltbluebox[
+**1. Determine Assessment Priorities**  
+The NRCC prioritizes stocks for assessment based on management needs,
+fishery importance, stock status and trend, ecosystem importance, assessment information, and stock
+biology. Terms of Reference (ToRs) ensure the assessment process delivers consistent, management-relevant outputs.
+]
+
+.ltbluebox[
+**2. Conduct Assessment**  
+Assessment scientists assemble and analyze fishery dependent and independent data and develop models to synthesize the data and produce outputs meeting the assessment ToRs. 
+]
+]
+
+.pull-right[
+
+.ltpurplebox[
+.table[
+**3. Review Assessment**  
+Independent reviewers evaluate whether assessments ToRs are met, data is appropriate, and methods reflect best practices.
+]
+]
+
+.ltbluebox[
+**4. Determine Acceptable Biological Catch (ABC)**  
+The SSC uses reviewed assessment outputs within a structured framework to determine ABC from assessment uncertainty based on input data, model diagnostics and performance, and ecosystem considerations.
+]
+
+.ltbluebox[
+**5. Catch Limits, Targets, and Quotas**  
+The Council decides whether annually varying or averaged ABCs will be used in multiyear harvest specifications, then allocates the ABC to harvest sectors. Management uncertainty is determined and applied, then discards are estimated and subtracted to derive quotas and harvest limits.
+]
+]
+
+
+---
+## Priority Decision 2: Catch/Quota Setting
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
