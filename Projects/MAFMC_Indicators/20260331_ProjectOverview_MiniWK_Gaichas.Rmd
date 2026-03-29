@@ -357,7 +357,7 @@ We had `r nrow(responses)` responses.
 
 All who prioritized "Risk Policy" would focus on "General" scope
 
-"Catch/Quota Setting" had mixed focus with 60% recommending a "Detailed example"
+"Catch/Quota Setting" had mixed focus with 66% recommending a "Detailed example"
 
 Species suggested included Summer flounder and Illex squid
 
