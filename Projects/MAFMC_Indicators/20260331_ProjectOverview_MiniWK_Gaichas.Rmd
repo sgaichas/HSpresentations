@@ -272,7 +272,23 @@ Prototype to sort indicators by attributes
 
 ???
     * Use models at the appropriate level of complexity for the management decision
- 
+
+
+---
+# Deliverables and Schedule: Phase 2
+
+**Project duration ~2 years, with monthly Project Oversight Team updates**
+
+*  **31 March 2026:** Online Council Mini-workshop selecting indicator subset for development and testing, early career researcher and student experience in Council processes
+
+*  **March-December 2026:** Indicator development and testing: data acquisition, model development, preliminary target and threshold analysis, visualization and communication tool development and deployment, Council staff training in reproducible workflows
+
+*  **TBD December 2026:** In person Council Workshop 2 identifying indicator performance metrics, review preliminary targets and thresholds, early career researcher and student experience in Council processes
+
+*  **January-June 2027:** Indicator target/threshold simulation testing under a range of uncertainties, identify pathways for management use, indicator workflow automation
+
+*  **30 June 2027:** Final Report to Council, Present all project results including operational infrastructure at Council meeting
+
 ---
 
 ```{r getsurvey}
@@ -370,7 +386,7 @@ flextable::flextable(totprior) |>
 
 All who prioritized "Risk Policy" would focus on "General" scope
 
-"Catch/Quota Setting" had 57% recommending a "Detailed example"
+"Catch/Quota Setting" had 57% recommending a "Detailed example" for one species
 
 
 ]
@@ -536,6 +552,38 @@ Indicators are already used in Assessments and in SSC ABC Determinations.
 ]
 
 ---
+## Priority Decision 2: Catch/Quota Setting--Which Species?
+
+.pull-left[
+**Standard process tested with species?** 
+
+* Represent range of species? 
+    * Data rich -- data challenged
+    * Range of sectors and fleets
+    * Life history and climate sensitivity range
+    * Summer flounder and Illex?
+* Use two different but data adequate species?
+* Generic simulations determine the level of information needed for good decision?
+]
+
+.pull-right[
+**Suggested species from poll (not all for Catch/Quota)**
+
+* Atlantic mackerel
+* Illex squid (2)
+* Loligo squid (2)
+* Black sea bass (2)
+* Summer flounder (4)
+* FMPs
+    + Summer flounder/Scup/Black sea bass
+    + Mackerel/Squid/Butterfish
+* Menhaden
+
+]
+
+![:img MAFMC fishery management plans and species, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMPs4.png)
+
+---
 ## Priority Decision 2: Catch/Quota Setting
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
@@ -543,13 +591,15 @@ Indicators are already used in Assessments and in SSC ABC Determinations.
 .pull-left[
 ### Multistep Process--Focus on Potential Pathways?
 
-1. Develop indicators for NRCC prioritization? 
-2. Standardize ecosystem profile approach for use in stock assessments? 
-4. Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-4. Refine OFL CV criteria for considering integrated ecosystem conditions
-4. Develop criteria for considering ecosystem impacts in short term projections
-4. Extend SSC process using risk table approaches from other regions?
-5. Develop indicator process for monitoring committee?
+1\.  Develop indicators for NRCC prioritization?  
+2\.  Standardize ecosystem profile approach for use in stock assessments?  
+
+4\.  Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?  
+4\.  Refine OFL CV criteria for considering integrated ecosystem conditions?  
+4\.  Develop criteria for considering ecosystem impacts in short term projections?   
+4\.  Extend SSC process using risk table approaches from other regions?  
+
+5\.  Develop indicator process for monitoring committee?  
 
 ]
 
@@ -582,7 +632,7 @@ Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase
 * Recommend practical pathways for implementation
 
 ---
-## Priority Decision 2: Catch/Quota Setting Step 4, ABC
+## Priority Decision 2: Catch/Quota Setting Step 4--ABC
 .pull-left[
 .table[
 .ltbluebox[
@@ -619,77 +669,71 @@ Similar indicators as above plus habitat indicators [EFH Habitat Mapper](https:/
 Ecosystem information that is presented along with the assessment is easiest to use in the OFL CV determination, but nothing limits the SSC from using ecosystem information presented from another source. The SSC has based decisions on published literature in the past.
 
 ---
+## Priority Decision 2: Catch/Quota Setting Step 5--ACLs, ACTs, and Quotas
+
+.pull-left[
+.table[
+.ltbluebox[
+*Details vary by FMP* but in general:
+
+The Council decides whether to use constant ABC or annual ABC for the specification years.
+
+The ABC is split to recreational and commercial sector Annual Catch Limit (ACL), if applicable: the percentage is defined in the FMP. Change requires an amendment or framework. 
+
+The Monitoring Committee recommends a management uncertainty buffer to determine the Annual Catch Target (ACT) for each sector. 
+
+The Monitoring Committee projects sector specific discards and subtracts them from each sector's ACT to determine the Recreational Harvest Limit (RHL) and the Commercial Quota. 
+
+Commercial quota is allocated to states or seasons as specified in FMPs. Allocations require an amendment or framework to change.
+]
+
+.ltpurplebox[
+**Clarify scope:** Should routine/tactical committee decisions, strategic FMP decisions, or all decisions be considered? 
+]
+]
+]
+
+.pull-right[
+.table[
+.ltgreenbox[
+**Clarify** how indicators may help with the Council's average vs annual ABC decision as suggested in workshop 1.
+
+Management uncertainty buffer estimation could include ecosystem information such as projected stock productivity and distribution. Sources include [Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators, [Climate Vulnerability Analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) sensitivity, exposure and vulnerability rankings, [State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf) and [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf) indicators.
+
+Discard estimation/projection could include similar ecosystem information and also consider habitat conditions leading to different product quality or discard survival based on [EFH Habitat Mapper](https://www.fisheries.noaa.gov/resource/map/essential-fish-habitat-mapper) or [NRHA Data Explorer](https://nrha.shinyapps.io/dataexplorer/) combined with projected habitat conditions from [MOM6 regional ocean projections](https://psl.noaa.gov/cefi_portal/).  
+
+If FMP amendments or frameworks are considered to alter allocations, [GARFO Catch and Monitoring System](https://www.fisheries.noaa.gov/new-england-mid-atlantic/commercial-fishing/quota-monitoring-greater-atlantic-region), [Atlantic Coastal Cooperative Statistics Program](https://safis.accsp.org/accsp_prod/f?p=1490:1:6442641492940:::::), and [Marine Recreational Information Program](https://www.fisheries.noaa.gov/recreational-fishing-data/introduction-marine-recreational-information-program-data) information along with
+SOE or ESP economic and social indicators could inform these decisions.
+
+]
+]
+]
+???
+*  Develop indicators for Monitoring Committee decisions, FMP amendments/frameworks
+
+---
 # Discussion Questions
 
----
+## Discussion 1
+*  Confirm management objectives for two priority decisions 
+*  Do the decisions already have indicators available or information in hand?
+*  Should we examine linked decisions independently?
 
-# Extras
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NRHAapp.png"), url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PreyAnalysisApp.png") 
-background-size: 600px, 600px
-background-position: top right, bottom right
-
-# Workplan: Objective 3
-
-.pull-left[
-*Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process*
-
-*  [MAFMC GitHub Organization](https://github.com/MAFMC) established for open access code storage
-*  GitHub training for interested Council staff
-*  Student and early career scientist participation to train analysts with knowledge of management processes and needs
-*  Visualization tool, shiny app, and dashboard development and deployment to facilitate Council access and use of products
-*  Workflow automation to facilitate future operational updates of Council-selected indicators
-
-<br /><br /><br /><br /><br />
-]
-
-.pull-right[
-
-.center[
-<br /><br /><br /><br />
-
-.contrib[
-&uarr;  https://nrha.shinyapps.io/dataexplorer/ &nbsp; &nbsp; &nbsp; &nbsp; https://fishmaps.shinyapps.io/prey/ &darr;
-]
+.pull-left-70[
+## Discussion 2 
+*  What is a desirable outcome for the management decision? 
+*  What is undesirable?
+*  A **good decision** is responsive and timely, incorporating new information as it becomes available, providing more flexible opportunities for fishing, and 
+includes a clear description of tradeoffs
+*  What *type* and *timing* of information is needed to detect/achieve the desirable state and avoid the undesirable state?
 
 ]
 
+.pull-right-30[
+
+## Discussion 3
+*  Indicator targets are points or ranges associated with desirable states
+*  Indicator thresholds are points transitioning to undesirable states and require action if crossed
 ]
 
-???
-
----
-# Deliverables and Schedule: Phase 2
-
-**Project duration ~2 years, with monthly Project Oversight Team updates**
-
-*  **31 March 2026:** Online Council Mini-workshop selecting indicator subset for development and testing, early career researcher and student experience in Council processes
-
-*  **March-December 2026:** Indicator development and testing: data acquisition, model development, preliminary target and threshold analysis, visualization and communication tool development and deployment, Council staff training in reproducible workflows
-
-*  **TBD December 2026:** In person Council Workshop 2 identifying indicator performance metrics, review preliminary targets and thresholds, early career researcher and student experience in Council processes
-
-*  **January-June 2027:** Indicator target/threshold simulation testing under a range of uncertainties, identify pathways for management use, indicator workflow automation
-
-*  **30 June 2027:** Final Report to Council, Present all project results including operational infrastructure at Council meeting
-
-
----
-## Priority Decision 2: Catch/Quota Setting
-
-.pull-left[
-**Standard process tested with species?** 
-
-* Represent range of species 
-    * Data rich -- data challenged
-    * Range of sectors and fleets
-    * Life history and climate sensitivity range
-    * (Fluke and Illex might be good)
-* 
-]
-
-.pull-right[
-
-]
 
