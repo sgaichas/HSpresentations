@@ -355,11 +355,23 @@ p1/p2
 
 We had `r nrow(responses)` responses.
 
+Across both priorities:
+
+```{r table}
+
+flextable::flextable(totprior) |>
+  flextable::set_header_labels(Val = "Decision",
+                               n = "Votes",
+                               perc = "% Total Votes") |>
+  flextable::colformat_double(digits = 0)
+
+```
+
+
 All who prioritized "Risk Policy" would focus on "General" scope
 
-"Catch/Quota Setting" had mixed focus with 66% recommending a "Detailed example"
+"Catch/Quota Setting" had 57% recommending a "Detailed example"
 
-Species suggested included Summer flounder and Illex squid
 
 ]
 
@@ -479,9 +491,10 @@ Ecosystem and Socioeconomic Profiles do not yet exist for the species originally
 ]
 
 ---
-.pull-left[
 ## Priority Decision 2: Catch/Quota Setting
 
+.pull-left[
+.table[
 .ltbluebox[
 **1. Determine Assessment Priorities**  
 The NRCC prioritizes stocks for assessment based on management needs,
@@ -493,16 +506,16 @@ biology. Terms of Reference (ToRs) ensure the assessment process delivers consis
 **2. Conduct Assessment**  
 Assessment scientists assemble and analyze fishery dependent and independent data and develop models to synthesize the data and produce outputs meeting the assessment ToRs. 
 ]
-]
-
-.pull-right[
 
 .ltpurplebox[
-.table[
 **3. Review Assessment**  
 Independent reviewers evaluate whether assessments ToRs are met, data is appropriate, and methods reflect best practices.
 ]
 ]
+]
+
+.pull-right[
+.table[
 
 .ltbluebox[
 **4. Determine Acceptable Biological Catch (ABC)**  
@@ -515,6 +528,10 @@ The Council decides whether annually varying or averaged ABCs will be used in mu
 ]
 ]
 
+Indicators could be used at any step but Review Assessment. 
+
+Indicators are already used in Assessments and in SSC ABC Determinations.
+]
 
 ---
 ## Priority Decision 2: Catch/Quota Setting
@@ -527,12 +544,41 @@ The Council decides whether annually varying or averaged ABCs will be used in mu
 * Develop indicators for NRCC prioritization?
 * Standardize ecosystem profile approach for use in stock assessments?
 * Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-* Extend current process using risk table approaches from other regions?
+* Extend SSC process using risk table approaches from other regions?
+    +  Pacific process bi-directional
+    +  Uses structured discussion to assess risk
+    +  Also evaluates data and assessment performance
 * Develop indicator process for monitoring committee?
 
 ]
 
 .pull-right[
+```{r}
+
+Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFramework.csv")
+
+flextable::flextable(Tab4[,1:2])|>
+  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
+  flextable::width(width = c(1,4)) |>
+  #flextable::width(width = c(4,4,4,4)) |>
+  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
+```
+
+.table[
+**Potential Action:**  
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+]
+]
+
+???
+* Recommend practical pathways for implementation
+
+---
+## Priority Decision 2: Catch/Quota Setting
+
+.pull-left[
 **Standard process tested with species?** 
 
 * Represent range of species 
@@ -543,9 +589,9 @@ The Council decides whether annually varying or averaged ABCs will be used in mu
 * 
 ]
 
-???
-* Recommend practical pathways for implementation
+.pull-right[
 
+]
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NRHAapp.png"), url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PreyAnalysisApp.png") 
 background-size: 600px, 600px
