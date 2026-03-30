@@ -674,8 +674,6 @@ Ecosystem information that is presented along with the assessment is easiest to 
 .pull-left[
 .table[
 .ltbluebox[
-*Details vary by FMP* but in general:
-
 The Council decides whether to use constant ABC or annual ABC for the specification years.
 
 The ABC is split to recreational and commercial sector Annual Catch Limit (ACL), if applicable: the percentage is defined in the FMP. Change requires an amendment or framework. 
