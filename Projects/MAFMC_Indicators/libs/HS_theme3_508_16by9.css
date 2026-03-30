@@ -258,7 +258,7 @@ a, a > code {
 }
 
 .ltpurplebox {
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 1em;
   background: #ff000050;;
   color: black;
   border: 2px solid blue;
