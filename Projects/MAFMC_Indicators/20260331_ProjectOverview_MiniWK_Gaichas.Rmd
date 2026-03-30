@@ -491,9 +491,9 @@ Ecosystem and Socioeconomic Profiles do not yet exist for the species originally
 ]
 
 ---
+.pull-left[
 ## Priority Decision 2: Catch/Quota Setting
 
-.pull-left[
 .table[
 .ltbluebox[
 **1. Determine Assessment Priorities**  
@@ -516,6 +516,8 @@ Independent reviewers evaluate whether assessments ToRs are met, data is appropr
 
 .pull-right[
 .table[
+.ltgreenbox[
+### Council Steps 
 
 .ltbluebox[
 **4. Determine Acceptable Biological Catch (ABC)**  
@@ -527,9 +529,9 @@ The SSC uses reviewed assessment outputs within a structured framework to determ
 The Council decides whether annually varying or averaged ABCs will be used in multiyear harvest specifications, then allocates the ABC to harvest sectors. Management uncertainty is determined and applied, then discards are estimated and subtracted to derive quotas and harvest limits.
 ]
 ]
+]
 
-Indicators could be used at any step but Review Assessment. 
-
+Indicators could be used at any step but 3. 
 Indicators are already used in Assessments and in SSC ABC Determinations.
 ]
 
@@ -539,16 +541,15 @@ Indicators are already used in Assessments and in SSC ABC Determinations.
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
 .pull-left[
-**Multistep Process--Focus?**
+### Multistep Process--Focus on Potential Pathways?
 
-* Develop indicators for NRCC prioritization?
-* Standardize ecosystem profile approach for use in stock assessments?
-* Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
-* Extend SSC process using risk table approaches from other regions?
-    +  Pacific process bi-directional
-    +  Uses structured discussion to assess risk
-    +  Also evaluates data and assessment performance
-* Develop indicator process for monitoring committee?
+1. Develop indicators for NRCC prioritization? 
+2. Standardize ecosystem profile approach for use in stock assessments? 
+4. Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?
+4. Refine OFL CV criteria for considering integrated ecosystem conditions
+4. Develop criteria for considering ecosystem impacts in short term projections
+4. Extend SSC process using risk table approaches from other regions?
+5. Develop indicator process for monitoring committee?
 
 ]
 
@@ -573,25 +574,57 @@ Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase
 ]
 
 ???
+4. Extend SSC process using risk table approaches from other regions?
+    +  Pacific process bi-directional
+    +  Uses structured discussion to assess risk
+    +  Also evaluates data and assessment performance 
+
 * Recommend practical pathways for implementation
 
 ---
-## Priority Decision 2: Catch/Quota Setting
-
+## Priority Decision 2: Catch/Quota Setting Step 4, ABC
 .pull-left[
-**Standard process tested with species?** 
+.table[
+.ltbluebox[
 
-* Represent range of species 
-    * Data rich -- data challenged
-    * Range of sectors and fleets
-    * Life history and climate sensitivity range
-    * (Fluke and Illex might be good)
-* 
+The MT assessment gives current status and short term projections of overfishing limit (OFL) that may or may not already include ecosystem information. The SSC may discuss performance of short term projections or terminal year estimates in the assessment; ecosystem information can inform decisions about projections or terminal year estimates. The SSC may request new OFL estimates/projections from the assessment lead based on this discussion. 
+
+The SSC uses its [OFL CV process](https://www.mafmc.org/s/Final-OFL-CV-guidance-document_06_24.pdf) to evaluate uncertainty arising from data quality, model selection/identification, retrospective analysis, empirical comparisons,  ecosystem factors, and recruitment stanzas. Ecosystem information can feed into: 
+
+*  Ecosystem factors: [Climate Vulnerability Analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) results are currently included for each stock, can include multiple other environmentally driven changes in the stock
+*  Recruitment stanzas: links to environmental drivers can decrease recruitment uncertainty
+
+]
+]
 ]
 
 .pull-right[
+.table[
+.ltbluebox[
+The OFL CV is used along with the estimate of current stock status in the [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) to determine the ABC that is recommended to the Council. The SSC often provides annually averaged constant ABC for a specified period (2-3 years) as well as annual ABC for each year at the request of the Council.
+]
+
+.ltgreenbox[
+### Information sources for indicators 
+
+[State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf), [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf), and [Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators for MAFMC stocks could inform SSC discussion of terminal year estimates, short term projection performance, and assessment uncertainty. 
+
+Similar indicators as above plus habitat indicators [EFH Habitat Mapper](https://www.fisheries.noaa.gov/resource/map/essential-fish-habitat-mapper), [NRHA Data Explorer](https://nrha.shinyapps.io/dataexplorer/) could further inform OFL CV discussions. Systematic translation of stock specific indicators into risk criteria as in the Pacific could simplify OFL CV discussions.
 
 ]
+]
+]
+
+???
+Ecosystem information that is presented along with the assessment is easiest to use in the OFL CV determination, but nothing limits the SSC from using ecosystem information presented from another source. The SSC has based decisions on published literature in the past.
+
+---
+# Discussion Questions
+
+---
+
+# Extras
+
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/NRHAapp.png"), url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/PreyAnalysisApp.png") 
 background-size: 600px, 600px
@@ -642,5 +675,21 @@ background-position: top right, bottom right
 *  **30 June 2027:** Final Report to Council, Present all project results including operational infrastructure at Council meeting
 
 
+---
+## Priority Decision 2: Catch/Quota Setting
 
+.pull-left[
+**Standard process tested with species?** 
+
+* Represent range of species 
+    * Data rich -- data challenged
+    * Range of sectors and fleets
+    * Life history and climate sensitivity range
+    * (Fluke and Illex might be good)
+* 
+]
+
+.pull-right[
+
+]
 
