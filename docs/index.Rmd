@@ -58,6 +58,8 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20260226_Towson_Gaichas.html" target="_blank"> Jim Berkson's EBFM Class, Governance in EBM, Towson University
  - February 26, 2026</a>
+ 
+<a href="https://sgaichas.github.io/HSpresentations/20260409_Quantfish_Gaichas.html" target="_blank"> QuantFish Workshop SMAST - April 9, 2026</a>
 
 
 ## Sarah Gaichas presentations, 2019-2025 (NOAA-EDAB)

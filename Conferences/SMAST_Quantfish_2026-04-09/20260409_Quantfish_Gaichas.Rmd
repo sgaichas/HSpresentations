@@ -1873,32 +1873,7 @@ A lot of effort and review goes into identifying the model that best fits histor
 
 
 ---
-background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/SOE-MA-02282025-508-risks.png")
-background-size: 500px
-background-position: right
-
-## Next steps
-
-These were implemented as recruitment covariates in WHAM
-
-Presentation tomorrow
-
-## Discussion
-
-Further tailoring for herring?
-
-These and other zooplankton indices were used for 
-
-*  2025 ecosystem reporting
-
-*  Time series for fitting or forcing food web models 
-
-*  Council risk indicators
-
-Ideas for improvement welcome
-
----
-## Thank you!  References
+## References
 
 .contrib[
 ```{r refs, echo=FALSE, results="asis"}
@@ -1906,7 +1881,3 @@ PrintBibliography(myBib)
 ```
 ]
 
-.footnote[
-Slides available at https://noaa-edab.github.io/presentations  
-Contact: <Sarah.Gaichas@noaa.gov>
-]
