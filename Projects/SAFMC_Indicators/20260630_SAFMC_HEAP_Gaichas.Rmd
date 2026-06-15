@@ -81,16 +81,16 @@ and research to improve the available ecosystem information in the South Atlanti
 study fleets, cooperative research, citizen science).
 
 ---
-# Key Questions 
+# Key Questions for the HEAP
 
-Opportunities for incorporating identified ecosystem information into SAFMC Management Processes: Aligning EFH Policies with ecosystem indicators
+Opportunities for incorporating ecosystem information into SAFMC Management Processes: Aligning EFH Policies with ecosystem indicators
 
 *  Are the current indicators identified appropriately aligned with Habitat Policies?
 *  Do you see any challenges with using the current information?
 *  Are the potential indicators identified appropriate?
 *  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
 
-Prototype Ecosystem Indicator
+Prototype Ecosystem Indicator:
 
 *  Does the indicator make sense? Is it clearly explained?
 *  Can you forsee any uses for a spatial indicator of bottom temperature?
@@ -134,7 +134,7 @@ Presented [Tool and Use summary](https://sgaichas.github.io/HSpresentations/2026
 
 ]
 
-Final Report updated to incorporate April SSC comments [posted online](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataReview.html)
+Final Report updated to incorporate April SSC comments and [posted online](https://sgaichas.github.io/SAFMCindicators/AllCouncilDataReview.html)
 
 
 ---
@@ -205,7 +205,7 @@ background-position: top right
 
 *  Habitat-Ecosystem Integration: Explicitly links EFH policies with ecosystem approaches through comprehensive policy statements  
 *  Citizen Science: Proactive incorporation of participatory data collection 
-*  Existing Products: Recent ESR, fish CVA, and fishing community CVA provide ready-to-use information
+*  Existing Products: Recent Ecosystem Status Report, fish Climate Vulnerability Assessment, and fishing community CVA provide ready-to-use information
 *  Modeling Investments: The regional food web model is poised to address Council questions
 
 
@@ -235,26 +235,25 @@ The South Atlantic’s combination of habitat focus, existing ecosystem tools, a
 *Identify opportunities and methods for incorporating identified ecosystem information into SAFMC management processes, including inter-jurisdictional management decision- making processes, and identify practical requirements for successful implementation (e.g. data quality, frequency of information updates, regional council process consistency, implementation timelines)*
 
 .pull-left[
-**Catch specification**
-
-* Climate vulnerability consideration in current SAFMC risk policy?
-* Utility of an ecosystem profile approach?
-* Risk table approaches used/piloted in other regions? 
-* Discussed options at SSC meeting in April
-
-.ltgreenbox[ 
-**Prototype indicators from global sources** 
-**Alignment of EFH/FEP policies and indicators**
-]
-
-]
-
-.pull-right[
 **Review of 3+ years of Council actions** 
 
 * Classify management decisions by data needs and process timelines
 * List decisions linked or potentially linked to ecosystem information
 * Recommend practical further uses of ecosystem information
+
+**Alignment of EFH/FEP policies and indicators**
+
+**Prototype indicators from global sources** 
+
+]
+
+.pull-right[
+
+**Catch specification**
+
+* Climate vulnerability consideration in current SAFMC risk policy?
+* Utility of ecosystem profiles or risk tables used in other regions? 
+* Discussed options at SSC meeting in April 
 
 **Novel approach: food web based multispecies MSE**
 
@@ -263,15 +262,208 @@ The South Atlantic’s combination of habitat focus, existing ecosystem tools, a
 
 ]
 
+Draft SAFMC Options report outlining these opportunities and methods [posted online](https://sgaichas.github.io/SAFMCindicators/SAFMCOptions.html)
+
+---
+## Alignment of EFH/FEP policies and indicators
+
+Given the Council emphasis on habitat issues, habitat FMPs and other policy documents were reviewed along with current ecosystem data products to evaluate “quick wins” aligning objectives and current indicators, and identifying where data from citizen science programs might augment existing indicator data products. 
+
+.ltgreenbox[
+Summary Results:
+
+*  Food Web Policy: 5 of the 9 policies have potential indicators with high feasibility, 2 have moderate feasibility, and only 2 have low or unknown feasibility. Research information needs are already partially addressed by existing CVA and ESR indicators, and by current MSE efforts. 
+
+*  Climate and Fisheries: current ESR indicators directly address policy statements. Gaps related to species distribution shifts and forecast conditions could be filled with existing information. Collaborative Council and NOAA review of current indicators should prioritize a subset for refinement and annual updates.
+
+*  Existing ESR indicators for SAV, coastal habitat attributes, land use and ocean economy align with SAV policy.  However, comprehensive SAV indicators and research would require dedicated effort from multiple partners.
+]
+
+---
+.pull-left[
+## Available Indicators
+
+<span style="color: blue;">**Ecosystem Status Report (ESR)**</span>: a document summarizing ecosystem information for a particular region, spanning physical, biological, economic, and social information. 
+
+*  Indicators are presented and interpreted in the context of historical trends and current status relative to any known reference points. 
+*  Trends and status of indicators can contribute to risk assessment at the ecosystem or stock level. 
+*  Also known as State of the Ecosystem (SOE) or Ecosystem Considerations reports. 
+
+.center[
+![:img SA ESR, 25%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SATL-ESR-Cover.png)
+]
+
+.footnote[
+Source: [South Atlantic ESR](https://repository.library.noaa.gov/view/noaa/33280) 
+]
+]
+
+.pull-right[
+<span style="color: blue;">**Climate Vulnerability Assessment (CVA)**</span>: an evaluation of vulnerability to projected climate conditions based on standard metrics of sensitivity and exposure appropriate to the species, habitat, or community being assessed. 
+
+*  In addition to detailed narratives of risks faced by each species, habitat, or community, CVA outputs include a ranking of risk across species, habitats, or communities within a region, facilitating risk assessment. 
+*  CVA has been applied to marine fish and invertebrates, marine fish and invertebrate habitats, marine mammals, and fishing communities.
+
+.center[
+![:img SACVA, 42%](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g002)![:img SACVAdist, 36%](https://journals.plos.org/climate/article/figure/image?size=large&download=&id=10.1371/journal.pclm.0000543.g005)
+]
+
+.footnote[
+Source: [Craig et al. 2025](https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000543)
+]
+]
+
+---
+## Alignment of EFH/FEP policies and indicators: Food Webs and Connectivity Policy (1)
+
+```{r}
+
+FWcrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/FWcrosswalk.csv")
+FWcrosswalk <- FWcrosswalk[c(-1)]
+
+flextable::flextable(FWcrosswalk[1:5,]) |>
+  flextable::width(width = c(1,3,3,3,3,3)) |>
+  #flextable::width(width = c(1,1,1,1,1,1)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(Brief = "Brief Policy Description",
+                               ProposedInd = "Indicators Outlined in the Policy",
+                               CurrentInd = "Available Indicators",
+                               PotentialInd = "Potential Indicators",
+                               Feasibility = "Potential Indicator Feasibility") |>
+  flextable::set_caption("SAFMC Food Web and Connectivity Policy Objectives and Current Indicators")
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Food Webs and Connectivity Policy (2)
+
+```{r}
+
+flextable::flextable(FWcrosswalk[6:9,]) |>
+  flextable::width(width = c(1,3,3,3,3,3)) |>
+  #flextable::width(width = c(1,1,1,1,1,1)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(Brief = "Brief Policy Description",
+                               ProposedInd = "Indicators Outlined in the Policy",
+                               CurrentInd = "Available Indicators",
+                               PotentialInd = "Potential Indicators",
+                               Feasibility = "Potential Indicator Feasibility") |>
+  flextable::set_caption("SAFMC Food Web and Connectivity Policy Objectives and Current Indicators")
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Food Webs and Connectivity Policy
+
+```{r}
+FWResearchCrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/FWResearchCrosswalk.csv")
+FWResearchCrosswalk <- FWResearchCrosswalk[c(-1)]
+
+flextable::flextable(FWResearchCrosswalk) |>
+  flextable::width(width = c(2,4,3,3)) |>
+  #flextable::width(width = c(1.5,1.5,1.5,1.5)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(CurrentInd = "Available Indicators",
+                               PotentialAction = "Potential Council Actions",
+                               Feasibility = "Potential Action Feasibility") |>
+  flextable::set_caption("SAFMC Food Web and Connectivity Research Needs and Current Indicators")
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Climate Variability and Fisheries
+
+```{r}
+
+Climcrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/Climcrosswalk.csv")
+Climcrosswalk <- Climcrosswalk[c(-1)]
+
+flextable::flextable(Climcrosswalk) |>
+  flextable::width(width = c(1,3,3,3,3,3)) |>
+  #flextable::width(width = c(1,1,1,1,1,1)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(Brief = "Brief Policy Description",
+                               ProposedInd = "Indicators Outlined in the Policy",
+                               CurrentInd = "Available Indicators",
+                               PotentialInd = "Potential Indicators",
+                               Feasibility = "Potential Indicator Feasibility") |>
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Policy Objectives and Current Indicators")
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Climate Variability and Fisheries
+
+```{r}
+
+ClimateResearchCrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/ClimateResearchCrosswalk.csv")
+ClimateResearchCrosswalk <- ClimateResearchCrosswalk[c(-1)]
+
+flextable::flextable(ClimateResearchCrosswalk) |>
+  flextable::width(width = c(2,4,3,3)) |>
+  #flextable::width(width = c(1.5,1.5,1.5,1.5)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(CurrentInd = "Available Indicators",
+                               PotentialAction = "Potential Council Actions",
+                               Feasibility = "Potential Action Feasibility") |>
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Research Needs and Current Indicators")
+
+```
+
+Note that an example of indicator development for the “3D Estuarine-Coastal-Ocean Observations” research priority is reviewed next under Prototype Indicator Development.
+
+---
+## Alignment of EFH/FEP policies and indicators: Marine Submerged Aquatic Vegetation
+
+```{r}
+
+SAVcrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/SAVcrosswalk.csv")
+SAVcrosswalk <- SAVcrosswalk[c(-1)]
+
+flextable::flextable(SAVcrosswalk) |>
+  flextable::width(width = c(1,3,3,3,3,3)) |>
+  #flextable::width(width = c(1,1,1,1,1,1)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(Brief = "Brief Policy Description",
+                               ProposedInd = "Indicators Outlined in the Policy",
+                               CurrentInd = "Available Indicators",
+                               PotentialInd = "Potential Indicators",
+                               Feasibility = "Potential Indicator Feasibility") |>
+  flextable::set_caption("SAFMC Submerged Aquatic Vegetation Policy Objectives and Current Indicators")
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Marine Submerged Aquatic Vegetation
+
+```{r}
+
+SAVResearchCrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/SAVResearchCrosswalk.csv")
+SAVResearchCrosswalk <- SAVResearchCrosswalk[c(-1)]
+
+flextable::flextable(SAVResearchCrosswalk) |>
+  flextable::width(width = c(2,4,3,3)) |>
+  #flextable::width(width = c(1.5,1.5,1.5,1.5)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(CurrentInd = "Available Indicators",
+                               PotentialAction = "Potential Council Actions",
+                               Feasibility = "Potential Action Feasibility") |>
+  flextable::set_caption("SAFMC Submerged Aquatic Vegetation Research Needs and Current Indicators")
+
+```
+
+
 ---
 .pull-left[
 ## Prototype Ocean Indicators
+
+The feasibility of developing ocean indicators from global and regional ocean physics datasets for SAFMC habitat or other decisions was evaluated using methods developed for the Northeast U.S. shelf. 
 
 Regional ocean models and global ocean models already provide both hindcasts and forecasts of ocean temperature and salinity for the South Atlantic.
 *  NOAA MOM6 model (https://psl.noaa.gov/cefi_portal/)
 *  Copernicus ocean reanalysis (https://data.marine.copernicus.eu/products)  
 
-NEFSC has developed code to derive indicators from these data sources for the region north of Cape Hatteras. The code could be modified to derive prototype indicators for the South Atlantic region. 
+NEFSC has developed code to derive indicators from these data sources for the region north of Cape Hatteras. The code has been modified to derive prototype indicators for the South Atlantic region. 
 
 ]
 
@@ -386,6 +578,26 @@ Contact: <sgaichas@hydrascientificllc.com>
 ]
 
 ???
+
+---
+# Key Questions for the HEAP
+
+Opportunities for incorporating ecosystem information into SAFMC Management Processes: Aligning EFH Policies with ecosystem indicators
+
+*  Are the current indicators identified appropriately aligned with Habitat Policies?
+*  Do you see any challenges with using the current information?
+*  Are the potential indicators identified appropriate?
+*  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
+
+Prototype Ecosystem Indicator:
+
+*  Does the indicator make sense? Is it clearly explained?
+*  Can you forsee any uses for a spatial indicator of bottom temperature?
+
+Opportunities to expand cooperative data collection: 
+
+*  Can cooperative research or citizen science validate model-derived habitat (bottom temperature) indicators?
+*  Can you suggest other information to be collected by fishery participants or the public?
 
 ---
 
