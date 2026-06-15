@@ -81,6 +81,26 @@ and research to improve the available ecosystem information in the South Atlanti
 study fleets, cooperative research, citizen science).
 
 ---
+# Key Questions 
+
+Opportunities for incorporating identified ecosystem information into SAFMC Management Processes: Aligning EFH Policies with ecosystem indicators
+
+*  Are the current indicators identified appropriately aligned with Habitat Policies?
+*  Do you see any challenges with using the current information?
+*  Are the potential indicators identified appropriate?
+*  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
+
+Prototype Ecosystem Indicator
+
+*  Does the indicator make sense? Is it clearly explained?
+*  Can you forsee any uses for a spatial indicator of bottom temperature?
+
+Opportunities to expand cooperative data collection: 
+
+*  Can cooperative research or citizen science validate model-derived habitat (bottom temperature) indicators?
+*  Can you suggest other information to be collected by fishery participants or the public?
+
+---
 # Project Update:  Objective 1
 
 *Review the different types of ecosystem data and information including data products and decision-support tools (e.g. Ecosystem Status Reports, Climate Vulnerability Assessments, risk assessments) currently available to the regional management councils and evaluate how they are used in council management processes*
