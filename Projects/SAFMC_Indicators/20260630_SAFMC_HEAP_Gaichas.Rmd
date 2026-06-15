@@ -90,9 +90,9 @@ Opportunities for incorporating ecosystem information into SAFMC Management Proc
 *  Are the potential indicators identified appropriate?
 *  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
 
-Prototype Ecosystem Indicator:
+Prototype Ecosystem Indicators:
 
-*  Does the indicator make sense? Is it clearly explained?
+*  Do the indicators make sense? Are they clearly explained?
 *  Can you forsee any uses for a spatial indicator of bottom temperature?
 
 Opportunities to expand cooperative data collection: 
@@ -483,7 +483,98 @@ Image courtesy Joseph Caracappa, NEFSC
 ---
 ## Prototype Ocean Indicators
 
+.pull-left[
+Ocean surface and bottom temperature indicators are already included in the South Atlantic ESR
 
+
+
+]
+
+.pull-right[
+.ltgreenbox[
+A prototype habitat indicator characterizing bottom temperature in space over time was developed using GLORYS data with a reproducible workflow based on workflows used in the Northeast US by NEFSC.
+
+The objective is to produce maps and time series indicating where and when bottom temperature conditions approach or exceed stressful levels relevant to particular species ranging from corals to targeted fish species. 
+
+Stressful temperature levels for key species would need to be determined from literature or other studies if unknown.
+]
+]
+
+---
+
+## Prototype Ocean Indicators: Source information
+
+.pull-left[
+
+A single day's bottom temperature information
+```{r}
+
+glorysnctotibble <- function(ncfile = ncfile){
+  # time is hours since 1950-01-01
+  origin <- as.Date("1950-01-01") 
+  
+  # add the time variable into each
+  time <- tidync::tidync(ncfile) |>
+    tidync::activate("D0") |> tidync::hyper_array()
+  
+ # google says 86400000 milliseconds in a day
+  # irrelevant because this unit is hours in a day
+  
+  bttib <- tidync::tidync(ncfile) |>
+    tidync::hyper_tibble(force = TRUE) |>
+    dplyr::mutate(time = unname(time$time)) |>
+    dplyr::mutate(date = as.Date((time/24), origin = origin),
+                  year = lubridate::year(date),
+                  month = lubridate::month(date),
+                  day = lubridate::day(date))|>
+    dplyr::mutate(longitude = as.numeric(longitude),
+                  latitude = as.numeric(latitude)) |>
+    dplyr::rename(mod_bt = bottomT)
+  
+  return(bttib)
+}
+
+# plotting function modified for the South Atlantic just shifts coord_sf
+dailybtplotSA <- function(oneday){
+  ggplot() +
+    geom_tile(data = oneday, aes(x = longitude, y = latitude, fill = mod_bt)) +
+    geom_sf(data = ecodata::coast) +
+    #geom_point(data = FishStatsUtils::northwest_atlantic_grid, aes(x = Lon, y = Lat), size=0.05, alpha=0.1) +
+    scale_fill_gradientn(name = "Temp C",
+                         limits = c(0.5, 31),
+                         colours = c(scales::muted("blue"), "white",
+                                     scales::muted("red"), "black")) +
+    coord_sf(xlim = c(-82.5, -71), ylim = c(23.5, 36)) + 
+    #ecodata::theme_map() +
+    ggtitle(paste("Bottom temp, mm-dd-yyyy:", unique(oneday$month),
+                   unique(oneday$day), unique(oneday$year), sep = " "))
+}
+
+url <- "https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl/2025/GLORYS_REANALYSIS_2025-12-31.nc"
+
+tempncfile <- tempfile(fileext = ".nc")
+
+download.file(url, destfile = tempncfile, mode = "wb")
+
+dec3125 <- glorysnctotibble(tempncfile)
+
+dailybtplotSA(dec3125)
+
+rm(tempncfile)
+
+```
+]
+
+.pull-right[
+
+]
+
+---
+## Prototype Ocean Indicators: Seasonal bottom temperature
+
+
+---
+## Prototype Ocean Indicators: Number of days exceeding stressful temperature
 
 ---
 background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
@@ -580,7 +671,7 @@ Contact: <sgaichas@hydrascientificllc.com>
 ???
 
 ---
-# Key Questions for the HEAP
+# Discussion and Questions for the HEAP
 
 Opportunities for incorporating ecosystem information into SAFMC Management Processes: Aligning EFH Policies with ecosystem indicators
 
@@ -589,175 +680,13 @@ Opportunities for incorporating ecosystem information into SAFMC Management Proc
 *  Are the potential indicators identified appropriate?
 *  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
 
-Prototype Ecosystem Indicator:
+Prototype Ecosystem Indicators:
 
-*  Does the indicator make sense? Is it clearly explained?
+*  Do the indicators make sense? Are they clearly explained?
 *  Can you forsee any uses for a spatial indicator of bottom temperature?
 
 Opportunities to expand cooperative data collection: 
 
 *  Can cooperative research or citizen science validate model-derived habitat (bottom temperature) indicators?
 *  Can you suggest other information to be collected by fishery participants or the public?
-
----
-
-# EXTRA
-
----
-## Opportunities within the [recently approved Comprehensive ABC Control Rule](https://safmc.net/documents/abccram_06052023_submittal-pdf/)
-
-.pull-left[
-Dolphin-Wahoo, Golden Crab, Snapper Grouper
-
-```{r ABCSAFMC}
-
-riskpol <- data.frame(Bfrac = c(0, 0.75, 0.7501, 1.0, 1.0001, 2.0),
-                      High = c(0.2, 0.2, 0.30, 0.30, 0.40, 0.40),
-                      Medium = c(0.30, 0.30, 0.40, 0.40, 0.45, 0.45),
-                      Low = c(0.4, 0.4, 0.45, 0.45, 0.45, 0.45)
-)
-
-riskpol <- riskpol |>
-  tidyr::pivot_longer(-Bfrac, names_to = "pstar")
-
-riskpol$pstar <- factor(riskpol$pstar, levels = c("High", "Medium", "Low"))
-
-p1 <- ggplot2::ggplot(riskpol, ggplot2::aes(x=Bfrac, y=value, color = pstar)) +
-  ggplot2::geom_path(show.legend = TRUE) +
-  ggplot2::theme_minimal() +
-  ggplot2::xlab("Bmsy") +
-  theme(axis.text.x = element_blank()) +
-  ggplot2::ylab("p*") +
-  ggplot2::ylim(c(0,0.5)) +
-  ggplot2::labs(color = "Risk")#
-
-print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
-
-```
-
-]
-
-.pull-right[
-Council reviews SSC and AP advice on risk rating.  
-Council can deviate, up or down, from default P* by up to 10%.  
-
-Specific attributes that can inform risk of overfishing:
-* Biological:
-    * Estimated natural mortality
-    * Age at maturity
-* Human Dimension:
-    * Ability to regulate fishery
-    * Potential for discard losses
-    * Annual commercial value
-    * Recreational desirability
-    * Social concerns
-* Environmental:
-    * Ecosystem importance
-    * Climate change
-    * Other environmental variables
-]
-
-???
-
-2. Control Rule: Table 2.1.2
-Risk Tolerance: Council specifies using Table 2.1.3
-Overfished Stocks: ABC from Council’s specified rebuilding plan
-
-2b. Council can deviate, up or down. from default P* by up to 10%
-2c. Constant and annual ABC recommendations
-
-adjusting P* above the value set by the SSC should be infrequent and well-justified based on
-new scientific understanding and the Council’s risk tolerance.
-
----
-background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/NEFMC_RiskPolicy2026.png")
-background-size: 900px
-background-position: center bottom 45px 
-
-## Indicators in Risk Policy: New England (in development)
-
-Factors are scored, weighted, and combined for each stock to recommend risk tolerance
-
-Risk tolerance &rarr; proportion of maximum fishing rate in harvest control rules
-
-
-.footnote[
-Source: [January 2026 Council Meeting](https://d23h0vhsm26o6d.cloudfront.net/8b.-Kerr_Council_RiskPolicy_1_28_26.pdf)
-]
-
----
-background-image: url("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/Honeycomb%20Graphic.png")
-background-size: 800px
-background-position: right
-## Indicators in Catch Specification: North Pacific
-
-.pull-left-30[
-
-ESR and or ESP &rarr; Stock Risk Table
-
-Since risk tables were introduced (2018):
-
-14 stocks have had reductions from the maximum permissible recommended catch due to risk information regarding 
-
-stock assessment, 
-
-population dynamics, 
-
-fishery concerns, and 
-
-ecosystem concerns.
-
-.footnote[
-See [Dorn and Zador 2020](https://spj.science.org/doi/10.1080/20964129.2020.1813634)
-]
-]
-
-.pull-right-70[
-.footnote[
-Figure courtesy Ebett Siddon, AFSC
-]
-]
-
----
-## North Pacific Risk Tables (in use): Increased Risk &rarr; Increased Precaution
-
-```{r}
-Tab5 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/NPacRiskFramework.csv")
-
-flextable::flextable(Tab5)|>
-  flextable::set_caption("North Pacific Risk Levels and Indicator Criteria") |>
-  flextable::width(width = c(2,2,2,2,2)) |>
-  flextable::bg(i = c(1:3), bg=c("white", "#FFFF0050", "#FF000050"))
-```
-
-Potential Action:  
-Minimal Concern &rarr; No Catch Reduction from Maximum Allowed  
-Increased Concern &rarr; <span style="background-color:#FFFF0050;">Some Catch Reduction</span>   
-Extreme Concern &rarr; <span style="background-color:#FF000050;">More Catch Reduction</span> 
-
-.footnote[
-Source: [Draft 2025 Blue King Crab Risk Table](https://meetings.npfmc.org/CommentReview/DownloadFile?p=db212742-5381-4c72-b8cf-f95a7913d11e.pdf&fileName=PIBKC%20SAFE%202025%20Appendix%20B.pdf)
-]
-
----
-## Pacific Risk Tables (in testing): Two Way Street
-
-```{r}
-
-Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFramework.csv")
-
-flextable::flextable(Tab4)|>
-  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
-  flextable::width(width = c(4,4,4,4)) |>
-  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
-```
-
-Potential Action:  
-Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
-Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
-Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
-
-.footnote[
-Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
-]
 
