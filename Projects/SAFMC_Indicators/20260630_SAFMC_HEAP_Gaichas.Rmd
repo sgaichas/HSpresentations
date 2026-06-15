@@ -241,9 +241,9 @@ The South Atlantic’s combination of habitat focus, existing ecosystem tools, a
 * List decisions linked or potentially linked to ecosystem information
 * Recommend practical further uses of ecosystem information
 
-**Alignment of EFH/FEP policies and indicators**
+<span style="color: blue;">**Alignment of EFH/FEP policies and indicators**</span>
 
-**Prototype indicators from global sources** 
+<span style="color: blue;">**Prototype indicators from global sources**</span> 
 
 ]
 
