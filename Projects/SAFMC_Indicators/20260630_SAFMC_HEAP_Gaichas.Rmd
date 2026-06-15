@@ -481,19 +481,19 @@ Image courtesy Joseph Caracappa, NEFSC
 ]
 
 ---
-## Prototype Ocean Indicators
-
 .pull-left[
-Ocean surface and bottom temperature indicators are already included in the South Atlantic ESR
+## Prototype Ocean Indicators: what do they add?
 
-
+![:img SA ESR decadal temperature, 80%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAESR_surfbotTdecadal.png)
 
 ]
 
 .pull-right[
-.ltgreenbox[
-A prototype habitat indicator characterizing bottom temperature in space over time was developed using GLORYS data with a reproducible workflow based on workflows used in the Northeast US by NEFSC.
+Ocean surface and bottom temperature indicators are already included in the South Atlantic ESR
 
+![:img SA ESR decadal temperature, 80%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAESR_botTannual.png)
+
+.ltgreenbox[
 The objective is to produce maps and time series indicating where and when bottom temperature conditions approach or exceed stressful levels relevant to particular species ranging from corals to targeted fish species. 
 
 Stressful temperature levels for key species would need to be determined from literature or other studies if unknown.
@@ -507,6 +507,7 @@ Stressful temperature levels for key species would need to be determined from li
 .pull-left[
 
 A single day's bottom temperature information
+
 ```{r}
 
 glorysnctotibble <- function(ncfile = ncfile){
@@ -566,15 +567,204 @@ rm(tempncfile)
 ]
 
 .pull-right[
+The [Global Ocean Physics Reanalysis (GLORYS)](https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description) brings worldwide observations into an ocean physics model. Observations are from satellites, ships, and fixed locations.
 
+Information from 1993-May 2026 is currently included, with updates approximately each month.
+
+"This product includes daily and monthly mean files for temperature, salinity, currents, sea level, mixed layer depth and ice parameters from the top to the bottom. The global ocean output files are displayed on a standard regular grid at 1/12° (approximatively 8 km) and on 50 standard levels."
+
+.table[
+Citation: Jean-Michel L, Eric G, Romain B-B, Gilles G, Angélique M, Marie D, Clément B, Mathieu H, Olivier LG, Charly R, Tony C, Charles-Emmanuel T, Florent G, Giovanni R, Mounir B, Yann D and Pierre-Yves LT (2021) The Copernicus Global 1/12° Oceanic and Sea Ice GLORYS12 Reanalysis. Front. Earth Sci. 9:698876. doi: 10.3389/feart.2021.698876
+]
 ]
 
 ---
-## Prototype Ocean Indicators: Seasonal bottom temperature
+## Prototype Ocean Indicators: Average seasonal bottom temperature each year
 
+.pull-left[
 
+```{r}
+
+plot_gridded_bt <- function(bottom_temp_model_gridded_csv, year = NULL, scale = "celsius"){
+  
+  bottom_temp_model_gridded <- read.csv(bottom_temp_model_gridded_csv) |>
+    tibble::as_tibble()
+  
+  xmin = -82.5
+  xmax = -71
+  ymin = 23.5
+  ymax = 36
+  xlims <- c(xmin, xmax)
+  ylims <- c(ymin, ymax)
+  
+  if (is.null(year)) year <- max(bottom_temp_model_gridded$Time)
+  
+      fix <- dplyr::mutate(dplyr::select(dplyr::filter(bottom_temp_model_gridded, 
+        Time == year), -Time), Var = factor(Var, levels = c("winter", 
+        "spring", "summer", "fall")))
+    
+    if (scale == "fahrenheit") {
+        fix <- dplyr::mutate(fix, Value = (9/5) * Value + 32)
+        label <- "Temp. (°F)"
+        breaks <- c(32, 41, 50, 59, 68, 77)
+        labelLegend <- c("32", "41", "50", "59", "68", "77")
+        limits <- c(31.6, 84.2)
+        midpoint <- 50
+    } else {
+        label <- "Temp. (°C)"
+        breaks <- c(0, 5, 10, 15, 20, 25)
+        labelLegend <- c("0", "5", "10", "15", "20", "25")
+        limits <- c(-0.2, 29)
+        midpoint <- 10
+    }
+      p <- ggplot2::ggplot(data = fix) + 
+        ggplot2::geom_tile(ggplot2::aes(x = Longitude, 
+                                        y = Latitude, fill = sqrt(Value + 1))) + 
+        ggplot2::geom_sf(data = ecodata::coast, 
+                         size = 0.4) + 
+        #ggplot2::geom_sf(data = ne_epu_sf, fill = "transparent", size = 0.4) + 
+        ggplot2::coord_sf(xlim = xlims, 
+                          ylim = ylims) + 
+        ggplot2::facet_wrap(Var ~.) + 
+        ecodata::theme_map() + 
+        ggplot2::scale_fill_gradient2(name = label, low = "#000004FF", 
+                                      mid = "#BB3754FF", high = "#FCFFA4FF", 
+                                      breaks = sqrt(breaks + 1), limits = sqrt(limits + 1), 
+                                      labels = labelLegend, 
+                                      midpoint = sqrt(midpoint + 1)) + 
+        ggplot2::ggtitle(paste("Seasonal Mean Bottom Temperature", year)) + 
+        ggplot2::xlab("Longitude") + ggplot2::ylab("Latitude") + 
+        ggplot2::theme(panel.border = ggplot2::element_rect(colour = "black", 
+                                                            fill = NA, linewidth = 0.75), 
+                       legend.key = ggplot2::element_blank(), 
+                       axis.title = ggplot2::element_text(size = 11), 
+                       strip.background = ggplot2::element_blank(), 
+                       strip.text = ggplot2::element_text(hjust = 0), 
+                       axis.text = ggplot2::element_text(size = 8), 
+                       axis.title.y = ggplot2::element_text(angle = 90)) + 
+        ecodata::theme_title() + 
+        ecodata::theme_ts()
+      return(p)
+      
+  
+}
+
+csv <- "https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/bottom_temp_model_gridded/GLORYS_bottom_temp_model_gridded_2025.csv"
+
+plot_gridded_bt(bottom_temp_model_gridded_csv = csv, scale = "celsius")
+
+```
+]
+
+.pull-right[
+```{r}
+csv <- "https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/bottom_temp_model_gridded/GLORYS_bottom_temp_model_gridded_2020.csv"
+
+plot_gridded_bt(bottom_temp_model_gridded_csv = csv, scale = "celsius")
+```
+
+]
 ---
-## Prototype Ocean Indicators: Number of days exceeding stressful temperature
+## Prototype Ocean Indicators: Number of days or amount of area exceeding stressful temperature
+
+.pull-left[
+```{r}
+  #file.names = list.files("https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/thermal_habitat_gridded", full.names = T)
+  #  test.nc = ncdf4::nc_open(file.names[1])
+  # # # test.nc = ncdf4::nc_open('C:/Users/joseph.caracappa/Downloads/thermal_habitat_gridded_1993_SOE2025.nc')
+  #  ncdf4::ncatt_get(test.nc,'nday_10')
+  #  ncdf4::ncatt_get(test.nc,'nday_5')
+  #  ncdf4::nc_close(test.nc)
+  #  #x = terra::rast(file.names[1])
+  #  #x = terra::rast(test.nc,'nday_5')
+  #  #plot(x)
+  # # test.sds = terra::sds(file.names[1],1)
+  # # writeCDF(test.sds,here::here('data','SOE','thermal_habitat_checker.nc'))
+  #  
+  #  # convert to tibble and plot as above modifying ecodata::plot_thermal_habitat_gridded code
+  #  ncfile <- file.names[1] # 2020, retrieve the year from the filename to add to the plot
+  #  
+  #  bttib <- tidync::tidync(ncfile) |>
+  #   tidync::hyper_tibble(force = TRUE) |>
+  #    dplyr::select(nday_5, nday_10, nday_15, nday_20, longitude, latitude) |>
+  #    dplyr::mutate(longitude = as.numeric(longitude),
+  #                 latitude = as.numeric(latitude))
+   
+   btthermalgrid <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/thermal_habitat_gridded/GLORYS_thermal_habitat_gridded_2025.csv")
+   
+   fix <- btthermalgrid |>
+     dplyr::filter(Var %in% c(5, 10, 15, 20, 25, 30),
+                   Depth %in% c("AllDepths"))
+   
+   xmin = -82.5
+   xmax = -71
+   ymin = 23.5
+   ymax = 36
+   
+   
+   p <- ggplot2::ggplot(fix) + 
+     ggplot2::geom_tile(ggplot2::aes(x = Longitude, 
+                                     y = Latitude, color = Value, width = 1/12, height = 1/12), 
+                        linewidth = 2) + 
+     ggplot2::geom_sf(data = ecodata::coast, 
+                      size = 0.4) + 
+     #ggplot2::facet_grid(Depth ~ Var) +
+     ggplot2::facet_wrap(~Var, nrow = 2) +
+     ggplot2::scale_color_viridis_c() + 
+     ggplot2::coord_sf(xlim = c(xmin, xmax), ylim = c(ymin, ymax)) + 
+     ggplot2::xlab("") + 
+     ggplot2::ylab("") + 
+     ecodata::theme_ts() + 
+     #ggplot2::scale_y_continuous(breaks = c(24, 30, 36)) + 
+     #ggplot2::scale_x_continuous(breaks = c(-82, -78 -72)) +  
+     ecodata::theme_facet() + 
+     ecodata::theme_title() + 
+     ggplot2::ggtitle(paste(unique(fix$Time), "number of days above each temperature (deg C)")) + 
+     ggplot2::theme(legend.position = "bottom")
+   
+   #return(p)
+   
+   p
+
+```
+]
+
+.pull-right[
+```{r}
+
+# WARNING! FILE LOCATIONS HARDCODED
+
+file.names = list.files("~/Documents/Work/SAFMCindicators/SAFMCindicators/GLORYS/SAtl-out/data/thermal_habitat_area", full.names = T)
+tables <- lapply(file.names, read.csv, header = TRUE)
+combined.df <- do.call(rbind , tables)
+
+    fix <- combined.df
+    #|>
+    #  dplyr::filter(#temp.threshold == daysabove,
+    #               Depth == depth)
+    
+    limits <- dplyr::summarise(dplyr::group_by(fix, Var, Time), 
+        areaMinProportion = min(Value), areaMaxProportion = max(Value), 
+        .groups = "drop")
+    fix <- dplyr::left_join(fix, limits, by = c("Var", "Time"))
+    fix.this.year = dplyr::mutate(dplyr::filter(fix, Time == 
+        max(Time)), ReportYear = max(Time))
+    p <- ggplot2::ggplot() + ggplot2::geom_line(data = fix, ggplot2::aes(x = temp.threshold, 
+        y = Value, group = Time, color = Time), alpha = 0.7, 
+        linewidth = 1) + ggplot2::scale_color_gradient(name = "Year", 
+        low = "green", high = "blue2") + ggplot2::geom_line(data = dplyr::filter(fix.this.year, 
+        Time == max(Time)), ggplot2::aes(x = temp.threshold, 
+        y = Value, linetype = as.factor(ReportYear)), color = "black", 
+        alpha = 0.7, linewidth = 1.5) + ggplot2::scale_linetype_manual(name = "Current Year", 
+        values = 1) + ggplot2::facet_wrap(~Depth) + ggplot2::theme_bw() + 
+        ggplot2::xlab("Temperature Threshold (°C)") + ggplot2::ylab("Proportion of Area above threshold") + 
+        ggplot2::ggtitle("South Atlantic") + ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+    
+p
+
+```
+
+]
 
 ---
 background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
