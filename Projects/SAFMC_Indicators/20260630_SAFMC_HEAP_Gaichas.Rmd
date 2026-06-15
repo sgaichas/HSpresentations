@@ -88,7 +88,7 @@ Opportunities for incorporating ecosystem information into SAFMC Management Proc
 *  Are the current indicators identified appropriately aligned with Habitat Policies?
 *  Do you see any challenges with using the current information?
 *  Are the potential indicators identified appropriate?
-*  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
+*  Can you suggest different indicators to monitor progress on habitat policy objectives?
 
 Prototype Ecosystem Indicators:
 
@@ -868,7 +868,7 @@ Opportunities for incorporating ecosystem information into SAFMC Management Proc
 *  Are the current indicators identified appropriately aligned with Habitat Policies?
 *  Do you see any challenges with using the current information?
 *  Are the potential indicators identified appropriate?
-*  Can you suggest different indicators to monitor progress on habitat npolicy objectives?
+*  Can you suggest different indicators to monitor progress on habitat policy objectives?
 
 Prototype Ecosystem Indicators:
 
