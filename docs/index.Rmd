@@ -37,6 +37,8 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20260318_SAFMC_POT3_Gaichas.html" target="_blank">Project Oversight Team meeting - March 18, 2026</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260625_SAFMC_LunchLearn_Gaichas.html" target="_blank">Lunch and Learn - June 25, 2026</a>
+
 <a href="https://sgaichas.github.io/HSpresentations/20260630_SAFMC_HEAP_Gaichas.html" target="_blank">Habitat and Ecosystem Advisory Panel meeting - June 30, 2026</a>
 
 
