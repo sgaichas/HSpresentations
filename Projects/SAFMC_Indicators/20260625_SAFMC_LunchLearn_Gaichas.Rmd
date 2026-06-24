@@ -326,7 +326,20 @@ flextable::flextable(Climcrosswalk) |>
                                CurrentInd = "Available Indicators",
                                PotentialInd = "Potential Indicators",
                                Feasibility = "Potential Indicator Feasibility") |>
-  flextable::set_caption("SAFMC Climate Variability and Fisheries Policy Objectives and Current Indicators")
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Policy Objectives and Current Indicators") |>
+  flextable::hline(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Policy, "Climate Indicators"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
 
 ```
 
@@ -345,7 +358,20 @@ flextable::flextable(ClimateResearchCrosswalk) |>
   flextable::set_header_labels(CurrentInd = "Available Indicators",
                                PotentialAction = "Potential Council Actions",
                                Feasibility = "Potential Action Feasibility") |>
-  flextable::set_caption("SAFMC Climate Variability and Fisheries Research Needs and Current Indicators")
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Research Needs and Current Indicators") |>
+  flextable::hline(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Research, "Socioeconomic Impacts and Fishery Responses"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
 
 ```
 
