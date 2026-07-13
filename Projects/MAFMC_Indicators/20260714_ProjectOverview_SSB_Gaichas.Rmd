@@ -1,0 +1,767 @@
+---
+title: "Operationalizing Ecosystem and Habitat Indicators to Support Climate-Ready Fisheries Management in the Mid-Atlantic"
+subtitle: "MAFMC Project Overview for NEFSC SSB<br />July 2026<br /><br /><br /><br /><br /><br /><br />"
+author: "<br />Sarah Gaichas, Hydra Scientific LLC<br /> Gavin Fay, UMass Dartmouth<br /> Sophie Wulfing, UMass Dartmouth<br /> Kelsey Roberts, UMass Dartmouth"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC+Jurisdiction+Map+v3-01.jpg")
+background-size: 230px
+background-position: right 50px bottom 50px
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+library(nomnoml)
+```
+
+```{css slide-number-off}
+.remark-slide-number {
+  display: none;
+}
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+## Operationalizing Ecosystem and Habitat Indicators to Support Climate-Ready Fisheries Management in the Mid-Atlantic: Project Objectives
+
+.pull-left-70[
+
+1) Review and assess existing ecosystem and habitat indicators in the Northeast and evaluate their utility to support management objectives;
+
+2) Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions; and
+
+3) Create workflow and communication tools to support regular updates of indicators and that enhance usability of indicators in the management process.
+
+]
+
+.pull-right-30[]
+
+![:img MAFMC fishery management plans and species, 80%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMPs4.png)
+
+???
+.pull-left[
+# Project Team
+
+Sarah Gaichas
+
+Gavin Fay
+
+Sophie Wulfing
+
+Kelsey Roberts 
+
+Students:
+
+Connor Coscino
+
+Sarah Hope
+
+]
+
+.pull-right[
+# Project Oversight Team
+
+Brandon Muffley
+
+Julia Beaty
+
+Julian Garrison
+
+Scott Large
+
+Geret DePiper
+
+]
+
+---
+.pull-left[
+.center[
+# Project Big Picture
+
+We started with Management Objectives and 4 priority Management Decisions, and have identified initial Information Supporting Decisions. 
+
+SMART indicators are Specific, Measurable, Achievable, Relevant, and Time-bound *for a particular Objective and Decision.*
+
+The review of existing indicators will identify information sources and gaps to develop indicators specific to 2 priority management decisions. 
+
+We clarifies specific objectives, information, and desirable and undesirable states for 2 priority management decisions.
+
+Desirable and undesirable states are related to targets and thresholds.
+
+Next, indicators will be simulation tested.
+
+]
+
+]
+
+.pull-right[
+
+![flowchart](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/indicatorsproject-miniwk.png)
+```{r, eval=FALSE}
+
+# # this code was used in the website to export a static png
+# see R/indicatorsproject.nomnoml 
+# 
+# https://www.nomnoml.com/
+# 
+# nomnoml::nomnoml("
+# #zoom: 1
+# #title: indicatorsproject
+# #stroke: #522D80
+# #direction: down
+# [Management Objectives]-->[Management Decisions]-->[Information Supporting Decisions]-->[Indicator Development]-->[Indicator Testing]
+# 
+# [Management Objectives]-->[Targets and Thresholds]-->[Indicator Performance Metrics]
+#
+# [Indicator Development]<-->[Targets and Thresholds]
+#   
+# [Indicator Testing]-->[Indicator Performance Metrics]-->[Performance Under Uncertainty]-->[Pathways for Use]
+# ",
+# png = here::here("docs/images/projectdiag.png"), width = 600, height = 600)
+
+```
+]
+
+
+---
+# Workplan: Objective 2
+
+*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left[
+**Online mini-workshop** *31 March 2026*. 
+* Finalized 2 priority decisions and level of analysis
+* Identified desirable and undesirable states for management outcomes
+* Identified potential indicator targets and thresholds linked to states
+    
+**Indicator and target/threshold development** *Now*. 
+* Literature review for existing thresholds
+* Indicator data acquisition and/or model development as necessary
+* Empirical threshold identification and testing
+
+]
+
+.pull-right[
+**In person Workshop 2** *December 2026*
+
+* Workshop develops performance criteria
+    * Review preliminary indicators, targets, thresholds
+    * Identify measures of management success and "good" vs "bad" indicator levels
+    * Identify uncertainties to include: environment? markets?
+* Simulation testing indicator-based management
+    * Evaluate management performance under the range of uncertainties
+    * Highlight optimal conditions for indicator use and pathways for inclusion in Council management
+]
+
+???
+    * Use models at the appropriate level of complexity for the management decision
+
+
+---
+
+## Mini-Workshop Discussion 1: Indicators and approach
+*  **Risk policy:**  consider social or economic risk indicators in addition to stock status while retaining overall simplicity of the approach and broad scope for consistent application across species. Start by reviewing cases where the Council has suspended the risk policy. 
+*  **Catch/quota setting:** review and communicate ecosystem/habitat information available/used throughout the process to ensure indicators are not "double counted". Consider information used in prioritization and assessment but focus on developing new indicators for SSC ABC, Monitoring Committee, and Council processes. Consider a detailed application for a particular species.
+
+--
+
+## Mini-Workshop Discussion 2: Desirable and undesirable states
+*  **Desirable:**  transparent and relatively simple decision processes, decisions reflect reality, interannual stability, ability to assess tradeoffs across objectives
+*  **Undesirable:** overly complex processes, cascading unforeseen impacts of decisions resulting in reactive rather than proactive management, accounting for conditions in more than one place (double counting)
+
+--
+
+## Mini-Workshop Discussion 3: Targets and thresholds
+*  **Characteristics:**  targets as ranges rather than points, surveillance indicators to determine if conditions leave target range, historical baselines could provide initial target ranges but recognize and adapt to changing conditions, apply targets similarly across fishery sectors
+*  **Other considerations:** indicators that imply certainty or reduce uncertainty are desirable 
+
+
+---
+## Priority Decision 1: Risk Policy
+
+*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left[
+### Council Risk Policy
+
+```{r MAFMCriskpolicy, fig.asp = 0.7}
+
+riskpol <- data.frame(Bfrac = c(0, 0.1, 1.0, 1.5, 2.5),
+                      Current = c(0, 0, 0.45, 0.49, 0.49),
+                      Pre2020 = c(0, 0, 0.4, 0.4, 0.4)
+)
+
+riskpol <- riskpol %>%
+  pivot_longer(-Bfrac, names_to = "pstar")
+
+p1 <- ggplot2::ggplot(riskpol, aes(x=Bfrac, y=value, linetype = pstar)) +
+  geom_path(show.legend = TRUE) +
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("p*") +
+  labs(linetype = "Policy")#+
+  #theme(legend.position="bottom")
+
+
+print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+```
+
+]
+
+.pull-right[
+### ABC proportion of OFL given OFL CV
+
+```{r OFLCVtoABC, fig.asp = 0.7}
+
+ABCprop <- data.frame(Bfrac = seq(0, 2.5, 0.01)) %>%
+  dplyr::mutate(pstar = case_when(Bfrac <= 0.1 ~ 0,
+                                  Bfrac > 0.1 & Bfrac <= 1.0 ~ (Bfrac-0.1)*((0.45-0)/(1-0.1)) ,
+                                  Bfrac > 1.0 & Bfrac <= 1.5 ~ (Bfrac-1.0)*((0.49-0.45)/(1.5-1))+0.45,
+                                  Bfrac > 1.5 ~ 0.49)) %>%
+  dplyr::mutate("CV=60%" = qlnorm(pstar, log(1), log(0.60 + 1)),
+                "CV=100%" = qlnorm(pstar, log(1), log(1.00 + 1)),
+                "CV=150%" = qlnorm(pstar, log(1), log(1.50 + 1))) %>%
+  pivot_longer(-c(Bfrac, pstar), names_to = "CVlevel")
+                       
+
+p2 <- ggplot2::ggplot(ABCprop, aes(x=Bfrac, y=value, colour=CVlevel)) +
+  geom_line()+  
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("ABC/OFL proportion") +
+  labs(colour = "OFL CV") #+
+  #theme(legend.position="bottom")
+
+print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+  
+```
+
+]
+
+.footnote[
+See [2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf) and [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf)
+]
+
+???
+* Recommend practical pathways for implementation
+
+---
+.pull-left-60[
+## Priority Decision 1: Risk Policy
+
+### Potential Indicator Sources
+
+[Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators for MAFMC stocks: 
+
+*  Black Sea Bass
+*  Bluefish 
+*  Golden Tilefish
+*  Longfin squid 
+*  Shortfin squid
+
+[State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf) and [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf) indicators
+
+### Potential Pathways
+*  Evaluate indicators of favorable or unfavorable habitat or socioeconomic conditions for a species or life history type
+*  Simulate management with different risk tolerance under different conditions (update MSE?)
+*  Compare indicator-based approach vs. status quo: Which indicator-adjusted risk tolerance meets objectives across species portfolio or for a selected individual species?
+
+]
+
+.pull-right-40[
+.ltgreenbox[ 
+.center[
+```{r newriskpol, out.width="90%"}
+
+knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/main/onepagers/RiskPolInds.png")
+
+#See an [example indicator adjusted control rule for northern shrimp](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full#supplementaryMaterial) by [Roux et al. 2022](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full):     
+
+#knitr::include_graphics("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+#DFOpandalidHCR
+#magick::image_read("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+```
+]
+]
+
+.ltpurplebox[
+## Information gaps 
+
+Ecosystem and Socioeconomic Profiles do not yet exist for the species originally used to evaluate the Risk Policy: summer flounder, scup, and butterfish.
+]
+]
+
+---
+.pull-left[
+## Priority Decision 2: Catch/Quota Setting
+
+.table[
+.ltbluebox[
+**1. Determine Assessment Priorities**  
+The NRCC prioritizes stocks for assessment based on management needs,
+fishery importance, stock status and trend, ecosystem importance, assessment information, and stock
+biology. Terms of Reference (ToRs) ensure the assessment process delivers consistent, management-relevant outputs.
+]
+
+.ltbluebox[
+**2. Conduct Assessment**  
+Assessment scientists assemble and analyze fishery dependent and independent data and develop models to synthesize the data and produce outputs meeting the assessment ToRs. 
+]
+
+.ltpurplebox[
+**3. Review Assessment**  
+Independent reviewers evaluate whether assessments ToRs are met, data is appropriate, and methods reflect best practices.
+]
+]
+]
+
+.pull-right[
+.table[
+.ltgreenbox[
+### Council Steps 
+
+.ltbluebox[
+**4. Determine Acceptable Biological Catch (ABC)**  
+The SSC uses reviewed assessment outputs within a structured framework to determine ABC from assessment uncertainty based on input data, model diagnostics and performance, and ecosystem considerations.
+]
+
+.ltbluebox[
+**5. Catch Limits, Targets, and Quotas**  
+The Council decides whether annually varying or averaged ABCs will be used in multiyear harvest specifications, then allocates the ABC to harvest sectors. Management uncertainty is determined and applied, then discards are estimated and subtracted to derive quotas and harvest limits.
+]
+]
+]
+
+Indicators could be used at any step but 3. 
+Indicators are already used in Assessments and in SSC ABC Determinations.
+]
+
+
+
+---
+## Priority Decision 2: Catch/Quota Setting Step 5--ACLs, ACTs, and Quotas
+
+.pull-left[
+.table[
+.ltbluebox[
+The Council decides whether to use constant ABC or annual ABC for the specification years.
+
+The ABC is split to recreational and commercial sector Annual Catch Limit (ACL), if applicable: the percentage is defined in the FMP. Change requires an amendment or framework. 
+
+The Monitoring Committee recommends a management uncertainty buffer to determine the Annual Catch Target (ACT) for each sector. 
+
+The Monitoring Committee projects sector specific discards and subtracts them from each sector's ACT to determine the Recreational Harvest Limit (RHL) and the Commercial Quota. 
+
+Commercial quota is allocated to states or seasons as specified in FMPs. Allocations require an amendment or framework to change.
+]
+
+.ltpurplebox[
+**Clarify scope:** Should routine/tactical committee decisions, strategic FMP decisions, or all decisions be considered? 
+]
+]
+]
+
+.pull-right[
+.table[
+.ltgreenbox[
+**Clarify** how indicators may help with the Council's average vs annual ABC decision as suggested in workshop 1.
+
+Management uncertainty buffer estimation could include ecosystem information such as projected stock productivity and distribution. Sources include [Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators, [Climate Vulnerability Analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) sensitivity, exposure and vulnerability rankings, [State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf) and [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf) indicators.
+
+Discard estimation/projection could include similar ecosystem information and also consider habitat conditions leading to different product quality or discard survival based on [EFH Habitat Mapper](https://www.fisheries.noaa.gov/resource/map/essential-fish-habitat-mapper) or [NRHA Data Explorer](https://nrha.shinyapps.io/dataexplorer/) combined with projected habitat conditions from [MOM6 regional ocean projections](https://psl.noaa.gov/cefi_portal/).  
+
+If FMP amendments or frameworks are considered to alter allocations, [GARFO Catch and Monitoring System](https://www.fisheries.noaa.gov/new-england-mid-atlantic/commercial-fishing/quota-monitoring-greater-atlantic-region), [Atlantic Coastal Cooperative Statistics Program](https://safis.accsp.org/accsp_prod/f?p=1490:1:6442641492940:::::), and [Marine Recreational Information Program](https://www.fisheries.noaa.gov/recreational-fishing-data/introduction-marine-recreational-information-program-data) information along with
+SOE or ESP economic and social indicators could inform these decisions.
+
+]
+]
+]
+???
+*  Develop indicators for Monitoring Committee decisions, FMP amendments/frameworks
+
+---
+
+.center[
+# Extra slides
+]
+
+---
+# Workplan: Objective 1
+
+*Review and assess existing ecosystem and habitat indicators in the Northeast and evaluate their utility to support management objectives*
+
+.pull-left[
+**Indicator Review:** *continuing for priority decisions*
+
+* Current Council Indicators  
+    * State of the Ecosystem Report   
+    * EAFM Risk Assessment  
+    * Ecosystem Socioeconomic Profiles  
+* Relevant New Indicators   
+    * US EPA, MARCO, State, Local  
+    * Global sources (FAO)  
+    * Peer-reviewed literature  
+* Compile indicator attributes in [SMART format](https://mafmc.github.io/SMARTindicatorsData/)
+* Summarize and develop indicator search tool
+
+]
+
+.pull-right[
+
+**In Person Workshop 1:** *December 10 2025*
+
+* Identified and prioritized Council management decisions that could be supported by operational use of ecosystem indicators
+* Format
+    * Introduced preliminary list of Council decisions/processes
+    * Discussed and clarify list and fill gaps
+    * From full list, identified top 3 priority decisions for indicator development and analysis
+* [Workshop Report](https://www.mafmc.org/s/WK1_Report.pdf) and [1 Page Summary](https://www.mafmc.org/s/WK1_Results-Summary.pdf)
+
+]
+
+**Deliverables:** Indicator review with SMART screening evaluation relative to priority management decisions
+
+---
+# Progress
+
+.pull-left[
+## Workshop 1 Complete
+
+Priority Decisions:  
+*  Risk Policy
+*  Catch/Quota Specification
+*  Measures Setting
+*  Spatial Management
+
+## SMART Indicator Reports
+
+Pulling indicator attributes from existing resources
+Initial framework to evaluate against SMART criteria
+Not yet specific to management decisions
+
+https://mafmc.github.io/SMARTindicatorsData/
+]
+
+.pull-right[
+## SMART Indicator Summary Tool
+
+Prototype to sort indicators by attributes
+
+![screenshot of shiny app](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SMARTshinyprototype-Jan2026.png)
+
+]
+
+---
+
+```{r getsurvey}
+#survey link 
+#results https://docs.google.com/spreadsheets/d/154xfYtsjwtNlMZV1-UnvEb8-XEMViV_AXNqUUqV6Vhk/edit?resourcekey=&gid=1974845638#gid=1974845638
+
+# this code gets from google drive, need to enter oauth token so probably not bulletproof for all users
+
+  # resultfile <- googledrive::drive_get("https://docs.google.com/spreadsheets/d/154xfYtsjwtNlMZV1-UnvEb8-XEMViV_AXNqUUqV6Vhk/edit?resourcekey=&gid=1974845638#gid=1974845638")
+  # responses <- googledrive::drive_download(resultfile, type = "csv", overwrite = TRUE) %>%
+  #   {read.csv(.$local_path)}
+
+# once file has been downloaded use this
+responses <- read.csv("Priority Management Decisions (Responses).csv",header=T)
+
+# separate question number and element name? numbers are duplicates so just use name
+
+#names(responses) <- sub("^X.*\\.\\.\\.","",names(responses))
+names(responses)[-1] <- c("Priority1", "Scope1", "Species1", "Priority2", "Scope2", "Species2")
+
+lookup <- c(
+  #long = short
+  "Develop a detailed example tailored to a particular species (Please write in species below)" = "Detailed example",
+  "Develop a general process that could work across species/FMPs" = "General process"
+)
+
+responses$Scope1Brief <- unname(lookup[responses$Scope1])
+responses$Scope2Brief <- unname(lookup[responses$Scope2])
+
+respsumm <- responses |>
+  dplyr::select(Priority1, Scope1Brief, Species1, Priority2, Scope2Brief, Species2) |>
+  tibble::rownames_to_column("ID") |>
+  tidyr::pivot_longer(-ID, names_to = "Var", values_to = "Val") 
+  
+totprior <- respsumm |>
+  dplyr::filter(Var %in% c("Priority1", "Priority2")) |>
+  dplyr::group_by(Val) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(responses)*100) |>
+  dplyr::arrange(desc(perc))
+
+prior1 <- totprior[1,]
+
+prior2 <- totprior[2,]
+
+```
+
+.pull-left-70[
+```{r priority1, fig.asp=0.9, out.width="100%"}
+
+decision_cols <- c("Risk Policy" = "red", "Catch/Quota Setting" = "blue", "Measures Setting" = "purple","Spatial Measures" = "green" )
+
+p1 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority1)),
+                                              fill = Priority1)) +
+  ggplot2::geom_bar() +
+  ggplot2::ggtitle("Priority 1") +
+  ggplot2::xlab(NULL) +
+  ggplot2::scale_fill_manual(values = decision_cols) +
+  ggplot2::coord_flip() +
+  ggplot2::theme(legend.position = "none")
+
+p2 <- ggplot2::ggplot(responses, ggplot2::aes(x = forcats::fct_rev(forcats::fct_infreq(Priority2)),
+                                              fill = Priority2)) +
+  ggplot2::geom_bar() +
+  ggplot2::ggtitle("Priority 2") +
+  ggplot2::xlab(NULL) +
+  ggplot2::scale_fill_manual(values = decision_cols) +
+  ggplot2::coord_flip() +
+  ggplot2::theme(legend.position = "none")
+
+#print(p1 + p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+p1/p2
+
+```
+
+]
+
+.pull-right-30[
+# [Poll](https://forms.gle/BjZPoK4ia1Sp2fts8) Results 
+
+We had `r nrow(responses)` responses.
+
+Across both priorities:
+
+```{r table}
+
+flextable::flextable(totprior) |>
+  flextable::set_header_labels(Val = "Decision",
+                               n = "Votes",
+                               perc = "% Total Votes") |>
+  flextable::colformat_double(digits = 0)
+
+```
+
+
+All who prioritized "Risk Policy" would focus on "General" scope
+
+"Catch/Quota Setting" had 57% recommending a "Detailed example" for one species
+
+
+]
+
+
+---
+# Mini-Workshop Discussion Questions
+
+## Discussion 1
+*  Confirm management objectives for two priority decisions 
+*  Do the decisions already have indicators available or information in hand?
+*  Should we examine linked decisions independently?
+
+.pull-left-70[
+## Discussion 2 
+*  What is a desirable outcome for the management decision? 
+*  What is undesirable?
+*  A **good decision** is responsive and timely, incorporating new information as it becomes available, providing more flexible opportunities for fishing, and 
+includes a clear description of tradeoffs
+*  What *type* and *timing* of information is needed to detect/achieve the desirable state and avoid the undesirable state?
+
+]
+
+.pull-right-30[
+
+## Discussion 3
+*  Indicator targets are points or ranges associated with desirable states
+*  Indicator thresholds are points transitioning to undesirable states and require action if crossed
+]
+
+---
+
+## Priority Decision 2: Catch/Quota Setting--Which Species?
+
+.pull-left[
+**Standard process tested with species?** 
+
+* Represent range of species? 
+    * Data rich -- data challenged
+    * Range of sectors and fleets
+    * Life history and climate sensitivity range
+    * Summer flounder and Illex?
+* Use two different but data adequate species?
+* Generic simulations determine the level of information needed for good decision?
+]
+
+.pull-right[
+**Suggested species from poll (not all for Catch/Quota)**
+
+* Atlantic mackerel
+* Illex squid (2)
+* Loligo squid (2)
+* Black sea bass (2)
+* Summer flounder (4)
+* FMPs
+    + Summer flounder/Scup/Black sea bass
+    + Mackerel/Squid/Butterfish
+* Menhaden
+
+]
+
+![:img MAFMC fishery management plans and species, 100%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMPs4.png)
+
+---
+## Priority Decision 2: Catch/Quota Setting
+
+*Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
+
+.pull-left[
+### Multistep Process--Focus on Potential Pathways?
+
+1\.  Develop indicators for NRCC prioritization?  
+2\.  Standardize ecosystem profile approach for use in stock assessments?  
+
+4\.  Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?  
+4\.  Refine OFL CV criteria for considering integrated ecosystem conditions?  
+4\.  Develop criteria for considering ecosystem impacts in short term projections?   
+4\.  Extend SSC process using risk table approaches from other regions?  
+
+5\.  Develop indicator process for monitoring committee?  
+
+]
+
+.pull-right[
+```{r}
+
+Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFramework.csv")
+
+flextable::flextable(Tab4[,1:2])|>
+  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
+  flextable::width(width = c(1,4)) |>
+  #flextable::width(width = c(4,4,4,4)) |>
+  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
+```
+
+.table[
+**Potential Action:**  
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+]
+]
+
+???
+4. Extend SSC process using risk table approaches from other regions?
+    +  Pacific process bi-directional
+    +  Uses structured discussion to assess risk
+    +  Also evaluates data and assessment performance 
+
+* Recommend practical pathways for implementation
+
+---
+## Priority Decision 2: Catch/Quota Setting Step 4--ABC
+.pull-left[
+.table[
+.ltbluebox[
+
+The MT assessment gives current status and short term projections of overfishing limit (OFL) that may or may not already include ecosystem information. The SSC may discuss performance of short term projections or terminal year estimates in the assessment; ecosystem information can inform decisions about projections or terminal year estimates. The SSC may request new OFL estimates/projections from the assessment lead based on this discussion. 
+
+The SSC uses its [OFL CV process](https://www.mafmc.org/s/Final-OFL-CV-guidance-document_06_24.pdf) to evaluate uncertainty arising from data quality, model selection/identification, retrospective analysis, empirical comparisons,  ecosystem factors, and recruitment stanzas. Ecosystem information can feed into: 
+
+*  Ecosystem factors: [Climate Vulnerability Analysis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146756) results are currently included for each stock, can include multiple other environmentally driven changes in the stock
+*  Recruitment stanzas: links to environmental drivers can decrease recruitment uncertainty
+
+]
+]
+]
+
+.pull-right[
+.table[
+.ltbluebox[
+The OFL CV is used along with the estimate of current stock status in the [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) to determine the ABC that is recommended to the Council. The SSC often provides annually averaged constant ABC for a specified period (2-3 years) as well as annual ABC for each year at the request of the Council.
+]
+
+.ltgreenbox[
+### Information sources for indicators 
+
+[State of the Ecosystem](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf), [Risk Assessment](https://www.mafmc.org/s/2_MAB_RiskAssess_2024.pdf), and [Ecosystem and Socioeconomic Profiles](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports) conceptual models and indicators for MAFMC stocks could inform SSC discussion of terminal year estimates, short term projection performance, and assessment uncertainty. 
+
+Similar indicators as above plus habitat indicators [EFH Habitat Mapper](https://www.fisheries.noaa.gov/resource/map/essential-fish-habitat-mapper), [NRHA Data Explorer](https://nrha.shinyapps.io/dataexplorer/) could further inform OFL CV discussions. Systematic translation of stock specific indicators into risk criteria as in the Pacific could simplify OFL CV discussions.
+
+]
+]
+]
+
+???
+Ecosystem information that is presented along with the assessment is easiest to use in the OFL CV determination, but nothing limits the SSC from using ecosystem information presented from another source. The SSC has based decisions on published literature in the past.
+
+
+---
+# Deliverables and Schedule: Phase 2
+
+**Project duration ~2 years, with monthly Project Oversight Team updates**
+
+*  **31 March 2026:** Online Council Mini-workshop selecting indicator subset for development and testing, early career researcher and student experience in Council processes
+
+*  **March-December 2026:** Indicator development and testing: data acquisition, model development, preliminary target and threshold analysis, visualization and communication tool development and deployment, Council staff training in reproducible workflows
+
+*  **TBD December 2026:** In person Council Workshop 2 identifying indicator performance metrics, review preliminary targets and thresholds, early career researcher and student experience in Council processes
+
+*  **January-June 2027:** Indicator target/threshold simulation testing under a range of uncertainties, identify pathways for management use, indicator workflow automation
+
+*  **30 June 2027:** Final Report to Council, Present all project results including operational infrastructure at Council meeting
+
