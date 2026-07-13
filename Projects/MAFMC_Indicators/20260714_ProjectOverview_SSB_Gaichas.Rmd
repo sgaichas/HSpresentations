@@ -136,7 +136,7 @@ SMART indicators are Specific, Measurable, Achievable, Relevant, and Time-bound 
 
 The review of existing indicators will identify information sources and gaps to develop indicators specific to 2 priority management decisions. 
 
-We clarifies specific objectives, information, and desirable and undesirable states for 2 priority management decisions.
+We clarified specific objectives, information, and desirable and undesirable states for: <span style="color: blue;">**Risk policy**</span> and <span style="color: blue;">**Catch/quota setting**</span>.
 
 Desirable and undesirable states are related to targets and thresholds.
 
@@ -212,20 +212,20 @@ Next, indicators will be simulation tested.
 ---
 
 ## Mini-Workshop Discussion 1: Indicators and approach
-*  **Risk policy:**  consider social or economic risk indicators in addition to stock status while retaining overall simplicity of the approach and broad scope for consistent application across species. Start by reviewing cases where the Council has suspended the risk policy. 
-*  **Catch/quota setting:** review and communicate ecosystem/habitat information available/used throughout the process to ensure indicators are not "double counted". Consider information used in prioritization and assessment but focus on developing new indicators for SSC ABC, Monitoring Committee, and Council processes. Consider a detailed application for a particular species.
+*  <span style="color: blue;">**Risk policy:**</span>  consider social or economic risk indicators in addition to stock status while retaining overall simplicity of the approach and broad scope for consistent application across species. Start by reviewing cases where the Council has suspended the risk policy. 
+*  <span style="color: blue;">**Catch/quota setting:**</span> review and communicate ecosystem/habitat information available/used throughout the process to ensure indicators are not "double counted". Consider information used in prioritization and assessment but focus on developing new indicators for SSC ABC, Monitoring Committee, and Council processes. Consider a detailed application for a particular species.
 
 --
 
 ## Mini-Workshop Discussion 2: Desirable and undesirable states
-*  **Desirable:**  transparent and relatively simple decision processes, decisions reflect reality, interannual stability, ability to assess tradeoffs across objectives
-*  **Undesirable:** overly complex processes, cascading unforeseen impacts of decisions resulting in reactive rather than proactive management, accounting for conditions in more than one place (double counting)
+*  <span style="color: blue;">**Desirable:**</span>  transparent and relatively simple decision processes, decisions reflect reality, interannual stability, ability to assess tradeoffs across objectives
+*  <span style="color: blue;">**Undesirable:**</span> overly complex processes, cascading unforeseen impacts of decisions resulting in reactive rather than proactive management, accounting for conditions in more than one place (double counting)
 
 --
 
 ## Mini-Workshop Discussion 3: Targets and thresholds
-*  **Characteristics:**  targets as ranges rather than points, surveillance indicators to determine if conditions leave target range, historical baselines could provide initial target ranges but recognize and adapt to changing conditions, apply targets similarly across fishery sectors
-*  **Other considerations:** indicators that imply certainty or reduce uncertainty are desirable 
+*  <span style="color: blue;">**Characteristics:**</span>  targets as ranges rather than points, surveillance indicators to determine if conditions leave target range, historical baselines could provide initial target ranges but recognize and adapt to changing conditions, apply targets similarly across fishery sectors
+*  <span style="color: blue;">**Other considerations:**</span> indicators that imply certainty or reduce uncertainty are desirable 
 
 
 ---
@@ -432,11 +432,62 @@ SOE or ESP economic and social indicators could inform these decisions.
 *  Develop indicators for Monitoring Committee decisions, FMP amendments/frameworks
 
 ---
+## A potential framework
+
+### Identify the decision
+
+Risk policy: Council decides whether to apply the standard biology-based risk policy, or modify with social and economic factors? How much weight should social and economic factors get?
+
+Catch/quota setting: Monitoring Committee decides whether to apply management uncertainty buffers to establish annual catch targets to account for inability to manage the catch or uncertainty in catch estimates
+
+Catch/quota setting: Monitoring Committee decides how to estimate (dead) discards to set quotas or harvest limits
+
+### Identify key information 
+
+Which are the most important two factors to consider for the decision? Combined socioeconomic and biological?
+
+What indicators do we have for the factors?
+
+### Identify clear decision criteria
+
+What threshold values move us between decisions?
+
+---
+# Example: Risk policy
+
+.pull-left[
+```{r square, out.width="100%"}
+
+knitr::include_graphics("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/RiskPolSquareEx.png")
+
+```
+
+]
+
+.pull-right[
+```{r newriskpol2, out.width="100%"}
+
+knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/main/onepagers/RiskPolInds.png")
+
+#See an [example indicator adjusted control rule for northern shrimp](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full#supplementaryMaterial) by [Roux et al. 2022](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full):     
+
+#knitr::include_graphics("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+#DFOpandalidHCR
+#magick::image_read("https://raw.githubusercontent.com/sgaichas/HSpresentations/main/docs/images/Rouxetal2022NshrimpbottempHCR.png")
+```
+]
+
+
+---
 
 .center[
 # Extra slides
 ]
 
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
 ---
 # Workplan: Objective 1
 
