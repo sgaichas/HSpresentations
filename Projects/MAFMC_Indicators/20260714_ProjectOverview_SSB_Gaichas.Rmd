@@ -467,7 +467,7 @@ knitr::include_graphics("https://github.com/sgaichas/HSpresentations/raw/main/do
 .pull-right[
 ```{r newriskpol2, out.width="100%"}
 
-knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/main/onepagers/RiskPolInds.png")
+knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/main/onepagers/RiskPolInds_2.png")
 
 #See an [example indicator adjusted control rule for northern shrimp](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full#supplementaryMaterial) by [Roux et al. 2022](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2021.781559/full):     
 
