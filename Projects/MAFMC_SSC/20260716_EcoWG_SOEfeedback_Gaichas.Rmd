@@ -1,0 +1,188 @@
+---
+title: "Ecosystem and Economic Work Groups Report"
+subtitle: "MAFMC SSC<br />July 2026<br /><br /><br /><br /><br /><br /><br />"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2026SOEcover.png")
+background-size: 400px
+background-position: right 50px
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+library(nomnoml)
+```
+
+```{css slide-number-off}
+.remark-slide-number {
+  display: none;
+}
+```
+
+
+## NEFSC Questions for the 2026 State of the Ecosystem
+
+.pull-left-70[
+
+1) For each management objective category are the performance metrics clearly articulated and are the metrics used appropriate?
+
+2) The framework of the Stability objective has been revised for both ecosystem and fishery indicators to focus on Changes From Baseline, Adaptive Capacity, and Volatility. Does this reframing of stability better address the Council needs? Comment on how they could be refined.
+
+3) Are presenting forecast information as probabilities of deviating from historical average a useful format for the Council? Are there other reference points or “events” that could be used instead of historical averages? How should uncertainty be discussed alongside observations? Are there any research questions or Council decisions that forecast information could assist?
+
+]
+
+.pull-right-30[]
+
+![:img MAFMC fishery management plans and species, 80%](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMPs4.png)
+---
+##  For each management objective category are the performance metrics clearly articulated and are the metrics used appropriate?
+
+The SSC finds the current management performance metrics clearly
+articulated and appropriate in the absence of stated ecosystem level performance
+thresholds for each objective, which require the input of policy makers. However, the
+SSC suggests that adding information on tradeoffs between the management objectives
+presented in this section would improve management utility. 
+
+--
+
+* The SSC distinguishes two types of performance metrics: those describing system status and
+those measuring progress towards an objective. Overall, the performance metrics used in the
+SOE are reasonable as ecosystem-level status summaries. 
+
+* Measurement of progress against objectives requires a clear and quantitative
+definition of the objectives.
+
+* To further improve the utility of this SOE section for managers, the SSC recommends continued
+research into ecological thresholds (e.g. ecosystem level overfishing) that can be used along
+with currently available indicators to measure progress towards ecological objectives.
+
+* The SSC further recommends research into relationships and tradeoffs between the
+management objectives highlighted in the SOE. This is a high priority, medium-term investment. 
+
+
+
+
+---
+##  The framework of the Stability objective has been revised for both ecosystem and fishery indicators to focus on Changes From Baseline, Adaptive Capacity, and Volatility. Does this reframing of stability better address the Council needs? Comment on how they could be refined.
+
+The SSC finds the reframing to be useful and suggests some edits to further
+clarify the section. In particular, separating system driver stability from management
+outcome stability could identify the extent to which management interventions contribute
+to stability or instability in the outcomes. However, resources should be prioritized for
+identifying tradeoffs between all of the management objectives as suggested in response
+to question 1 above, rather than refining this individual section.
+
+--
+
+* The SSC suggested an alternative approach for evaluating stability which would separate
+indicators of stability drivers (ecological or economic) and indicators of management outcomes.
+This would allow consideration of how management reacts to unstable drivers, and whether the
+reaction is effective in producing stability in outcomes. 
+
+---
+##  Are presenting forecast information as probabilities of deviating from historical average a useful format for the Council? Are there other reference points or “events” that could be used instead of historical averages?
+
+The SSC agrees that the current presentation based on deviation from
+historical averages is a reasonable first step, and recommends shifting to more
+biologically based and management relevant reference points (e.g. probability of
+exceeding thermal tolerance for managed species) as prioritized by the Council.
+
+--
+
+Examples:  
+
+*  Probabilities of exceeding thermal thresholds known to affect recruitment, growth, survival, spawning success, or habitat suitability for managed species; 
+*  Probabilities of cold pool persistence or collapse; probabilities of unusually early ordelayed seasonal warming or cooling; 
+*  Probabilities of hypoxia, marine heatwaves, or other ecosystem events known to influence fisheries; 
+*  Probabilities of significant distribution shifts affecting stock availability, survey catchability, or fishing operations; and 
+*  Probabilities of environmental conditions associated with poor or strong recruitment for key managed species. 
+
+---
+##  How should uncertainty be discussed alongside observations? 
+
+The SSC requires that uncertainty in ocean model forecasts be characterized
+and communicated clearly, consistently, and transparently. Maintaining resources to
+conduct uncertainty analyses across multiple ocean model outputs is a high priority for
+ensuring the forecasts can be used by managers.
+
+--
+
+* Forecasts should be presented as estimates of risk rather than deterministic
+predictions. 
+
+* Language standardized by the IPCC may be useful in communicating forecast
+uncertainty consistently in the SOE. 
+
+* The SSC strongly recommends evaluating and communicating forecast skill by comparing
+previous forecasts with observed conditions. 
+
+---
+##  Are there any research questions or Council decisions that forecast information could assist?
+
+The SSC recommends developing a Forecast Applications table linking
+available forecast products to management decisions to facilitate prioritization. Current
+ESPs provide vetted ocean indicators at the stock level that could be aligned with ocean
+model forecasts products as an initial step.
+
+--
+
+* The table would link each forecast variable (e.g., bottom temperature, cold pool extent, stratification, marine heatwaves) to the species, ecosystem processes, and management decisions it may influence. 
+
+* This would help Council members understand not only what is forecast, but why it matters for fisheries
+management. 
+
+* Such a framework would also provide a roadmap for future integration of forecast
+products into ecosystem risk assessments and Management Strategy Evaluation.
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size: 20%, 100%
+background-position: 7% 95%, right
+
+.center[
+# Please comment on the document, thanks!
+]
+
+.pull-left-70[]
+.pull-right-30[
+.footnote[
+.right[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+]
+]
