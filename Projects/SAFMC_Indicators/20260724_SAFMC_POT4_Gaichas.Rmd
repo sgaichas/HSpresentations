@@ -798,6 +798,20 @@ Source: https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/coo
 ---
 ## Multispecies MSE
 
+SAFMC has considerable experience with MSEs. 
+
+Testing multispecies reference points and management of stock complexes requires a multispecies model. SAFMC has one!
+
+.pull-left[
+![:img pMSE overview, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/pMSEhydra.png)
+]
+.pull-right[
+![:img pMSE multispecies options, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Fayetal_pMSEms_alts.png)
+]
+
+.footnote[
+A range of stock complex level assessments and management measures were simulation tested in New England in a [prototpye MSE project](https://d23h0vhsm26o6d.cloudfront.net/pMSE-Final-Report2.pdf)
+]
 ---
 ## Multispecies MSE
 
