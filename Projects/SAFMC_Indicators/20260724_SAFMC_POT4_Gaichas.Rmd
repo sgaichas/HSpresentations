@@ -867,9 +867,26 @@ Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-
 
 
 ---
+background-image: url("https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Framework.png")
+background-size: 400px
+background-position: left 5px center
+
 ## Example Pathways for Action: Mid Atlantic
 
+.pull-left-30[
+Mid-Atlantic EAFM framework from [2019 EAFM Policy Document](https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/5c87d446fa0d606c22e7e845/1552405575156/EAFM+Doc+Revised+2019-02-08.pdf):
 
+]
+
+.pull-right-70[
+![:img Brandons implementation slide, 100%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MuffleyEAFMImplementation.png)
+]
+
+MAFMC updates the Risk Assessment every year, and recently reviewed, updated, and added risk elements and indicators. The MSE resulted in multiple options for improving angler welfare without changing stock status, as well as a multispecies recreational demand model now used to set recreational fishery specifications.
+
+.footnote[
+See [Gaichas et al. 2016](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2016.00105/full), [Muffley et al. 2021](https://www.tandfonline.com/doi/full/10.1080/08920753.2021.1846156); Implementation slide courtesy Brandon Muffley
+]
 ---
 ## Example Pathways for Action: South Atlantic
 
