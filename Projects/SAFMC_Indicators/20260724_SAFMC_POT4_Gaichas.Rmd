@@ -865,6 +865,25 @@ Sources: [Pacific FEP](https://www.pcouncil.org/documents/2022/04/pacific-coast-
 ---
 ## Example Pathways for Action: Pacific
 
+The Pacific Council FEP specifies goals and objectives as well as “ecosystem initiatives” that focus on priority actions. The Council annually reviews and updates its list of potential actions.
+
+.pull-left-70[
+* FEP Initiative 1 prohibited directed fishing on currently unexploited, unmanaged forage fish in the region  
+* FEP Initiative 2 reviewed the ESR and made recommendations to better inform the Council of both ecosystem processes and the potential use of this information in management
+* FEP Initiative 3 evaluated potential impacts of climate change and identified ways to improve flexibility and responsiveness of management
+* FEP Initiative 4 Ecosystem and Climate Information for Species, Fisheries, and FMPs, is developing the risk-based framework for use in the Council’s catch specification process
+
+]
+
+.pull-right-30[
+![:img Pac Council Groundfish process](https://github.com/sgaichas/SAFMCindicators/raw/main/docs/images/PFMC_WheelOfTimeFEP4.png)
+]
+
+Initiative 4 developed conceptual models of catch specification processes under the Coastal Pelagics, Groundfish, and Salmon FMPs, highlighting the timing of each step in the process and specific points where ecosystem information could be brought in. The structured process for developing the stock assessment risk table has enhanced communication between ecosystem and assessment scientists, and is highlighted as a key success of FEP Initiative 4. 
+
+
+???
+PFMC’s first FEP Initiative resulted in regulatory change after evaluating data and ecosystem science related to forage species. Initiatives 2 and 3 were more procedural in nature, while the current initiative 4 focuses on developing more operational uses of ecosystem information in the catch specification process.
 
 ---
 background-image: url("https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Framework.png")
@@ -888,7 +907,9 @@ MAFMC updates the Risk Assessment every year, and recently reviewed, updated, an
 See [Gaichas et al. 2016](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2016.00105/full), [Muffley et al. 2021](https://www.tandfonline.com/doi/full/10.1080/08920753.2021.1846156); Implementation slide courtesy Brandon Muffley
 ]
 ---
-## Example Pathways for Action: South Atlantic
+## Example Pathways for Action: South Atlantic ??
+
+
 
 
 ---
