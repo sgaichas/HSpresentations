@@ -798,9 +798,7 @@ Source: https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/coo
 ---
 ## Multispecies MSE
 
-SAFMC has considerable experience with MSEs. 
-
-Testing multispecies reference points and management of stock complexes requires a multispecies model. SAFMC has one!
+A range of stock complex level assessments and management measures were recently simulation tested in New England in a [prototpye MSE project](https://d23h0vhsm26o6d.cloudfront.net/pMSE-Final-Report2.pdf)
 
 .pull-left[
 ![:img pMSE overview, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/pMSEhydra.png)
@@ -809,11 +807,24 @@ Testing multispecies reference points and management of stock complexes requires
 ![:img pMSE multispecies options, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Fayetal_pMSEms_alts.png)
 ]
 
-.footnote[
-A range of stock complex level assessments and management measures were simulation tested in New England in a [prototpye MSE project](https://d23h0vhsm26o6d.cloudfront.net/pMSE-Final-Report2.pdf)
-]
+The SAFMC food web model can be used to evaluate multispecies reference points and management procedures for stock complexes using the [Rpath](https://noaa-edab.github.io/Rpath/articles/Rpath.html) framework. 
+
 ---
 ## Multispecies MSE
+
+Multiple objectives can be compared between current single species approaches and management of stock complexes. SAFMC can shape analysis using similar approaches for stakeholder involvement as in current MSEs, but with less need to devote resources to operating model development.
+
+In the New England example, stock complex management resulted in higher catch and lower underutlized quota with similar variability in catch and species status. 
+
+![:img pMSE results, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Fayetal_pMSE_keytakeaways.png)
+
+.center[
+Different starting scenarios: <span style="color: red;">High Biomass</span>, <span style="color: olive;">High Predators</span>, <span style="color: limegreen;">High Prey</span>, <span style="color: dodgerblue;">Low Biomass</span>, <span style="color: magenta;">Price-based F</span>
+]
+
+.footnote[
+New England pMSE [report](https://d23h0vhsm26o6d.cloudfront.net/2b_pMSE-Final-Report2.pdf) and [presentation](https://d23h0vhsm26o6d.cloudfront.net/2a_pMSE-summary-presentation.pdf)
+]
 
 ---
 background-image: url("https://ars.els-cdn.com/content/image/1-s2.0-S0308597X17306954-gr1_lrg.jpg")
