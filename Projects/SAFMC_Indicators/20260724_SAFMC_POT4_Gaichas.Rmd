@@ -909,8 +909,41 @@ See [Gaichas et al. 2016](https://www.frontiersin.org/journals/marine-science/ar
 ---
 ## Example Pathways for Action: South Atlantic ??
 
+.pull-left[
+.ltgreenbox[
+1\. Outline a decision process for SAFMC
+   + Adapt a current SAFMC decision process, another Council's or Levin et al 2018 template and modify
+   + Build in iterative co-production and risk based methods
+   + Integrate Citizen Science program
+]
 
 
+.ltbluebox[
+2\. Develop a list of potential action items
+   + Review cross-FMP issues and concerns?
+   + Review 2021 ESR to prioritize indicators for annual reporting?
+   + Develop assessment ecosystem ToRs?
+   + Develop ecosystem objectives (in progress)?
+   + ... other items from this menu
+]
+]
+
+.pull-right[
+.ltpurplebox[
+3\. Prioritize an action item and apply the decision process 
+   + Something that needs to be done anyway?
+   + Something that is a high priority for stakeholders?
+   + Something that is easy?
+   + Something that is difficult?
+   + ... 
+   
+4\. Revisit the list of action items regularly 
+ 
+   
+5\. Review FEP process periodically and adjust 
+ 
+]
+]
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
