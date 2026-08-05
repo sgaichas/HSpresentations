@@ -1,0 +1,136 @@
+---
+title: "SSC Butterfish Report"
+subtitle: "MAFMC Meeting<br />August 2026<br /><br /><br /><br /><br /><br /><br />"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      titleSlideClass: ["right", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+library(nomnoml)
+```
+
+```{css slide-number-off}
+.remark-slide-number {
+  display: none;
+}
+```
+
+
+## Summary Butterfish Recommendations from the SSC
+
+1) No new assessment; a data update and short term catch projections were provided
+
+2) The SSC recommends carrying over the 2026 ABC of 13,842 mt and basing the ABC 2027-2029 on the 2026 ABC, reducing ABC by 2% for each year since the previous ABC was approved. This 2% reduction, based on simulation studies, accounts for increasing uncertainty as time since the previous assessment increases.
+
+```{r ABCtab}
+
+ABCtab <- data.frame(Year = c(2027, 2028, 2029),
+                     ABC = c(13565, 13294, 13028))
+
+flextable::flextable(ABCtab) |>
+  flextable::colformat_double(j="Year", big.mark = "", digits = 0) |>
+  flextable::set_header_labels(ABC = "ABC (mt)") |>
+  flextable::fontsize(size = 18, part = "all") |>
+  flextable::width(width = c(0.6,1.5))
+```
+
+
+3) The SSC expects to have interim metrics of catch and survey abundances, including the fall NMFS survey and NEAMAP, in future years to determine if the current ABC specification continues to apply
+
+
+---
+## SSC Rationale
+
+The SSC considered three options for setting specifications:
+
+1. using the current OFL estimate from the 2024 assessment, updated with projections of recent catch; 
+
+2. continuing the 2026 specification for the next three years with a 2% adjustment, but not accepting the OFL and the projections; and 
+
+3. using a modified index-based method (iSlope) to adjust ABC without specifying an OFL.
+
+The SSC found that the short life history of Butterfish raised concerns about the validity of using multi-year projections based on the existing OFL (option 1). Equally, the SSC expressed similar concerns over whether a five-year trend in abundance indices is relevant for this stock. 
+
+**Accordingly, the SSC justified extending the 2026 ABC (option 2) as the foundation for providing a specification.**
+
+---
+##  Sources of Uncertainty
+
+**The absence of an updated stock assessment is an important source of uncertainty in specifying the ABC. This is particularly consequential for the management of a short-lived species, for which stock conditions may change rapidly.**
+
+--
+
+In addition, the SSC notes that 
+
+*  There are multiple missing or incomplete survey indices, including: NEFSC Bigelow (2017 fall; 2020 spring, fall; 2023 spring) and NEAMAP (2017 spring, 2020 spring) 
+*  In the early part of the catch time-series, during a period when discards were high, estimated precision of discards was poor 
+*  The assessment model is not able to resolve the scale of the population without relying on a strong prior of $q=0.2$ for the spring Albatross survey 
+*  M is uncertain (estimated conditional on q which is fixed) and highly influential, especially given the definition of the $F_{MSY}$ proxy used by the SSC as $\frac{2}{3}M$ 
+*  The choice of the $F_{MSY}$ proxy reference point 
+*  The fundamental limitations of assessing a stock which appears to have been lightly exploited in recent decades 
+
+
+
+---
+##  Research Recommendations
+
+**The SSC highlights the importance of consistent, regular survey information for this species.**
+
+--
+
+Research recommendations (not ranked):  
+
+*  Continued investigation of sources of predation mortality. 
+*  Research into survey catchability is a high priority. 
+*  Explore the role of temperature in affecting the distribution of the stock and its availability to survey gear, including spatial habitat models. 
+*  Examine shorter (sub-annual) model time steps. 
+*  Evaluate maturity methods, impact on maturity ogive, and estimated reference points. 
+*  Continue monitoring of and consider alternative ways to calculate discards. 
+*  Evaluate adequacy of port sampling to support continued assessments (is full age structure sampled?). 
+*  Evaluate methods for developing age length keys to avoid pooling. 
+*  Further investigation into methods used to identify recruitment stanzas. 
+*  Ecosystem considerations - Consider the ecosystem role of butterfish as a forage species. 
+
+---
+## ABC control rule recommendations
+
+Explore generalized simulation testing of the performance of iSlope-like methods, which was considered but not adopted for the 2027-2029 ABC specification for butterfish, with particular attention to:  
+
+*  The inclusion of multiple indices, including criteria for which indices to include
+*  The length of the period used to estimate the slope
+*  The methods used to estimate the slope
+*  The parameters for the control rule
