@@ -50,7 +50,7 @@ library(nomnoml)
 ```
 
 
-## Summary Butterfish Recommendations from the SSC
+# Summary Butterfish Recommendations from the SSC
 
 1) No new assessment; a data update and short term catch projections were provided
 
@@ -74,7 +74,7 @@ flextable::flextable(ABCtab) |>
 
 
 ---
-## SSC Rationale
+# SSC Rationale
 
 The SSC considered three options for setting specifications:
 
@@ -89,7 +89,7 @@ The SSC found that the short life history of Butterfish raised concerns about th
 <span style="color: blue;">**Accordingly, the SSC justified extending the 2026 ABC (option 2) as the foundation for providing a specification.**</span> 
 
 ---
-##  Sources of Uncertainty
+#  Sources of Uncertainty
 
 <span style="color: blue;">**The absence of an updated stock assessment is an important source of uncertainty in specifying the ABC. This is particularly consequential for the management of a short-lived species, for which stock conditions may change rapidly.**</span> 
 
@@ -107,7 +107,7 @@ In addition, the SSC notes that
 
 
 ---
-##  Research Recommendations
+#  Research Recommendations
 
 <span style="color: blue;">**The SSC highlights the importance of consistent, regular survey information for this species.**</span> 
 
@@ -127,7 +127,7 @@ Research recommendations (not ranked):
 *  Ecosystem considerations - Consider the ecosystem role of butterfish as a forage species. 
 
 ---
-## ABC control rule recommendations
+# ABC control rule recommendations
 
 Explore generalized simulation testing of the performance of iSlope-like methods, which was considered but not adopted for the 2027-2029 ABC specification for butterfish, with particular attention to:  
 
