@@ -65,6 +65,7 @@ flextable::flextable(ABCtab) |>
   flextable::colformat_double(j="Year", big.mark = "", digits = 0) |>
   flextable::set_header_labels(ABC = "ABC (mt)") |>
   flextable::fontsize(size = 18, part = "all") |>
+  flextable::color(color = "blue", part = "all") |>
   flextable::width(width = c(0.6,1.5))
 ```
 
@@ -85,12 +86,12 @@ The SSC considered three options for setting specifications:
 
 The SSC found that the short life history of Butterfish raised concerns about the validity of using multi-year projections based on the existing OFL (option 1). Equally, the SSC expressed similar concerns over whether a five-year trend in abundance indices is relevant for this stock. 
 
-**Accordingly, the SSC justified extending the 2026 ABC (option 2) as the foundation for providing a specification.**
+<span style="color: blue;">**Accordingly, the SSC justified extending the 2026 ABC (option 2) as the foundation for providing a specification.**</span> 
 
 ---
 ##  Sources of Uncertainty
 
-**The absence of an updated stock assessment is an important source of uncertainty in specifying the ABC. This is particularly consequential for the management of a short-lived species, for which stock conditions may change rapidly.**
+<span style="color: blue;">**The absence of an updated stock assessment is an important source of uncertainty in specifying the ABC. This is particularly consequential for the management of a short-lived species, for which stock conditions may change rapidly.**</span> 
 
 --
 
@@ -108,7 +109,7 @@ In addition, the SSC notes that
 ---
 ##  Research Recommendations
 
-**The SSC highlights the importance of consistent, regular survey information for this species.**
+<span style="color: blue;">**The SSC highlights the importance of consistent, regular survey information for this species.**</span> 
 
 --
 
