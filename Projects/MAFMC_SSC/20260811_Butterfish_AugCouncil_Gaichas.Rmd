@@ -100,7 +100,7 @@ In addition, the SSC notes that
 *  There are multiple missing or incomplete survey indices, including: NEFSC Bigelow (2017 fall; 2020 spring, fall; 2023 spring) and NEAMAP (2017 spring, 2020 spring) 
 *  In the early part of the catch time-series, during a period when discards were high, estimated precision of discards was poor 
 *  The assessment model is not able to resolve the scale of the population without relying on a strong prior of $q=0.2$ for the spring Albatross survey 
-*  M is uncertain (estimated conditional on q which is fixed) and highly influential, especially given the definition of the $F_{MSY}$ proxy used by the SSC as $\frac{2}{3}M$ 
+*  $M$ is uncertain (estimated conditional on $q$ which is fixed) and highly influential, especially given the definition of the $F_{MSY}$ proxy used by the SSC as $\frac{2}{3}M$ 
 *  The choice of the $F_{MSY}$ proxy reference point 
 *  The fundamental limitations of assessing a stock which appears to have been lightly exploited in recent decades 
 
