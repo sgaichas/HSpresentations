@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Examples of F Buffers</title>
+    <title>Examples of F Buffers and practical applications</title>
     <meta charset="utf-8" />
     <meta name="author" content=" Sarah Gaichas, ACOM Vice Chair" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
+    <script src="libs/tabwid/tabwid.js"></script>
     <link rel="stylesheet" href="libs/HS_theme3_508_16by9.css" type="text/css" />
   </head>
   <body>
@@ -13,7 +17,7 @@
 class: right, bottom, my-title, title-slide
 
 .title[
-# Examples of F Buffers
+# Examples of F Buffers and practical applications
 ]
 .subtitle[
 ## ICES ACOM, 25 August 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -43,7 +47,7 @@ https://www.fisheries.noaa.gov/topic/laws-policies#magnuson-stevens-act
 ---
 ## Main requirements  &lt;a name=cite-dicosimo_use_2010&gt;&lt;/a&gt;&lt;a name=cite-methot_implementing_2014&gt;&lt;/a&gt;([DiCosimo et al., 2010](https://academic.oup.com/icesjms/article/67/9/1861/619696); [Methot et al., 2014](https://academic.oup.com/icesjms/article/71/2/183/781079))
 .pull-left-40[
-Managers are [required](https://www.ecfr.gov/current/title-50/section-600.310) by [law](https://www.fisheries.noaa.gov/s3//dam-migration/msa-amended-2007.pdf) to take action that avoids:  
+Managers are [required](https://www.ecfr.gov/current/title-50/section-600.310) by [law](https://www.fisheries.noaa.gov/s3//dam-migration/msa-amended-2007.pdf) to take action that avoids or ends:  
 
 Overfishing
 - *too much fishing mortality*
@@ -64,7 +68,7 @@ Overfished status &amp;rarr; Rebuilding Plan
 .center[Mid-Atlantic Fishery Management Council stock status]
 ]
 
-&lt;p style="color:#FF8C00;"&gt;*&lt;i&gt;under prevailing ecological, environmental conditions and fishery technological characteristics (e.g., gear selectivity), and the distribution of catch among fleets.&lt;/i&gt;&lt;/p&gt;
+&lt;p style="color:#FF8C00;"&gt;*&lt;i&gt;MSY defined under prevailing ecological, environmental conditions and fishery technological characteristics (e.g., gear selectivity), and the distribution of catch among fleets.&lt;/i&gt;&lt;/p&gt;
 
 
 ---
@@ -98,15 +102,75 @@ typically `\(F_{MSY}\)`
 ## Two general approaches
 
 .pull-left[
-### Prescribed `\(F_{ABC}\)`
+### Prescribed `\(F_{ABC}\)` or ABC
+
+New England: by FMP
+*  Groundfish: constant 75% of `\(F_{MSY}\)`
+*  Hakes: 25th-40th %ile of OFL posterior
+*  Herring: ramped, max 80% of `\(F_{MSY}\)`
+*  Monkfish: avg exploitation rate for certain years
+*  Skates: empirical catch/survey rule
+*  Red crab: constant catch 2000 t
+*  Sea scallop: `\(F_{ABC}\)` has 25% probability of exceeding `\(F_{MSY}\)`
+
+North Pacific Groundfish data tiers
+*  Data rich: harmonic mean of `\(F_{MSY}\)` posterior
+*  Data moderate: `\(F_{40\%}\)` (`\(F_{MSY}\)` proxy is `\(F_{35\%}\)`)
+*  Data poor: 75% of `\(F_{MSY}\)` 
+*  Catch only: 75% of 1978-1995 average
+
 
 ]
 
 .pull-right[
 ### Risk/Uncertainty Framework
 
+Control rules are based on stated risk policy with stock biomass status as an indicator. Risk policies specify lower probabilities of overfishing below `\(B_{MSY}\)`. Buffers  derived from criteria applied by stock
+
+Mid-Atlantic
+*  OFL CV process 
+
+South Atlantic (3 FMPs)
+*  Risk Assessment process 
+
+Pacific 
+*  Prototype risk table process
+
+
+
 ]
 
+???
+Pacific
+*  
+
+Western Pacific
+*  SEEM process
+
+---
+## Tradeoffs of the two approaches
+
+.pull-left[
+### Prescribed `\(F_{ABC}\)`
+
+*  Simple and streamlined to implement
+*  Can't account for changing conditions or stock specific risks
+*  Finding a buffer that works across many situations is difficult
+]
+
+.pull-right[
+### Risk/Uncertainty Framework
+
+*  Can account for changing conditions or stock specific risks
+*  More complex implementation, consider each stock separately
+*  Requires a process for consistent decision making
+]
+
+In the US system it is the responsibility of the Scientific and Statistical Committee of each Council to determine the ABC, so where it is not prescribed the SSC process determines the F buffer. 
+
+In ICES it would be... ACOM?
+
+Stock assessors often provide the prescribed ABCs, or do multiple projections to provide the range of options under the risk/uncertainty framework.
 
 ---
 ## Acceptable Biological Catch (ABC) determination: Mid Atlantic approach
@@ -129,7 +193,265 @@ typically `\(F_{MSY}\)`
 See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
 ]
 
+---
+## How to get the OFL CV? Characterizing scientific uncertainty in the Mid-Atlantic
 
+.pull-left-30[
+**Scientific and Statistical Committee (SSC) evaluates 6 criteria with metrics that point to either default, low, or high uncertainty in the OFL**
+
+1. Data quality
+1. Model appropriateness and identification 
+1. Retrospective analysis
+1. Empirical comparisons
+1. Ecosystem factors 
+1. Recruitment trends
+
+An overall CV value for the OFL should be no *lower* than the value of the lowest CV value assigned for any of the first three criteria.
+]
+
+.pull-right-70[
+**1. Data quality (Tier 1)**  
+.table[
+*  Important fishery-independent data considerations include survey design, coverage
+(of the unit stock area), and efficiency of survey gear;
+    +  60% CV in simulation studies was achieved when survey indices were
+accurate. In the real world, important considerations for achieving this
+criterion is that the survey coverage matches the stock’s range in time and
+space;
+    +  Missing temporal and spatial survey coverage in areas important to a species
+increases uncertainty;
+*  Fishery-dependent considerations include accuracy and precision of landings and
+discards;
+    +  60% CV in simulations occurs when fishery catch is known with low
+uncertainty, e.g., &lt;10%
+    +  For some species, data quality (e.g., predominance of recreational catch)
+often leads to inherently higher uncertainty that cannot be overcome by low
+uncertainty in other criteria listed below;
+    +  Need informative data to conduct a stock assessment: the fishery needs to have a measurable effect on the population
+for typical stock assessments to perform well;
+*  Availability of age and/or length data for fishery-independent and dependent
+sources; validity of underlying assumptions and any potential data borrowing (i.e.,
+gap filling);
+    +  60% CV in simulations was achieved when age data are accurate and highly
+precise (i.e., no aging error and a random sample from the catch or survey);
+*  Data in support of key model parameters;
+    +  60% CV in simulations has M specified at the correct value and relies on
+appropriate models for catchability and selectivity. 
+]
+]
+
+.footnote[
+See [MAFMC SSC OFL CV Guidance Document](https://www.mafmc.org/s/Final-OFL-CV-guidance-document_06_24.pdf)
+]
+
+---
+##  Characterizing scientific uncertainty (Tier 1)
+
+&lt;table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Decsion Criteria &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 60% &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 100% &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 150% &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Data quality &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; One or more synoptic surveys of the whole stock area for multiple years. High quality monitoring of landings and size and age composition. Long term, precise monitoring of discards. Landings estimates highly accurate. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Low precision synoptic surveys or one or more regional surveys which lack coherency in trend. Age and/or length data available with uncertain quality. Lacking or imprecise discard estimates. Moderate accuracy of landings estimates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No reliable abundance indices. Catch estimates are unreliable. No age and/or length data available or highly uncertain. Natural mortality rates are unknown or suspected to be highly variable. Incomplete or highly uncertain landings estimates &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Model appropriateness and identification process &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Multiple differently structured models agree on outputs; many sensitivities explored. Model appropriately captures/considers species life history and spatial/stock structure. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Single model structure with many parameter sensitivities explored. Moderate agreement among different model runs indicating low sensitivities of model results to specific parameterization. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Highly divergent outputs from multiple models without indication of which scenario is most likely or no exploration of alternative model structures or sensitivities. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Retrospective analysis &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Minor retrospective patterns. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Moderate retrospective patterns. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No retrospective analysis or severe retrospective patterns (e.g., terminal year values adjusted and outside confidence region). &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+##  Characterizing scientific uncertainty (Ecosystem)
+
+&lt;table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Decsion Criteria &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 60% &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 100% &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Default OFL CV = 150% &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ecosystem factors accounted &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assessment considers habitat
+and ecosystem effects on stock
+productivity, distribution,
+mortality and quantitatively
+includes appropriate factors
+reducing uncertainty in short
+term predictions.
+And/or evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are stable or
+accountable.
+And/or ecosystem events
+affecting stock in the short term
+are absent.
+And/or comparable species in
+the region have synchronous
+production characteristics and
+stable short-term predictions.
+And/or climate vulnerability
+analysis suggests low risk of
+change in productivity due to
+changing climate. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assessment considers
+habitat/ecosystem factors but
+does not demonstrate either
+reduced or inflated short-term
+prediction uncertainty based
+on these factors.
+And/or evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are variable.
+And/or acute ecosystem
+events are likely to have a low
+to moderate risk of affecting
+the stock in the short term.
+And/or mixed productivity and
+uncertainty signals among
+comparable species in the
+region.
+And/or climate vulnerability
+analysis suggests moderate
+risk of change in productivity
+from changing climate. &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assessment either
+demonstrates that including
+appropriate ecosystem/habitat
+factors increases short-term
+prediction uncertainty, or does
+not consider habitat and
+ecosystem factors. And/or
+evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are variable
+and degrading.
+And/or acute ecosystem
+events are likely to have a high
+risk of affecting the stock in
+the short term.
+And/or comparable species in
+the region have high
+uncertainty in short term
+predictions.
+And/or climate vulnerability
+analysis suggests high risk of
+changing productivity from changing climate. &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## South Atlantic [Comprehensive ABC Control Rule](https://safmc.net/documents/abccram_06052023_submittal-pdf/)
+
+.pull-left[
+Dolphin-Wahoo, Golden Crab, Snapper Grouper FMPs
+
+&lt;img src="20260825_Buffers_Gaichas_files/figure-html/ABCSAFMC-1.png" alt="" width="504" /&gt;
+
+]
+
+.pull-right[
+Council reviews SSC and AP advice on risk rating.  
+Council can deviate, up or down, from default P* by up to 10% (not exceeding 0.5).  
+
+Specific attributes that can inform risk of overfishing:
+* Biological:
+    * Estimated natural mortality
+    * Age at maturity
+* Human Dimension:
+    * Ability to regulate fishery
+    * Potential for discard losses
+    * Annual commercial value
+    * Recreational desirability
+    * Social concerns
+* Environmental:
+    * Ecosystem importance--&lt;span style="color: blue;"&gt;Food web indicators&lt;/span&gt; 
+    * Climate change--&lt;span style="color: blue;"&gt;CVA indicators&lt;/span&gt; 
+    * Other environmental variables--&lt;span style="color: blue;"&gt;stock specific indicators&lt;/span&gt; 
+]
+
+---
+.pull-left[
+## South Atlantic Risk Criteria
+
+Scored by stakeholder Advisory Panel, SSC, Council
+
+![SAFMC biological attributes](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCbioattr.png)
+
+![SAFMC ecosystem attributes](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCecoattr.png)
+
+]
+
+.pull-right[
+
+![SAFMC social econ](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCsoceconattr1.png)
+![SAFMC social econ 2](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCsoceconattr2.png)
+]
+
+---
+## Pacific Risk Tables (in testing)
+
+Three Categories: Ecosystem and environmental conditions, Assessment data inputs, Assessment model fits and structural uncertainty
+
+Builds on existing process with prescribed OFL sigmas based on species life history and assessment category determining the Risk Buffer
+
+Evaluates a range of metrics to assign Favorable, Neutral, or Unfavorable Risk Levels for each Category.
+
+Risk ranking is done by the combined assessment and ecosystem team.
+
+The Categories are unweighted but the SSC may weight them to come up with an overall Risk to adjust the sigma and produce the buffer.
+
+Potential Action:  
+Favorable Conditions &amp;rarr; &lt;span style="background-color:#00FF0050;"&gt;Decrease Risk Buffer (Higher Catch Recommendation)&lt;/span&gt;  
+Neutral Conditions &amp;rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &amp;rarr; &lt;span style="background-color:#FF000050;"&gt;Increase Risk Buffer (Lower Catch Recommendation)&lt;/span&gt;
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
+
+---
+## Pacific Risk Tables (in testing)
+
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-fa9368b0{}.cl-fa8fc412{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fa9155d4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fa916862{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916863{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91686c{width:5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91686d{width:6in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91686e{width:1in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91686f{width:2in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916876{width:5in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916877{width:6in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916878{width:1in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916879{width:2in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91687a{width:5in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916880{width:6in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916881{width:1in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa916882{width:2in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91688a{width:5in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fa91688b{width:6in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-fa9368b0'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-fa916862"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Risk Level&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-fa916863"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Ecosystem and Environmental Conditions&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-fa91686c"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Assessment Data Inputs&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-fa91686d"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Assessment Model Fits and Structural Uncertainty&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-fa91686e"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Level 1: Favorable&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa91686f"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Indicators not used in the stock assessment show medium to high level of agreement and moderate to strong evidence supporting high species productivity.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa916876"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Reliable catch reconstruction, informative fishery-independent survey, age and length composition data for landed fish and bycatch for key fleets across a range of years, solid fits to data (with minimal conflicts between data sources), maturity data from samples collected across time and the model area, species-specific fecundity in the California Current Ecosystem&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa916877"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Most productivity parameters across multiple processes (recruitment, natural mortality, growth) are estimated internally, minimal evidence for temporally and/or spatially varying biology (or non-stationarity is accounted for in the model), sensitivity model runs are within the estimated parametric uncertainty, sensitivities are symmetric around the base model, no long-term trends in recruitment (or these trends are captured in the forecast), steep likelihood profiles and stable jitters indicating parameters are well-estimated, minimal evidence of retrospective bias&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-fa916878"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Level 2: Neutral&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa916879"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Majority of indicators show no notable trends and/or no apparent environmental and ecosystem concerns.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa91687a"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Historical catches with moderate uncertainty, but reliable catches over the last 4+ decades; age and length composition data covering landed catch for fleets that account for the majority of removals, may be some gaps in time and/or for bycatch; species-specific maturity; fecundity may be based across species or regions&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa916880"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Moderate fits to data, multiple productivity parameters (recruitment, natural mortality, growth) are estimated internally, possible weak-moderate evidence for temporally and/or spatially varying biology not captured by model, weak-moderate long-term trends in recruitment not captured in the forecast, likelihood profiles and stable jitters indicate most parameters are well-estimated, some possible evidence of retrospective bias&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-fa916881"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Level 3: Unfavorable&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa916882"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Majority of indicators show medium to high level of agreement and moderate to strong evidence supporting low species productivity&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa91688a"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Uncertain catch reconstructions both historically and more recently; limited age composition data; maturity and fecundity based on other species and/or regions&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-fa91688b"&gt;&lt;p class="cl-fa9155d4"&gt;&lt;span class="cl-fa8fc412"&gt;Some problematic fits to data, most productivity parameters (recruitment, natural mortality, growth) are fixed or estimated externally, although recruitment deviations are estimable for some portion of the time series, they are only weakly informed by composition data; evidence for temporally and/or spatially varying biology not captured by model, long-term trends in recruitment not captured in the forecast, likelihood profiles and stable jitters indicate difficulty estimating parameters and a generally flat likelihood surface, evidence of retrospective bias&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+Potential Action:  
+Favorable Conditions &amp;rarr; &lt;span style="background-color:#00FF0050;"&gt;Decrease Risk Buffer (Higher Catch Recommendation)&lt;/span&gt;  
+Neutral Conditions &amp;rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &amp;rarr; &lt;span style="background-color:#FF000050;"&gt;Increase Risk Buffer (Lower Catch Recommendation)&lt;/span&gt;
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
+
+---
+
+![Sablefish risk table](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SablefishRiskTable2025.png)
 ---
 ## References
 
@@ -175,6 +497,8 @@ URL:
 
 * [2023 Stock Status Table](https://www.fisheries.noaa.gov/s3/2024-05/2023-SOS-FSSIand-nonFSSIstockStatusTables-1-.pdf)
 
+* [Sablefish 2025 Assessment](https://www.pcouncil.org/documents/2026/02/status-of-the-sablefish-off-the-u-s-west-coast-in-2025.pdf/)
+
 .footnote[
 Slides available at https://sgaichas.github.io/HSpresentations/  
 Contact: &lt;sarah.gaichas@ices.dk&gt;
@@ -187,23 +511,6 @@ class: middle
 .center[
 # Extra
 ]
-
----
-## Where can precaution increased or reduced? ([Free et al., 2023](https://onlinelibrary.wiley.com/doi/abs/10.1111/faf.12724)) Fig. 6
-
-US Councils work primarily with F buffers, but Free et al. 2023 summarize the other ways that control rules can have increased or decreased precaution in the biomass reference points.
-
-&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-
-.center[
-![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
-]
-
-
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
-background-size: 1100px
 
 ---
 class: top, left
@@ -250,6 +557,22 @@ National standards
 
 &gt;(B) If environmental, ecosystem, or habitat changes affect the long-term reproductive potential of the stock or stock complex, one or more components of the SDC must be respecified. Once SDC have been respecified, fishing mortality may or may not have to be reduced, depending on the status of the stock or stock complex with respect to the new criteria.
 
+---
+## Where can precaution increased or reduced? ([Free et al., 2023](https://onlinelibrary.wiley.com/doi/abs/10.1111/faf.12724)) Fig. 6
+
+US Councils work primarily with F buffers, but Free et al. 2023 summarize the other ways that control rules can have increased or decreased precaution in the biomass reference points.
+
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+
+.center[
+![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
+]
+
+
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
+background-size: 1100px
 
 
     </textarea>

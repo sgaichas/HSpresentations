@@ -1,5 +1,5 @@
 ---
-title: "Examples of F Buffers"
+title: "Examples of F Buffers and practical applications"
 subtitle: "ICES ACOM, 25 August 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
 author: "<br />Sarah Gaichas, ACOM Vice Chair"
 output:
@@ -63,7 +63,7 @@ https://www.fisheries.noaa.gov/topic/laws-policies#magnuson-stevens-act
 ---
 ## Main requirements  `r Citep(myBib, "dicosimo_use_2010", "methot_implementing_2014")`
 .pull-left-40[
-Managers are [required](https://www.ecfr.gov/current/title-50/section-600.310) by [law](https://www.fisheries.noaa.gov/s3//dam-migration/msa-amended-2007.pdf) to take action that avoids:  
+Managers are [required](https://www.ecfr.gov/current/title-50/section-600.310) by [law](https://www.fisheries.noaa.gov/s3//dam-migration/msa-amended-2007.pdf) to take action that avoids or ends:  
 
 Overfishing
 - *too much fishing mortality*
@@ -98,7 +98,7 @@ a$p + ggplot2::coord_cartesian(xlim=c(0,3.5)) +
 .center[Mid-Atlantic Fishery Management Council stock status]
 ]
 
-<p style="color:#FF8C00;">*<i>under prevailing ecological, environmental conditions and fishery technological characteristics (e.g., gear selectivity), and the distribution of catch among fleets.</i></p>
+<p style="color:#FF8C00;">*<i>MSY defined under prevailing ecological, environmental conditions and fishery technological characteristics (e.g., gear selectivity), and the distribution of catch among fleets.</i></p>
 
 
 ---
@@ -132,15 +132,75 @@ typically $F_{MSY}$
 ## Two general approaches
 
 .pull-left[
-### Prescribed $F_{ABC}$
+### Prescribed $F_{ABC}$ or ABC
+
+New England: by FMP
+*  Groundfish: constant 75% of $F_{MSY}$
+*  Hakes: 25th-40th %ile of OFL posterior
+*  Herring: ramped, max 80% of $F_{MSY}$
+*  Monkfish: avg exploitation rate for certain years
+*  Skates: empirical catch/survey rule
+*  Red crab: constant catch 2000 t
+*  Sea scallop: $F_{ABC}$ has 25% probability of exceeding $F_{MSY}$
+
+North Pacific Groundfish data tiers
+*  Data rich: harmonic mean of $F_{MSY}$ posterior
+*  Data moderate: $F_{40\%}$ ($F_{MSY}$ proxy is $F_{35\%}$)
+*  Data poor: 75% of $F_{MSY}$ 
+*  Catch only: 75% of 1978-1995 average
+
 
 ]
 
 .pull-right[
 ### Risk/Uncertainty Framework
 
+Control rules are based on stated risk policy with stock biomass status as an indicator. Risk policies specify lower probabilities of overfishing below $B_{MSY}$. Buffers  derived from criteria applied by stock
+
+Mid-Atlantic
+*  OFL CV process 
+
+South Atlantic (3 FMPs)
+*  Risk Assessment process 
+
+Pacific 
+*  Prototype risk table process
+
+
+
 ]
 
+???
+Pacific
+*  
+
+Western Pacific
+*  SEEM process
+
+---
+## Tradeoffs of the two approaches
+
+.pull-left[
+### Prescribed $F_{ABC}$
+
+*  Simple and streamlined to implement
+*  Can't account for changing conditions or stock specific risks
+*  Finding a buffer that works across many situations is difficult
+]
+
+.pull-right[
+### Risk/Uncertainty Framework
+
+*  Can account for changing conditions or stock specific risks
+*  More complex implementation, consider each stock separately
+*  Requires a process for consistent decision making
+]
+
+In the US system it is the responsibility of the Scientific and Statistical Committee of each Council to determine the ABC, so where it is not prescribed the SSC process determines the F buffer. 
+
+In ICES it would be... ACOM?
+
+Stock assessors often provide the prescribed ABCs, or do multiple projections to provide the range of options under the risk/uncertainty framework.
 
 ---
 ## Acceptable Biological Catch (ABC) determination: Mid Atlantic approach
@@ -206,7 +266,274 @@ print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
 See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
 ]
 
+---
+## How to get the OFL CV? Characterizing scientific uncertainty in the Mid-Atlantic
 
+.pull-left-30[
+**Scientific and Statistical Committee (SSC) evaluates 6 criteria with metrics that point to either default, low, or high uncertainty in the OFL**
+
+1. Data quality
+1. Model appropriateness and identification 
+1. Retrospective analysis
+1. Empirical comparisons
+1. Ecosystem factors 
+1. Recruitment trends
+
+An overall CV value for the OFL should be no *lower* than the value of the lowest CV value assigned for any of the first three criteria.
+]
+
+.pull-right-70[
+**1. Data quality (Tier 1)**  
+.table[
+*  Important fishery-independent data considerations include survey design, coverage
+(of the unit stock area), and efficiency of survey gear;
+    +  60% CV in simulation studies was achieved when survey indices were
+accurate. In the real world, important considerations for achieving this
+criterion is that the survey coverage matches the stock’s range in time and
+space;
+    +  Missing temporal and spatial survey coverage in areas important to a species
+increases uncertainty;
+*  Fishery-dependent considerations include accuracy and precision of landings and
+discards;
+    +  60% CV in simulations occurs when fishery catch is known with low
+uncertainty, e.g., <10%
+    +  For some species, data quality (e.g., predominance of recreational catch)
+often leads to inherently higher uncertainty that cannot be overcome by low
+uncertainty in other criteria listed below;
+    +  Need informative data to conduct a stock assessment: the fishery needs to have a measurable effect on the population
+for typical stock assessments to perform well;
+*  Availability of age and/or length data for fishery-independent and dependent
+sources; validity of underlying assumptions and any potential data borrowing (i.e.,
+gap filling);
+    +  60% CV in simulations was achieved when age data are accurate and highly
+precise (i.e., no aging error and a random sample from the catch or survey);
+*  Data in support of key model parameters;
+    +  60% CV in simulations has M specified at the correct value and relies on
+appropriate models for catchability and selectivity. 
+]
+]
+
+.footnote[
+See [MAFMC SSC OFL CV Guidance Document](https://www.mafmc.org/s/Final-OFL-CV-guidance-document_06_24.pdf)
+]
+
+---
+##  Characterizing scientific uncertainty (Tier 1)
+
+```{r OFLCVtable}
+
+criteria <- data.frame("Decsion Criteria" = c("Data quality", "Model appropriateness and identification process", "Retrospective analysis"),
+                       "Default OFL CV = 60%" = c("One or more synoptic surveys of the whole stock area for multiple years. High quality monitoring of landings and size and age composition. Long term, precise monitoring of discards. Landings estimates highly accurate.", "Multiple differently structured models agree on outputs; many sensitivities explored. Model appropriately captures/considers species life history and spatial/stock structure.", "Minor retrospective patterns."),
+                       "Default OFL CV = 100%" = c("Low precision synoptic surveys or one or more regional surveys which lack coherency in trend. Age and/or length data available with uncertain quality. Lacking or imprecise discard estimates. Moderate accuracy of landings estimates", "Single model structure with many parameter sensitivities explored. Moderate agreement among different model runs indicating low sensitivities of model results to specific parameterization.", "Moderate retrospective patterns."),
+                       "Default OFL CV = 150%" = c("No reliable abundance indices. Catch estimates are unreliable. No age and/or length data available or highly uncertain. Natural mortality rates are unknown or suspected to be highly variable. Incomplete or highly uncertain landings estimates", "Highly divergent outputs from multiple models without indication of which scenario is most likely or no exploration of alternative model structures or sensitivities.", "No retrospective analysis or severe retrospective patterns (e.g., terminal year values adjusted and outside confidence region)."))
+
+kableExtra::kable(criteria, booktabs = TRUE,
+  col.names = c("Decsion Criteria", "Default OFL CV = 60%", "Default OFL CV = 100%", "Default OFL CV = 150%")) |>
+  kableExtra::kable_styling(font_size = 16)
+  
+
+```
+
+---
+##  Characterizing scientific uncertainty (Ecosystem)
+
+```{r OFLCVtable2}
+
+criteria <- data.frame("Decsion Criteria" = c("Ecosystem factors accounted"),
+                       "Default OFL CV = 60%" = c("Assessment considers habitat
+and ecosystem effects on stock
+productivity, distribution,
+mortality and quantitatively
+includes appropriate factors
+reducing uncertainty in short
+term predictions.
+And/or evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are stable or
+accountable.
+And/or ecosystem events
+affecting stock in the short term
+are absent.
+And/or comparable species in
+the region have synchronous
+production characteristics and
+stable short-term predictions.
+And/or climate vulnerability
+analysis suggests low risk of
+change in productivity due to
+changing climate."),
+                       "Default OFL CV = 100%" = c("Assessment considers
+habitat/ecosystem factors but
+does not demonstrate either
+reduced or inflated short-term
+prediction uncertainty based
+on these factors.
+And/or evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are variable.
+And/or acute ecosystem
+events are likely to have a low
+to moderate risk of affecting
+the stock in the short term.
+And/or mixed productivity and
+uncertainty signals among
+comparable species in the
+region.
+And/or climate vulnerability
+analysis suggests moderate
+risk of change in productivity
+from changing climate."),
+                       "Default OFL CV = 150%" = c("Assessment either
+demonstrates that including
+appropriate ecosystem/habitat
+factors increases short-term
+prediction uncertainty, or does
+not consider habitat and
+ecosystem factors. And/or
+evidence outside the
+assessment suggests that
+ecosystem productivity and
+habitat quality are variable
+and degrading.
+And/or acute ecosystem
+events are likely to have a high
+risk of affecting the stock in
+the short term.
+And/or comparable species in
+the region have high
+uncertainty in short term
+predictions.
+And/or climate vulnerability
+analysis suggests high risk of
+changing productivity from changing climate."))
+
+kableExtra::kable(criteria, booktabs = TRUE,
+  col.names = c("Decsion Criteria", "Default OFL CV = 60%", "Default OFL CV = 100%", "Default OFL CV = 150%")) |>
+  kableExtra::kable_styling(font_size = 16)
+  
+
+```
+
+---
+## South Atlantic [Comprehensive ABC Control Rule](https://safmc.net/documents/abccram_06052023_submittal-pdf/)
+
+.pull-left[
+Dolphin-Wahoo, Golden Crab, Snapper Grouper FMPs
+
+```{r ABCSAFMC}
+
+riskpol <- data.frame(Bfrac = c(0, 0.75, 0.7501, 1.0, 1.0001, 2.0),
+                      High = c(0.2, 0.2, 0.30, 0.30, 0.40, 0.40),
+                      Medium = c(0.30, 0.30, 0.40, 0.40, 0.45, 0.45),
+                      Low = c(0.4, 0.4, 0.45, 0.45, 0.45, 0.45)
+)
+
+riskpol <- riskpol |>
+  tidyr::pivot_longer(-Bfrac, names_to = "pstar")
+
+riskpol$pstar <- factor(riskpol$pstar, levels = c("High", "Medium", "Low"))
+
+p1 <- ggplot2::ggplot(riskpol, ggplot2::aes(x=Bfrac, y=value, color = pstar)) +
+  ggplot2::geom_path(show.legend = TRUE) +
+  ggplot2::theme_minimal() +
+  ggplot2::xlab("Bmsy") +
+  theme(axis.text.x = element_blank()) +
+  ggplot2::ylab("p*") +
+  ggplot2::ylim(c(0,0.5)) +
+  ggplot2::labs(color = "Risk")#
+
+print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+
+```
+
+]
+
+.pull-right[
+Council reviews SSC and AP advice on risk rating.  
+Council can deviate, up or down, from default P* by up to 10% (not exceeding 0.5).  
+
+Specific attributes that can inform risk of overfishing:
+* Biological:
+    * Estimated natural mortality
+    * Age at maturity
+* Human Dimension:
+    * Ability to regulate fishery
+    * Potential for discard losses
+    * Annual commercial value
+    * Recreational desirability
+    * Social concerns
+* Environmental:
+    * Ecosystem importance--<span style="color: blue;">Food web indicators</span> 
+    * Climate change--<span style="color: blue;">CVA indicators</span> 
+    * Other environmental variables--<span style="color: blue;">stock specific indicators</span> 
+]
+
+---
+.pull-left[
+## South Atlantic Risk Criteria
+
+Scored by stakeholder Advisory Panel, SSC, Council
+
+![SAFMC biological attributes](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCbioattr.png)
+
+![SAFMC ecosystem attributes](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCecoattr.png)
+
+]
+
+.pull-right[
+
+![SAFMC social econ](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCsoceconattr1.png)
+![SAFMC social econ 2](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAFMCsoceconattr2.png)
+]
+
+---
+## Pacific Risk Tables (in testing)
+
+Three Categories: Ecosystem and environmental conditions, Assessment data inputs, Assessment model fits and structural uncertainty
+
+Builds on existing process with prescribed OFL sigmas based on species life history and assessment category determining the Risk Buffer
+
+Evaluates a range of metrics to assign Favorable, Neutral, or Unfavorable Risk Levels for each Category.
+
+Risk ranking is done by the combined assessment and ecosystem team.
+
+The Categories are unweighted but the SSC may weight them to come up with an overall Risk to adjust the sigma and produce the buffer.
+
+Potential Action:  
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
+
+---
+## Pacific Risk Tables (in testing)
+
+```{r}
+Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFrameworkFull.csv")
+
+flextable::flextable(Tab4)|>
+  #flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
+  flextable::width(width = c(1,2,5,6)) |>
+  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
+```
+
+Potential Action:  
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
+
+---
+
+![Sablefish risk table](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SablefishRiskTable2025.png)
 ---
 ## References
 
@@ -226,6 +553,8 @@ PrintBibliography(myBib)
 
 * [2023 Stock Status Table](https://www.fisheries.noaa.gov/s3/2024-05/2023-SOS-FSSIand-nonFSSIstockStatusTables-1-.pdf)
 
+* [Sablefish 2025 Assessment](https://www.pcouncil.org/documents/2026/02/status-of-the-sablefish-off-the-u-s-west-coast-in-2025.pdf/)
+
 .footnote[
 Slides available at https://sgaichas.github.io/HSpresentations/  
 Contact: <sarah.gaichas@ices.dk>
@@ -238,23 +567,6 @@ class: middle
 .center[
 # Extra
 ]
-
----
-## Where can precaution increased or reduced? `r Citep(myBib, "free_harvest_2023")` Fig. 6
-
-US Councils work primarily with F buffers, but Free et al. 2023 summarize the other ways that control rules can have increased or decreased precaution in the biomass reference points.
-
-<br /><br /><br />
-
-.center[
-![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
-]
-
-
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
-background-size: 1100px
 
 ---
 class: top, left
@@ -301,5 +613,21 @@ National standards
 
 >(B) If environmental, ecosystem, or habitat changes affect the long-term reproductive potential of the stock or stock complex, one or more components of the SDC must be respecified. Once SDC have been respecified, fishing mortality may or may not have to be reduced, depending on the status of the stock or stock complex with respect to the new criteria.
 
+---
+## Where can precaution increased or reduced? `r Citep(myBib, "free_harvest_2023")` Fig. 6
+
+US Councils work primarily with F buffers, but Free et al. 2023 summarize the other ways that control rules can have increased or decreased precaution in the biomass reference points.
+
+<br /><br /><br />
+
+.center[
+![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
+]
+
+
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
+background-size: 1100px
 
 
