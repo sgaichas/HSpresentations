@@ -1,0 +1,305 @@
+---
+title: "Examples of F Buffers"
+subtitle: "ICES ACOM, 25 August 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "<br />Sarah Gaichas, ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./DeepUncertaintyMSE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+## Buffers on F are used to avoid exceeding $F_{MSY}$ in the US
+
+Eight regional Fishery Management Councils establish plans for sustainable management of stocks within their jurisdictions. All are governed by the same law, but tailor management to their regional stakeholder needs.  
+.center[
+![:img US map highlighting regions for each fishery management council, 75%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/USCouncils.png)
+]
+
+More information: http://www.fisherycouncils.org/  
+https://www.fisheries.noaa.gov/topic/laws-policies#magnuson-stevens-act
+
+---
+## Main requirements  `r Citep(myBib, "dicosimo_use_2010", "methot_implementing_2014")`
+.pull-left-40[
+Managers are [required](https://www.ecfr.gov/current/title-50/section-600.310) by [law](https://www.fisheries.noaa.gov/s3//dam-migration/msa-amended-2007.pdf) to take action that avoids:  
+
+Overfishing
+- *too much fishing mortality*
+- $F > F_{MSY}$
+
+Overfished status
+- *too little biomass*
+- $B < \frac12 B_{MSY}$
+
+Overfished status &rarr; Rebuilding Plan
+- *grow overfished stock back*
+- $B = B_{MSY}$
+
+
+]
+.pull-right-60[
+```{r stock-status, warning=F, fig.width=8, fig.asp=0.7}
+#fig.cap = paste0("Mid-Atlantic Fishery Management Council stock status"),
+a <- ecodata::plot_stock_status(report = "MidAtlantic")
+
+a$p + ggplot2::coord_cartesian(xlim=c(0,3.5)) +
+  ggplot2::theme(text = ggplot2::element_text(size = 20),
+                 axis.title=ggplot2::element_text(size=14),
+                 axis.text=ggplot2::element_text(size=12)) +
+  ggplot2::ggtitle("") +
+  ggplot2::theme(legend.position = "none") #+
+  #ggplot2::annotation_custom(gridExtra::tableGrob(a$unknown,
+  #                           theme = gridExtra::ttheme_default(base_size = 10), 
+  #                           rows=NULL), 
+  #                           xmin=0.8, xmax=1.8, ymin=1.5, ymax=2)
+```
+.center[Mid-Atlantic Fishery Management Council stock status]
+]
+
+<p style="color:#FF8C00;">*<i>under prevailing ecological, environmental conditions and fishery technological characteristics (e.g., gear selectivity), and the distribution of catch among fleets.</i></p>
+
+
+---
+background-image: url("https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/OFLABCACLetc.png")
+background-position: left
+
+## Getting to the quota
+.right[
+SSC = Scientific and  
+Statistical Committee
+
+MFMT = Maximum Fishing  
+Mortality Threshold,  
+typically $F_{MSY}$
+
+
+
+**Councils have different methods**
+
+**But all use F buffers**
+]
+
+---
+## "In both constant F and ramped F control rules, precautionary buffers are used to reduce the OFL to the ABC to protect against scientific uncertainty." `r Citep(myBib, "free_harvest_2023")` Fig. 2
+
+.center[
+![:img Free et al 2023 Figure 2, 80%](https://onlinelibrary.wiley.com/cms/asset/39ed2c6b-9114-4398-952e-5d899f518bed/faf12724-fig-0002-m.jpg)
+]
+
+---
+## Two general approaches
+
+.pull-left[
+### Prescribed $F_{ABC}$
+
+]
+
+.pull-right[
+### Risk/Uncertainty Framework
+
+]
+
+
+---
+## Acceptable Biological Catch (ABC) determination: Mid Atlantic approach
+
+.pull-left[
+### Council Risk Policy
+
+```{r MAFMCriskpolicy, fig.asp = 0.7}
+
+riskpol <- data.frame(Bfrac = c(0, 0.1, 1.0, 1.5, 2.5),
+                      Current = c(0, 0, 0.45, 0.49, 0.49),
+                      Pre2020 = c(0, 0, 0.4, 0.4, 0.4)
+)
+
+riskpol <- riskpol %>%
+  pivot_longer(-Bfrac, names_to = "pstar")
+
+p1 <- ggplot2::ggplot(riskpol, aes(x=Bfrac, y=value, linetype = pstar)) +
+  geom_path(show.legend = TRUE) +
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("p*") +
+  labs(linetype = "Policy")#+
+  #theme(legend.position="bottom")
+
+
+print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+```
+
+]
+
+.pull-right[
+### ABC proportion of OFL given OFL CV
+
+```{r OFLCVtoABC, fig.asp = 0.7}
+
+ABCprop <- data.frame(Bfrac = seq(0, 2.5, 0.01)) %>%
+  dplyr::mutate(pstar = case_when(Bfrac <= 0.1 ~ 0,
+                                  Bfrac > 0.1 & Bfrac <= 1.0 ~ (Bfrac-0.1)*((0.45-0)/(1-0.1)) ,
+                                  Bfrac > 1.0 & Bfrac <= 1.5 ~ (Bfrac-1.0)*((0.49-0.45)/(1.5-1))+0.45,
+                                  Bfrac > 1.5 ~ 0.49)) %>%
+  dplyr::mutate("CV=60%" = qlnorm(pstar, log(1), log(0.60 + 1)),
+                "CV=100%" = qlnorm(pstar, log(1), log(1.00 + 1)),
+                "CV=150%" = qlnorm(pstar, log(1), log(1.50 + 1))) %>%
+  pivot_longer(-c(Bfrac, pstar), names_to = "CVlevel")
+                       
+
+p2 <- ggplot2::ggplot(ABCprop, aes(x=Bfrac, y=value, colour=CVlevel)) +
+  geom_line()+  
+  theme_minimal() +
+  xlab("B/Bmsy") +
+  ylab("ABC/OFL proportion") +
+  labs(colour = "OFL CV") #+
+  #theme(legend.position="bottom")
+
+print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+  
+```
+
+]
+
+.footnote[
+See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
+]
+
+
+---
+## References
+
+.table[
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib)
+```
+]
+
+## Additional resources
+
+* [National Standard 1--Optimum Yield](https://www.ecfr.gov/cgi-bin/text-idx?SID=71b8c6026001cb90e4b0925328dce685&mc=true&node=se50.12.600_1310&rgn=div8)
+
+* [US Fisheries Stock Status 2023](https://www.fisheries.noaa.gov/national/sustainable-fisheries/status-stocks-2023)
+
+* [2023 Stock Status Determination Criteria](https://www.fisheries.noaa.gov/s3/2024-05/2023-SOS-StatusDeterminationCriteria-andStockAssessmentCitationTable-1-.pdf)
+
+* [2023 Stock Status Table](https://www.fisheries.noaa.gov/s3/2024-05/2023-SOS-FSSIand-nonFSSIstockStatusTables-1-.pdf)
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+]
+
+---
+class: middle
+
+.center[
+# Extra
+]
+
+---
+## Where can precaution increased or reduced? `r Citep(myBib, "free_harvest_2023")` Fig. 6
+
+US Councils work primarily with F buffers, but Free et al. 2023 summarize the other ways that control rules can have increased or decreased precaution in the biomass reference points.
+
+<br /><br /><br />
+
+.center[
+![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
+]
+
+
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
+background-size: 1100px
+
+---
+class: top, left
+
+## Details
+
+Optimum Yield (OY) definition
+
+*Magnuson-Stevens Act section (3)(33) defines “optimum,” with respect to the yield from a fishery, as the amount of fish that will provide the greatest overall benefit to the Nation, particularly with respect to food production and recreational opportunities and taking into account the protection of marine ecosystems;* 
+
+*that is prescribed on the basis of the MSY from the fishery, as reduced by any relevant economic, social, or ecological factor;* 
+
+*and, in the case of an overfished fishery, that provides for rebuilding to a level consistent with producing the MSY in such fishery.*
+
+---
+## Details
+
+National standards
+
+>Standard 1. Conservation and management measures shall prevent overfishing while achieving, on a continuing basis, the optimum yield (OY) from each fishery for the U.S. fishing industry.
+>
+[...] guidance on:
+>
+(i) Specifying maximum sustainable yield (MSY) and OY;
+>
+(ii) Specifying status determination criteria (SDC) so that overfishing and overfished determinations can be made for stocks and stock complexes in an FMP;
+>
+(iii) Preventing overfishing and achieving OY, incorporation of scientific and management uncertainty in control rules, and adaptive management using annual catch limits (ACL) and measures to ensure accountability (i.e., accountability measures (AMs)); and
+>
+(iv) Rebuilding stocks and stock complexes. 
+
+## Regional and Fishery Management Plan (FMP) specific implementation
+
+---
+## Where can environmental change come in? National standard 1
+
+>(v) Specifying MSY. (A) ... MSY ... should be re-estimated as required by changes in long-term environmental or ecological conditions, fishery technological characteristics, or new scientific information.  
+...  
+(C) The MSY for a stock or stock complex is influenced by its interactions with other stocks in its ecosystem and these interactions may shift as multiple stocks in an ecosystem are fished. Ecological and environmental information should be taken into account, to the extent practicable, when assessing stocks and specifying MSY. Ecological and environmental information that is not directly accounted for in the specification of MSY can be among the ecological factors considered when setting OY below MSY.
+
+>(iii) Relationship of Status Determination Criteria (SDC) to environmental and habitat change. 
+...  
+(A) If environmental changes cause a stock or stock complex to fall below its MSST without affecting its long-term reproductive potential, fishing mortality must be constrained sufficiently to allow rebuilding within an acceptable time frame .... SDC should not be respecified.  
+
+>(B) If environmental, ecosystem, or habitat changes affect the long-term reproductive potential of the stock or stock complex, one or more components of the SDC must be respecified. Once SDC have been respecified, fishing mortality may or may not have to be reduced, depending on the status of the stock or stock complex with respect to the new criteria.
+
+
+
