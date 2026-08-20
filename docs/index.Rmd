@@ -52,12 +52,14 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20260206_ProductivityChanges_Gaichas.html" target="_blank">US Stock Productivity Patterns - February 6, 2026</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260825_Buffers_Gaichas.html" target="_blank">Examples of F Buffers - August 25, 2026</a>
+
+
 ### MAFMC SSC
 
 <a href="https://sgaichas.github.io/HSpresentations/20260716_EcoWG_SOEfeedback_Gaichas.html" target="_blank">July 2026 Ecosystem Workgroup Summary - July 16, 2026</a>
 
 <a href="https://sgaichas.github.io/HSpresentations/20260811_Butterfish_AugCouncil_Gaichas.html" target="_blank">August 2026 Council Butterfish Summary - August 11, 2026</a>
-
 
 
 ## Scientific Conferences
