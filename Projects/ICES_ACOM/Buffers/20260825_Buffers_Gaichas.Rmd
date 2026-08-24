@@ -1,13 +1,13 @@
 ---
-title: "Examples of F Buffers and practical applications"
-subtitle: "ICES ACOM, 25 August 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
-author: "<br />Sarah Gaichas, ACOM Vice Chair"
+title: "<br /><br /><br />Examples of F Buffers and practical <br />applications"
+subtitle: "ICES ACOM, 25 August 2026"
+author: "Sarah Gaichas, ACOM Vice Chair"
 output:
   xaringan::moon_reader:
-    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    css: ["default", "libs/ICES_theme3_508_16by9.css"]
     lib_dir: libs
     nature:
-      titleSlideClass: ["right", "bottom", "my-title"]
+      titleSlideClass: ["left", "middle", "my-title"]
       ratio: "16:9"
       highlightStyle: githubp
       highlightLines: true
@@ -263,6 +263,8 @@ print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
 ]
 
 The point estimate of the OFL (~MSY) from the stock assessment is used as the median of a lognormal distribution with a coefficient of variation (CV) specified by the SSC.
+
+.center[`ABC <- OFL * qlnorm(pstar, log(1), log(OFL_CV + 1))`] 
 
 .footnote[
 See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
@@ -558,10 +560,19 @@ PrintBibliography(myBib)
 * [Sablefish 2025 Assessment](https://www.pcouncil.org/documents/2026/02/status-of-the-sablefish-off-the-u-s-west-coast-in-2025.pdf/)
 
 .footnote[
+
+]
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
+background-size: cover
+background-position: center
+
+class: middle
+
 Slides available at https://sgaichas.github.io/HSpresentations/  
 Contact: <sarah.gaichas@ices.dk>
 
-]
 
 ---
 class: middle
@@ -625,11 +636,5 @@ US Councils work primarily with F buffers, but Free et al. 2023 summarize the ot
 .center[
 ![:img Free et al 2023 Figure 6, 100%](https://onlinelibrary.wiley.com/cms/asset/644e1cdc-4f56-4119-a3fc-9b3cffa63dcc/faf12724-fig-0006-m.jpg)
 ]
-
-
-
----
-background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/2023USStatusOfStocks.png")
-background-size: 1100px
 
 
