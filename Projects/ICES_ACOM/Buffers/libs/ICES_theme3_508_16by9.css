@@ -98,15 +98,11 @@ h3 {
 	color: #047;
 }
 
-/* Okay, now let's add a simple bottom border */ 
-
-
-div.remark-slide {
-  background-color: #fff;
-  background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESbackgroundwhite.png);
-  background-size: cover;
-  background-position: center;
-}
+/* .remark-slide-content:not(.title-slide){*/
+/*   background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESbackgroundwhite.png);*/
+/*   background-size: cover;*/
+/*   background-position: center;*/
+/* }*/
 
 /* Let's play with .inverse and a new class, .fullscale, a little more */
 
