@@ -262,6 +262,8 @@ print(p2, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
 
 ]
 
+The point estimate of the OFL (~MSY) from the stock assessment is used as the median of a lognormal distribution with a coefficient of variation (CV) specified by the SSC.
+
 .footnote[
 See [MAFMC ABC control rule](http://www.mafmc.org/s/MAFMC-ABC-Control-Rule-White-Paper.pdf) and [update for 2020 MAFMC risk policy](https://www.mafmc.org/s/b_Implications-of-MAFMC-Risk-Policy-for-Multi.pdf)
 ]
