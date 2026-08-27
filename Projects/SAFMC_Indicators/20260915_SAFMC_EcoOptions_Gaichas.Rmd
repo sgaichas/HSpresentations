@@ -600,6 +600,10 @@ p
 
 ]
 
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BottomTempFig2yrs.png")
+background-size: 1000px
+background-position: center top 5px
 
 ---
 ## Integration with Citizen Science
