@@ -44,6 +44,11 @@ output: html_document
 
 <a href="https://sgaichas.github.io/HSpresentations/20260724_SAFMC_POT4_Gaichas.html" target="_blank">Project Oversight Team meeting - July 24, 2026</a>
 
+Final presentations
+
+<a href="https://sgaichas.github.io/HSpresentations/20260915_SAFMC_DataReview_Gaichas.html" target="_blank">All Council Ecosystem Data Review - September 15, 2026</a>
+
+<a href="https://sgaichas.github.io/HSpresentations/20260915_SAFMC_EcoOptions_Gaichas.html" target="_blank">Ecosystem Options for SAFMC - September 15, 2026</a>
 
 
 ### ICES ACOM
