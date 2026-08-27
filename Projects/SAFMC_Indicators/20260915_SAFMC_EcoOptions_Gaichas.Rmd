@@ -1,0 +1,795 @@
+---
+title: "Ecosystem Information Review and Strategy Development for More Resilient Fisheries"
+subtitle: "SAFMC Options <br />15 September 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Hydra Scientific LLC"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+#<span style="font-weight:normal;"><font size="-0.5">$^1$NOAA NMFS Northeast Fisheries Science Center, Woods Hole, MA, USA; $^2$Ocean Associates Inc, Arlington, VA, USA;</font></span>
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F,
+                      error = F)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+#Plotting and data libraries
+library(tidyverse)
+theme_set(theme_bw())
+library(tidyr)
+library(here)
+library(sf)
+library(patchwork)
+library(ggpubr)
+library(data.table)
+library(forcats)
+library(kableExtra)
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+#trick to downlaod bib file from other repo to keep just 1 up to date
+
+# url <- "https://raw.githubusercontent.com/sgaichas/bluefishdiet/main/FishDiet_EcoIndicators.bib"
+#   download.file(url, destfile = "./FishDiet_Ecoindicators.bib")
+
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           longnamesfirst = FALSE,
+           max.names = 1,
+           style = "markdown")
+myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
+
+#,
+#           hyperlink = FALSE,
+#           dashed = FALSE
+
+```
+
+# Project Overview: Objectives
+
+1) Review the different types of ecosystem data and information including data products and
+decision-support tools (e.g. Ecosystem Status Reports, Climate Vulnerability Assessments, risk
+assessments) currently available to the regional management councils and evaluate how they are
+used in council management processes;
+
+<span style="color: blue;">2) Identify opportunities and methods for incorporating identified ecosystem information into
+SAFMC management processes, including inter-jurisdictional management decision-making
+processes, and identify practical requirements for successful implementation (e.g. data quality,
+frequency of information updates, regional council process consistency, implementation
+timelines); and</span>
+
+<span style="color: blue;">3) Identify opportunities to continue to expand cooperative, constituent-engaged data collection
+and research to improve the available ecosystem information in the South Atlantic region (e.g.,
+study fleets, cooperative research, citizen science).</span>
+
+---
+# Methods: Objective 2
+
+.table[
+<span style="color: blue;">*Identify opportunities and methods for incorporating identified ecosystem information into SAFMC management processes, including inter-jurisdictional management decision- making processes, and identify practical requirements for successful implementation (e.g. data quality, frequency of information updates, regional council process consistency, implementation timelines)*</span>
+]
+
+.pull-left[
+**Review of 3+ years of Council actions** 
+* List decisions linked or potentially linked to ecosystem information
+* Recommend practical further uses of ecosystem information
+
+**Alignment of EFH/FEP policies and indicators**
+* Three example policies
+* Existing ESR, CVA indicators plus feasibility of new indicators
+
+]
+
+.pull-right[
+
+**Catch specification** 
+* Climate vulnerability consideration in current SAFMC risk policy?
+* Utility of ecosystem profiles or risk tables used in other regions? 
+
+**Prototype indicators from global sources**
+
+**Novel approach: food web based multispecies MSE** 
+* Outline Council decision points 
+* Highlight use of existing resources
+
+]
+
+.center[
+SAFMC Options report outlining these opportunities and methods [posted online](https://sgaichas.github.io/SAFMCindicators/SAFMCOptions.html) 
+]
+
+---
+background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/NCVAdolfinwahooCM.png")
+background-size: 600px
+background-position: right
+
+# Methods: Objective 3
+
+.pull-left[
+.table[
+<span style="color: blue;">*Identify opportunities to continue to expand cooperative, constituent-engaged data collection and research to improve the available ecosystem information in the South Atlantic region (e.g., study fleets, cooperative research, citizen science).*</span>
+]
+
+**Review existing SAFMC Citizen Science efforts**
+
+Prioritize potential cooperative data collections based on the analysis of SAFMC management processes most likely to benefit from ecosystem information noted under the previous objective, and outline opportunities for expansion to collect this priority data
+
+https://safmc.net/citizen-science/dolphin-wahoo-participatory-workshops/
+
+.footnote[
+https://safmc-shinyapps.shinyapps.io/NCVA_DolphinWorkshops2020/  
+]
+]
+
+.pull-right[
+.center[
+]
+]
+---
+## Results: Objectives 2 and 3
+
+1. SAFMC already addresses ecosystem issues and requests ecosystem information in its decision making process. Further opportunities were identified for SAFMC to request or use ecosystem information its decision making process. These include assessment prioritization, defining assessment and MSE Terms of Reference, and collecting stakeholder observations of ecosystem, economic, and social conditions, as well as more complex processes. 
+
+--
+
+1. Existing SAFMC habitat and ecosystem policies align with existing ecosystem indicators, facilitating use of these indicators to support policy-related decisions.
+
+--
+
+1. The SAFMC ABC setting process (used in 3 FMPs) already has a framework where existing ecosystem indicators could be used to support risk rankings. A range of simpler to more complex approaches can be used to evaluate risks of overfishing. 
+
+--
+
+1. Information is available to develop spatially and seasonally resolved habitat indicators for the South Atlantic region from global ocean model data products. These indicators can be ground-truthed using both existing scientific surveys and by further developing existing Citizen Science priority research areas. 
+
+--
+
+1. SAFMC's multispecies complexes combined with its long term investment in food web modeling create an opportunity to evaluate multispecies management and reference points while accounting for species interactions. Management strategy evaluation could include climate scenarios as well as food web interactions to test the robustness of any multispecies management measures.  
+
+---
+background-image: url("https://ars.els-cdn.com/content/image/1-s2.0-S0308597X17306954-gr1_lrg.jpg")
+background-size: 680px
+background-position: right 50px center
+
+# Key Recommendation
+
+.pull-left-40[
+## Develop a structured process for ecosystem-based decision making
+
+The FEP loop is an interpretation of adaptive management as applied to Fishery Ecosystem Planning. 
+Reprinted from Levin et al. 2018, Fig. 1
+
+This process can address any of the "quick wins" as well as more complex big picture issues as prioritized by the Council
+
+]
+
+.pull-right-60[]
+
+---
+.pull-left-40[
+## Review of Council Motions
+
+```{r}
+# once file has been downloaded use this
+motions <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/MotionsReview.csv",header=T)
+
+ctenames <- data.frame(Committee = c("SEDAR", "SG", "CMP", "HABEBM", "DW", "Council", "SG/CMP/DH", "CS", "HAB-S"),
+                       FullName = c("SEDAR", "Snapper Grouper", "Mackerel Cobia", "Habitat and Ecosystem", "Dolphin Wahoo", "Council", "Snapper Grouper + Mackerel Cobia + Dolphin Wahoo", "Citizen Science", "Habitat and Ecosystem + Shrimp"))
+
+# spell out committee names
+motions <- motions |>
+  dplyr::left_join(ctenames) |>
+  dplyr::rename(CommitteeAbr = Committee,
+                Committee = FullName)
+  
+
+byFMP <- motions |>
+  dplyr::group_by(Committee) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc))
+
+byTopic <- motions |>
+  dplyr::group_by(Topic) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc))
+
+byDesc <- motions |>
+  dplyr::group_by(MotionDesc) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc))
+
+byEco <- motions |>
+  dplyr::group_by(Ecosystem) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc))
+
+byCatTiming <- motions |>
+  dplyr::group_by(Category, Timing) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc))
+
+byFMPEco <- motions |>
+  dplyr::group_by(Committee, Ecosystem) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc)) |>
+  tidyr::pivot_wider(-perc, names_from = "Ecosystem", values_from = n)
+
+byCategoryEco <- motions |>
+  dplyr::group_by(Category, Ecosystem) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc)) |>
+  tidyr::pivot_wider(-perc, names_from = "Ecosystem", values_from = n)
+
+byTimingEco <- motions |>
+  dplyr::group_by(Timing, Ecosystem) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc)) |>
+  tidyr::pivot_wider(-perc, names_from = "Ecosystem", values_from = n)
+
+byTimingCatEco <- motions |>
+  dplyr::group_by(Category, Timing, Ecosystem) |>
+  dplyr::summarise(n = n(),
+                   perc = n/nrow(motions)*100) |>
+  dplyr::arrange(desc(perc)) |>
+  tidyr::pivot_wider(-perc, names_from = "Ecosystem", values_from = n)
+
+```
+
+
+More than half of motions had no obvious ecosystem pathway, but 18% addressed or included ecosystem issues, and 26% more had the potential for ecosystem linkages.
+
+```{r byEco, ft.arraystretch = 1}
+ flextable::flextable(byEco) |>
+  flextable::colformat_double(
+    j = c("perc"), # Specify the columns to format
+    digits = 0                  # Specify the number of decimal places
+  ) |>
+  flextable::set_header_labels(perc = "%") |>
+   flextable::set_caption("Number and percent (%) of motions with ecosystem linkages, March 2023 - March 2026")|>
+  flextable::width(width = c(1.5,1,1))
+```
+]
+
+.pull-right-60[
+.ltgreenbox[
+### Potential ecosystem actions
+<span style="color: blue;">Simpler</span> 
+* Prioritize assessments based on ecosystem concerns 
+* Request ecosystem ToRs in assessments and MSEs 
+* Request ecosystem information at stakeholder meetings 
+
+<span style="color: blue;">Moderate; consider climate robustness</span> 
+* Evaluate spawning seasonal or spatial closures 
+* Evaluate single species and multispecies reference points 
+* Evaluate catch, effort, and discard projections 
+* Evaluate allocations 
+
+<span style="color: blue;">Complex; not currently addressed</span> 
+* Address productivity changes across multiple stocks 
+* Evaluate and address recreational fishing objectives 
+* Develop options to manage discards across stocks
+]
+]
+
+---
+## EFH/FEP Policy Alignment: Summary
+
+Given the Council emphasis on habitat issues, habitat FMPs and other policy documents were reviewed along with current ecosystem data products to evaluate “quick wins” aligning objectives and current indicators, and identifying where data from citizen science programs might augment existing indicator data products. 
+
+.ltgreenbox[
+Summary Results:
+
+*  Food Web Policy: 5 of the 9 policies have potential indicators with high feasibility, 2 have moderate feasibility, and only 2 have low or unknown feasibility. Research information needs are already partially addressed by existing CVA and ESR indicators, and by current MSE efforts. 
+
+*  Climate and Fisheries: current ESR indicators directly address policy statements. Gaps related to species distribution shifts and forecast conditions could be filled with existing information. Collaborative Council and NOAA review of current indicators should prioritize a subset for refinement and annual updates.
+
+*  Existing ESR indicators for SAV, coastal habitat attributes, land use and ocean economy align with SAV policy.  However, comprehensive SAV indicators and research would require dedicated effort from multiple partners.
+]
+
+
+---
+## Alignment of EFH/FEP policies and indicators: Climate Variability and Fisheries
+
+```{r}
+
+Climcrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/Climcrosswalk.csv")
+Climcrosswalk <- Climcrosswalk[c(-1)]
+
+flextable::flextable(Climcrosswalk) |>
+  flextable::width(width = c(1,3,3,3,3,3)) |>
+  #flextable::width(width = c(1,1,1,1,1,1)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(Brief = "Brief Policy Description",
+                               ProposedInd = "Indicators Outlined in the Policy",
+                               CurrentInd = "Available Indicators",
+                               PotentialInd = "Potential Indicators",
+                               Feasibility = "Potential Indicator Feasibility") |>
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Policy Objectives and Current Indicators") |>
+  flextable::hline(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Policy, "Climate Indicators"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Policy == "Climate Indicators",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+
+```
+
+---
+## Alignment of EFH/FEP policies and indicators: Climate Variability and Fisheries
+
+```{r}
+
+ClimateResearchCrosswalk <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/docs/ClimateResearchCrosswalk.csv")
+ClimateResearchCrosswalk <- ClimateResearchCrosswalk[c(-1)]
+
+flextable::flextable(ClimateResearchCrosswalk) |>
+  flextable::width(width = c(2,4,3,3)) |>
+  #flextable::width(width = c(1.5,1.5,1.5,1.5)) |>
+  flextable::theme_zebra() |>
+  flextable::set_header_labels(CurrentInd = "Available Indicators",
+                               PotentialAction = "Potential Council Actions",
+                               Feasibility = "Potential Action Feasibility") |>
+  flextable::set_caption("SAFMC Climate Variability and Fisheries Research Needs and Current Indicators") |>
+  flextable::hline(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::hline(i = ~ before(Research, "Socioeconomic Impacts and Fishery Responses"),
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body") |>
+  flextable::vline_left(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")  |>
+  flextable::vline_right(i = ~ Research == "Socioeconomic Impacts and Fishery Responses",
+                      border = flextable::fp_border_default(color = "blue", width = 1.5),
+                      part = "body")
+
+
+```
+
+Note that an example of indicator development for the “3D Estuarine-Coastal-Ocean Observations” research priority is reviewed under Prototype Indicator Development.
+
+---
+## Catch Specification: Opportunities within the [Comprehensive ABC Control Rule](https://safmc.net/documents/abccram_06052023_submittal-pdf/)
+
+.pull-left[
+Dolphin-Wahoo, Golden Crab, Snapper Grouper
+
+```{r ABCSAFMC}
+
+riskpol <- data.frame(Bfrac = c(0, 0.75, 0.7501, 1.0, 1.0001, 2.0),
+                      High = c(0.2, 0.2, 0.30, 0.30, 0.40, 0.40),
+                      Medium = c(0.30, 0.30, 0.40, 0.40, 0.45, 0.45),
+                      Low = c(0.4, 0.4, 0.45, 0.45, 0.45, 0.45)
+)
+
+riskpol <- riskpol |>
+  tidyr::pivot_longer(-Bfrac, names_to = "pstar")
+
+riskpol$pstar <- factor(riskpol$pstar, levels = c("High", "Medium", "Low"))
+
+p1 <- ggplot2::ggplot(riskpol, ggplot2::aes(x=Bfrac, y=value, color = pstar)) +
+  ggplot2::geom_path(show.legend = TRUE) +
+  ggplot2::theme_minimal() +
+  ggplot2::xlab("Bmsy") +
+  theme(axis.text.x = element_blank()) +
+  ggplot2::ylab("p*") +
+  ggplot2::ylim(c(0,0.5)) +
+  ggplot2::labs(color = "Risk")#
+
+print(p1, vp=grid::viewport(gp=grid::gpar(cex=1.5)))
+
+```
+
+]
+
+.pull-right[
+Council reviews SSC and AP advice on risk rating.  
+Council can deviate, up or down, from default P* by up to 10% (not exceeding 0.5).  
+
+Specific attributes that can inform risk of overfishing:
+* Biological (low-high):
+    * Estimated natural mortality
+    * Age at maturity
+* Human Dimension (low-high):
+    * Ability to regulate fishery
+    * Potential for discard losses
+    * Annual commercial value
+    * Recreational desirability
+    * Social concerns
+* Environmental (high only):
+    * Ecosystem importance--<span style="color: blue;">Food web indicators</span> 
+    * Climate change--<span style="color: blue;">CVA indicators</span> 
+    * Other environmental variables--<span style="color: blue;">stock specific indicators</span> 
+]
+
+
+
+---
+## Catch Specification: Consider a Two Way Street
+
+Pacific Risk Tables (in testing)
+
+```{r}
+
+Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFramework.csv")
+
+flextable::flextable(Tab4)|>
+  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
+  flextable::width(width = c(4,4,4,4)) |>
+  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
+```
+
+Potential Action:  
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+]
+
+---
+.pull-left[
+## Prototype Ocean Indicators: what do they add?
+
+![:img SA ESR survey bottom temperature, 80%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAESR_botTannual.png)
+
+.ltgreenbox[
+The objective is to produce maps and time series indicating where and when bottom temperature conditions approach or exceed stressful levels relevant to particular species ranging from corals to targeted fish species. 
+
+Stressful temperature levels for key species would need to be determined from literature or other studies if unknown.
+]
+
+]
+
+.pull-right[
+*2024 NEFSC SOE Report: Number of days at scallop-stressing bottom temperature in 2023*
+.center[
+
+![:img scallop stress bottom temp, 75%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/bottom_temp_threshold_17_19_Elephant_Trunk.png)
+
+]
+
+.footnote[
+Image courtesy Joseph Caracappa, NEFSC
+]
+]
+
+???
+The feasibility of developing ocean indicators from global and regional ocean physics datasets for SAFMC habitat or other decisions was evaluated using methods developed for the Northeast U.S. shelf. 
+
+Regional ocean models and global ocean models already provide both hindcasts and forecasts of ocean temperature and salinity for the South Atlantic.
+*  NOAA MOM6 model (https://psl.noaa.gov/cefi_portal/)
+*  Copernicus ocean reanalysis (https://data.marine.copernicus.eu/products)  
+
+NEFSC has developed code to derive indicators from these data sources for the region north of Cape Hatteras. The code has been modified to derive prototype indicators for the South Atlantic region. 
+
+
+---
+## Prototype Ocean Indicators: Number of days or amount of area exceeding stressful temperature
+
+.pull-left[
+```{r}
+  #file.names = list.files("https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/thermal_habitat_gridded", full.names = T)
+  #  test.nc = ncdf4::nc_open(file.names[1])
+  # # # test.nc = ncdf4::nc_open('C:/Users/joseph.caracappa/Downloads/thermal_habitat_gridded_1993_SOE2025.nc')
+  #  ncdf4::ncatt_get(test.nc,'nday_10')
+  #  ncdf4::ncatt_get(test.nc,'nday_5')
+  #  ncdf4::nc_close(test.nc)
+  #  #x = terra::rast(file.names[1])
+  #  #x = terra::rast(test.nc,'nday_5')
+  #  #plot(x)
+  # # test.sds = terra::sds(file.names[1],1)
+  # # writeCDF(test.sds,here::here('data','SOE','thermal_habitat_checker.nc'))
+  #  
+  #  # convert to tibble and plot as above modifying ecodata::plot_thermal_habitat_gridded code
+  #  ncfile <- file.names[1] # 2020, retrieve the year from the filename to add to the plot
+  #  
+  #  bttib <- tidync::tidync(ncfile) |>
+  #   tidync::hyper_tibble(force = TRUE) |>
+  #    dplyr::select(nday_5, nday_10, nday_15, nday_20, longitude, latitude) |>
+  #    dplyr::mutate(longitude = as.numeric(longitude),
+  #                 latitude = as.numeric(latitude))
+   
+   btthermalgrid <- read.csv("https://github.com/sgaichas/SAFMCindicators/raw/main/GLORYS/SAtl-out/data/thermal_habitat_gridded/GLORYS_thermal_habitat_gridded_2025.csv")
+   
+   fix <- btthermalgrid |>
+     dplyr::filter(Var %in% c(5, 10, 15, 20, 25, 30),
+                   Depth %in% c("AllDepths"))
+   
+   xmin = -82.5
+   xmax = -71
+   ymin = 23.5
+   ymax = 36
+   
+   
+   p <- ggplot2::ggplot(fix) + 
+     ggplot2::geom_tile(ggplot2::aes(x = Longitude, 
+                                     y = Latitude, color = Value, width = 1/12, height = 1/12), 
+                        linewidth = 2) + 
+     ggplot2::geom_sf(data = ecodata::coast, 
+                      size = 0.4) + 
+     #ggplot2::facet_grid(Depth ~ Var) +
+     ggplot2::facet_wrap(~Var, nrow = 2) +
+     ggplot2::scale_color_viridis_c() + 
+     ggplot2::coord_sf(xlim = c(xmin, xmax), ylim = c(ymin, ymax)) + 
+     ggplot2::xlab("") + 
+     ggplot2::ylab("") + 
+     ecodata::theme_ts() + 
+     #ggplot2::scale_y_continuous(breaks = c(24, 30, 36)) + 
+     #ggplot2::scale_x_continuous(breaks = c(-82, -78 -72)) +  
+     ecodata::theme_facet() + 
+     ecodata::theme_title() + 
+     ggplot2::ggtitle(paste(unique(fix$Time), "number of days above each temperature (deg C)")) + 
+     ggplot2::theme(legend.position = "bottom")
+   
+   #return(p)
+   
+   p
+
+```
+]
+
+.pull-right[
+```{r}
+
+# WARNING! FILE LOCATIONS HARDCODED
+
+file.names = list.files("~/Documents/Work/SAFMCindicators/SAFMCindicators/GLORYS/SAtl-out/data/thermal_habitat_area", full.names = T)
+tables <- lapply(file.names, read.csv, header = TRUE)
+combined.df <- do.call(rbind , tables)
+
+    fix <- combined.df
+    #|>
+    #  dplyr::filter(#temp.threshold == daysabove,
+    #               Depth == depth)
+    
+    limits <- dplyr::summarise(dplyr::group_by(fix, Var, Time), 
+        areaMinProportion = min(Value), areaMaxProportion = max(Value), 
+        .groups = "drop")
+    fix <- dplyr::left_join(fix, limits, by = c("Var", "Time"))
+    fix.this.year = dplyr::mutate(dplyr::filter(fix, Time == 
+        max(Time)), ReportYear = max(Time))
+    p <- ggplot2::ggplot() + ggplot2::geom_line(data = fix, ggplot2::aes(x = temp.threshold, 
+        y = Value, group = Time, color = Time), alpha = 0.7, 
+        linewidth = 1) + ggplot2::scale_color_gradient(name = "Year", 
+        low = "green", high = "blue2") + ggplot2::geom_line(data = dplyr::filter(fix.this.year, 
+        Time == max(Time)), ggplot2::aes(x = temp.threshold, 
+        y = Value, linetype = as.factor(ReportYear)), color = "black", 
+        alpha = 0.7, linewidth = 1.5) + ggplot2::scale_linetype_manual(name = "Current Year", 
+        values = 1) + ggplot2::facet_wrap(~Depth) + ggplot2::theme_bw() + 
+        ggplot2::xlab("Temperature Threshold (°C)") + ggplot2::ylab("Proportion of Area above threshold") + 
+        ggplot2::ggtitle("South Atlantic") + ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+    
+p
+
+```
+
+]
+
+
+---
+## Integration with Citizen Science
+
+One potential extension of existing South Atlantic cooperative data collection could be ocean temperature observations for comparison with regional or global ocean data products such as MOM6 and GLORYS. 
+
+.pull-left[
+Comparisons of vessel-collected temperature with model assimilated temperature can identify where improvements can be made to models as well as provide more direct information for management in near-real time. 
+
+The Northeast U.S. eMOLT (Environmental Monitors on Lobster Traps and Large Trawlers) program regularly compares bottom temperature data collected aboard fishing vessels with regional ocean model bottom temperature predictions, highlighting both areas of agreement and areas where measurements and model predictions diverge.
+
+.footnote[
+Source: weekly eMOLT update email, George Maynard, eMOLT coordinator
+]
+]
+.pull-right[
+![eMOLT comparison 13 March 2026](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Doppio_eMOLTMarch2026.png)
+]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/StudyFleet_Infographic_v2_text.png")
+background-size: 800px
+background-position: right
+
+.pull-left-30[
+## Cooperative Research
+
+Multiple [cooperative research programs](https://www.fisheries.noaa.gov/southeast/science-data/cooperative-research-southeast) exist in the Southeast. A [study fleet](https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/cooperative-research-northeast#study-fleet) could collect data for ecosystem indicators. 
+
+Data collected by vessels participating in the NEFSC study fleet program have been used in species distribution modeling, biological studies, evaluation of potential ocean industry user conflicts, and as supporting data for stock assessment. 
+
+This program also collects oceanographic indicators which are directly associated with haul level catch data, allowing analysis of habitat associations.
+]
+
+.pull-right-70[
+
+.footnote[
+Source: https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/cooperative-research-northeast
+]
+]
+???
+---
+## Multispecies MSE: can groups of species be managed together?
+
+A range of stock complex level assessments and management measures were recently simulation tested in New England in a [prototpye MSE project](https://d23h0vhsm26o6d.cloudfront.net/pMSE-Final-Report2.pdf)
+
+.pull-left[
+![:img pMSE overview, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/pMSEhydra.png)
+]
+.pull-right[
+![:img pMSE multispecies options, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Fayetal_pMSEms_alts.png)
+]
+
+The SAFMC food web model can be used to evaluate multispecies reference points and management procedures for stock complexes using the [Rpath](https://noaa-edab.github.io/Rpath/articles/Rpath.html) framework. 
+
+
+---
+## Multispecies MSE: streamlined management with yield benefits?
+
+Multiple objectives can be compared between current single species approaches and management of stock complexes. SAFMC can shape analysis using similar approaches for stakeholder involvement as in current MSEs, but with less need to devote resources to operating model development.
+
+In the New England example, stock complex management resulted in higher catch and lower underutlized quota with similar variability in catch and species status. 
+
+![:img pMSE results, 100%](https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/Fayetal_pMSE_keytakeaways.png)
+
+.center[
+Different starting scenarios: <span style="color: red;">High Biomass</span>, <span style="color: olive;">High Predators</span>, <span style="color: limegreen;">High Prey</span>, <span style="color: dodgerblue;">Low Biomass</span>, <span style="color: magenta;">Price-based F</span>
+]
+
+.footnote[
+New England pMSE [report](https://d23h0vhsm26o6d.cloudfront.net/2b_pMSE-Final-Report2.pdf) and [presentation](https://d23h0vhsm26o6d.cloudfront.net/2a_pMSE-summary-presentation.pdf)
+]
+
+---
+background-image: url("https://ars.els-cdn.com/content/image/1-s2.0-S0308597X17306954-gr1_lrg.jpg")
+background-size: 680px
+background-position: right 50px center
+
+# Key Recommendation
+
+.pull-left-40[
+## Develop a structured process for ecosystem-based decision making
+
+The FEP loop is an interpretation of adaptive management as applied to Fishery Ecosystem Planning. 
+Reprinted from Levin et al. 2018, Fig. 1
+
+This process can address any of the "easy wins" as well as big picture issues (climate impacts on multiple stocks, discard concerns, balancing diverse stakeholder objectives) as prioritized by the Council
+
+]
+
+.pull-right-60[]
+
+
+---
+## Conclusions: Example Pathways for Action: South Atlantic ??
+
+.pull-left[
+.ltgreenbox[
+1\. Outline a decision process for SAFMC
+   + Adapt a current SAFMC decision process, another Council's or Levin et al 2018 template and modify
+   + Build in iterative co-production and risk based methods
+   + Integrate Citizen Science program
+]
+
+
+.ltbluebox[
+2\. Develop a list of potential action items
+   + Review cross-FMP issues and concerns?
+   + Review 2021 ESR to prioritize indicators for annual reporting?
+   + Develop assessment ecosystem ToRs?
+   + Develop ecosystem objectives (in progress)?
+   + ... other items from this menu
+]
+]
+
+.pull-right[
+.ltpurplebox[
+3\. Prioritize an action item and apply the decision process 
+   + Something that needs to be done anyway?
+   + Something that is a high priority for stakeholders?
+   + Something that is easy?
+   + Something that is difficult?
+   + ... 
+   
+4\. Revisit the list of action items regularly 
+ 
+   
+5\. Review FEP process periodically and adjust 
+ 
+]
+]
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size: 20%, 100%
+background-position: 7% 95%, right
+
+.center[
+# Thoughts? Questions?
+
+# Thank you!
+]
+
+.pull-left-70[]
+.pull-right-30[
+.footnote[
+.right[
+Slides at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+]
+]
+
+???
+
+class: middle
+
+.center[
+# Extra
+]
+
+---
+class: top, left
+
+.pull-left-40[
+## Catch Specification
+
+<span style="color: blue;">Stock specific ecosystem indicators</span> can be derived from literature review combined with indicator testing using an Ecosystem Socioeconomic Profile report (Alaska, Northeast),  
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+or using a **structured conversation among experts** as piloted in the Pacific
+
+* experts can include stakeholders
+* information can include citizen science
+
+.footnote[
+Image courtesy Abigail Tyrell, NEFSC
+]
+]
+
+--
+
+.pull-right-60[
+Modify [Pacific ecosystem factors](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/) for the South Atlantic:
+
+*  Food webs (e.g., predator abundance or productivity, competitor abundance or productivity, spatial overlap with predators/competitors, prey abundance) <span style="color: blue;">-- *could inform the SAFMC "ecosystem importance" risk attribute in addition to food web model*</span>
+*  Habitat availability (e.g., do current or near-term predictions of ocean temperatures and oxygen match known optimal ranges for [priority species] life history stages, closed area regulations) <span style="color: blue;">-- *could inform the SAFMC "climate impact" risk attribute in addition to CVA*</span> 
+*  Changes in ecosystem productivity (e.g., upwelling indices, chlorophyll a, abundance of low trophic level organisms) <span style="color: blue;">-- *"other environmental variables": related to regime shifts*</span> 
+*  Physiological indices (e.g., growth, condition, pathogens/parasites, stomach weight/fullness) <span style="color: blue;">-- *"other environmental variables": possible drivers of recruitment trends*</span> 
+*  Reproductive indices (e.g., maturity, fecundity, spawn timing and duration) <span style="color: blue;">-- *"other environmental variables": possible drivers of recruitment trends*</span> 
+
+]
+
