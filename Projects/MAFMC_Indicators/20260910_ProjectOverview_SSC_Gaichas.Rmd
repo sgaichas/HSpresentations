@@ -577,6 +577,9 @@ Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1
 ]
 
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size:  100%
+background-position: right
 
 .center[
 # Extra slides
