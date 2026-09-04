@@ -12,14 +12,14 @@ output:
       highlightStyle: githubp
       highlightLines: true
       countIncrementalSlides: false
-      beforeInit: "libs/macros.js"
+      beforeInit: ["libs/macros.js"]
   revealjs::revealjs_presentation:
     self_contained: false
     reveal_plugins: ["notes", "search"]
 ---
 class: top, left
 
-background-image: url("https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/MAFMC+Jurisdiction+Map+v3-01.jpg")
+background-image: url("https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/MAFMC+Jurisdiction+Map+v3-01.jpg")
 background-size: 230px
 background-position: right 50px bottom 50px
 
@@ -93,7 +93,23 @@ myBib <- ReadBib("./operationalSOE.bib", check = FALSE)
 ???
 
 ---
-.pull-left[
+background-image: url("https://imgs.xkcd.com/comics/team_effort_2x.png")
+background-size: 230px
+background-position: right 50px bottom 50px
+
+```{css, echo=FALSE}
+.right-footnote {
+  position: absolute;
+  bottom: 2em;
+  right: 4em;
+  font-size: 0.6em;
+  text-align: right;
+}
+```
+
+
+
+.pull-left-40[
 # Project Team
 
 Sarah Gaichas
@@ -112,7 +128,7 @@ Sarah Hope
 
 ]
 
-.pull-right[
+.pull-right-60[
 # Project Oversight Team
 
 Brandon Muffley (MAFMC)
@@ -126,6 +142,9 @@ Scott Large (NEFSC)
 Geret DePiper (TAMUCC)
 
 ]
+
+.right-footnote[https://xkcd.com/1543/]
+
 
 ---
 .pull-left[
@@ -478,15 +497,12 @@ knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/ma
 ]
 
 ---
-## Example: ABC Decision
+# Example: Catch/Quota Setting
 
 *Identify and develop priority ecosystem and habitat indicators, including associated targets and thresholds as appropriate, and identify specific pathways for incorporation into Council management processes, documents, or actions*
 
 .pull-left[
 ### Multistep Process--Focus on Potential Pathways?
-
-1\.  Develop indicators for NRCC prioritization?  
-2\.  Standardize ecosystem profile approach for use in stock assessments?  
 
 4\.  Build in other indicators in addition to climate vulnerability for ABC uncertainty buffers?  
 4\.  Refine OFL CV criteria for considering integrated ecosystem conditions?  
@@ -511,9 +527,12 @@ flextable::flextable(Tab4[,1:2])|>
 
 .table[
 **Potential Action:**  
-Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch Recommendation)</span>  
-Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch Recommendation)  
-Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch Recommendation)</span>
+Favorable Conditions &rarr; <span style="background-color:#00FF0050;">Decrease Risk Buffer (Higher Catch)</span>  
+Neutral Conditions &rarr; Keep Standard Risk Buffer (Standard Catch)  
+Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase Risk Buffer (Lower Catch)</span>
+]
+.footnote[
+Source: [CCIEA Risk Table Report](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
 ]
 ]
 
@@ -525,6 +544,37 @@ Unfavorable Conditions &rarr; <span style="background-color:#FF000050;">Increase
 
 * Recommend practical pathways for implementation
 
+---
+# Brainstorm: Indicator use in SSC ABC decisions
+
+## Clarify Current OFL CV Process 
+*  Include more CVA indicators under the ecosystem criterion (potential for distribution shift, directional effect)
+*  Develop a rubric to integrate standard indicators into a single ecosystem OFL CV rank 
+*  Consider ecosystem indicators under data quality or assessment performance 
+
+--
+
+.pull-left[
+## Modify Current OFL CV Process 
+*  Develop indicator thresholds where ecosystem factors have higher weight   
+*  Expand ecosystem factors to include Pacific categories:
+    +  Food webs
+    +  Habitat availability
+    +  Changes in ecosystem productivity
+    +  Physiological indices
+    +  Reproductive indices
+]
+
+--
+
+.pull-right[
+## New Processes 
+*  Use ecosystem information to modify ABC when there is no OFL
+*  Use ecosystem information to adjust short term projections
+*  Use ecosystem information to decide when to devaite from previously specified ABC
+
+## SSC Feedback?
+]
 
 ---
 
