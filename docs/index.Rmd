@@ -62,6 +62,8 @@ Final presentations
 
 <a href="https://sgaichas.github.io/HSpresentations/20260825_Buffers_Gaichas.html" target="_blank">Examples of F Buffers - August 25, 2026</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260913_Benchmarks_Gaichas.html" target="_blank">Benchmarks - September 13, 2026</a>
+
 
 ### MAFMC SSC
 

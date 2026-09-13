@@ -1,0 +1,119 @@
+---
+title: "<br /><br /><br />Benchmarks"
+subtitle: "ICES ACOM, 13 September 2026"
+author: "Sarah Gaichas, ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/ICES_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+
+.center[
+# Goal: Address issues with current benchmark process by updating the 2025 guidelines.  
+
+
+## Proposed timeline: Collect ACOM feedback today and draft revisions for review in March 2027. Complete updated benchmark guidelines by fall of 2027 for use in 2028
+]
+
+---
+# Background
+
+## Observations
+
+Current Full benchmarks are working reasonably well. 
+* Most in 2026 were well documented and timely with clear outcomes.
+* Isolated issues with timely document delivery delayed some BOG reviews beyond working group meetings. 
+* Some timelines did not allow for review 2 months before working groups met 
+
+Clarification of the process is still needed. 
+* What changes are eligible for Expert Group level or Review level (how do we achieve consistency without being prescriptive). 
+* What to do when a benchmarked method fails or there is no ACOM consensus on the advice. 
+* When can a scheduled benchmark be “fast tracked” to an earlier reporting year. 
+* How to classify benchmarks outside of stock assessments. 
+
+---
+# Background
+
+## Observations
+
+Structural challenges  
+* There are some incentives to avoid the full benchmark process because “it takes too long” resulting in piecemeal changes being conducted at Review level or Expert Group level. 
+* The Expert Group level process is evaluated by the ADG after the work 
+is done, giving few opportunities to go to a more intensive review process if the changes ultimately are not considered “small”. 
+* Some situations arose with requests for Review level external review to be conducted under unrealistic timeframes. 
+* Do we need a special route to benchmark category 3 rules 
+* Substantial pressure to provide advice can conflict with need for review 
+
+---
+# Potential Updates
+
+## Suggestion to address benchmark scheduling and in season methods updates
+
+At the end of the spring assessment meeting cycle, all POs get together with BOG to:  
+* See what may need a fast track that is already in the line *if there is space and the benchmark can be done in less time–no stock id or bycatch data issues*, and
+* See what may need an emergency quality check due to unexpected assessment failure and least bad options being applied.
+* However, I suggest that we *not* admit new benchmarks for fast track in the following year that have not already applied for a benchmark and been approved
+
+---
+# Potential Updates
+
+## Suggestion to address use of benchmark levels and communications
+
+POs collect examples of review level and expert group level processes and compare them; are they consistent? What was changed and how were decisions made to accept the changes? How were external reviewers found? This follows Sarah M's suggestion to track these issues through WGs and ADGs systematically. 
+
+Based on this collected experience:  
+* Develop clearer guidelines for review level and EG level processes based on current experience. 
+* Develop a communication flowchart of who has primary responsibility for communicating decisions to the appropriate people and ensuring decisions are documented and relevant reports and advice sheets are consistent with decisions. 
+* Consider exchange of experts across groups to share best practices and help standardize processes and decisions
+
+---
+# ACOM discussion points
+
+1. What guidance would ACOM like to provide on filling open benchmark slots? 
+2. What guidance can ACOM provide for fallback advice methods when benchmarked methods fail? Who should review the fallback option? 
+    * Consider a standard hierarchy of fallback methods?
+    * Consider reviewing potential fallback methods during benchmarks?
+    * Outline a review process for fallback methods if not standardized, which also has guidelines for updated advice timelines. 
+3. What guidance can ACOM provide to clarify Review level (“One or two larger issues”) and Expert Group level (“small issues that are mostly technical in nature”) review processes? Current guidelines focus on full benchmarks; should we spell out the other processes with similar detail? 
+4. What guidance can ACOM provide for classifying benchmarks other than stock assessments? For example, Tiger Team or WKBIFPR. 
+    * Should a pathway for benchmarks related to new recurrent advice be more explicit? (current guidelines say that new recurrent advice needs benchmarking but not how to deal with the timeframes that result). 
+    * Clarify in the guidelines that ICES can conduct a benchmark if scientific readiness and sufficient resources align with advice requester needs 
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
+background-size: cover
+background-position: center
+
+class: middle
+
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+
