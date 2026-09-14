@@ -1,0 +1,67 @@
+---
+title: "<br /><br /><br />Roles for Advice Requesters<br />and Stakeholders"
+subtitle: "ICES ACOM, 14 September 2026"
+author: "Sarah Gaichas, ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/ICES_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+# WKREFRAME in the wider world
+
+How to involve managers and stakeholders?
+
+* Directly in the workshop? MIRIA co-chair?  
+    * What contributions or decisions are needed from advice requesters? from stakeholders? Examples: 
+        * What is the impact of decisions related to $F_{MSY}$ definitions or methods to incorporate uncertainty?
+        * Are ICES choices about risk aligned with managers and stakeholders views of risks?
+    * What is the best way to integrate these ideas?  
+* Inform of plans ahead of time, but participate as observers in the workshop? 
+* Inform of outcomes afterwards? 
+
+
+# ACOM discussion points
+
+1. What guidance would ACOM like to provide on Advice Requester roles in WKREFRAME? 
+
+2. What guidance would ACOM like to provide on Stakeholder roles in WKREFRAME?
+
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
+background-size: cover
+background-position: center
+
+class: middle
+
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+

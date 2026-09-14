@@ -64,6 +64,9 @@ Final presentations
 
 <a href="https://sgaichas.github.io/HSpresentations/20260913_Benchmarks_Gaichas.html" target="_blank">Benchmarks - September 13, 2026</a>
 
+<a href="https://sgaichas.github.io/HSpresentations/20260914_RequestorRole_Gaichas.html" target="_blank">Requester and stakeholder roles in WKREFRAME - September 14, 2026</a>
+
+
 
 ### MAFMC SSC
 
