@@ -246,13 +246,26 @@ class: top, left
 
 ## South Atlantic Multispecies MSE
 
-3 single species assessments --> Blue Matter's OpenMSE with common fleets and correlated recruitments
+[Overview](https://safmc-mse.netlify.app/about/): 3 single species assessments &rarr; [Blue Matter's OpenMSE](https://openmse.com/) with common fleets and correlated recruitment among species
 
-https://shiny.bluematterscience.com/app/samse
 
-https://safmc-mse.bluematterscience.com/resources/TS/TS.html
+.pull-left[
+[Setup](https://safmc-mse.bluematterscience.com/resources/TS/TS.html) and [reproducible code](https://safmc-mse.bluematterscience.com/articles/Building-Base-Case-Operating-Models.html)
+![Rec Process Error specification](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAMSE_RecProcErr.png)
 
-https://safmc-mse.netlify.app/about/
+.footnote[Source: [Recruitment Process Error](https://safmc-mse.bluematterscience.com/resources/TS/TS.html#recruitment-process-error])
+]
+
+.pull-right[
+[Results Shiny](https://shiny.bluematterscience.com/app/samse)  
+
+![Shiny for results](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/SAMSE_ResultsShiny.png)
+
+.footnote[Project GitHub: https://github.com/Blue-Matter/SAFMC-MSE]
+]
+
+
+
 
 
 ---
