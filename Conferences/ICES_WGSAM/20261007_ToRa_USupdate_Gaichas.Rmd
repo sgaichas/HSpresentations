@@ -129,10 +129,111 @@ class: middle, left
 ---
 class: top, left
 
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_1.png")
+background-size: 1000px
+background-position: bottom
+
 ## Model-derived scenarios of forage fish productivity and distribution for management strategy evaluation
 
+### How to integrate climate uncertainty into MSE
+
+Defining future state of nature by generating range of operating models (OMs): Approach depends on understanding of climate and biology/fisheries relationship and availability of oceanographic projections
+
+<span style="color: cornflowerblue;">EMPIRICAL APPROACH</span> (sensu [Punt et al. 2014](https://doi.org/10.1093/icesjms/fst057)) - Consult experts to define potential scenarios, no direct climate-biology/fisheries link identified. Easily implementable but hard to assign plausibility 
+
+.footnote[Figure from [Siple et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/faf.12579)]
+
+???
+WGSAM: This work summarizes a manuscript in review, led by Dr. Desiree Tommasi from UC Santa Cruz/  NOAA SWFSC.  This is relevant to TOR E (MSE), among other TORs. 
+The title is: Model-derived scenarios of forage fish productivity and distribution for management strategy evaluation
+MSEs can simulate potential, but uncertain, effects of climate change on the biological and fisheries system – [Walters et al. 2023](https://doi.org/10.1093/icesjms/fsad031)
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_2.png")
+background-size: 1000px
+background-position: bottom
+
+## How to integrate climate uncertainty into MSE
+
+<span style="color: cornflowerblue;">MECHANISTIC APPROACH</span> (sensu [Punt et al. 2014](https://doi.org/10.1093/icesjms/fst057)) - Use climate-informed OM. 
+
+If complex ecosystem model, high computational needs. 
+
+If climate-enhanced single species model, statistical relationship between environment and vital rates may break down
+
+.footnote[Figure from [de Moor et al. 2023](https://doi.org/10.1139/cjfas-2023-0092)]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_3.png")
+background-size: 1000px
+background-position: bottom
+
+## How to integrate climate uncertainty into MSE
+
+<span style="color: cornflowerblue;">HYBRID APPROACH</span> (this study) 
+
+Use existing climate-informed ecosystem models to develop climate-informed uncertainty scenarios for OM parameters. 
+
+Less computationally intensive to run than mechanistic approach, but still process-based 
+
+.footnote[Figure from [Siple et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/faf.12579)]
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_6.png")
+background-size: 1000px
+background-position: bottom
+
+## Application to Pacific Sardine Northern Subpopulation
+
+*  Leverages existing projections of vital rates and distribution for the northern subpopulation of Pacific sardine from regional ecological models to develop quantitative scenarios for MSE-like closed-loop simulations 
+*  Ecological model output informs recruitment, growth, natural mortality, or catchability parameters in MSE OMs 
+*  OMs based on single species OM similar to stock assessment ([Wildermuth et al. 2024](https://doi.org/10.1139/cjfas-2023-0169)) 
+*  Ecological models used are DynaMICE ([Koenigstein et al. 2022](https://doi.org/10.1093/icesjms/fsac191)), the end-to-end Atlantis ecosystem model ([Liu et al. 2025](https://onlinelibrary.wiley.com/doi/pdf/10.1111/gcb.70021)), an Individual Based Model (IBM, [Fiechter et al. 2021](https://doi.org/10.3389/fmars.2021.685241)), and Species Distribution Models (SDMs, [Muhling et al. 2025](https://doi.org/10.1111/fog.12730)) 
+*  Climate projections from three global Earth System Models (ESMs) and emission scenario RCP 8.5, downscaled for U.S. West Coast using a regional ocean model ([Pozo-Buil et al. 2021](https://doi.org/10.3389/fmars.2021.612874)), were integrated into the ecological models 
+
+---
+.pull-left[
+## Example: Distribution projections from SDMs &rarr; 
+![SDM projections](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_4.png)
+*  Statistical model 
+*  Probabilities of occurrence will increase north of the CalCOFI survey area  
+*  For illustration purposes only as the sardine assessment does not use a CalCOFI survey  index 
+
+.center[<span style="color: crimson;">*Preliminary results*</span>]
+]
+
+.pull-right[
+## Catchability scenario for MSE 
+![Catchability](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/DesireeWCoastWGSAM2026_5.png)
+*  Catchability index is the proportion of the total probability of occurrence that is in the survey region 
+*  5.48% to 13.4% decrease in future catchability relative to historical (2001-2020) depending on the time block 
+
+]
+
+???
+WGSAM: as an example,   future changes in catchability are incorporated into the OM, informed by detailed SDMs.  The SDMs here represent the distribution of sardine larvae. Covariates considered in the SDM  included SST, isothermal layer depth, buoyancy frequency, and total kinetic energy, as well as surface chlorophyll, spatial standard deviation of SST, moon phase, and distance to nearest land .  These SDMs are projected under different forcings from the GFDL, Hadley, and IPSL earth system models. Generally, they predict a northward shift of the stock under climate change. Hypothetically, a survey only in the south would experience decreasing catchability in the coming decades. 
+
+Based on these SDMs, Hypothetically, a survey only in the south would experience decreasing catchability in the coming decades.  This can be included within the OM. 
+ 
 
 
+---
+## Conclusions: Hybrid approach of Using Ecological Models to Drive Climate-informed MSE scenarios
+
+*  Enhanced ecological realism as compared to empirical MSE scenarios approaches 
+*  Less computing intensive than using a process-based model as OM, enabling larger exploration of uncertainty space 
+*  Integration of output of ecological models into simpler single-species OM necessitates a rescaling process to address the mismatch in ecological resolution 
+*  Pacific sardine vital rates highly variable, climate driven change in parameter small relative to interannual variability 
+*  Ecological model output is useful for generating MSE scenarios beyond changes directly driven by climate (e.g. density dependent predation mortality from Atlantis ecosystem model) 
+
+<span style="color: blue;">Scenarios for recruitment, growth, M, and catchability have now been incorporated into OM, for projections to year 2068 under 2 Earth System Model forcings
+
+.center[Thanks to the [Future Seas](https://joshcullen.github.io/Future_Seas_Website/) [Team](https://joshcullen.github.io/Future_Seas_Website/Team/)]
+
+.footnote[Slides courtesy Desiree Tommasi, <detommas@ucsc.edu> and Isaac Kaplan, <isaac.kaplan@noaa.gov>]
+
+???
+The manuscript is currently in NOAA internal review, and will be submitted to CJFAS. 
 ---
 class: middle, left
 
