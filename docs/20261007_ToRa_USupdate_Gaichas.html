@@ -232,14 +232,29 @@ class: top, left
 
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Weisberg_RpathResiliencetoMSE.png")
+background-size: 780px
+background-position: bottom 20px right
+
 ## Northeast US comparative ecosystem resilience
 
-Sarah W's paper is out
+.pull-left-30[
+Relative ascendancy as an indicator of ecosystem resilience
 
+Incorporating uncertainty revealed important differences between adjacent food webs
+
+[Rpath](https://noaa-edab.github.io/Rpath/) framework with ecosense
+
+MSE looking at fishing impacts on ecosystem resilience could be next
+
+Sarah Weisberg, et al. 2026 Ecological Applications.
+https://doi.org/10.1002/eap.70303
+
+]
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_1.png")
-background-size: 1100px
+background-size: 1090px
 background-position: right
 
 ## Northeast US ecosystem and habitat indicators in assessment and management
@@ -273,8 +288,8 @@ Data: HYbrid Coordinate Ocean Model (HYCOM, hycom.org)
 
 ---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_2.png")
-background-size: 1200px
-background-position: right
+background-size: 1150px
+background-position: bottom 20px right 30px
 
 ## Northeast US ecosystem and habitat indicators in assessment and management
 
@@ -284,20 +299,20 @@ A simple anomaly around an assumed natural mortality (`\(M_b\)`=0.2)
 Based on the sum of predator (`\(j\)`) biomass changes over time (`\(B_{i,j}\)`) and a static percent frequency of occurrence of mackerel in the diet (`\(P_j\)`), averaged over the time series:
 .pull-left-30[
 
-`$$PPI_i = \sum B_{i,j} * P_j$$`
+`$$PPI_i = \sum_j \left( B_{i,j} * P_j \right )$$`
 
 Time varying natural
  mortality:
 
-`$$M_i = (M_b * PPI_i)/ \bar{PPI}$$`
+`$$M_i = \frac{M_b * PPI_i}{\overline{PPI}}$$`
 
-Added a daily per capita consumption per body mass scalar to make predator groups comparable
+Added a daily per capita consumption per body mass scalar to make predator groups comparable  
 Ensured appropriate spatial-temporal overlap
 ]
 
 .pull-right-70[
 .table[
-Predation pressure for each group separately. Time varying natural morality combining all predator groups (black line):
+Predation pressure for each group separately.  &amp;nbsp; &amp;nbsp; &amp;nbsp; **Time varying M** combining all pred groups
 ]
 ]
 
