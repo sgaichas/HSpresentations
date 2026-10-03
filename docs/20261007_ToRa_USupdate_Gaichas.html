@@ -6,8 +6,6 @@
     <meta name="author" content="Sarah Gaichas, Presenter  Contributors: Alberto Rovellini, Isaac Kaplan, Laurel Smith, Gavin Fay, Desiree Tommasi, Sarah Weisberg,  Robert Wildermuth, Zhitao Yu " />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
-    <script src="libs/tabwid/tabwid.js"></script>
     <link rel="stylesheet" href="libs/HS_theme3_508_16by9.css" type="text/css" />
   </head>
   <body>
@@ -233,9 +231,6 @@ class: top, left
 ]
 
 
-
-
-
 ---
 ## Northeast US comparative ecosystem resilience
 
@@ -243,11 +238,83 @@ Sarah W's paper is out
 
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_1.png")
+background-size: 1100px
+background-position: right
+
 ## Northeast US ecosystem and habitat indicators in assessment and management
 
-Laurel's slide 1
+.pull-left-70[
+[Advection index](https://noaa-edab.github.io/catalog/advection.html#advection)
+Intent: a proxy for larval retention, inform recruitment prediction
+Data: HYbrid Coordinate Ocean Model (HYCOM, hycom.org)
 
-Laurel's slide 2
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+
+*  Advection Indices: cross-transect velocity calculated along shelf edge (negative velocity = offshore advection). 
+*  Velocities summed across depths for 3 depth ranges and averaged monthly March-June for 2 regions to match species spawning strategies. 
+*  Expect lower larval retention and survival of recruits in regions/ years/months/depths of high off-shelf advection  
+
+.footnote[Slide courtesy Laurel Smith &lt;laurel.smith@noaa.gov&gt;]
+
+]
+
+.pull-right-30[]
+
+
+???
+•In middle plot, red arrows are New England and blue arrows are mid-Atlantic regions
+•Right panel: Months are labeled at the top bar of plots
+•Mid-Atlantic shows long-term trends of increasing offshore advection in shallow and deepest depth ranges in June
+•New England shows long-term trends of increasing onshore advection in mid and deepest depth ranges in June
+•New England shows short-term trend of increasing offshore advection in the mid depth range in March
+•These trends can be paired with species that spawn and disperse larvae in specific regions, months and depths
+•Could be added to Risk Framework for management
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_2.png")
+background-size: 1200px
+background-position: right
+
+## Northeast US ecosystem and habitat indicators in assessment and management
+
+### Predation Pressure Index
+
+A simple anomaly around an assumed natural mortality (`\(M_b\)`=0.2)
+Based on the sum of predator (`\(j\)`) biomass changes over time (`\(B_{i,j}\)`) and a static percent frequency of occurrence of mackerel in the diet (`\(P_j\)`), averaged over the time series:
+.pull-left-30[
+
+`$$PPI_i = \sum B_{i,j} * P_j$$`
+
+Time varying natural
+ mortality:
+
+`$$M_i = (M_b * PPI_i)/ \bar{PPI}$$`
+
+Added a daily per capita consumption per body mass scalar to make predator groups comparable
+Ensured appropriate spatial-temporal overlap
+]
+
+.pull-right-70[
+.table[
+Predation pressure for each group separately. Time varying natural morality combining all predator groups (black line):
+]
+]
+
+.footnote[Slide courtesy Laurel Smith &lt;laurel.smith@noaa.gov&gt;]
+
+
+???
+PPI is based on Richards and Jacobson (2016) paper
+Natural mortality is currently assumed to be 0.2 for mackerel assessment
+PPI would vary Mi around assumed M based on predation pressure
+We added a DCC scalar since predator species had order of magnitude different metabolic rates
+Plot on left shows predation pressures of individual predators (following biomass trends over time)
+Plot on the right is sequentially adding predators to get a Mi for all combined predators (black line)
+
+
+---
+## Northeast US ecosystem and habitat indicators in assessment and management
 
 MAFMC project with planned MS model use
 
@@ -502,7 +569,6 @@ What threshold values move us between decisions?
 ]
 
 .pull-right[
-&lt;div class="tabwid"&gt;&lt;style&gt;.cl-4d707068{}.cl-4d6c2b20{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4d6da72a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4d6dbb34{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb35{width:4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb3e{width:1in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb3f{width:4in;background-color:rgba(0, 255, 0, 0.31);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb40{width:1in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb48{width:4in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb49{width:1in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d6dbb4a{width:4in;background-color:rgba(255, 0, 0, 0.31);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-4d707068'&gt;&lt;caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;"&gt;&lt;span&gt;Pacific Pilot Risk Levels and Indicator Criteria.&lt;/span&gt;&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-4d6dbb34"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Risk Level&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-4d6dbb35"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Ecosystem and Environmental Conditions&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-4d6dbb3e"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Level 1: Favorable&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-4d6dbb3f"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Indicators not used in the stock assessment show medium to high level of agreement and moderate to strong evidence supporting high species productivity.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-4d6dbb40"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Level 2: Neutral&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-4d6dbb48"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Majority of indicators show no notable trends and/or no apparent environmental and ecosystem concerns.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-4d6dbb49"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Level 3: Unfavorable&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-4d6dbb4a"&gt;&lt;p class="cl-4d6da72a"&gt;&lt;span class="cl-4d6c2b20"&gt;Majority of indicators show medium to high level of agreement and moderate to strong evidence supporting low species productivity&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 .table[
 **Potential Action:**  

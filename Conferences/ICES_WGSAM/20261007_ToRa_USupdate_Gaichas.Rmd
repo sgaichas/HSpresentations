@@ -265,9 +265,6 @@ class: top, left
 ]
 
 
-
-
-
 ---
 ## Northeast US comparative ecosystem resilience
 
@@ -275,11 +272,83 @@ Sarah W's paper is out
 
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_1.png")
+background-size: 1100px
+background-position: right
+
 ## Northeast US ecosystem and habitat indicators in assessment and management
 
-Laurel's slide 1
+.pull-left-70[
+[Advection index](https://noaa-edab.github.io/catalog/advection.html#advection)
+Intent: a proxy for larval retention, inform recruitment prediction
+Data: HYbrid Coordinate Ocean Model (HYCOM, hycom.org)
 
-Laurel's slide 2
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+*  Advection Indices: cross-transect velocity calculated along shelf edge (negative velocity = offshore advection). 
+*  Velocities summed across depths for 3 depth ranges and averaged monthly March-June for 2 regions to match species spawning strategies. 
+*  Expect lower larval retention and survival of recruits in regions/ years/months/depths of high off-shelf advection  
+
+.footnote[Slide courtesy Laurel Smith <laurel.smith@noaa.gov>]
+
+]
+
+.pull-right-30[]
+
+
+???
+•In middle plot, red arrows are New England and blue arrows are mid-Atlantic regions
+•Right panel: Months are labeled at the top bar of plots
+•Mid-Atlantic shows long-term trends of increasing offshore advection in shallow and deepest depth ranges in June
+•New England shows long-term trends of increasing onshore advection in mid and deepest depth ranges in June
+•New England shows short-term trend of increasing offshore advection in the mid depth range in March
+•These trends can be paired with species that spawn and disperse larvae in specific regions, months and depths
+•Could be added to Risk Framework for management
+
+---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/LaurelWGSAM2026_2.png")
+background-size: 1200px
+background-position: right
+
+## Northeast US ecosystem and habitat indicators in assessment and management
+
+### Predation Pressure Index
+
+A simple anomaly around an assumed natural mortality ($M_b$=0.2)
+Based on the sum of predator ($j$) biomass changes over time ($B_{i,j}$) and a static percent frequency of occurrence of mackerel in the diet ($P_j$), averaged over the time series:
+.pull-left-30[
+
+$$PPI_i = \sum B_{i,j} * P_j$$
+
+Time varying natural
+ mortality:
+
+$$M_i = (M_b * PPI_i)/ \bar{PPI}$$
+
+Added a daily per capita consumption per body mass scalar to make predator groups comparable
+Ensured appropriate spatial-temporal overlap
+]
+
+.pull-right-70[
+.table[
+Predation pressure for each group separately. Time varying natural morality combining all predator groups (black line):
+]
+]
+
+.footnote[Slide courtesy Laurel Smith <laurel.smith@noaa.gov>]
+
+
+???
+PPI is based on Richards and Jacobson (2016) paper
+Natural mortality is currently assumed to be 0.2 for mackerel assessment
+PPI would vary Mi around assumed M based on predation pressure
+We added a DCC scalar since predator species had order of magnitude different metabolic rates
+Plot on left shows predation pressures of individual predators (following biomass trends over time)
+Plot on the right is sequentially adding predators to get a Mi for all combined predators (black line)
+
+
+---
+## Northeast US ecosystem and habitat indicators in assessment and management
 
 MAFMC project with planned MS model use
 
@@ -578,16 +647,6 @@ knitr::include_graphics("https://github.com/MAFMC/indicators-project-docs/raw/ma
 ]
 
 .pull-right[
-```{r}
-
-Tab4 <- readr::read_csv("https://github.com/sgaichas/HSpresentations/raw/main/Conferences/BevanUW_2026-02-19/data/WestCoastRiskFramework.csv")
-
-flextable::flextable(Tab4[,1:2])|>
-  flextable::set_caption("Pacific Pilot Risk Levels and Indicator Criteria.") |>
-  flextable::width(width = c(1,4)) |>
-  #flextable::width(width = c(4,4,4,4)) |>
-  flextable::bg(i = c(1:3), bg=c("#00FF0050", "white", "#FF000050"))
-```
 
 .table[
 **Potential Action:**  
