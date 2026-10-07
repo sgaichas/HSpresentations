@@ -1,0 +1,124 @@
+---
+title: "Multispecies, Ecosystem, Climate MSE"
+subtitle: "WGSAM ToR e, 5 October 2026 <br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Presenter<br /><br />with contributions from everyone"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: ["libs/macros.js"]
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: middle, middle
+
+# WGSAM's contribution to ICES MSE
+
+1.  Technical specs/review criteria. 
+1.  Process for deciding on climate/eco/ms factors and linking to assessment. 
+1.  Where does it go in the advice. 
+
+---
+class: top, left
+
+# Process to identify currently missing drivers
+
+<span style="color: blue;">"At least answer the question–Is there anything besides fishing that is affecting this stock?"</span>
+
+Suggestions:
+
+*  US Ecosystem Socioeconomic Profiles process
+    +  Priority stocks only
+    +  Start with a conceptual model
+    +  Ensure linkages to stock dynamics
+    
+*  ICES Benchmark EBFM ToR
+
+*  ICES MSE special requests, how are these currently scoped?
+    +  Compressed timeframes
+    +  Can and do include stakeholders but see point above
+    
+---
+.pull-left-40[
+## Example Components of the Process
+
+<span style="color: blue;">Stock specific ecosystem indicators</span> can be derived from literature review combined with indicator testing using an Ecosystem Socioeconomic Profile report (Alaska, Northeast),  
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+or using a **structured conversation among experts** as piloted in the Pacific
+
+* experts can include stakeholders
+* information can include citizen science
+
+.footnote[
+Image courtesy Abigail Tyrell, NEFSC
+]
+]
+
+--
+
+.pull-right-60[
+##[Pacific ecosystem factors](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/)
+
+*  Food webs (e.g., predator abundance or productivity, competitor abundance or productivity, spatial overlap with predators/competitors, prey abundance) 
+
+*  Habitat availability (e.g., do current or near-term predictions of ocean temperatures and oxygen match known optimal ranges for [priority species] life history stages, closed area regulations) 
+
+*  Changes in ecosystem productivity (e.g., upwelling indices, chlorophyll a, abundance of low trophic level organisms)  
+
+*  Physiological indices (e.g., growth, condition, pathogens/parasites, stomach weight/fullness) 
+
+*  Reproductive indices (e.g., maturity, fecundity, spawn timing and duration)  
+
+
+<span style="color: blue;">**Should WGSAM focus on providing suggestions for our specialty--food webs? Changing ecosystem productivity?**</span>
+]
+
+
+---
+# MSE technical specifications and/or review criteria
+
+*  Included factors follow the process described in the previous slides to ensure most relevant things dealt with first
+
+*  Review modeling tools available add to process as well as the lit review
+
+*  Then--best practices for including the factors in models
+
+*  When do you need a full ecosystem OM? see examples
+
+*  When do you need a full assessment included? offer acceptable alternatives
+
+*  Can we sketch some guidelines?
+
+* Projections: when you dont have your factor in the future, how to project?
+    + Empirical vs Ecosystem informed OM
+    + Hybrid?
+
+---
+# Where can ecosystem info go in advice?
+
+How do we use it in the advice?
+
+* In historical assessment, in short term forecast, in reference points?
+* Specify this
+
+Missing a place in current advice products? Can point out but not WGSAM's job?
+
+---
+# Ways forward
+
+Working Documents: 
+
+*  summary of this discussion, 
+*  slides from this discussion, 
+*  and the review criteria document we use for keyruns
+
+For next year final of 3 year ToRs develop a rough process and technical specifications and review guidelines
+
