@@ -1,0 +1,73 @@
+---
+title: "Western Atlantic Black Sea Bass Case Study"
+subtitle: "ICES WKFISHECO, 10 November 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+author: "Sarah Gaichas, Presenter<br />based on work by Emily Liljestrand, NOAA"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/HS_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["right", "bottom", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+
+.center[
+# Goal: Evaluate whether environmental covariates in assessments help with projections 
+]
+
+## Outline
+
+* Overview of the Black Sea Bass assessment
+    + Includes an environmental covariate (winter bottom temperature in the northern stock area is linked to recruitment) 
+    + Already used for providing management advice
+    + How the covariate was selected and implemented
+* Issues with the forecasts: not used for advice
+* Questions
+    + Can the forecast be improved with different treatment of the environmental covariate? 
+    + Can we design MSE to evaluate using the environmental covariate to update previous advice rather than annually updating the full assessment
+
+
+---
+# Background
+
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
+background-size:  100%
+background-position: right
+
+.center[
+# Thanks!
+
+# Questions?
+]
+
+.footnote[
+Slides available at https://sgaichas.github.io/HSpresentations  
+Contact: <sgaichas@hydrascientificllc.com>
+]
+

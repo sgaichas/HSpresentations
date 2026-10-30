@@ -1,0 +1,69 @@
+---
+title: "<br /><br /><br />Moving toward ecosystem and <br />climate informed advice"
+subtitle: "ICES WKFISHECO, 9 November 2026"
+author: "Sarah Gaichas, ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/ICES_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+
+.center[
+# Goal: Deliver climate and ecosystem-informed advice on fishing opportunities  
+]
+
+
+## Outline: 
+
+* Options for including climate and ecosystem information advice
+    1. Climate-informed reference points
+    2. Qualitative risk statements in advice
+    3. Quantitative catch options reflecting ecosystem drivers
+    4. Long term climate projections of stock size and distribution
+* Reflections on options
+    1. From advice requesters
+    2. From ACOM
+* How to develop the advice? A tangible example
+
+
+---
+# Background
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
+background-size: cover
+background-position: center
+
+class: middle
+
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+

@@ -1,0 +1,64 @@
+---
+title: "<br /><br /><br />ICES Advice for selected skates, rays,<br /> and sharks"
+subtitle: "Joint NWWAC/NSAC Focus Group Skates & Rays<br /<br />4 November 2026"
+author: "Sarah Gaichas, ICES ACOM Vice Chair"
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/ICES_theme3_508_16by9.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left", "middle", "my-title"]
+      ratio: "16:9"
+      highlightStyle: githubp
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+class: top, left
+
+```{r setup, include=FALSE}
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = F,
+                      fig.retina = 3,
+                      warning = F,
+                      message = F)
+#Plotting and data libraries
+library(tidyverse)
+library(tidyr)
+library(ggrepel)
+library(here)
+
+```
+
+# Introduction
+
+Focus on advice released in autumn 2026
+
+Brief review of advice released in 2025
+
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
+background-size: cover
+background-position: center
+
+class: middle
+
+Slides available at https://sgaichas.github.io/HSpresentations/  
+Contact: <sarah.gaichas@ices.dk>
+
+
