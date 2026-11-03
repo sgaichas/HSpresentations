@@ -37,19 +37,185 @@ library(here)
 # Introduction
 
 Focus on advice released in autumn 2026
+* UK 2018 to 2023 commercial landings and discards updates for rja.27.nea, rjc.27.7afg, rje.27.7fg, rjh.27.7afg included
 
-Brief review of advice released in 2025
 
+Follow-ups from WKSKATE2 noted
+* Cuckoo ray 4-3.a revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
+* Blond ray 7.e exploratory work conducted, requires further discussion
+* Thornback ray 7.e preliminary work may lead to a new model based index in the 2028 assessment
+* Spotted ray 6 7.b 7.j included a new survey
+* rjc.27.7afg revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
+* rjm.27.7ae-h revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
+* rjm.27.67bj added an index, reference levels recalculated
+* rje.27.7fg revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
+* rjb.27.67a-ce-k potential to split into common blue skate and flapper skate for future assessments
+
+
+Update on ICES work on Spurdog (*Squalus acanthias*)
+
+Brief review of multiannual advice released previously
+
+```{r getdat, eval=FALSE}
+
+# run the script that reads the advice sheets to fill out the slides and save the dataset
+
+source(here::here("Projects/ICES_ACOM/NWWAC/R/ReadAdviceSheet_Fig1Title.R"))
+
+files <- list.files("~/Documents/Work/ICES-ACOM/AdviceSheets/Elasmobranchs2026", pattern = "\\.pdf$", full.names = TRUE)
+all_results <- purrr::map(files, purrr::possibly(extract_ices_advice, otherwise = NULL, quiet = FALSE)) |>
+  purrr::list_rbind()
+
+saveRDS(all_results, here::here("Projects/ICES_ACOM/NWWAC/advicedat/2026_elasmos.rds"))
+
+# all_results |> dplyr::select(-catch_advice, -catch_scenarios, -forecast_values, -reference_points)
+# all_results |> dplyr::select(stock_code, catch_advice)     |> tidyr::unnest(catch_advice)
+# all_results |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
+# all_results |> dplyr::select(stock_code, forecast_values)  |> tidyr::unnest(forecast_values)
+# all_results |> dplyr::select(stock_code, reference_points) |> tidyr::unnest(reference_points)
+
+```
+
+
+```{r, include=FALSE}
+
+all_results <- readRDS(here::here("advicedat/2026_elasmos.rds"))
+
+stocks <- unique(all_results$stock_code)
+
+```
+
+```{r, eval=FALSE, results='asis'}
+
+src <-  purrr::map_chr(all_results, \(stocks) {
+  knitr::knit_expand(text = c(
+    "## {{ title }}",
+    "",
+    " {{ catch_advice }}",
+    ".pull-left-70[",
+    "![Advice Fig 1](here::here(paste0(\"docs/images/ICESadvicefigures\", {{ stock_code }},\"_figure1.png\"))",
+    "",
+    ".footnote[ {{ advice_url }}]",
+    "]",
+    "",
+    ".pull-right-30[",
+    "{{ fishing_pressure }}",
+    "{{ stock_size }}",
+    "{{ advice_change_note }}",
+    "",
+    "]",
+    "---",
+    "## {{ title }}",
+    "",
+    "Total catch:  {{ total_catch_t }}, Discard rate: {{ discard_rate }}",
+    "",
+    "{{ catch_scenarios }}",
+    "",
+    ".footnote[ {{ advice_url }}]",
+    "---"))
+})
+res <- knitr::knit_child(text = src, quiet = TRUE)
+cat(res, sep = '\n')
+
+# slides_text <- glue::glue_data(
+#   all_results,
+#   "
+#   ## {title}
+#   {catch_advice}
+#   .pull-left-70[
+#   ![]({figure_png})
+#   .footnote[{advice_url}]
+#   ]
+#   .pull-right-30[
+#   {fishing_pressure}
+#   {stock_size}
+#   {advice_change_note}
+#   
+#   ---
+#   ## {title}
+#   Total catch:  {total_catch_t}, Discard rate: {discard_rate}
+#   {catch_scenarios}
+#   .footnote[{advice_url}]
+#   "
+# )
+# 
+# slides_text |> paste(collapse = "\n---\n")
+```
+
+---
+```{r, results='asis'}
+
+st <- all_results |> dplyr::filter(stock_code == stocks[1])
+#![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
+
+src <- knitr::knit_expand(text = c(
+    "background-image: url(\"https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }}\")",
+    "background-size: 900px",
+    "background-position: bottom 30px left -20px",
+    "## {{ st$title }}",
+    "",
+    "`r unlist({{ st$catch_advice }})[[1]]` `r unlist({{ st$catch_advice }})[[5]]` advice <= `r unlist({{ st$catch_advice }})[[3]]` and ",
+    "`r unlist({{ st$catch_advice }})[[2]]` `r unlist({{ st$catch_advice }})[[6]]` advice <= `r unlist({{ st$catch_advice }})[[4]]`",
+    ".pull-left-70[",
+    "",
+    "",
+    ".footnote[ {{ st$advice_url }}]",
+    "]",
+    "",
+    ".pull-right-30[",
+    "{{ st$fishing_pressure }}",
+    "",
+    "{{ st$stock_size }}",
+    "",
+    "{{ st$advice_change_note }}",
+    "",
+    "]",
+    "---",
+    "## {{ st$title }}",
+    "",
+    "Total catch:  {{ st$total_catch_t }}, Discard rate: {{ st$discard_rate }}",
+    "",
+    "{{ st$catch_scenarios }}",
+    "",
+    ".footnote[ {{ st$advice_url }}]",
+    "---"))
+res <- knitr::knit_child(text = src, quiet = TRUE)
+cat(res, sep = '\n')
+```
 
 ---
 
 ---
 
 ---
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/adviceXplorerRays.png")
+background-size: 700px
+background-position: right
 
----
+## Where to find Advice
 
----
+ICES library
+
+https://ices-library.figshare.com/
+
+## Or
+
+Search [adviceXplorer](https://ices-taf.shinyapps.io/advicexplorer/)
+
+by stock code
+
+e.g. rju.27.7de
+
+or by common name
+
+"ray"
+
+https://ices-taf.shinyapps.io/advicexplorer/
+
+## See also
+
+[Working Group on Elasmobranch Fishes 2026](https://doi.org/10.17895/ices.pub.34068678)
+
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
