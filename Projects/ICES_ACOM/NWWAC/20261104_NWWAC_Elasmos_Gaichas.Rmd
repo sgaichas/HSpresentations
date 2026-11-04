@@ -34,47 +34,6 @@ library(here)
 
 ```
 
-# Introduction
-
-Focus on advice released in autumn 2026
-
-
-Thornback ray (Raja clavata) in Subarea 6 (West of Scotland);                                                                                                        rjc.27.6  
-Thornback ray (Raja clavata) in divisions 7.a and 7.f–g (Irish Sea, Bristol Channel, Celtic Sea North);                                                              rjc.27.7a…
-Small-eyed ray (Raja microocellata) in divisions 7.f and 7.g (Bristol Channel, Celtic Sea North) ;                                                                   rje.27.7fg
-Spotted ray (Raja montagui) in Subarea 6 and divisions 7.b and 7.j (West of Scotland, west and southwest of Ireland);                                                rjm.27.67…
-Spotted ray (Raja montagui) in divisions 7.a and 7.e–h (southern Celtic Seas and western English Channel);                                                          rjm.27.7a…
-Cuckoo ray (Leucoraja naevus) in subareas 6 and 7, and in divisions 8.a–b and 8.d (West of Scotland, southern Celtic Seas, and western English Channel, Bay of Biscay;  rjn.27.67…
-Undulate ray (Raja undulata) in divisions 7.d–e (English Channel);     
-
-Porbeagle (Lamna nasus) in subareas 1–10, 12, and 14 (the Northeast Atlantic and adjacent waters);                                                                   por.27.nea
-Spurdog (Squalus acanthias) in subareas 1–10, 12, and 14 (the Northeast Atlantic and adjacent waters);                                                               dgs.27.nea
-
---
-
-* UK 2018 to 2023 commercial landings and discards updates for rja.27.nea, rjc.27.7afg, rje.27.7fg, rjh.27.7afg included
-
----
-## Introduction
-
-Follow-ups from WKSKATE2 noted
-* Blond ray 7.e exploratory work conducted, requires further discussion – but not assessed this year
-* Thornback ray 7.e preliminary work may lead to a new model based index in the 2028 assessment – not assessed this year
-* Thornback ray in divisions 7.a and 7.f–g revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
-* Spotted ray in 6 7.b 7.j included a new survey index, reference levels recalculated
-* Spotted ray in divisions 7.a and 7.e–h  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
-* Small-eyed ray in divisions 7.f and 7.g  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
-* Common skate complex potential to split into common blue skate and flapper skate for future assessments – but not assessed this year
-
---
-
-Update on Spurdog (*Squalus acanthias*)
-
---
-
-Brief review of multiannual advice released previously
-
-
 ```{r getdat, eval=FALSE}
 
 # run the script that reads the advice sheets to fill out the slides and save the dataset
@@ -103,6 +62,53 @@ all_results <- readRDS(here::here("advicedat/2026_elasmos.rds"))
 stocks <- unique(all_results$stock_code)
 
 ```
+
+
+# Introduction
+
+Focus on advice released in autumn 2026
+
+```{r}
+all_results |> dplyr::select(title, stock_code) |>
+  dplyr::arrange(factor(stock_code, levels = c("rjc.27.6",
+                                               "rjc.27.7afg",
+                                               "rje.27.7fg",
+                                               "rjm.27.67bj",
+                                               "rjm.27.7ae-h",
+                                               "rjn.27.678abd",
+                                               "rju.27.7de",
+                                               "por.27.nea", 
+                                               "dgs.27.nea"))) |>
+  flextable::flextable() |>
+  flextable::autofit() |>
+  flextable::set_header_labels(title = "Stock name", stock_code = "Stock code")
+
+```
+
+--
+
+* UK 2018 to 2023 commercial landings and discards updates for rjc.27.7afg, rje.27.7fg, rjh.27.7afg included
+
+---
+## Introduction
+
+Follow-ups from WKSKATE2 noted
+* Blond ray 7.e exploratory work conducted, requires further discussion – but not assessed this year
+* Thornback ray 7.e preliminary work may lead to a new model based index in the 2028 assessment – not assessed this year
+* Thornback ray in divisions 7.a and 7.f–g revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Spotted ray in 6 7.b 7.j included a new survey index, reference levels recalculated
+* Spotted ray in divisions 7.a and 7.e–h  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Small-eyed ray in divisions 7.f and 7.g  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Common skate complex potential to split into common blue skate and flapper skate for future assessments – but not assessed this year
+
+--
+
+Update on Spurdog (*Squalus acanthias*)
+
+--
+
+Brief review of multiannual advice released previously
+
 
 
 ---
@@ -147,6 +153,8 @@ src <- knitr::knit_expand(text = c(
     "st_scen |>",
     "dplyr::select(!c(1:3)) |>",
     "flextable::flextable() |>",
+    "flextable::padding(padding.top = 3, part = \"all\") |>",
+    "flextable::padding(padding.bottom = 3, part = \"all\") |>",
     "flextable::autofit()",
     "```",
     "",
@@ -161,6 +169,8 @@ cat(res, sep = '\n')
 
 st <- all_results |> dplyr::filter(stock_code == stocks[4])
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
+st_scen$value_num[1] <- 1699
+st_scen$item[1] <- "Ay: Previous landings advice (2025-2026 issued in 2024)"
 st_scen$value_num[12] <- 1309
 st_scen$item[12] <- "Landings advice for 2027-2028"
 
@@ -375,48 +385,64 @@ st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(ca
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
 src <- knitr::knit_expand(text = c(
-    "background-image: url(\"https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }}\")",
-    "background-size: 900px",
-    "background-position: bottom 30px left -20px",
-    "## {{ st$title }}",
-    "",
-    "Advice for `r unlist({{ st$catch_advice }})[[1]]` `r unlist({{ st$catch_advice }})[[5]]` <= `r unlist({{ st$catch_advice }})[[3]]` t and ",
-    "`r unlist({{ st$catch_advice }})[[2]]` `r unlist({{ st$catch_advice }})[[6]]` <= `r unlist({{ st$catch_advice }})[[4]]` t",
-    ".pull-left-70[",
-    "",
-    "",
-    ".footnote[ {{ st$advice_url }}]",
-    "]",
-    "",
-    ".pull-right-30[",
-    "{{ st$fishing_pressure }}",
-    "",
-    "{{ st$stock_size }}",
-    "",
-    "{{ st$advice_change_note }}",
-    "",
-    "]",
-    "---",
-    "## {{ st$title }}",
-    "",
-    "Total landings ({{ st$catch_year }}):  {{ st$landings_t }} t, {{ st$catch_dist_note }}; {{ st$forecast_values[[1]]$variable[1] }}: {{ st$forecast_values[[1]]$value[1] }};  {{ st$forecast_values[[1]]$variable[2] }}: {{ st$forecast_values[[1]]$value[2] }}",
-    "",
-    "```{r}",
-    "#| echo: false",
-    "st_scen |>",
-    "dplyr::select(!c(1:3)) |>",
-    "dplyr::rename_all(function(x) gsub(\"_\", \" \", x)) |>",
-    "dplyr::mutate(year = as.character(year)) |>",
-    "flextable::flextable() |>",
-    "flextable::padding(padding.top = 2, part = \"all\") |>",
-    "flextable::padding(padding.bottom = 2, part = \"all\") |>",
-    "flextable::autofit()",
-    "```",
-    "",
-    ".footnote[ {{ st$advice_url }}]",
-    "---"))
+  "background-image: url(\"https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }}\")",
+  "background-size: 900px",
+  "background-position: bottom 30px left -20px",
+  "## {{ st$title }}",
+  "",
+  "Advice for `r unlist({{ st$catch_advice }})[[1]]` `r unlist({{ st$catch_advice }})[[5]]` <= `r unlist({{ st$catch_advice }})[[3]]` t and ",
+  "`r unlist({{ st$catch_advice }})[[2]]` `r unlist({{ st$catch_advice }})[[6]]` <= `r unlist({{ st$catch_advice }})[[4]]` t",
+  ".pull-left-70[",
+  "",
+  "",
+  ".footnote[ {{ st$advice_url }}]",
+  "]",
+  "",
+  ".pull-right-30[",
+  "{{ st$fishing_pressure }}",
+  "",
+  "{{ st$stock_size }}",
+  "",
+  "{{ st$advice_change_note }}",
+  "",
+  "]",
+  "---",
+  "## {{ st$title }}",
+  "",
+  "Total landings ({{ st$catch_year }}):  {{ st$landings_t }} t, {{ st$catch_dist_note }}; {{ st$forecast_values[[1]]$variable[1] }}: {{ st$forecast_values[[1]]$value[1] }};  {{ st$forecast_values[[1]]$variable[2] }}: {{ st$forecast_values[[1]]$value[2] }}",
+  "",
+  "```{r}",
+  "#| echo: false",
+  "st_scen |>",
+  "dplyr::select(!c(1:3)) |>",
+  "dplyr::rename_all(function(x) gsub(\"_\", \" \", x)) |>",
+  "dplyr::mutate(year = as.character(year)) |>",
+  "flextable::flextable() |>",
+  "flextable::padding(padding.top = 2, part = \"all\") |>",
+  "flextable::padding(padding.bottom = 2, part = \"all\") |>",
+  "flextable::autofit()",
+  "```",
+  "",
+  ".footnote[ {{ st$advice_url }}]",
+  "---"))
 res <- knitr::knit_child(text = src, quiet = TRUE)
 cat(res, sep = '\n')
+
+# didnt work
+  # "flextable::hline(i = ~ 'scenario group' == \"ICES advice basis\",
+  #                     border = flextable::fp_border_default(color = \"blue\", width = 1.5),
+  #                     part = \"body\") |>",
+  # "flextable::hline(i = ~ before('scenario group' == \"ICES advice basis\"),
+  #                     border = flextable::fp_border_default(color = \"blue\", width = 1.5),
+  #                     part = \"body\") |>",
+  # "flextable::vline_left(i = ~ 'scenario group' == \"ICES advice basis\",
+  #                     border = flextable::fp_border_default(color = \"blue\", width = 1.5),
+  #                     part = \"body\")  |>",
+  # "flextable::vline_right(i = ~ 'scenario group' == \"ICES advice basis\",
+  #                     border = flextable::fp_border_default(color = \"blue\", width = 1.5),
+  #                     part = \"body\") |> ",
+
+
 ```
 
 
@@ -614,6 +640,7 @@ advicesum <- advicesum[-4,]
 advicesum <- advicesum[-18,]
 
 flextable::flextable(advicesum) |>
+  flextable::fontsize(size = 10, part = "all") |>
   flextable::autofit() |>
   flextable::padding(padding.top = 1, part = "all") |>
   flextable::padding(padding.bottom = 1, part = "all")
