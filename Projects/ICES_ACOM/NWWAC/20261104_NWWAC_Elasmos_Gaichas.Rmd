@@ -53,7 +53,7 @@ Follow-ups from WKSKATE2 noted
 
 --
 
-Update on ICES work on Spurdog (*Squalus acanthias*)
+Update on Spurdog (*Squalus acanthias*)
 
 ???
 Brief review of multiannual advice released previously
@@ -548,7 +548,64 @@ res <- knitr::knit_child(text = src, quiet = TRUE)
 cat(res, sep = '\n')
 ```
 
+### Previously released plus current advice
 
+```{r eval=FALSE}
+source(here::here("Projects/ICES_ACOM/NWWAC/R/ReadAdviceSheet_Fig1Title.R"))
+
+files <- list.files("~/Documents/Work/ICES-ACOM/AdviceSheets/Elasmobranchs", pattern = "\\.pdf$", full.names = TRUE)
+allyr_results <- purrr::map(files, purrr::possibly(extract_ices_advice, otherwise = NULL, quiet = FALSE)) |>
+  purrr::list_rbind()
+
+saveRDS(allyr_results, here::here("Projects/ICES_ACOM/NWWAC/advicedat/allcurrent_elasmos.rds"))
+```
+
+```{r}
+
+allyr_results <- readRDS(here::here("advicedat/allcurrent_elasmos.rds"))
+
+advicesum <- allyr_results |> dplyr::select(stock_code, title, catch_advice) |> tidyr::unnest(catch_advice) |>
+  dplyr::filter(!is.na(stock_code)) |>
+  dplyr::group_by(stock_code, title) |>
+  tidyr::pivot_wider(names_from = year, values_from = advice_t) |>
+  dplyr::select(stock_code, title, advice_type, `2025`, `2026`,`2027`,`2028`,`2030`) |>
+  dplyr::mutate(`2029` = NA) |>
+  dplyr::select(stock_code, title, advice_type, `2025`, `2026`,`2027`,`2028`,`2029`, `2030`) 
+
+# remove NA all years
+advicesum <- advicesum[-c(3:4, 20),]
+
+# fill 4 year series
+#porbeagle
+advicesum[2,c(7:8)] <- 185
+# thornback 7e
+advicesum[7,c(5:6)] <- 170
+# smalleye
+advicesum[8,c(5:6)] <- 32
+
+advicesum[10,c(5:6)] <- 134
+
+advicesum[11,c(5:6)] <- 573
+
+advicesum[12,c(5:6)] <- 213
+
+advicesum[13,c(5:6)] <- 27
+
+#remove duplicate catch/landings
+advicesum <- advicesum[-4,]
+
+advicesum <- advicesum[-18,]
+
+flextable::flextable(advicesum) |>
+  flextable::autofit() |>
+  flextable::padding(padding.top = 1, part = "all") |>
+  flextable::padding(padding.bottom = 1, part = "all")
+
+
+```
+
+
+---
 background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/adviceXplorerRays.png")
 background-size: 700px
 background-position: right
