@@ -37,26 +37,43 @@ library(here)
 # Introduction
 
 Focus on advice released in autumn 2026
-* UK 2018 to 2023 commercial landings and discards updates for rja.27.nea, rjc.27.7afg, rje.27.7fg, rjh.27.7afg included
+
+
+Thornback ray (Raja clavata) in Subarea 6 (West of Scotland);                                                                                                        rjc.27.6  
+Thornback ray (Raja clavata) in divisions 7.a and 7.f–g (Irish Sea, Bristol Channel, Celtic Sea North);                                                              rjc.27.7a…
+Small-eyed ray (Raja microocellata) in divisions 7.f and 7.g (Bristol Channel, Celtic Sea North) ;                                                                   rje.27.7fg
+Spotted ray (Raja montagui) in Subarea 6 and divisions 7.b and 7.j (West of Scotland, west and southwest of Ireland);                                                rjm.27.67…
+Spotted ray (Raja montagui) in divisions 7.a and 7.e–h (southern Celtic Seas and western English Channel);                                                          rjm.27.7a…
+Cuckoo ray (Leucoraja naevus) in subareas 6 and 7, and in divisions 8.a–b and 8.d (West of Scotland, southern Celtic Seas, and western English Channel, Bay of Biscay;  rjn.27.67…
+Undulate ray (Raja undulata) in divisions 7.d–e (English Channel);     
+
+Porbeagle (Lamna nasus) in subareas 1–10, 12, and 14 (the Northeast Atlantic and adjacent waters);                                                                   por.27.nea
+Spurdog (Squalus acanthias) in subareas 1–10, 12, and 14 (the Northeast Atlantic and adjacent waters);                                                               dgs.27.nea
 
 --
 
+* UK 2018 to 2023 commercial landings and discards updates for rja.27.nea, rjc.27.7afg, rje.27.7fg, rjh.27.7afg included
+
+---
+## Introduction
+
 Follow-ups from WKSKATE2 noted
-* Cuckoo ray 4-3.a revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
-* Blond ray 7.e exploratory work conducted, requires further discussion
-* Thornback ray 7.e preliminary work may lead to a new model based index in the 2028 assessment
-* Thornback ray in divisions 7.a and 7.f–g revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
-* Spotted ray in 6 7.b 7.j included a new survey, reference levels recalculated
-* Spotted ray in divisions 7.a and 7.e–h  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
-* Small-eyed ray in divisions 7.f and 7.g  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated
-* Common skate complext potential to split into common blue skate and flapper skate for future assessments
+* Blond ray 7.e exploratory work conducted, requires further discussion – but not assessed this year
+* Thornback ray 7.e preliminary work may lead to a new model based index in the 2028 assessment – not assessed this year
+* Thornback ray in divisions 7.a and 7.f–g revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Spotted ray in 6 7.b 7.j included a new survey index, reference levels recalculated
+* Spotted ray in divisions 7.a and 7.e–h  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Small-eyed ray in divisions 7.f and 7.g  revised length for exploitable B (30 instead of 50 cm), reference levels recalculated – discard survival included
+* Common skate complex potential to split into common blue skate and flapper skate for future assessments – but not assessed this year
 
 --
 
 Update on Spurdog (*Squalus acanthias*)
 
-???
+--
+
 Brief review of multiannual advice released previously
+
 
 ```{r getdat, eval=FALSE}
 
