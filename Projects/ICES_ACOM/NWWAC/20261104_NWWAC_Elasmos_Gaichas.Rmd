@@ -114,7 +114,7 @@ Brief review of multiannual advice released previously
 ---
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[3])
+st <- all_results |> dplyr::filter(stock_code == stocks[3]) #"rjc.27.6"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -167,7 +167,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[4])
+st <- all_results |> dplyr::filter(stock_code == stocks[4]) #"rjc.27.7afg"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 st_scen$value_num[1] <- 1699
 st_scen$item[1] <- "Ay: Previous landings advice (2025-2026 issued in 2024)"
@@ -223,7 +223,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[5])
+st <- all_results |> dplyr::filter(stock_code == stocks[5]) #"rje.27.7fg"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -274,7 +274,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[6])
+st <- all_results |> dplyr::filter(stock_code == stocks[6]) #"rjm.27.67bj"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -327,7 +327,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[7])
+st <- all_results |> dplyr::filter(stock_code == stocks[7]) #"rjm.27.7ae-h"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -380,7 +380,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[8])
+st <- all_results |> dplyr::filter(stock_code == stocks[8]) #"rjn.27.678abd"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -448,7 +448,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[9])
+st <- all_results |> dplyr::filter(stock_code == stocks[9]) #"rju.27.7de"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -500,7 +500,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[2])
+st <- all_results |> dplyr::filter(stock_code == stocks[2]) #"por.27.nea"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 
@@ -541,7 +541,7 @@ cat(res, sep = '\n')
 
 ```{r, results='asis'}
 
-st <- all_results |> dplyr::filter(stock_code == stocks[1])
+st <- all_results |> dplyr::filter(stock_code == stocks[1]) #"dgs.27.nea"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
 

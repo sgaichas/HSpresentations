@@ -3,6 +3,20 @@
 # Add |zero|cannot provide for catch advice sentence
 # for now other fixes are not necessary for these 9 sheets
 # run from the HSpresentations directory, the figs will show up there
+#
+# ToDo:
+# Catch options tables
+#    Standardize across types so they have the same number of leading columns
+#    Ensure numbers dont get cropped and added to other columns
+#    Consider keeping footnotes 
+# Stock status statement doesn't work if one sentence, or if no status
+# Catch advice: fill in the sequence of years with constant catch advice (2027-2030 -> 2027:2030)
+#   Given sensible outputs for zero catch advice and no advice given, now both NA
+# Improve list structures for reading out
+# Better coordinate this script with slide template
+#   See ~/Documents/Work/Presentations/HSpresentations/Projects/ICES_ACOM/NWWAC/20261104_NWWAC_Elasmos_Gaichas.Rmd
+#   for all the hacky fixes I had to do
+
 
 # install.packages(c("pdftools", "png", "dplyr", "stringr", "purrr", "tibble",
 #                    "tidyr", "tidyselect", "lubridate"))
