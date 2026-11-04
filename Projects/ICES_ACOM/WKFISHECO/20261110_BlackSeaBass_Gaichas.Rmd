@@ -54,6 +54,36 @@ library(here)
 ---
 # Background
 
+Stock status 
+
+Known climate and/or environmental drivers 
+
+What work is proposed? 
+
+What advice step/component does this relate to: 
+
+Assessment 
+
+Forecast 
+
+Management Strategy Evaluation 
+
+Harvest control rule  
+
+Reference points 
+
+Advice sheet 
+
+Spatial planning? 
+
+How to evaluate model/forecast skill/diagnostics 
+
+Draft text on case study description 
+
+---
+# Available (?) Forecasts
+
+https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-predictions/
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)

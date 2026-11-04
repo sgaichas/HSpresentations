@@ -268,6 +268,14 @@ a, a > code {
   border-radius: 10px;
 }
 
+.icesgreenbox {
+  padding: 1em;
+  background: #E4F5F1;
+  color: black;
+  border: 2px solid #047;
+  border-radius: 10px;
+}
+
 .ltbluebox {
   padding: 1em;
   background: #0000ff40;
