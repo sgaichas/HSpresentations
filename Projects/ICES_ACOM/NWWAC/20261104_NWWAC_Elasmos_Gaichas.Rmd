@@ -114,6 +114,8 @@ Brief review of multiannual advice released previously
 ---
 ```{r, results='asis'}
 
+# following the example here https://github.com/orgs/quarto-dev/discussions/2403
+
 st <- all_results |> dplyr::filter(stock_code == stocks[3]) #"rjc.27.6"
 st_scen <- st |> dplyr::select(stock_code, catch_scenarios)  |> tidyr::unnest(catch_scenarios)
 #![Advice Fig 1](https://github.com/sgaichas/HSpresentations/raw/main/{{ st$figure_png }})
