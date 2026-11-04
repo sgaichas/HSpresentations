@@ -477,7 +477,7 @@ src <- knitr::knit_expand(text = c(
     "---",
     "## {{ st$title }}",
     "",
-    "Total catch ({{ st$catch_year }}):  {{ st$total_catch_t }} t, Discard rate: `r round({{ st$discard_rate }}*100)`%; {{ st$forecast_values[[1]]$variable[1] }}: {{ st$forecast_values[[1]]$value[1] }};  {{ st$forecast_values[[1]]$variable[2] }}: {{ st$forecast_values[[1]]$value[2] }}",
+    "Total catch ({{ st$catch_year }}):  {{ st$total_catch_t }} t, Discard (all live + dead) rate: `r round({{ st$discard_rate }}*100)`%; Dead discard (>=50 cm) rate: `r round((546/3785)*100)`%; {{ st$forecast_values[[1]]$variable[1] }}: {{ st$forecast_values[[1]]$value[1] }};  {{ st$forecast_values[[1]]$variable[2] }}: {{ st$forecast_values[[1]]$value[2] }}",
     "",
     "```{r}",
     "#| echo: false",
