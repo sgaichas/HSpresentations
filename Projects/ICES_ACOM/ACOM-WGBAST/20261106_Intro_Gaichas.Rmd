@@ -87,16 +87,44 @@ The  Code  of  Ethics  and  Professional Conduct  does  not  affect  the  applic
 
 .pull-right-40[
 
+![ICES code of ethics](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICEScodeethics.png)
+
 ]
 
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICEScorevalue.png)
+background-size: 950px
+background-position: bottom 15px center
+
 # CORE VALUES
+
 
 ---
 # Gender Equality, Diversity, Equity, and Inclusion
 
+![ICES gender equality DEI](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESgenderequity.png)
+
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESgoodscipractice.png)
+background-size: 500px
+background-position: left 50px bottom 30px
+
 # GOOD SCIENTIFIC PRACTICE
+
+.pull-left[
+
+]
+
+.pull-right[
+
+*  Authorship 
+
+*  Intellectual property & data 
+
+*  Misconduct 
+
+*  List of international document 
+]
 
 
 ---
@@ -150,7 +178,24 @@ Find Conflict of Interest in the [Code of Ethics and Professional Conduct](https
       +  If the offense is criminal, law enforcement will be contacted  
 
 ---
+# Purpose and scope of the ACOM–WGBAST subgroup
 
+       + ACOM’s mandate for the subgroup 
+       + relationship to, and boundaries with, the benchmark process 
+       + key advice-framework questions that the subgroup should address 
+       + expected outputs and how these feed back to ACOM 
+
+
+
+The benchmark is expected to address a number of important scientific and advisory issues relating to Baltic salmon stocks. In particular, discussions are likely to focus on the suitability and application of MSY and limit reference points, the interpretation of stock-specific and mixed-stock information, and the most appropriate way to develop and communicate multi-stock advice. Given the significance of these topics for future assessments and advice, I believe it would be valuable to have a small group of ACOM members engaged throughout the process.
+
+A preparatory meeting before the benchmark meeting scheduled for 30/11/2026-04/12/2026 with the experts to discuss the key issues, identify areas where ACOM input may be particularly valuable, and agree on points for consideration during the benchmark process.
+ 
+
+A follow-up meeting with the benchmark experts during or shortly after the benchmark to discuss outcomes and provide guidance on matters relating to reference points and the framing of the multi-stock advice before recommendations are finalized.
+ 
+
+The objective is not to participate directly in the benchmark work itself, but rather to help ensure that scientific outputs can be translated into clear, robust, and policy-relevant advice by ACOM
 
 
 ---
