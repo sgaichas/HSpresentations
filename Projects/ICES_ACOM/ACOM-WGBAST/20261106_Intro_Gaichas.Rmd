@@ -117,13 +117,16 @@ background-position: left 50px bottom 30px
 
 .pull-right[
 
-*  Authorship 
+Everyone engaged with ICES must comply with the international values and standards of good scientific practice
 
-*  Intellectual property & data 
+*  Authorship must be discussed and agreed throughout all stages of scientific research
 
-*  Misconduct 
+*  Data managed by ICES Data Centre is subject to the ICES Data Policy 
 
-*  List of international document 
+*  [AI Use](https://doi.org/10.17895/ices.pub.30315979.v1)
+    +  Communicate clearly when and how AI has been used 
+    +  Provide context for the purpose of using AI 
+    +  Acknowledge the limitations and potential for error in AI outputs 
 ]
 
 
@@ -157,25 +160,34 @@ Find Conflict of Interest in the [Code of Ethics and Professional Conduct](https
 ---
 # REPORTING MISCONDUCT
 
+.pull-left-70[
+
 *  Try to solve the issue directly 
 
 *  Tell someone: expert group chairs, SCICOM members and Steering Group chairs, ACOM chair and vice-chairs, Secretariat staff, General Secretary, and national delegates. 
 
 *  HR officers – first point of contact for issues that cannot be resolved directly. 
 
-*  [Anonymous reporting tool](https://ices-library.figshare.com/articles/report/Code_of_Ethics_and_Professional_Conduct/21647825?file=47441744) 
+*  [Anonymous reporting tool overview](https://ices-library.figshare.com/articles/report/Code_of_Ethics_and_Professional_Conduct/21647825?file=47441744) 
 
 *  Consequences for violations 
 
-      +  Immediate dismissal from the meeting/activity without refund  
-
+      +  Immediate dismissal from the meeting/activity without refund 
       +  Reporting the case to your home institute  
-
       +  Exclusion from any ICES activities for a defined period 
-
       +  Disciplinary procedures for staff 
-
       +  If the offense is criminal, law enforcement will be contacted  
+      
+]
+
+.pull-right-30[
+.center[
+```{r}
+plot(qrcode::qr_code("https://report.whistleb.com/en-GB/ices"))
+```
+ICES anonymous reporting tool
+]
+]
 
 ---
 # Purpose and scope of the ACOM–WGBAST subgroup
