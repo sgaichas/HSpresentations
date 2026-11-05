@@ -35,21 +35,20 @@ library(here)
 ```
 
 
-.center[
-## Goal: Deliver climate and ecosystem-informed advice on fishing opportunities  
-]
 
 
-## Outline: 
+
+## Outline 
 
 * Options for including climate and ecosystem information advice
+
     1. Climate-informed reference points
     2. Qualitative risk statements in advice
     3. Quantitative catch options reflecting ecosystem drivers
-    4. Long term climate projections of stock size and distribution
-* Reflections on options
-    1. From advice requesters
-    2. From ACOM
+    4. Long term climate projections of stock size and distribution 
+    
+* Reflections on options from advice requesters, stakeholders, and ACOM
+
 * How to develop the advice? A tangible example
 
 
@@ -152,9 +151,19 @@ background-position: bottom 50px center
 .footnote[Source: Bentley et al. 2021 https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.602072/full]
 
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/codclimateprojection.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/hakehabitatsuitabilityproj.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/hakehabitatsuitabilityvars.png)
+background-size: 600px, 380px, 150px
+background-position: bottom 20px left 20px, bottom 20px right 170px, bottom 50px right 20px
+
 ## Option 4 Example: Long-term Climate Impacts
 
+.pull-left[
+Stock abundance and catch forecast  under climate change: NS Cod
+]
 
+.pull-right[
+Spatial suitability model under climate change: Northern Hake
+]
 
 ---
 ## Reflections by Requesters, Stakeholders, and ACOM
@@ -181,11 +190,28 @@ ACOM: Option 1 could include adding climate and ecosystem drivers in short term 
 ---
 ## Moving Forward
 
-*A structured approach combining existing ICES resources  as a prototype process for evolving FO advice*
+*A structured approach combining existing ICES resources  as a prototype process for evolving advice*
 
+A Baltic example
 
-## Example: Baltic
+Structure work to enhance coordination and collaborations across expert groups and projects to fulfill existing ToRs and research needs, making the best use of existing resources while evolving the advice framework. Outcomes would include both prototype climate/ecosystem informed advice for a particular stock, and prototype processes for developing this advice that could be transferred to other stocks and regions.
 
+Collaborators including Advice requestors, stakeholders, and experts from ICES WGBFAS, WGIAB, WGECOBAL, WGBIFS, WGSAM, and other groups as needed would first agree on the priority stock(s) and provide a rationale for stock selection. 
+
+.pull-left[
+Steps:
+
+1. Conceptual model of stock life history
+2. Ecosystem factors
+3. Structured conversation
+4. Indicator development
+
+]
+
+.pull-right[
+Current resources
+
+]
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
 background-size: cover
