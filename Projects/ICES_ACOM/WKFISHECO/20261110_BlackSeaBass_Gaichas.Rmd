@@ -1,6 +1,6 @@
 ---
 title: "Western Atlantic Black Sea Bass Case Study"
-subtitle: "ICES WKFISHECO, 10 November 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+subtitle: "ICES WKFISHECO, 10 November 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
 author: "Sarah Gaichas, Presenter<br />based on work by Emily Liljestrand, <br />Kiersten Curti, Tim Miller, <br /> and many others at NOAA"
 output:
   xaringan::moon_reader:
@@ -61,28 +61,84 @@ library(here)
 
 
 ---
-# Stock Status
+## Stock Status
 
-Stock status 
+The stock is not overfished and no overfishing was occurring in 2025.  
+(ICES statements: Fishing pressure is below $F_{MSY}$ and the stock is above the $B_{MSY}$ target)
+
+.pull-left[
+![Kobe plot 2025 assessment](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_Kobe_status.png)
+]
+
+.pull-right[
+![Relative trends 2025 assessment](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_FSPR_relative.png)
+]
 
 ---
-# Known climate and/or environmental drivers 
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB-consmod.png)
+background-size:  1000px
+background-position: bottom
+
+## Known climate and/or environmental drivers 
+
+.pull-left-70[]
+.pull-right-30[
+.footnote[
+Source: Black Sea Bass [Ecosystem Socioeconomic Profile](https://repository.library.noaa.gov/view/noaa/66453)
+See also [Miller et al. 2016 PLoS ONE](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147627)
+]
+]
 
 ---
-# What work is proposed? 
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_-consmod_Fig3Miller2025.png)
+background-size:  1000px
+background-position: right
 
-What advice step/component does this relate to: 
+## The current assessment
+
+.pull-left-10[
+A multi-stock, multi-region [Woods Hole Assessment Model (WHAM)](https://timjmiller.github.io/wham/) to simultaneously model the northern and southern regions of the stock and movement of fish originating in northern region. Commercial and recreational fishery catch, and VAST survey and recreational CPA indices at age. Winter bottom temperature covariate on northern region recruitment.
+]
+
+.pull-right-90[
+]
+
+.footnote[
+Source: [Miller et al. 2025 CJFAS](https://cdnsciencepub.com/doi/10.1139/cjfas-2025-0097)
+]
+
+---
+.pull-left[
+## What work is proposed? 
+From the 2025 advice [recommendations](https://www.mafmc.org/s/Final_Full-SSC-Report_July-2025-SSC.pdf):
+
+* *The SSC emphasizes a critical need for dedicated investigation of assessment model projection performance. [...] Specifically:*  
+    + *How to project autocorrelated processes*  
+    + *How to project environmental covariates*  
+    + *Compare the performance of the terminal year OFL/ABC method used here with dynamic projections*   
+* *Investigate apparent patterns in NAA random effects, can we tie to mechanisms?* 
+
+## What advice step/component does this relate to? 
+
 *  Forecast 
-*  Management Strategy Evaluation 
+*  Management Strategy Evaluation
+
+]
+
+.pull-right[
+1[BSB forecasts at the Council](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_CouncilForecasts.png)
+]
+
 
 ---
-# How to evaluate model/forecast skill/diagnostics 
+## How to evaluate model/forecast skill/diagnostics 
+
+![Emily's comparison](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries.png)
+---
+## Draft text on case study description 
 
 ---
-# Draft text on case study description 
-
----
-# Available (?) Forecasts
+## Available (?) Forecasts
 
 https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-predictions/
 
