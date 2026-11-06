@@ -17,7 +17,7 @@ output:
     self_contained: false
     reveal_plugins: ["notes", "search"]
 ---
-class: top, left
+class: middle, left
 
 ```{r setup, include=FALSE}
 
@@ -34,13 +34,20 @@ library(here)
 
 ```
 
+background-image: url(https://github.com/sgaichas/presentations/raw/main/docs/EDAB_images/AherringConceptualMod.png)
+background-size: 550px
+background-position: center left 50px
 
+.pull-left[
+.footnote[
+Conceptual model developed for U.S. Atlantic herring. Source: [Herring ESP](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports#atlantic-herring) 
+]
+]
 
-
-
+.pull-right[
 ## Outline 
 
-* Options for including climate and ecosystem information advice
+* Options for including climate and ecosystem information in advice
 
     1. Climate-informed reference points
     2. Qualitative risk statements in advice
@@ -50,9 +57,11 @@ library(here)
 * Reflections on options from advice requesters, stakeholders, and ACOM
 
 * How to develop the advice? A tangible example
-
+]
 
 ---
+class: top, left
+
 ## Background
 
 In early 2026, Advice Requesters, Stakeholders, and ACOM reviewed options for evolving our advice framework for fisheries to take account of ecosystem and climate change impacts. Reviewed options included:
@@ -70,6 +79,9 @@ Option 4: Forecast of **long-term impacts of climate change** in [fisheriesXplor
 For each option, both current operational approaches and potential approaches based on scientific literature were identified.
 
 Discussions centered on classifying each option according to utility for short term and long term management needs and alignment with current management and legal frameworks.  
+
+???
+
 ---
 ## Option 1 Example: Dynamic Reference Points
 
@@ -152,8 +164,8 @@ background-position: bottom 50px center
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/codclimateprojection.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/hakehabitatsuitabilityproj.png), url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/hakehabitatsuitabilityvars.png)
-background-size: 600px, 380px, 150px
-background-position: bottom 20px left 20px, bottom 20px right 170px, bottom 50px right 20px
+background-size: 600px, 370px, 150px
+background-position: bottom 20px left 20px, bottom 20px right 170px, bottom 100px right 20px
 
 ## Option 4 Example: Long-term Climate Impacts
 
@@ -192,26 +204,86 @@ ACOM: Option 1 could include adding climate and ecosystem drivers in short term 
 
 *A structured approach combining existing ICES resources  as a prototype process for evolving advice*
 
-A Baltic example
+<span style="color: blue;">A Baltic example</span>
 
 Structure work to enhance coordination and collaborations across expert groups and projects to fulfill existing ToRs and research needs, making the best use of existing resources while evolving the advice framework. Outcomes would include both prototype climate/ecosystem informed advice for a particular stock, and prototype processes for developing this advice that could be transferred to other stocks and regions.
 
-Collaborators including Advice requestors, stakeholders, and experts from ICES WGBFAS, WGIAB, WGECOBAL, WGBIFS, WGSAM, and other groups as needed would first agree on the priority stock(s) and provide a rationale for stock selection. 
+Collaborators including Advice requestors, stakeholders, and experts from <span style="color: blue;">ICES WGBFAS, WGIAB, WGECOBAL, WGBIFS, WGSAM</span>, and other groups as needed would first agree on the priority stock(s) and provide a rationale for stock selection. 
 
 .pull-left[
 Steps:
 
 1. Conceptual model of stock life history
-2. Ecosystem factors
-3. Structured conversation
+2. Standard list of ecosystem factors to evaluate
+3. Structured conversation between assessors, ecosystem scientists, and stakeholders
 4. Indicator development
+5. Integration in advice framework
 
 ]
 
 .pull-right[
-Current resources
+Collaboration potential with current resources:
+
+*  <span style="color: blue;">WGBFAS</span> has identified stock research needs
+*  <span style="color: blue;">WGIAB</span> ToR for assessment indicators
+*  <span style="color: blue;">WGECOBA</span>L ToR for environmentally informed reference points
+*  <span style="color: blue;">WGSAM</span> identified need for broader mortality sources
+]
+
+---
+## Additional examples at this meeting &rarr; a systematic approach for ICES?
+
+.pull-left[
+<span style="color: blue;">Stock specific ecosystem indicators</span> can be derived from literature review combined with indicator testing using an [Ecosystem Socioeconomic Profile](https://www.tandfonline.com/doi/full/10.1080/08920753.2023.2291858),   
+
+![:img Bluefish ESP conceptual model](https://github.com/NOAA-EDAB/presentations/raw/master/docs/EDAB_images/bluefishconceptualmodel.png)
+
+or using a <span style="color: blue;">**structured conversation among experts**</span> as piloted in the Pacific 
+
+.footnote[
+Image courtesy [NEFSC](https://repository.library.noaa.gov/view/noaa/66453)
+]
+]
+
+.pull-right[
+Modify [Pacific ecosystem factors](https://www.pcouncil.org/documents/2024/08/h-1-a-cciea-team-report-1-cciea-risk-table-report-on-fep-initiative-4.pdf/) for ICES regions:
+
+*  <span style="color: blue;">Food webs</span> (e.g., predator abundance or productivity, competitor abundance or productivity, spatial overlap with predators/competitors, prey abundance) 
+*  <span style="color: blue;">Habitat availability</span> (e.g., do current or near-term predictions of ocean temperatures and oxygen match known optimal ranges for [priority species] life history stages, closed area regulations) 
+*  <span style="color: blue;">Changes in ecosystem productivity</span> (e.g., upwelling indices, chlorophyll a, abundance of low trophic level organisms)  
+*  <span style="color: blue;">Physiological indices</span> (e.g., growth, condition, pathogens/parasites, stomach weight/fullness) 
+*  <span style="color: blue;">Reproductive indices</span> (e.g., maturity, fecundity, spawn timing and duration)  
 
 ]
+
+---
+## Modify [Pacific structured conversation](https://www.pcouncil.org/documents/review-material-cciea-team-report-on-fep-initiative-4/) for ICES? Facilitated meeting early in a benchmark?
+
+.pull-left[
+ <span style="color: blue;">Stock assessors</span>, we ask that you think about how you would characterize uncertainty in your assessment. 
+
+* Based on your work on the assessment, what do you think are the greatest sources of uncertainty in the most recent assessment? Are any of these sources of uncertainty outside the norm you typically expect for this assessment?
+
+* In the assessment, how were the fits to the data overall? Were there any patterns in residuals or other indicators of especially poor fits or concerning diagnostics? 
+
+* Are there any ecosystem processes that are currently included in the stock assessment model for [species]? 
+]
+
+
+.pull-right[
+ <span style="color: blue;">Ecosystem scientists</span>, we ask that you think about these concepts and processes in advance of our meeting and review any relevant literature you know of about how they may be influenced by ocean and ecosystem conditions.
+
+* What are the important oceanographic or ecological drivers in this ecosystem for [species]? 
+
+<span style="color: blue;">For all</span>: Are there any ecosystem processes that are not included in the assessment model but that you think could have a potential link to [species] recruitment, growth, fecundity, mortality, habitat availability, or distribution?
+
+Are there any ecosystem processes that we didn’t already cover in this conversation that could have a potential link to [species] recruitment, growth, fecundity, or migration?
+]
+
+
+
+
+
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
 background-size: cover
