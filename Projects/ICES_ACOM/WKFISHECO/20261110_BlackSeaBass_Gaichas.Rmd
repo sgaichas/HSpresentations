@@ -90,26 +90,41 @@ See also [Miller et al. 2016 PLoS ONE](https://journals.plos.org/plosone/article
 ]
 
 ---
-background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_-consmod_Fig3Miller2025.png)
-background-size:  1000px
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_Fig3Miller2025.png)
+background-size:  800px
 background-position: right
 
 ## The current assessment
 
-.pull-left-10[
-A multi-stock, multi-region [Woods Hole Assessment Model (WHAM)](https://timjmiller.github.io/wham/) to simultaneously model the northern and southern regions of the stock and movement of fish originating in northern region. Commercial and recreational fishery catch, and VAST survey and recreational CPA indices at age. Winter bottom temperature covariate on northern region recruitment.
+.pull-left-30[
+A multi-stock, multi-region, seasonal [Woods Hole Assessment Model (WHAM)](https://timjmiller.github.io/wham/) simultaneously models the northern and southern regions of the stock and movement of fish originating in northern region. 
+
+Commercial and recreational fishery catch, and VAST survey and recreational CPA indices at age. Winter bottom temperature covariate on northern region recruitment.
 ]
 
-.pull-right-90[
+.pull-right-70[
 ]
 
 .footnote[
-Source: [Miller et al. 2025 CJFAS](https://cdnsciencepub.com/doi/10.1139/cjfas-2025-0097)
+Source: [Miller et al. 2025 CJFAS](https://cdnsciencepub.com/doi/10.1139/cjfas-2025-0097) Fig. 3
 ]
 
 ---
-.pull-left[
 ## What work is proposed? 
+
+.pull-left[
+
+![BSB forecasts at the Council](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_CouncilForecasts.png)
+
+Multiple previous models with different structures turned out to have incorrect declining projections.
+
+2025 advice for 2026-2027 applied the $F_{MSY}$ proxy to the SSB from the terminal year of the assessment, then applied the standard buffering method in the region.
+]
+
+--
+
+
+.pull-right[
 From the 2025 advice [recommendations](https://www.mafmc.org/s/Final_Full-SSC-Report_July-2025-SSC.pdf):
 
 * *The SSC emphasizes a critical need for dedicated investigation of assessment model projection performance. [...] Specifically:*  
@@ -124,16 +139,17 @@ From the 2025 advice [recommendations](https://www.mafmc.org/s/Final_Full-SSC-Re
 *  Management Strategy Evaluation
 
 ]
-
-.pull-right[
-1[BSB forecasts at the Council](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_CouncilForecasts.png)
-]
-
-
 ---
 ## How to evaluate model/forecast skill/diagnostics 
 
+.pull-left-60[
+
+]
+
+.pull-right-40[
 ![Emily's comparison](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries.png)
+]
+
 ---
 ## Draft text on case study description 
 
