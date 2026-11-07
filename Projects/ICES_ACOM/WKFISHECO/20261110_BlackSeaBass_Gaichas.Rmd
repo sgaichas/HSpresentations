@@ -140,23 +140,50 @@ From the 2025 advice [recommendations](https://www.mafmc.org/s/Final_Full-SSC-Re
 
 ]
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries.png)
+background-size:  460px
+background-position: right 20px bottom 40px
+
 ## How to evaluate model/forecast skill/diagnostics 
 
-.pull-left-60[
+.pull-left-70[
+Initial effort: Emily L. dropped 3 years from the current model, projected:
+*  Option 1: Continue random effects on both recruitment (R) and Numbers-at-Age (NAA)
+*  Option 2: Turn off random effects on both recruitment (R) and Numbers-at-Age (NAA)
+*  Option 3: Average recruitment and NAA random effects over  
+historical reference period
 
+Next?
+*  Use complete bottom temperature time series? 
+*  Other combinations of RE and environmental covariate? 
+*  Suggestions welcome 
+
+MSE
+*  Can the environmental covariate project catch advice in the absence of an assessment? 
+*  What conditions require changing previously forecast catch advice? 
+*  Projected bottom temperature from ocean model? 
 ]
 
-.pull-right-40[
-![Emily's comparison](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries.png)
+.pull-right-30[
 ]
 
 ---
-## Draft text on case study description 
+## Available Bottom Temperature Forecasts
+
+![](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MOM6forecast_Oct2026.png)
+
+.footnote[
+Source: https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-predictions/
+]
 
 ---
-## Available (?) Forecasts
+## Available MSE tool: Li et al 2026 CJFAS: https://cdnsciencepub.com/doi/10.1139/cjfas-2025-0283
 
-https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-predictions/
+<iframe width="1212" height="682" src="https://lichengxue.github.io/SPASAM.MSE/index.html" title="SPASAM.MSE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:100%; height:100%;" allowfullscreen></iframe>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:100%; height:80%;" allowfullscreen></iframe>
+
+.footnote[
+Source: https://lichengxue.github.io/SPASAM.MSE/index.html
+]
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/sunrise1May2025ed.jpeg)
