@@ -176,6 +176,15 @@ MSE
 Source: https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-predictions/
 ]
 
+???
+For harmonization with GLORYS hindcast series, this is the bias adjustment procedure that had been suggested by Vince:
+
+For each projection year i:
+
+Δi = MOM6Tempi - mean(MOM6HindcastTemps)
+
+BiasCorrectedTempi = mean(GLORYSObservedHindcastData) + Δi
+
 ---
 ## Available MSE tool: [Li et al 2026 CJFAS](https://cdnsciencepub.com/doi/10.1139/cjfas-2025-0283)
 
