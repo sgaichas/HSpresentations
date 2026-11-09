@@ -116,7 +116,7 @@ Source: [Miller et al. 2025 CJFAS](https://cdnsciencepub.com/doi/10.1139/cjfas-2
 
 ![BSB forecasts at the Council](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSB_CouncilForecasts.png)
 
-Multiple previous models with different structures turned out to have incorrect declining projections.
+Manager perception: multiple previous models with different structures turned out to have incorrect declining projections.
 
 2025 advice for 2026-2027 applied the $F_{MSY}$ proxy to the SSB from the terminal year of the assessment, then applied the standard buffering method in the region.
 ]
