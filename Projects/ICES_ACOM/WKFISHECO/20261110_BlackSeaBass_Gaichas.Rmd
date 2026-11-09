@@ -158,14 +158,14 @@ Initial effort: Emily L. dropped 3 years from the current model, projected:
 historical reference period
 
 Next?
-*  Use complete bottom temperature time series? 
-*  Other combinations of RE and environmental covariate? 
+*  <span style="color: blue;">Use complete bottom temperature time series?</span> 
+*  <span style="color: blue;">Other combinations of RE and environmental covariate?</span> 
 *  Suggestions welcome 
 
 MSE
-*  Can the environmental covariate project catch advice in the absence of an assessment? 
-*  What conditions require changing previously forecast catch advice? 
-*  Projected bottom temperature from ocean model? 
+*  <span style="color: blue;">Can the environmental covariate project catch advice in the absence of an assessment?</span> 
+*  <span style="color: blue;">What conditions require changing previously forecast catch advice?</span> 
+*  <span style="color: blue;">Projected bottom temperature from ocean model?</span> 
 ]
 
 .pull-right-30[
