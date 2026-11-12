@@ -92,7 +92,7 @@ manager perception slide doesn't correctly reflect the scale difference from tho
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries.png)
-background-size:  460px
+background-size:  450px
 background-position: right 20px bottom 40px
 
 ## How to evaluate model/forecast skill/diagnostics 
@@ -120,14 +120,18 @@ MSE
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_rel_status_timeseries_BT.png)
-background-size:  460px
-background-position: right 20px bottom 40px
+background-size:  500px
+background-position: right 40px bottom 40px
 
 ## Use true bottom temperature in forecast
 
 .pull-left-70[
 *  Did not substantially improve the forecasts 
 *  Bias was very slightly reduced
+*  Recruitment prediction remains difficult 
+
+![:img recruitment comparison, 80%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/BSBcompare_R_BT.png)
+
 ]
 
 .pull-right-30[
@@ -137,11 +141,11 @@ background-position: right 20px bottom 40px
 
 For harmonization with GLORYS hindcast series, this is the bias adjustment procedure that had been suggested:
 
-For each projection year i:
+For each projection year $i$:
 
-Δi = MOM6Tempi - mean(MOM6HindcastTemps)
+$Δ_i$ = $MOM6Temp_i - mean(MOM6HindcastTemps)$
 
-BiasCorrectedTempi = mean(GLORYSObservedHindcastData) + Δi
+$BiasCorrectedTemp_i$ = $mean(GLORYSObservedHindcastData) + Δ_i$
 
 ![:img 50%](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/MOM6forecast_Oct2026.png)
 .center[
@@ -156,6 +160,21 @@ Source: https://www.gfdl.noaa.gov/prediction/october-2026-northwest-atlantic-pre
 
 
 ---
+## Model simplification for MSE
+
+Still getting my head around the full model specification to start turning things off. Suggestions welcome.
+
+Considering:
+
+*  Full two stock model, but don't estimate movement
+*  Combine indices and fleets?
+*  Make the OM just the northern stock?
+
+Minimal needs: 
+
+*  Main stock response to fishing and bottom temperature retained  
+
+
 ## Andi got further than I did--passing off to her
 
 ---
