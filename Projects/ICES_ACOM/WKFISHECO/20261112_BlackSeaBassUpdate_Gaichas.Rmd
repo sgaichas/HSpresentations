@@ -1,6 +1,6 @@
 ---
 title: "Western Atlantic Black Sea Bass Case Study Update"
-subtitle: "ICES WKFISHECO, 10 November 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
+subtitle: "ICES WKFISHECO, 12 November 2026<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />"
 author: "Sarah Gaichas and Andi Delgado, Presenters<br />Gavin Fay, Sarah Hope, and Emily Liljestrand, Collaborators<br />based on work by Kiersten Curti, Tim Miller, <br /> and many others at NOAA"
 output:
   xaringan::moon_reader:
