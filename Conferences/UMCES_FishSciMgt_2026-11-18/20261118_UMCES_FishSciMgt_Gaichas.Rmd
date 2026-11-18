@@ -129,7 +129,7 @@ Rebuilding
 #fig.cap = paste0("Mid-Atlantic Fishery Management Council stock status"),
 a <- ecodata::plot_stock_status(report = "MidAtlantic")
 
-a$p + ggplot2::coord_cartesian(xlim=c(0,2), ylim=c(0,2)) +
+a$p + ggplot2::coord_cartesian(xlim=c(0,3.5)) +
   ggplot2::theme(text = ggplot2::element_text(size = 20)) +
   ggplot2::ggtitle("") +
   ggplot2::theme(legend.position = "none") #+
@@ -248,12 +248,22 @@ ICES Member States (orange)
 
 
 ---
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESmgtplans.png)
+background-size: 700px
+background-position: bottom 30px right 30px
+
 ICES provides scientific advice on fishing opportunities on over 260 stocks to various relevant management authorities in the Northeast Atlantic, including areas beyond national jurisdiction. 
 
+.pull-left[
 The advice gives scientifically based catch limits in line with regional policies to apply a precautionary approach and maximize sustainable yields. 
 
-.pull-left[
-## European Common Fisheries Policy (CFP)
+## European Union Common Fisheries Policy (CFP)
+
+## UK Fisheries Act 2020
+
+## Norway Marine Resources Act
+
+## Iceland Fisheries Management Act
 
 ## NEAFC
 
@@ -262,13 +272,10 @@ The advice gives scientifically based catch limits in line with regional policie
 ]
 
 .pull-right[
-## UK
-
-## Norway
-
-## Iceland
-
 ]
+
+???
+![Management plan flowchart](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESmgtplans.png)
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Advisory_framework_text.jpg)
@@ -433,23 +440,26 @@ Zero catch advice required under some circumstances:
 
 ![Bentley et al Feco](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/Bentleyetal2021Feco_HCR.png)
 
-## Early 2027
+## Early 2027 Workshops
 
-Two workshops to evolve the advice rule:
+WKFOREPROJ develop guidelines for conditioning simulation models for $F_{MSY}$, multiannual advice, rebuilding strategies
 
-WKFOREPROJ forecasts and projections
-Guidelines for conditioning simulation models for F, multiannual advice, rebuilding strategies
-
-WKREFRAME update recommendations on $F$, $MSY B_{trigger}$, $B_{lim}$, and roadmap for ecosystem considerations
-
-]
+WKREFRAME update recommendations on $F_{MSY}$, $MSY B_{trigger}$, $B_{lim}$, and roadmap for ecosystem considerations
 
 .footnote[
 Source: [Bentley et al. 2021 ICES JMS](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.602072/full)
 ]
+]
+
+???
+`r Citep(myBib, "bentley_refining_2021")`
 
 ---
-## Advice Structure
+background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/whb.27.1-91214_p1.png)
+background-size: 420px
+background-position: bottom 60px right 70px
+
+## Advice Sheet Structure
 
 .pull-left[
 *  ICES advice on fishing opportunities ("Headline") 
@@ -466,9 +476,18 @@ Source: [Bentley et al. 2021 ICES JMS](https://www.frontiersin.org/journals/mari
 *  History of the catches (tables) 
 *  Summary of the assessment (tables) 
 *  Sources and references 
+
+.footnote[
+ICES (2026) Blue whiting (*Micromesistius poutassou*) in subareas 1–9, 12, and 14 (Northeast Atlantic and adjacent waters), [whb.27.1-91214](https://doi.org/10.17895/ices.advice.30932450) 
 ]
 
-.pull-right[]
+]
+
+.pull-right[
+]
+
+???
+![Blue whiting 2026 advice page 1](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/whb.27.1-91214_p1.png)
 
 ---
 ## Example Advice: Elasmobranchs
@@ -700,7 +719,35 @@ res <- knitr::knit_child(text = src, quiet = TRUE)
 cat(res, sep = '\n')
 ```
 
+background-image: url("https://github.com/sgaichas/HSpresentations/raw/main/docs/images/adviceXplorerRays.png")
+background-size: 700px
+background-position: right
 
+## Where to find Advice
+
+ICES library
+
+https://ices-library.figshare.com/
+
+## Or
+
+Search [adviceXplorer](https://ices-taf.shinyapps.io/advicexplorer/)
+
+by stock code
+
+e.g. rju.27.7de
+
+or by common name
+
+"ray"
+
+https://ices-taf.shinyapps.io/advicexplorer/
+
+## See also
+
+[Working Group on Elasmobranch Fishes 2026](https://doi.org/10.17895/ices.pub.34068678)
+
+---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESadvisoryplan2025.png)
 background-size: 350px
 background-position: bottom 70px right 30px
@@ -761,6 +808,8 @@ Discussions centered on classifying each option according to utility for short t
 
 .footnote[Source: Silvar-Viladomiu et al., 2022. https://academic.oup.com/icesjms/article/79/4/1034/6549169]
 
+???
+`r Citep(myBib, "silvar-viladomiu_petermans_2022")`
 
 ---
 ## Option 2 Example: Stock Level Risk Statements
@@ -908,7 +957,7 @@ Modify [Pacific ecosystem factors](https://www.pcouncil.org/documents/2024/08/h-
 ]
 
 ---
-## Planning for facilitated scoping meeting early in a benchmark. Modify [Pacific structured conversation](https://www.pcouncil.org/documents/review-material-cciea-team-report-on-fep-initiative-4/) for ICES?
+## Planning for facilitated scoping meeting early in a benchmark. Modify [Pacific structured conversation](https://www.pcouncil.org/documents/review-material-cciea-team-report-on-fep-initiative-4/)?
 
 .pull-left[
  <span style="color: blue;">Stock assessors</span>, we ask that you think about how you would characterize uncertainty in your assessment. 
@@ -932,8 +981,6 @@ Are there any ecosystem processes that we didn’t already cover in this convers
 ]
 
 ---
-## Questions and Discussion?
-
 ## References
 
 .table[
@@ -941,6 +988,10 @@ Are there any ecosystem processes that we didn’t already cover in this convers
 PrintBibliography(myBib)
 ```
 ]
+
+
+## Questions and Discussion?
+
 
 ---
 background-image: url(https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICESthankyougreen.png)
