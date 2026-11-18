@@ -226,6 +226,10 @@ ICES is an intergovernmental organization with 19 Member Countries:
 
 .pull-right-70[
 ![ICES org structure](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICES_orgstructure.png)
+
+.footnote[
+Source: [Organizational Structure](https://www.ices.dk/SiteCollectionImages/Explorer%20us/ICES%20organizational%20structure.png)
+]
 ]
 
 
@@ -235,6 +239,10 @@ ICES is an intergovernmental organization with 19 Member Countries:
 .pull-left-70[
 Ecoregions
 ![ICES Ecoregions map](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/ICES-Ecoregions.png)
+
+.footnote[
+Sources: [Ecoregions](https://www.ices.dk/data/Documents/Maps/ICES-Ecoregions.png), [EU Countries](https://european-union.europa.eu/principles-countries-history/eu-countries_en), [ICES members](https://www.ices.dk/about-ICES/who-we-are/Pages/Member-Countries.aspx)
+]
 ]
 
 --
@@ -269,6 +277,9 @@ The advice gives scientifically based catch limits in line with regional policie
 
 ## NASCO
 
+.footnote[
+Source: [ICES Advice on Fishing Opportunities 2025](https://doi.org/10.17895/ices.pub.30712466)
+]
 ]
 
 .pull-right[
@@ -379,12 +390,12 @@ Source: ICES (2025) Advice on fishing opportunities. In Report of the ICES Advis
 
 Below $B_{lim}$ recruitment is impaired
 
-$MSY B_{trigger}$ is fifth percentile of $B_{MSY}$) when fished at $F_{MSY}$  
+$MSY B_{trigger}$ is fifth percentile of $B_{MSY}$ when fished at $F_{MSY}$  
 
 $B_{pa}$ is 95th percentile of the distribution of the estimated SSB if the true SSB equals $B_{lim}$
 
 .footnote[
-[ICES fisheries management reference points for category 1 and 2 stocks](https://doi.org/10.17895/ices.advice.7891)   
+Sources: [ICES fisheries management reference points for category 1 and 2 stocks](https://doi.org/10.17895/ices.advice.7891)   
 [ICES Advice on Fishing Opportunities 2025](https://doi.org/10.17895/ices.pub.30712466)
 ]
 ]
